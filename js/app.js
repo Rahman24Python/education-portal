@@ -12,7 +12,7 @@ function sortByYearPriority(items) {
     };
     const aYear = getYear(a);
     const bYear = getYear(b);
-    const currentYear = 2026;
+    const currentYear = new Date().getFullYear();
     if (aYear >= currentYear && bYear < currentYear) return -1;
     if (aYear < currentYear && bYear >= currentYear) return 1;
     return bYear - aYear;

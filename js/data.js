@@ -305,6 +305,7 @@ const eduData = {
       deadlineDisplay: "৩০ এপ্রিল ২০২৬",
       link: "https://www.nu.ac.bd",
       status: "চলছে",
+      seats: "৫,০০,০০০+",
       fee: "২৫০ টাকা",
       description: "জাতীয় বিশ্ববিদ্যালয়ের অধীন কলেজসমূহে অনার্স ১ম বর্ষে ভর্তির আবেদন চলছে।",
       year: "2026"
@@ -346,6 +347,9 @@ const eduData = {
       deadlineDisplay: "৩০ এপ্রিল ২০২৫",
       link: "https://dgme.gov.bd/pages/notices",
       status: "শেষ হয়েছে",
+      seats: "৫,৫৮০",
+      fee: "১,০০০ টাকা",
+      description: "সরকারি মেডিকেল কলেজে ২০২৪-২৫ শিক্ষাবর্ষের ভর্তি সম্পন্ন হয়েছে।",
       year: "2025"
     }
   ],

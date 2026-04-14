@@ -98,11 +98,21 @@ function matches(text, query) {
   return text.toLowerCase().includes(query);
 }
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function highlight(text, query) {
-  if (!query) return text;
-  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const re = new RegExp(`(${escaped})`, 'gi');
-  return text.replace(re, '<mark class="search-highlight">$1</mark>');
+  if (!query) return escapeHtml(text);
+  const safeText = escapeHtml(text);
+  const escapedQuery = escapeHtml(query).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`(${escapedQuery})`, 'gi');
+  return safeText.replace(re, '<mark class="search-highlight">$1</mark>');
 }
 
 function renderSearchResults(container, results, query) {
@@ -110,7 +120,7 @@ function renderSearchResults(container, results, query) {
     container.innerHTML = `
       <div class="no-results">
         <div class="no-results-icon">😕</div>
-        <h3>"${query}" এর জন্য কোনো ফলাফল পাওয়া যায়নি</h3>
+        <h3>"${escapeHtml(query)}" এর জন্য কোনো ফলাফল পাওয়া যায়নি</h3>
         <p>অন্য কীওয়ার্ড দিয়ে অনুসন্ধান করুন অথবা বাংলায় টাইপ করুন।</p>
       </div>
     `;

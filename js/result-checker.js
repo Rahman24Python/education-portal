@@ -89,7 +89,7 @@ function checkResult(form) {
   if (!resultContainer) {
     // If no result container found, redirect to results page
     const base = (typeof getBasePath === 'function') ? getBasePath() : '';
-    window.location.href = `${base}pages/results.html?board=${board}&exam=${exam}&year=${year}&roll=${roll}`;
+    window.location.href = `${base}pages/results.html?board=${encodeURIComponent(board)}&exam=${encodeURIComponent(exam)}&year=${encodeURIComponent(year)}&roll=${encodeURIComponent(roll)}`;
     return;
   }
 
@@ -126,7 +126,16 @@ function checkResultSidebar(form) {
     return;
   }
 
-  window.location.href = `${base}pages/results.html?board=${board}&roll=${roll}`;
+  window.location.href = `${base}pages/results.html?board=${encodeURIComponent(board)}&roll=${encodeURIComponent(roll)}`;
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 function displayDemoResult(container, params) {
@@ -138,13 +147,14 @@ function displayDemoResult(container, params) {
   const data = isPass ? eduData.sampleResults.passed : eduData.sampleResults.failed;
 
   const b = (typeof toBengaliDigits === 'function') ? toBengaliDigits : (x => x);
+  const safeRoll = escapeHtml(params.roll);
 
   const cardClass = isPass ? '' : ' fail';
   const subjectRows = data.subjects.map(s => `
     <tr>
-      <td>${s.name}</td>
-      <td style="text-align:center;">${s.grade}</td>
-      <td style="text-align:center;">${s.gpa}</td>
+      <td>${escapeHtml(s.name)}</td>
+      <td style="text-align:center;">${escapeHtml(s.grade)}</td>
+      <td style="text-align:center;">${escapeHtml(s.gpa)}</td>
     </tr>
   `).join('');
 
@@ -153,15 +163,15 @@ function displayDemoResult(container, params) {
       <div style="background:${isPass ? 'var(--secondary)' : '#ffebee'};border-radius:8px;padding:15px;margin-bottom:20px;">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
           <div>
-            <h4 style="font-size:18px;color:var(--text-dark);margin-bottom:5px;">${data.name}</h4>
-            <p style="font-size:13px;color:#666;">রোল: ${b(params.roll)} | রেজি: ${data.registration}</p>
-            <p style="font-size:13px;color:#666;">বোর্ড: ${data.board} | পরীক্ষা: ${data.exam} | বছর: ${data.year}</p>
+            <h4 style="font-size:18px;color:var(--text-dark);margin-bottom:5px;">${escapeHtml(data.name)}</h4>
+            <p style="font-size:13px;color:#666;">রোল: ${b(safeRoll)} | রেজি: ${escapeHtml(data.registration)}</p>
+            <p style="font-size:13px;color:#666;">বোর্ড: ${escapeHtml(data.board)} | পরীক্ষা: ${escapeHtml(data.exam)} | বছর: ${escapeHtml(data.year)}</p>
           </div>
-          <span class="result-status">${data.status}</span>
+          <span class="result-status">${escapeHtml(data.status)}</span>
         </div>
       </div>
-      <div class="result-gpa">${data.gpa}</div>
-      <div class="result-grade-label">গ্রেড: ${data.grade}</div>
+      <div class="result-gpa">${escapeHtml(data.gpa)}</div>
+      <div class="result-grade-label">গ্রেড: ${escapeHtml(data.grade)}</div>
 
       <table class="result-subjects">
         <thead>

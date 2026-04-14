@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initNavbar();
   initBreakingNews();
   initLiveDateTime();
+  initLastUpdated();
   initBackToTop();
   initMobileMenu();
   setActiveNavLink();
@@ -131,6 +132,39 @@ function toBengaliDigits(num) {
 
 function pad(n) {
   return String(n).padStart(2, '0');
+}
+
+// ===================== LAST UPDATED =====================
+function initLastUpdated() {
+  const el = document.getElementById('last-updated-indicator');
+  if (!el) return;
+  if (!eduData.lastUpdated) return;
+
+  const updated = new Date(eduData.lastUpdated);
+  const now = new Date();
+  const diffMs = now - updated;
+  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+  const diffMins = Math.floor(diffMs / (1000 * 60));
+
+  let label;
+  if (diffMins < 1) {
+    label = 'এইমাত্র আপডেট হয়েছে';
+  } else if (diffMins < 60) {
+    label = `${toBengaliDigits(diffMins)} মিনিট আগে আপডেট`;
+  } else if (diffHours < 24) {
+    label = `${toBengaliDigits(diffHours)} ঘণ্টা আগে আপডেট`;
+  } else {
+    const diffDays = Math.floor(diffHours / 24);
+    label = `${toBengaliDigits(diffDays)} দিন আগে আপডেট`;
+  }
+
+  el.textContent = '';
+  const sep = document.createTextNode(' | ');
+  const icon = document.createTextNode('🔄 ');
+  const text = document.createTextNode(label);
+  el.appendChild(sep);
+  el.appendChild(icon);
+  el.appendChild(text);
 }
 
 // ===================== BACK TO TOP =====================
@@ -307,8 +341,8 @@ function initQuickLinks() {
 
   const base = getBasePath();
   const links = [
-    { icon: '📝', text: 'SSC 2025', href: base + 'pages/ssc.html' },
-    { icon: '📚', text: 'HSC 2025', href: base + 'pages/hsc.html' },
+    { icon: '📝', text: 'SSC 2026', href: base + 'pages/ssc.html' },
+    { icon: '📚', text: 'HSC 2026', href: base + 'pages/hsc.html' },
     { icon: '🎓', text: 'ভর্তি তথ্য', href: base + 'pages/admissions.html' },
     { icon: '📊', text: 'ফলাফল', href: base + 'pages/results.html' },
     { icon: '🌟', text: 'স্কলারশিপ', href: base + 'pages/scholarships.html' },

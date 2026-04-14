@@ -1,0 +1,55 @@
+name: Auto-Update Education Data
+
+on:
+  schedule:
+    # Run every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual trigger'
+        required: false
+        default: 'Manual update'
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    name: Fetch & Update Education Data
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Run data update script
+        run: python scripts/update_data.py
+
+      - name: Check for changes
+        id: git_status
+        run: |
+          git diff --quiet js/data.js || echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push updated data
+        if: steps.git_status.outputs.changed == 'true'
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add js/data.js
+          git commit -m "chore: auto-update education data [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+          git push
+
+      - name: No changes detected
+        if: steps.git_status.outputs.changed != 'true'
+        run: echo "Data is already up-to-date — no commit needed."

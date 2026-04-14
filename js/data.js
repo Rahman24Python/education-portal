@@ -1,5 +1,7 @@
 // EduBD - Bangladesh Education Portal - Sample Data
 const eduData = {
+  lastUpdated: null,
+
   breakingNews: [
     "SSC পরীক্ষা ২০২৬: ফেব্রুয়ারি ২০২৬ থেকে শুরু হয়েছে, ফলাফল মে ২০২৬-এ প্রকাশিত হবে",
     "HSC পরীক্ষা ২০২৬: এপ্রিল মাসে শুরু হয়েছে — রুটিন অনুযায়ী পরীক্ষা চলছে",

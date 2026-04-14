@@ -81,7 +81,7 @@
 
   <div class="page-hero">
     <div class="page-hero-inner">
-      <h1>🗓️ পরীক্ষার রুটিন ২০২৫</h1>
+      <h1>🗓️ পরীক্ষার রুটিন ২০২৬</h1>
       <p>SSC, HSC, দাখিল ও অন্যান্য পরীক্ষার সময়সূচি</p>
     </div>
   </div>
@@ -118,9 +118,12 @@
           <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;flex-wrap:wrap;gap:12px;">
             <div>
               <h2 style="font-size:20px;font-weight:800;color:var(--text-dark);">🗓️ ${routine.exam}</h2>
-              <p style="font-size:13px;color:var(--text-muted);margin-top:5px;">বোর্ড: ${routine.board} | ${routine.startDateDisplay} — ${routine.endDateDisplay}</p>
+              <p style="font-size:13px;color:var(--text-muted);margin-top:5px;">বোর্ড: ${routine.board} | লিখিত: ${routine.startDateDisplay} — ${routine.endDateDisplay}${routine.practicalStartDisplay ? ' | ব্যবহারিক: ' + routine.practicalStartDisplay + ' — ' + routine.practicalEndDisplay : ''}</p>
             </div>
-            <a href="${routine.exam.includes('SSC') ? 'ssc.html' : routine.exam.includes('HSC') ? 'hsc.html' : '#'}" class="btn btn-primary btn-sm">বিস্তারিত দেখুন</a>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              ${routine.pdfUrl ? `<a href="${routine.pdfUrl}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">📄 PDF ডাউনলোড</a>` : ''}
+              <a href="${routine.exam.includes('SSC') ? 'ssc.html' : routine.exam.includes('HSC') ? 'hsc.html' : '#'}" class="btn btn-primary btn-sm">বিস্তারিত দেখুন</a>
+            </div>
           </div>
           <div class="routine-table-wrap">
             <table class="routine-table">

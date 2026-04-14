@@ -2968,3 +2968,51 @@ footer {
 .year-badge.previous {
   background: #95a5a6;
 }
+
+
+/* ===================== LIVE NOTICES ===================== */
+.live-notices-card {
+  margin-bottom: 12px;
+}
+
+.live-notices-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #27ae60;
+}
+
+.live-notices-body {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.live-notice-item {
+  margin: 0 0 8px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.live-notice-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.live-notice-item a {
+  color: var(--primary, #2c3e8c);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.live-notice-item a:hover {
+  text-decoration: underline;
+}
+
+.live-notice-loading,
+.live-notice-empty {
+  color: #888;
+  font-size: 12px;
+  padding: 8px 0;
+}

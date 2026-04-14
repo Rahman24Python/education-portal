@@ -56,100 +56,119 @@ REQUEST_TIMEOUT = 15  # seconds per request
 MAX_HEADLINES_PER_SOURCE = 15    # max headlines scraped per news source
 MAX_NOTICES_PER_SOURCE = 20      # max notice items scraped per govt source
 MAX_BOARD_LINKS_TO_EXAMINE = 60  # max <a> tags examined per board page
+MIN_TITLE_LEN = 5                # minimum meaningful title length
 
 CURRENT_YEAR = str(datetime.now(timezone.utc).year)
 
-# News sources
+# News sources — use URL-pattern selectors to grab real article links
 NEWS_SOURCES = [
     {
         "name": "The Daily Star",
         "url": "https://www.thedailystar.net/education",
         "source_key": "The Daily Star",
         "category": "শিক্ষা",
-        "selector": "h3.title, h2.title, .card-title, h2, h3",
+        "selector": "a[href*='/education/']",
+        "base_url": "https://www.thedailystar.net",
     },
     {
         "name": "Prothom Alo",
         "url": "https://www.prothomalo.com/education",
         "source_key": "প্রথম আলো",
         "category": "শিক্ষা",
-        "selector": "h2, h3",
+        "selector": "a[href*='/education/']",
+        "base_url": "https://www.prothomalo.com",
     },
     {
         "name": "BD News 24",
         "url": "https://bdnews24.com/education",
         "source_key": "বিডি নিউজ ২৪",
         "category": "শিক্ষা",
-        "selector": "h2, h3, .headline",
+        "selector": "a[href*='/education/'], a[href*='/education-']",
+        "base_url": "https://bdnews24.com",
     },
     {
         "name": "Bangla Tribune",
         "url": "https://www.banglatribune.com/education",
         "source_key": "বাংলা ট্রিবিউন",
         "category": "শিক্ষা",
-        "selector": "h2, h3, .title",
+        "selector": "a[href*='/education/']",
+        "base_url": "https://www.banglatribune.com",
     },
 ]
 
-# Government / official notice sources
+# Government / official notice sources — use URL-pattern selectors for real notice links
 GOVT_SOURCES = [
+    {
+        "name": "Dhaka Education Board",
+        "url": "https://dhakaeducationboard.portal.gov.bd",
+        "source_key": "dhakaeducationboard.portal.gov.bd",
+        "category": "ঢাকা শিক্ষা বোর্ড",
+        "selector": "a[href*='/pages/notices/']",
+        "base_url": "https://dhakaeducationboard.portal.gov.bd",
+    },
     {
         "name": "SHED",
         "url": "https://shed.gov.bd",
         "source_key": "shed.gov.bd",
         "category": "সরকারি বিজ্ঞপ্তি",
-        "selector": "h2, h3, .notice-title, li a",
+        "selector": "a[href*='/pages/notices/'], a[href*='/pages/notice'], a[href*='notice']",
+        "base_url": "https://shed.gov.bd",
     },
     {
         "name": "SHED Scholarships",
         "url": "https://shed.gov.bd/pages/moedu-scholarships",
         "source_key": "shed.gov.bd",
         "category": "বৃত্তি",
-        "selector": "h2, h3, .title, li a",
+        "selector": "a[href*='/pages/']",
+        "base_url": "https://shed.gov.bd",
     },
     {
         "name": "MoEdu",
         "url": "https://moedu.gov.bd",
         "source_key": "moedu.gov.bd",
         "category": "সরকারি বিজ্ঞপ্তি",
-        "selector": "h2, h3, .notice-title, li a",
+        "selector": "a[href*='notice'], a[href*='/pages/']",
+        "base_url": "https://moedu.gov.bd",
     },
     {
         "name": "Education Board",
         "url": "https://educationboard.gov.bd",
         "source_key": "educationboard.gov.bd",
         "category": "শিক্ষা বোর্ড",
-        "selector": "h2, h3, li a",
+        "selector": "a[href*='result'], a[href*='notice']",
+        "base_url": "https://educationboard.gov.bd",
     },
     {
         "name": "DGME",
         "url": "https://dgme.gov.bd/pages/notices",
         "source_key": "dgme.gov.bd",
         "category": "মেডিকেল শিক্ষা",
-        "selector": "h2, h3, .notice-title, li a",
+        "selector": "a[href*='/pages/notices'], a[href*='notice']",
+        "base_url": "https://dgme.gov.bd",
     },
     {
         "name": "National University",
         "url": "https://www.nu.ac.bd",
         "source_key": "nu.ac.bd",
         "category": "জাতীয় বিশ্ববিদ্যালয়",
-        "selector": "h2, h3, .notice-title, li a",
+        "selector": "a[href*='uploads/notices']",
+        "base_url": "https://www.nu.ac.bd",
     },
 ]
 
-# All education boards
+# All education boards — specific selectors target real notice/circular links
 BOARD_SOURCES = [
-    {"id": "dhaka",      "name": "ঢাকা শিক্ষা বোর্ড",       "url": "https://dhakaeducationboard.portal.gov.bd"},
-    {"id": "rajshahi",   "name": "রাজশাহী শিক্ষা বোর্ড",    "url": "https://rajshahieducationboard.gov.bd"},
-    {"id": "chittagong", "name": "চট্টগ্রাম শিক্ষা বোর্ড",  "url": "https://bise-ctg.portal.gov.bd"},
-    {"id": "sylhet",     "name": "সিলেট শিক্ষা বোর্ড",      "url": "https://sylheteducationboard.gov.bd"},
-    {"id": "comilla",    "name": "কুমিল্লা শিক্ষা বোর্ড",   "url": "https://comillaboard.portal.gov.bd"},
-    {"id": "barisal",    "name": "বরিশাল শিক্ষা বোর্ড",     "url": "https://barisalboard.portal.gov.bd"},
-    {"id": "jessore",    "name": "যশোর শিক্ষা বোর্ড",       "url": "https://jessoreboard.gov.bd"},
-    {"id": "dinajpur",   "name": "দিনাজপুর শিক্ষা বোর্ড",  "url": "https://dinajpureducationboard.gov.bd"},
-    {"id": "mymensingh", "name": "ময়মনসিংহ শিক্ষা বোর্ড",  "url": "https://myaborad.gov.bd"},
-    {"id": "madrasah",   "name": "মাদ্রাসা শিক্ষা বোর্ড",  "url": "https://bmeb.gov.bd"},
-    {"id": "technical",  "name": "কারিগরি শিক্ষা বোর্ড",   "url": "https://bteb.gov.bd"},
+    {"id": "dhaka",      "name": "ঢাকা শিক্ষা বোর্ড",       "url": "https://dhakaeducationboard.portal.gov.bd",  "selector": "a[href*='/pages/notices/'], a[href*='.pdf']"},
+    {"id": "rajshahi",   "name": "রাজশাহী শিক্ষা বোর্ড",    "url": "https://rajshahieducationboard.gov.bd",      "selector": "a[href*='notice'], a[href*='circular'], a[href*='.pdf']"},
+    {"id": "chittagong", "name": "চট্টগ্রাম শিক্ষা বোর্ড",  "url": "https://bise-ctg.portal.gov.bd",             "selector": "a[href*='/pages/notices/'], a[href*='.pdf']"},
+    {"id": "sylhet",     "name": "সিলেট শিক্ষা বোর্ড",      "url": "https://sylheteducationboard.gov.bd",        "selector": "a[href*='notice'], a[href*='circular'], a[href*='.pdf']"},
+    {"id": "comilla",    "name": "কুমিল্লা শিক্ষা বোর্ড",   "url": "https://comillaboard.portal.gov.bd",         "selector": "a[href*='/pages/notices/'], a[href*='.pdf']"},
+    {"id": "barisal",    "name": "বরিশাল শিক্ষা বোর্ড",     "url": "https://barisalboard.portal.gov.bd",         "selector": "a[href*='/pages/notices/'], a[href*='.pdf']"},
+    {"id": "jessore",    "name": "যশোর শিক্ষা বোর্ড",       "url": "https://jessoreboard.gov.bd",                "selector": "a[href*='notice'], a[href*='circular'], a[href*='.pdf']"},
+    {"id": "dinajpur",   "name": "দিনাজপুর শিক্ষা বোর্ড",  "url": "https://dinajpureducationboard.gov.bd",      "selector": "a[href*='notice'], a[href*='circular'], a[href*='.pdf']"},
+    {"id": "mymensingh", "name": "ময়মনসিংহ শিক্ষা বোর্ড",  "url": "https://myaborad.gov.bd",                    "selector": "a[href*='notice'], a[href*='circular'], a[href*='.pdf']"},
+    {"id": "madrasah",   "name": "মাদ্রাসা শিক্ষা বোর্ড",  "url": "https://bmeb.gov.bd",                        "selector": "a[href*='notice'], a[href*='circular'], a[href*='.pdf']"},
+    {"id": "technical",  "name": "কারিগরি শিক্ষা বোর্ড",   "url": "https://bteb.gov.bd",                        "selector": "a[href*='notice'], a[href*='circular'], a[href*='.pdf']"},
 ]
 
 
@@ -180,7 +199,10 @@ def clean_text(text: str) -> str:
 
 def scrape_headlines(source: dict) -> list:
     """
-    Scrape headline texts from a news source.
+    Scrape headline links from a news source using source-specific selectors.
+    When the selector targets <a> tags directly (e.g. a[href*='/education/']),
+    href and text are extracted from the tag itself; otherwise the nearest <a>
+    ancestor/descendant is used.  Deduplicates by URL.
     Returns list of dicts compatible with eduData.latestNews format.
     """
     soup = fetch(source["url"])
@@ -188,21 +210,30 @@ def scrape_headlines(source: dict) -> list:
         return []
 
     results = []
-    seen_titles: set = set()
+    seen_urls: set = set()
+    base_url = source.get("base_url", source["url"].rstrip("/"))
 
     for tag in soup.select(source.get("selector", "h2, h3"))[:MAX_HEADLINES_PER_SOURCE]:
-        title = clean_text(tag.get_text())
-        if not title or len(title) < 10 or title in seen_titles:
-            continue
-        seen_titles.add(title)
+        # When the selector already targets <a> tags, use them directly
+        if tag.name == "a":
+            href = tag.get("href", "")
+            title = clean_text(tag.get_text())
+        else:
+            title = clean_text(tag.get_text())
+            link_tag = tag.find("a") or tag.find_parent("a")
+            href = link_tag["href"] if link_tag and link_tag.get("href") else ""
 
-        # Find nearest <a> for the link
-        link_tag = tag.find("a") or tag.find_parent("a")
-        href = ""
-        if link_tag and link_tag.get("href"):
-            href = link_tag["href"]
-            if not href.startswith("http"):
-                href = source["url"].rstrip("/") + "/" + href.lstrip("/")
+        if not title or len(title) < MIN_TITLE_LEN:
+            continue
+
+        if not href:
+            href = source["url"]
+        elif not href.startswith("http"):
+            href = base_url.rstrip("/") + "/" + href.lstrip("/")
+
+        if href in seen_urls:
+            continue
+        seen_urls.add(href)
 
         results.append({
             "category": source.get("category", "শিক্ষা"),
@@ -210,18 +241,20 @@ def scrape_headlines(source: dict) -> list:
             "summary": title,
             "source": source.get("source_key", source["name"]),
             "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-            "link": href or source["url"],
+            "link": href,
             "views": 0,
             "year": CURRENT_YEAR,
         })
 
     log.info("  -> %d headlines from %s", len(results), source["name"])
-    return results
+    return results[:10]
 
 
 def scrape_board_notices(board: dict) -> list:
     """
     Scrape PDF/notice links from an education board website.
+    Uses the board-specific selector (e.g. a[href*='/pages/notices/'], a[href*='.pdf'])
+    when provided; otherwise falls back to examining all <a> tags with keyword filtering.
     Returns list of dicts for eduData.boards[].pdfLinks format.
     """
     soup = fetch(board["url"])
@@ -230,30 +263,46 @@ def scrape_board_notices(board: dict) -> list:
 
     results = []
     seen_urls: set = set()
+    base_url = board.get("base_url", board["url"].rstrip("/"))
 
-    for a_tag in soup.find_all("a", href=True)[:MAX_BOARD_LINKS_TO_EXAMINE]:
-        href = a_tag["href"]
-        title = clean_text(a_tag.get_text())
+    selector = board.get("selector")
+    if selector:
+        candidates = soup.select(selector)[:MAX_BOARD_LINKS_TO_EXAMINE]
+    else:
+        candidates = soup.find_all("a", href=True)[:MAX_BOARD_LINKS_TO_EXAMINE]
 
-        if not title or len(title) < 5:
+    for tag in candidates:
+        # Resolve <a> tag whether selected directly or via generic find_all
+        if tag.name == "a":
+            href = tag.get("href", "")
+            title = clean_text(tag.get_text())
+        else:
+            link_tag = tag.find("a") or tag.find_parent("a")
+            href = link_tag["href"] if link_tag and link_tag.get("href") else ""
+            title = clean_text(tag.get_text())
+
+        if not title or len(title) < MIN_TITLE_LEN:
             continue
 
-        is_pdf = href.lower().endswith(".pdf")
-        is_notice_url = any(
-            kw in href.lower()
-            for kw in ["notice", "routine", "result", "circular", "notification"]
-        )
-        is_relevant = any(
-            kw in title.lower()
-            for kw in ["ssc", "hsc", "routine", "result", "notice", "circular",
-                       "রুটিন", "ফলাফল", "বিজ্ঞপ্তি", "ভর্তি", "পরীক্ষা"]
-        )
+        # When no explicit selector was given, apply the old relevance filter
+        if not selector:
+            is_pdf = href.lower().endswith(".pdf")
+            is_notice_url = any(
+                kw in href.lower()
+                for kw in ["notice", "routine", "result", "circular", "notification"]
+            )
+            is_relevant = any(
+                kw in title.lower()
+                for kw in ["ssc", "hsc", "routine", "result", "notice", "circular",
+                           "রুটিন", "ফলাফল", "বিজ্ঞপ্তি", "ভর্তি", "পরীক্ষা"]
+            )
+            if not (is_pdf or is_notice_url or is_relevant):
+                continue
 
-        if not (is_pdf or is_notice_url or is_relevant):
+        if not href:
             continue
-
         if not href.startswith("http"):
-            href = board["url"].rstrip("/") + "/" + href.lstrip("/")
+            href = base_url.rstrip("/") + "/" + href.lstrip("/")
 
         if href in seen_urls:
             continue
@@ -264,7 +313,7 @@ def scrape_board_notices(board: dict) -> list:
             category = "রুটিন"
         elif "result" in href.lower() or "ফলাফল" in title:
             category = "ফলাফল"
-        elif is_pdf:
+        elif href.lower().endswith(".pdf"):
             category = "পিডিএফ"
 
         results.append({
@@ -281,7 +330,9 @@ def scrape_board_notices(board: dict) -> list:
 
 def scrape_govt_notices(source: dict) -> list:
     """
-    Scrape government notices from a government website.
+    Scrape government notices from a government website using source-specific selectors.
+    When the selector targets <a> tags (e.g. a[href*='/pages/notices/']), href and text
+    are extracted directly.  Deduplicates by URL.
     Returns list of dicts for eduData.governmentNotices format.
     """
     soup = fetch(source["url"])
@@ -289,20 +340,29 @@ def scrape_govt_notices(source: dict) -> list:
         return []
 
     results = []
-    seen_titles: set = set()
+    seen_urls: set = set()
+    base_url = source.get("base_url", source["url"].rstrip("/"))
 
-    for tag in soup.select(source.get("selector", "h2, h3, li a"))[:MAX_NOTICES_PER_SOURCE]:
-        title = clean_text(tag.get_text())
-        if not title or len(title) < 10 or title in seen_titles:
+    for tag in soup.select(source.get("selector", "a[href*='notice']"))[:MAX_NOTICES_PER_SOURCE]:
+        if tag.name == "a":
+            href = tag.get("href", "")
+            title = clean_text(tag.get_text())
+        else:
+            title = clean_text(tag.get_text())
+            link_tag = tag.find("a") or tag.find_parent("a")
+            href = link_tag["href"] if link_tag and link_tag.get("href") else ""
+
+        if not title or len(title) < MIN_TITLE_LEN:
             continue
-        seen_titles.add(title)
 
-        link_tag = tag if tag.name == "a" else (tag.find("a") or tag.find_parent("a"))
-        href = source["url"]
-        if link_tag and link_tag.get("href"):
-            href = link_tag["href"]
-            if not href.startswith("http"):
-                href = source["url"].rstrip("/") + "/" + href.lstrip("/")
+        if not href:
+            href = source["url"]
+        elif not href.startswith("http"):
+            href = base_url.rstrip("/") + "/" + href.lstrip("/")
+
+        if href in seen_urls:
+            continue
+        seen_urls.add(href)
 
         results.append({
             "title": title,

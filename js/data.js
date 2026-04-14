@@ -3,7 +3,7 @@ const eduData = {
   lastUpdated: null,
 
   breakingNews: [
-    "SSC পরীক্ষা ২০২৬: ফেব্রুয়ারি ২০২৬ থেকে শুরু হয়েছে, ফলাফল মে ২০২৬-এ প্রকাশিত হবে",
+    "SSC পরীক্ষা ২০২৬: লিখিত পরীক্ষা ২১ এপ্রিল থেকে ২০ মে ২০২৬, ব্যবহারিক ০৭-১৪ জুন ২০২৬ — রুটিন: dhakaeducationboard.gov.bd",
     "HSC পরীক্ষা ২০২৬: এপ্রিল মাসে শুরু হয়েছে — রুটিন অনুযায়ী পরীক্ষা চলছে",
     "ঢাকা বিশ্ববিদ্যালয় ভর্তি ২০২৫-২৬: ফলাফল প্রকাশিত, ভর্তি চলছে",
     "জাতীয় বিশ্ববিদ্যালয়: অনার্স ১ম বর্ষ ভর্তি ২০২৫-২৬ — আবেদন শেষ তারিখ ৩০ এপ্রিল ২০২৬",
@@ -30,10 +30,10 @@ const eduData = {
     {
       id: 1,
       category: "SSC 2026",
-      title: "SSC পরীক্ষা ২০২৬: সারা দেশে একযোগে পরীক্ষা শুরু",
-      summary: "ফেব্রুয়ারি ২০২৬ থেকে এসএসসি পরীক্ষা ২০২৬ শুরু হয়েছে। সকল শিক্ষা বোর্ডে একযোগে পরীক্ষা চলছে। প্রায় ২১ লাখ শিক্ষার্থী এই পরীক্ষায় অংশগ্রহণ করছে। ফলাফল মে ২০২৬-এ প্রকাশিত হবে।",
-      source: "শিক্ষা মন্ত্রণালয়",
-      date: "২০২৬-০২-১৫",
+      title: "SSC পরীক্ষা ২০২৬: লিখিত ২১ এপ্রিল — ২০ মে, ব্যবহারিক ০৭-১৪ জুন",
+      summary: "SSC 2026 পরীক্ষার তারিখ অনুযায়ী ২০২৬ সালের এসএসসি লিখিত পরীক্ষা শুরু হবে ২১ এপ্রিল ২০২৬ থেকে এবং শেষ হবে ২০ মে ২০২৬ তারিখে। সকল লিখিত পরীক্ষা প্রতিদিন সকাল ১০টা থেকে নির্ধারিত কেন্দ্রগুলোতে অনুষ্ঠিত হবে। এছাড়া এসএসসি ব্যবহারিক পরীক্ষা অনুষ্ঠিত হবে ০৭ জুন থেকে ১৪ জুন ২০২৬ তারিখের মধ্যে।",
+      source: "ঢাকা শিক্ষা বোর্ড",
+      date: "২০২৬-০১-১৫",
       image: "",
       link: "pages/ssc.html",
       views: 19800,
@@ -102,9 +102,9 @@ const eduData = {
     {
       id: 7,
       category: "রুটিন",
-      title: "SSC পরীক্ষা ২০২৬-এর রুটিন প্রকাশিত",
-      summary: "SSC পরীক্ষা ২০২৬-এর চূড়ান্ত রুটিন প্রকাশিত হয়েছে। ১৫ ফেব্রুয়ারি থেকে পরীক্ষা শুরু হয়েছে।",
-      source: "শিক্ষা বোর্ড",
+      title: "SSC পরীক্ষা ২০২৬-এর চূড়ান্ত রুটিন প্রকাশিত — ঢাকা শিক্ষা বোর্ড",
+      summary: "SSC পরীক্ষা ২০২৬-এর চূড়ান্ত রুটিন প্রকাশিত হয়েছে। লিখিত পরীক্ষা ২১ এপ্রিল ২০২৬ থেকে ২০ মে ২০২৬ পর্যন্ত এবং ব্যবহারিক পরীক্ষা ০৭ জুন থেকে ১৪ জুন ২০২৬ পর্যন্ত অনুষ্ঠিত হবে। প্রযোজ্য বোর্ড: ঢাকা, রাজশাহী, কুমিল্লা, যশোর, চট্টগ্রাম, বরিশাল, সিলেট, দিনাজপুর, ময়মনসিংহ।",
+      source: "ঢাকা শিক্ষা বোর্ড",
       date: "২০২৬-০১-১৫",
       image: "",
       link: "pages/routines.html",
@@ -888,9 +888,13 @@ const eduData = {
     { id: 2, title: "জাতীয় বিশ্ববিদ্যালয় অনার্স ভর্তি শেষ", date: "2026-04-30", link: "pages/admissions.html", year: "2026" },
     { id: 3, title: "মেডিকেল ভর্তি শেষ তারিখ", date: "2026-04-30", link: "pages/admissions.html", year: "2026" },
     { id: 4, title: "CSC বৃত্তি (চীন) শেষ তারিখ", date: "2026-04-30", link: "pages/scholarships.html", year: "2026" },
+    { id: 11, title: "SSC পরীক্ষা শুরু (লিখিত)", date: "2026-04-21", link: "pages/ssc.html", year: "2026" },
     { id: 5, title: "Fulbright বৃত্তি শেষ তারিখ", date: "2026-06-15", link: "pages/scholarships.html", year: "2026" },
     { id: 6, title: "HSC পরীক্ষা শুরু", date: "2026-04-02", link: "pages/hsc.html", year: "2026" },
+    { id: 12, title: "SSC পরীক্ষা শেষ (লিখিত)", date: "2026-05-20", link: "pages/ssc.html", year: "2026" },
     { id: 7, title: "MEXT (জাপান) বৃত্তি শেষ তারিখ", date: "2026-05-31", link: "pages/scholarships.html", year: "2026" },
+    { id: 13, title: "SSC ব্যবহারিক পরীক্ষা শুরু", date: "2026-06-07", link: "pages/ssc.html", year: "2026" },
+    { id: 14, title: "SSC ব্যবহারিক পরীক্ষা শেষ", date: "2026-06-14", link: "pages/ssc.html", year: "2026" },
     { id: 8, title: "একাদশ শ্রেণী ভর্তি শুরু", date: "2026-06-15", link: "pages/admissions.html", year: "2026" },
     { id: 9, title: "Chevening বৃত্তি শেষ তারিখ ২০২৬-২৭", date: "2026-11-07", link: "pages/scholarships.html", year: "2026" },
     { id: 10, title: "DAAD বৃত্তি শেষ তারিখ ২০২৬-২৭", date: "2026-10-31", link: "pages/scholarships.html", year: "2026" }
@@ -908,7 +912,8 @@ const eduData = {
       established: "১৯২১",
       districts: ["ঢাকা", "ময়মনসিংহ", "গাজীপুর", "নারায়ণগঞ্জ", "মুন্সীগঞ্জ", "মানিকগঞ্জ", "কিশোরগঞ্জ"],
       pdfLinks: [
-        { title: "২০২৫ সালের (৭ম-১০ম) শ্রেণির বোর্ড পরিবর্তনকৃত শিক্ষার্থীদের ছাড়পত্রের অনুমতি পত্র (TN: 1021-1053)", url: "https://dhakaeducationboard.portal.gov.bd/pages/notices/%E0%A7%A8%E0%A7%A6%E0%A7%A8%E0%A7%AB-%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%B0-%E0%A7%AD%E0%A6%AE-%E0%A7%A7%E0%A7%A6%E0%A6%AE-%E0%A6%B6%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%A3%E0%A6%BF%E0%A6%B0-%E0%A6%AC%E0%A7%8B%E0%A6%B0%E0%A7%8D%E0%A6%A1-%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%AC%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%A8%E0%A6%95%E0%A7%83%E0%A6%A4-%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A7%80%E0%A6%A6%E0%A7%87%E0%A6%B0-e6edb0-6919990581fc96cef9e613d7" }
+        { title: "২০২৫ সালের (৭ম-১০ম) শ্রেণির বোর্ড পরিবর্তনকৃত শিক্ষার্থীদের ছাড়পত্রের অনুমতি পত্র (TN: 1021-1053)", url: "https://dhakaeducationboard.portal.gov.bd/pages/notices/%E0%A7%A8%E0%A7%A6%E0%A7%A8%E0%A7%AB-%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%B0-%E0%A7%AD%E0%A6%AE-%E0%A7%A7%E0%A7%A6%E0%A6%AE-%E0%A6%B6%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%A3%E0%A6%BF%E0%A6%B0-%E0%A6%AC%E0%A7%8B%E0%A6%B0%E0%A7%8D%E0%A6%A1-%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%AC%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%A8%E0%A6%95%E0%A7%83%E0%A6%A4-%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A7%80%E0%A6%A6%E0%A7%87%E0%A6%B0-e6edb0-6919990581fc96cef9e613d7" },
+        { title: "SSC রুটিন ২০২৬", url: "https://dhakaeducationboard.gov.bd/data/20260115170804251115.pdf" }
       ]
     },
     {
@@ -921,7 +926,9 @@ const eduData = {
       address: "রাজশাহী, বাংলাদেশ",
       established: "১৯৬১",
       districts: ["রাজশাহী", "নওগাঁ", "নাটোর", "চাঁপাইনবাবগঞ্জ", "পাবনা", "সিরাজগঞ্জ", "বগুড়া", "জয়পুরহাট"],
-      pdfLinks: []
+      pdfLinks: [
+        { title: "SSC রুটিন ২০২৬", url: "https://dhakaeducationboard.gov.bd/data/20260115170804251115.pdf" }
+      ]
     },
     {
       id: "chittagong",
@@ -933,7 +940,9 @@ const eduData = {
       address: "চট্টগ্রাম, বাংলাদেশ",
       established: "১৯৯৫",
       districts: ["চট্টগ্রাম", "কক্সবাজার", "রাঙ্গামাটি", "বান্দরবান", "খাগড়াছড়ি"],
-      pdfLinks: []
+      pdfLinks: [
+        { title: "SSC রুটিন ২০২৬", url: "https://dhakaeducationboard.gov.bd/data/20260115170804251115.pdf" }
+      ]
     },
     {
       id: "sylhet",
@@ -945,7 +954,9 @@ const eduData = {
       address: "সিলেট, বাংলাদেশ",
       established: "১৯৯৯",
       districts: ["সিলেট", "সুনামগঞ্জ", "হবিগঞ্জ", "মৌলভীবাজার"],
-      pdfLinks: []
+      pdfLinks: [
+        { title: "SSC রুটিন ২০২৬", url: "https://dhakaeducationboard.gov.bd/data/20260115170804251115.pdf" }
+      ]
     },
     {
       id: "comilla",
@@ -957,7 +968,9 @@ const eduData = {
       address: "কুমিল্লা, বাংলাদেশ",
       established: "১৯৬২",
       districts: ["কুমিল্লা", "ফেনী", "চাঁদপুর", "ব্রাহ্মণবাড়িয়া", "নোয়াখালী", "লক্ষ্মীপুর"],
-      pdfLinks: []
+      pdfLinks: [
+        { title: "SSC রুটিন ২০২৬", url: "https://dhakaeducationboard.gov.bd/data/20260115170804251115.pdf" }
+      ]
     },
     {
       id: "barisal",
@@ -969,7 +982,9 @@ const eduData = {
       address: "বরিশাল, বাংলাদেশ",
       established: "১৯৯৯",
       districts: ["বরিশাল", "পটুয়াখালী", "পিরোজপুর", "ঝালকাঠি", "ভোলা", "বরগুনা"],
-      pdfLinks: []
+      pdfLinks: [
+        { title: "SSC রুটিন ২০২৬", url: "https://dhakaeducationboard.gov.bd/data/20260115170804251115.pdf" }
+      ]
     },
     {
       id: "jessore",
@@ -981,7 +996,9 @@ const eduData = {
       address: "যশোর, বাংলাদেশ",
       established: "১৯৬৩",
       districts: ["যশোর", "খুলনা", "বাগেরহাট", "সাতক্ষীরা", "নড়াইল", "মাগুরা", "ঝিনাইদহ", "কুষ্টিয়া", "মেহেরপুর", "চুয়াডাঙ্গা"],
-      pdfLinks: []
+      pdfLinks: [
+        { title: "SSC রুটিন ২০২৬", url: "https://dhakaeducationboard.gov.bd/data/20260115170804251115.pdf" }
+      ]
     },
     {
       id: "dinajpur",
@@ -993,7 +1010,9 @@ const eduData = {
       address: "দিনাজপুর, বাংলাদেশ",
       established: "১৯৬৩",
       districts: ["দিনাজপুর", "রংপুর", "কুড়িগ্রাম", "গাইবান্ধা", "নীলফামারী", "লালমনিরহাট", "ঠাকুরগাঁও", "পঞ্চগড়"],
-      pdfLinks: []
+      pdfLinks: [
+        { title: "SSC রুটিন ২০২৬", url: "https://dhakaeducationboard.gov.bd/data/20260115170804251115.pdf" }
+      ]
     },
     {
       id: "mymensingh",
@@ -1005,7 +1024,9 @@ const eduData = {
       address: "ময়মনসিংহ, বাংলাদেশ",
       established: "২০১৭",
       districts: ["ময়মনসিংহ", "জামালপুর", "শেরপুর", "নেত্রকোণা"],
-      pdfLinks: []
+      pdfLinks: [
+        { title: "SSC রুটিন ২০২৬", url: "https://dhakaeducationboard.gov.bd/data/20260115170804251115.pdf" }
+      ]
     },
     {
       id: "madrasah",
@@ -1037,29 +1058,34 @@ const eduData = {
     {
       id: 1,
       exam: "SSC পরীক্ষা ২০২৬",
-      board: "সকল বোর্ড",
-      startDate: "2026-02-15",
-      endDate: "2026-03-14",
-      startDateDisplay: "১৫ ফেব্রুয়ারি ২০২৬",
-      endDateDisplay: "১৪ মার্চ ২০২৬",
-      pdfUrl: "",
+      board: "ঢাকা, রাজশাহী, কুমিল্লা, যশোর, চট্টগ্রাম, বরিশাল, সিলেট, দিনাজপুর, ময়মনসিংহ",
+      startDate: "2026-04-21",
+      endDate: "2026-05-20",
+      startDateDisplay: "২১ এপ্রিল ২০২৬",
+      endDateDisplay: "২০ মে ২০২৬",
+      practicalStartDate: "2026-06-07",
+      practicalEndDate: "2026-06-14",
+      practicalStartDisplay: "০৭ জুন ২০২৬",
+      practicalEndDisplay: "১৪ জুন ২০২৬",
+      pdfUrl: "https://dhakaeducationboard.gov.bd/data/20260115170804251115.pdf",
       link: "pages/ssc.html",
       year: "2026",
       schedule: [
-        { date: "১৫ ফেব্রুয়ারি", subject: "বাংলা প্রথম পত্র" },
-        { date: "১৬ ফেব্রুয়ারি", subject: "বাংলা দ্বিতীয় পত্র" },
-        { date: "১৮ ফেব্রুয়ারি", subject: "ইংরেজি প্রথম পত্র" },
-        { date: "১৯ ফেব্রুয়ারি", subject: "ইংরেজি দ্বিতীয় পত্র" },
-        { date: "২১ ফেব্রুয়ারি", subject: "গণিত" },
-        { date: "২৩ ফেব্রুয়ারি", subject: "পদার্থ বিজ্ঞান / ব্যবসায় উদ্যোগ" },
-        { date: "২৫ ফেব্রুয়ারি", subject: "রসায়ন / হিসাববিজ্ঞান" },
-        { date: "২৭ ফেব্রুয়ারি", subject: "জীববিজ্ঞান / অর্থনীতি" },
-        { date: "১ মার্চ", subject: "উচ্চতর গণিত / ফিন্যান্স ও ব্যাংকিং" },
-        { date: "৩ মার্চ", subject: "বাংলাদেশ ও বিশ্বপরিচয়" },
-        { date: "৫ মার্চ", subject: "তথ্য ও যোগাযোগ প্রযুক্তি" },
-        { date: "৮ মার্চ", subject: "ধর্ম ও নৈতিক শিক্ষা" },
-        { date: "১০ মার্চ", subject: "গার্হস্থ্য বিজ্ঞান / কৃষি শিক্ষা" },
-        { date: "১৪ মার্চ", subject: "ব্যবহারিক পরীক্ষা (শেষ দিন)" }
+        { date: "২১ এপ্রিল", subject: "বাংলা প্রথম পত্র" },
+        { date: "২২ এপ্রিল", subject: "বাংলা দ্বিতীয় পত্র" },
+        { date: "২৪ এপ্রিল", subject: "ইংরেজি প্রথম পত্র" },
+        { date: "২৬ এপ্রিল", subject: "ইংরেজি দ্বিতীয় পত্র" },
+        { date: "২৮ এপ্রিল", subject: "গণিত" },
+        { date: "৩০ এপ্রিল", subject: "পদার্থ বিজ্ঞান / ব্যবসায় উদ্যোগ" },
+        { date: "৩ মে", subject: "রসায়ন / হিসাববিজ্ঞান" },
+        { date: "৫ মে", subject: "জীববিজ্ঞান / অর্থনীতি" },
+        { date: "৭ মে", subject: "উচ্চতর গণিত / ফিন্যান্স ও ব্যাংকিং" },
+        { date: "১০ মে", subject: "বাংলাদেশ ও বিশ্বপরিচয়" },
+        { date: "১২ মে", subject: "তথ্য ও যোগাযোগ প্রযুক্তি" },
+        { date: "১৪ মে", subject: "ধর্ম ও নৈতিক শিক্ষা" },
+        { date: "১৭ মে", subject: "গার্হস্থ্য বিজ্ঞান / কৃষি শিক্ষা / সংগীত / চারু ও কারুকলা" },
+        { date: "২০ মে", subject: "ভূগোল ও পরিবেশ / পৌরনীতি ও নাগরিকতা" },
+        { date: "০৭-১৪ জুন", subject: "ব্যবহারিক পরীক্ষা (সকল বিষয়)" }
       ]
     },
     {

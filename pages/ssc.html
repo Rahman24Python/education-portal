@@ -211,14 +211,15 @@
       const sscNews = eduData.latestNews.filter(n => n.category === 'SSC 2025').slice(0, 4);
       const newsEl = document.getElementById('ssc-news');
       if (newsEl && sscNews.length > 0) {
+        const esc = (typeof escapeHtml === 'function') ? escapeHtml : (s => s);
         newsEl.innerHTML = sscNews.map(item => `
           <div class="news-card">
-            <div class="news-card-img"><a href="../${item.link}"><img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200/1a6b3c/ffffff?text=SSC'"></a></div>
+            <div class="news-card-img"><a href="../${esc(item.link)}"><img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200/1a6b3c/ffffff?text=SSC'"></a></div>
             <div class="news-card-body">
-              <span class="news-category">${item.category}</span>
-              <a href="../${item.link}"><h3 class="news-title">${item.title}</h3></a>
-              <p class="news-summary">${item.summary}</p>
-              <div class="news-meta"><span>📰 ${item.source}</span><span>📅 ${item.date}</span></div>
+              <span class="news-category">${esc(item.category)}</span>
+              <a href="../${esc(item.link)}"><h3 class="news-title">${esc(item.title)}</h3></a>
+              <p class="news-summary">${esc(item.summary)}</p>
+              <div class="news-meta"><span>📰 ${esc(item.source)}</span><span>📅 ${esc(item.date)}</span></div>
             </div>
           </div>
         `).join('');

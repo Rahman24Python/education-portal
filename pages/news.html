@@ -247,25 +247,28 @@
         return;
       }
 
-      list.innerHTML = pageItems.map(item => `
+      list.innerHTML = pageItems.map(item => {
+        const esc = (typeof escapeHtml === 'function') ? escapeHtml : (s => s);
+        const safeLink = item.link ? '../' + item.link : '#';
+        return `
         <div class="news-card">
           <div class="news-card-img">
-            <a href="${item.link ? '../' + item.link : '#'}">
-              <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200/1a6b3c/ffffff?text=EduBD'">
+            <a href="${esc(safeLink)}">
+              <img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200/1a6b3c/ffffff?text=EduBD'">
             </a>
           </div>
           <div class="news-card-body">
-            <span class="news-category">${item.category}</span>
-            <a href="${item.link ? '../' + item.link : '#'}"><h3 class="news-title">${item.title}</h3></a>
-            <p class="news-summary">${item.summary}</p>
+            <span class="news-category">${esc(item.category)}</span>
+            <a href="${esc(safeLink)}"><h3 class="news-title">${esc(item.title)}</h3></a>
+            <p class="news-summary">${esc(item.summary)}</p>
             <div class="news-meta">
-              <span>📰 ${item.source}</span>
-              <span>📅 ${item.date}</span>
+              <span>📰 ${esc(item.source)}</span>
+              <span>📅 ${esc(item.date)}</span>
               <span>👁 ${item.views}</span>
             </div>
           </div>
         </div>
-      `).join('');
+      `}).join('');
 
       // Render pagination
       const totalPages = Math.ceil(items.length / PAGE_SIZE);

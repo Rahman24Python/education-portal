@@ -208,27 +208,35 @@ function initNewsPage() {
 
 function renderNewsCards(container, newsItems) {
   const base = getBasePath();
-  container.innerHTML = newsItems.map(item => `
+  container.innerHTML = newsItems.map(item => {
+    const safeTitle = escapeHtml(item.title);
+    const safeSummary = escapeHtml(item.summary);
+    const safeSource = escapeHtml(item.source);
+    const safeDate = escapeHtml(item.date);
+    const safeCategory = escapeHtml(item.category);
+    const safeImage = escapeHtml(item.image);
+    const safeLink = item.link ? (item.link.startsWith('http') ? item.link : base + item.link) : '#';
+    return `
     <div class="news-card">
       <div class="news-card-img">
-        <a href="${item.link ? (item.link.startsWith('http') ? item.link : base + item.link) : '#'}">
-          <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200/1a6b3c/ffffff?text=EduBD'">
+        <a href="${escapeHtml(safeLink)}">
+          <img src="${safeImage}" alt="${safeTitle}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200/1a6b3c/ffffff?text=EduBD'">
         </a>
       </div>
       <div class="news-card-body">
-        <span class="news-category">${item.category}</span>
-        <a href="${item.link ? (item.link.startsWith('http') ? item.link : base + item.link) : '#'}">
-          <h3 class="news-title">${item.title}</h3>
+        <span class="news-category">${safeCategory}</span>
+        <a href="${escapeHtml(safeLink)}">
+          <h3 class="news-title">${safeTitle}</h3>
         </a>
-        <p class="news-summary">${item.summary}</p>
+        <p class="news-summary">${safeSummary}</p>
         <div class="news-meta">
-          <span>📰 ${item.source}</span>
-          <span>📅 ${item.date}</span>
+          <span>📰 ${safeSource}</span>
+          <span>📅 ${safeDate}</span>
           <span>👁 ${toBengaliDigits(item.views)}</span>
         </div>
       </div>
     </div>
-  `).join('');
+  `}).join('');
 }
 
 // ===================== QUICK LINKS =====================
@@ -330,3 +338,14 @@ window.showToast = showToast;
 window.getBasePath = getBasePath;
 window.toBengaliDigits = toBengaliDigits;
 window.formatBengaliDate = formatBengaliDate;
+
+// HTML escape utility to prevent XSS when inserting dynamic content
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+window.escapeHtml = escapeHtml;

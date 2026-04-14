@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EduBD - বাংলাদেশ শিক্ষা তথ্য পোর্টাল। SSC, HSC, ভর্তি তথ্য, বৃত্তি, পরীক্ষার ফলাফল ও রুটিন।">
+  <title>EduBD — বাংলাদেশ শিক্ষা তথ্য পোর্টাল</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <span id="live-date">লোড হচ্ছে...</span>
+        <span>|</span>
+        <span id="live-time"></span>
+      </div>
+      <div class="top-bar-right">
+        <a href="pages/about.html">আমাদের সম্পর্কে</a>
+        <a href="pages/news.html">শিক্ষা সংবাদ</a>
+        <a href="https://moedu.gov.bd" target="_blank" rel="noopener">শিক্ষা মন্ত্রণালয়</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BREAKING NEWS ===== -->
+  <div class="breaking-news-bar">
+    <div class="breaking-news-inner">
+      <span class="breaking-label">🔴 ব্রেকিং</span>
+      <div class="breaking-ticker">
+        <div class="breaking-ticker-inner" id="breaking-ticker">
+          <span class="ticker-item">লোড হচ্ছে...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">📚</div>
+        <div class="logo-text">
+          <span class="name">EduBD</span>
+          <span class="tagline">বাংলাদেশ শিক্ষা তথ্য পোর্টাল</span>
+        </div>
+      </a>
+
+      <div class="search-box">
+        <input type="text" placeholder="🔍 পরীক্ষা, ভর্তি, বৃত্তি খুঁজুন..." autocomplete="off">
+        <button class="search-btn" type="button" aria-label="অনুসন্ধান">🔍</button>
+      </div>
+
+      <nav>
+        <a href="index.html" class="nav-link active">হোম</a>
+        <div class="nav-dropdown">
+          <a href="pages/admissions.html" class="nav-link">
+            ভর্তি তথ্য <span style="font-size:10px;">▼</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="pages/admissions.html?type=বিশ্ববিদ্যালয়" class="dropdown-item">
+              <span class="dropdown-icon">🎓</span>বিশ্ববিদ্যালয় ভর্তি
+            </a>
+            <a href="pages/admissions.html?type=মেডিকেল" class="dropdown-item">
+              <span class="dropdown-icon">🏥</span>মেডিকেল ভর্তি
+            </a>
+            <a href="pages/admissions.html?type=ইঞ্জিনিয়ারিং" class="dropdown-item">
+              <span class="dropdown-icon">⚙️</span>ইঞ্জিনিয়ারিং ভর্তি
+            </a>
+            <a href="pages/admissions.html?type=কলেজ" class="dropdown-item">
+              <span class="dropdown-icon">📚</span>কলেজ ভর্তি (XI)
+            </a>
+            <a href="pages/admissions.html" class="dropdown-item">
+              <span class="dropdown-icon">📋</span>সকল ভর্তি বিজ্ঞপ্তি
+            </a>
+          </div>
+        </div>
+        <a href="pages/routines.html" class="nav-link">পরীক্ষা</a>
+        <a href="pages/results.html" class="nav-link">ফলাফল</a>
+        <a href="pages/scholarships.html" class="nav-link">স্কলারশিপ</a>
+        <a href="pages/news.html" class="nav-link">শিক্ষা সংবাদ</a>
+      </nav>
+
+      <button class="hamburger" aria-label="মেনু">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== CATEGORY NAV ===== -->
+  <nav class="category-nav">
+    <div class="category-nav-inner">
+      <a href="pages/news.html?cat=ট্রেন্ডিং" class="cat-link">🔥 ট্রেন্ডিং</a>
+      <a href="pages/ssc.html" class="cat-link">📝 SSC 2025</a>
+      <a href="pages/hsc.html" class="cat-link">📚 HSC 2025</a>
+      <a href="pages/admissions.html?type=বিশ্ববিদ্যালয়" class="cat-link">🎓 বিশ্ববিদ্যালয়</a>
+      <a href="pages/routines.html" class="cat-link">🗓️ রুটিন</a>
+      <a href="pages/news.html?cat=নোটিশ" class="cat-link">📢 নোটিশ</a>
+      <a href="pages/scholarships.html" class="cat-link">🌟 বৃত্তি</a>
+      <a href="pages/news.html?cat=মাদ্রাসা" class="cat-link">🕌 মাদ্রাসা</a>
+      <a href="pages/news.html?cat=কারিগরি" class="cat-link">🔧 কারিগরি</a>
+      <a href="pages/scholarships.html?type=international" class="cat-link">✈️ বিদেশে পড়াশোনা</a>
+    </div>
+  </nav>
+
+  <!-- ===== MOBILE OVERLAY & MENU ===== -->
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="logo">
+        <div class="logo-icon">📚</div>
+        <div class="logo-text"><span class="name">EduBD</span></div>
+      </div>
+      <button class="mobile-menu-close">✕</button>
+    </div>
+    <a href="index.html" class="mobile-nav-link">🏠 হোম</a>
+    <a href="pages/admissions.html" class="mobile-nav-link">🎓 ভর্তি তথ্য</a>
+    <a href="pages/admissions.html?type=বিশ্ববিদ্যালয়" class="mobile-nav-link" style="padding-left:35px;font-size:13px;">🎓 বিশ্ববিদ্যালয় ভর্তি</a>
+    <a href="pages/admissions.html?type=মেডিকেল" class="mobile-nav-link" style="padding-left:35px;font-size:13px;">🏥 মেডিকেল ভর্তি</a>
+    <a href="pages/admissions.html?type=ইঞ্জিনিয়ারিং" class="mobile-nav-link" style="padding-left:35px;font-size:13px;">⚙️ ইঞ্জিনিয়ারিং ভর্তি</a>
+    <a href="pages/admissions.html?type=কলেজ" class="mobile-nav-link" style="padding-left:35px;font-size:13px;">📚 কলেজ ভর্তি (XI)</a>
+    <a href="pages/routines.html" class="mobile-nav-link">🗓️ পরীক্ষা</a>
+    <a href="pages/results.html" class="mobile-nav-link">📊 ফলাফল</a>
+    <a href="pages/scholarships.html" class="mobile-nav-link">🌟 স্কলারশিপ</a>
+    <a href="pages/news.html" class="mobile-nav-link">📰 শিক্ষা সংবাদ</a>
+    <a href="pages/ssc.html" class="mobile-nav-link">📝 SSC 2025</a>
+    <a href="pages/hsc.html" class="mobile-nav-link">📚 HSC 2025</a>
+    <a href="pages/about.html" class="mobile-nav-link">ℹ️ আমাদের সম্পর্কে</a>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="container" style="margin-top:25px;">
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+      <div class="section-header">
+        <h2 class="section-title">দ্রুত অ্যাক্সেস</h2>
+      </div>
+      <div class="quick-links-grid" id="quick-links-grid">
+        <!-- Populated by JS -->
+        <a href="pages/ssc.html" class="quick-link-card"><span class="quick-link-icon">📝</span><span class="quick-link-text">SSC 2025</span></a>
+        <a href="pages/hsc.html" class="quick-link-card"><span class="quick-link-icon">📚</span><span class="quick-link-text">HSC 2025</span></a>
+        <a href="pages/admissions.html" class="quick-link-card"><span class="quick-link-icon">🎓</span><span class="quick-link-text">ভর্তি তথ্য</span></a>
+        <a href="pages/results.html" class="quick-link-card"><span class="quick-link-icon">📊</span><span class="quick-link-text">ফলাফল</span></a>
+        <a href="pages/scholarships.html" class="quick-link-card"><span class="quick-link-icon">🌟</span><span class="quick-link-text">স্কলারশিপ</span></a>
+        <a href="pages/routines.html" class="quick-link-card"><span class="quick-link-icon">🗓️</span><span class="quick-link-text">রুটিন</span></a>
+      </div>
+    </section>
+
+    <!-- Board Section -->
+    <section class="board-section">
+      <div class="section-header">
+        <h2 class="section-title">শিক্ষা বোর্ড</h2>
+        <a href="pages/board.html" class="see-all-link">সব দেখুন</a>
+      </div>
+      <div class="board-grid">
+        <!-- Populated by JS -->
+        <a href="pages/board.html?board=dhaka" class="board-card"><span class="board-icon">🏫</span><span class="board-name">ঢাকা</span></a>
+        <a href="pages/board.html?board=rajshahi" class="board-card"><span class="board-icon">🏫</span><span class="board-name">রাজশাহী</span></a>
+        <a href="pages/board.html?board=chittagong" class="board-card"><span class="board-icon">🏫</span><span class="board-name">চট্টগ্রাম</span></a>
+        <a href="pages/board.html?board=sylhet" class="board-card"><span class="board-icon">🏫</span><span class="board-name">সিলেট</span></a>
+        <a href="pages/board.html?board=comilla" class="board-card"><span class="board-icon">🏫</span><span class="board-name">কুমিল্লা</span></a>
+        <a href="pages/board.html?board=barisal" class="board-card"><span class="board-icon">🏫</span><span class="board-name">বরিশাল</span></a>
+        <a href="pages/board.html?board=jessore" class="board-card"><span class="board-icon">🏫</span><span class="board-name">যশোর</span></a>
+        <a href="pages/board.html?board=dinajpur" class="board-card"><span class="board-icon">🏫</span><span class="board-name">দিনাজপুর</span></a>
+        <a href="pages/board.html?board=mymensingh" class="board-card"><span class="board-icon">🏫</span><span class="board-name">ময়মনসিংহ</span></a>
+        <a href="pages/board.html?board=madrasah" class="board-card"><span class="board-icon">🕌</span><span class="board-name">মাদ্রাসা</span></a>
+        <a href="pages/board.html?board=technical" class="board-card"><span class="board-icon">🔧</span><span class="board-name">কারিগরি</span></a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ===== TWO COLUMN LAYOUT ===== -->
+  <div class="main-content">
+
+    <!-- ===== LEFT: NEWS FEED ===== -->
+    <div>
+      <div class="section-header">
+        <h2 class="section-title">সর্বশেষ শিক্ষা সংবাদ</h2>
+        <a href="pages/news.html" class="see-all-link">সব দেখুন</a>
+      </div>
+
+      <div class="news-grid" id="news-grid">
+        <!-- News cards will be injected by JS -->
+        <div class="loading-overlay">
+          <div class="spinner"></div>
+          <p>সংবাদ লোড হচ্ছে...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== RIGHT: SIDEBAR ===== -->
+    <aside class="sidebar">
+
+      <!-- Result Checker -->
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">📊 ফলাফল চেক করুন</h3>
+        <form class="result-form" id="sidebar-result-form">
+          <div class="form-group">
+            <label class="form-label">বোর্ড নির্বাচন করুন</label>
+            <select class="form-control" name="board" required>
+              <option value="">-- বোর্ড নির্বাচন করুন --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">পরীক্ষার ধরন</label>
+            <select class="form-control" name="exam">
+              <option value="SSC">SSC</option>
+              <option value="HSC">HSC</option>
+              <option value="JSC">JSC</option>
+              <option value="Dakhil">দাখিল</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">রোল নম্বর</label>
+            <input type="text" class="form-control" name="roll" placeholder="রোল নম্বর দিন" pattern="[0-9]{6,9}">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">ফলাফল দেখুন</button>
+        </form>
+        <p style="font-size:11px;color:#999;margin-top:8px;text-align:center;">
+          বিস্তারিত ফলাফলের জন্য <a href="pages/results.html" style="color:var(--primary);">এখানে ক্লিক করুন</a>
+        </p>
+      </div>
+
+      <!-- Upcoming Deadlines -->
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">⏰ আসন্ন সময়সীমা</h3>
+        <div id="deadline-timers">
+          <div class="loading-overlay" style="padding:20px;">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admission Notices -->
+      <div class="sidebar-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;padding-bottom:10px;border-bottom:2px solid var(--secondary);">
+          <h3 class="sidebar-title" style="margin-bottom:0;border-bottom:none;padding-bottom:0;">📋 ভর্তি বিজ্ঞপ্তি</h3>
+          <a href="pages/admissions.html" class="see-all-link">সব দেখুন</a>
+        </div>
+        <div id="sidebar-admissions">
+          <div class="loading-overlay" style="padding:20px;">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scholarship Notices -->
+      <div class="sidebar-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;padding-bottom:10px;border-bottom:2px solid var(--secondary);">
+          <h3 class="sidebar-title" style="margin-bottom:0;border-bottom:none;padding-bottom:0;">🌟 বৃত্তি সংবাদ</h3>
+          <a href="pages/scholarships.html" class="see-all-link">সব দেখুন</a>
+        </div>
+        <div id="sidebar-scholarships">
+          <div class="loading-overlay" style="padding:20px;">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Important Links -->
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">🔗 গুরুত্বপূর্ণ লিঙ্ক</h3>
+        <div id="important-links">
+          <div class="loading-overlay" style="padding:20px;">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="sidebar-card">
+        <h3 class="sidebar-title">📧 নিউজলেটার</h3>
+        <p style="font-size:13px;color:#666;margin-bottom:12px;">সর্বশেষ শিক্ষা সংবাদ ইমেইলে পেতে সাবস্ক্রাইব করুন।</p>
+        <div class="newsletter-input-wrap">
+          <input type="email" id="newsletter-email" placeholder="আপনার ইমেইল দিন">
+          <button class="btn btn-primary btn-sm" onclick="subscribeNewsletter('newsletter-email')">যোগ দিন</button>
+        </div>
+        <div class="social-buttons">
+          <button class="btn btn-whatsapp btn-sm" data-whatsapp>💬 WhatsApp</button>
+          <button class="btn btn-telegram btn-sm" data-telegram>✈️ Telegram</button>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">📚</div>
+            <div class="footer-logo-text">
+              <div class="name">EduBD</div>
+              <div class="tagline">বাংলাদেশ শিক্ষা তথ্য পোর্টাল</div>
+            </div>
+          </div>
+          <p class="footer-desc">
+            EduBD বাংলাদেশের সকল শিক্ষার্থী ও অভিভাবকদের জন্য একটি বিশ্বস্ত শিক্ষামূলক তথ্য পোর্টাল।
+            SSC, HSC, ভর্তি, বৃত্তি, পরীক্ষার রুটিন সহ সকল শিক্ষা সংক্রান্ত তথ্য একটি জায়গায়।
+          </p>
+          <div class="footer-social">
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-btn" title="Facebook">📘</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-btn" title="YouTube">📹</a>
+            <a href="https://t.me/edubd_portal" target="_blank" rel="noopener" class="social-btn" title="Telegram">✈️</a>
+            <a href="https://wa.me/8801700000000" target="_blank" rel="noopener" class="social-btn" title="WhatsApp">💬</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>দ্রুত লিঙ্ক</h4>
+          <div class="footer-links">
+            <a href="pages/admissions.html">🎓 ভর্তি তথ্য</a>
+            <a href="pages/results.html">📊 পরীক্ষার ফলাফল</a>
+            <a href="pages/scholarships.html">🌟 বৃত্তি তথ্য</a>
+            <a href="pages/routines.html">🗓️ পরীক্ষার রুটিন</a>
+            <a href="pages/news.html">📰 শিক্ষা সংবাদ</a>
+            <a href="pages/ssc.html">📝 SSC 2025</a>
+            <a href="pages/hsc.html">📚 HSC 2025</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>শিক্ষা বোর্ড</h4>
+          <div class="footer-links">
+            <a href="pages/board.html?board=dhaka">🏫 ঢাকা বোর্ড</a>
+            <a href="pages/board.html?board=rajshahi">🏫 রাজশাহী বোর্ড</a>
+            <a href="pages/board.html?board=chittagong">🏫 চট্টগ্রাম বোর্ড</a>
+            <a href="pages/board.html?board=sylhet">🏫 সিলেট বোর্ড</a>
+            <a href="pages/board.html?board=comilla">🏫 কুমিল্লা বোর্ড</a>
+            <a href="pages/board.html?board=madrasah">🏫 মাদ্রাসা বোর্ড</a>
+            <a href="pages/board.html?board=technical">🏫 কারিগরি বোর্ড</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>গুরুত্বপূর্ণ লিঙ্ক</h4>
+          <div class="footer-links">
+            <a href="https://moedu.gov.bd" target="_blank" rel="noopener">🏛️ শিক্ষা মন্ত্রণালয়</a>
+            <a href="https://ugc.gov.bd" target="_blank" rel="noopener">🎓 UGC Bangladesh</a>
+            <a href="https://eboardresults.com" target="_blank" rel="noopener">📊 বোর্ড রেজাল্ট</a>
+            <a href="https://xiclassadmission.gov.bd" target="_blank" rel="noopener">📝 একাদশ ভর্তি</a>
+            <a href="https://nu.ac.bd" target="_blank" rel="noopener">🏫 জাতীয় বিশ্ববিদ্যালয়</a>
+            <a href="https://teachers.gov.bd" target="_blank" rel="noopener">👩‍🏫 শিক্ষক বাতায়ন</a>
+            <a href="pages/about.html">ℹ️ আমাদের সম্পর্কে</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© ২০২৫ EduBD — বাংলাদেশ শিক্ষা তথ্য পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</span>
+      <span>তৈরি করেছেন ❤️ দ্বারা EduBD টিম</span>
+    </div>
+  </footer>
+
+  <button class="back-to-top" title="উপরে যান">▲</button>
+  <div class="toast-container"></div>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/newsletter.js"></script>
+  <script src="js/result-checker.js"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EduBD - ভর্তি তথ্য। বিশ্ববিদ্যালয়, মেডিকেল, ইঞ্জিনিয়ারিং, কলেজ ভর্তির সকল বিজ্ঞপ্তি।">
+  <title>ভর্তি তথ্য — EduBD</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <span id="live-date">লোড হচ্ছে...</span>
+        <span>|</span>
+        <span id="live-time"></span>
+      </div>
+      <div class="top-bar-right">
+        <a href="about.html">আমাদের সম্পর্কে</a>
+        <a href="news.html">শিক্ষা সংবাদ</a>
+        <a href="https://moedu.gov.bd" target="_blank" rel="noopener">শিক্ষা মন্ত্রণালয়</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BREAKING NEWS -->
+  <div class="breaking-news-bar">
+    <div class="breaking-news-inner">
+      <span class="breaking-label">🔴 ব্রেকিং</span>
+      <div class="breaking-ticker">
+        <div class="breaking-ticker-inner" id="breaking-ticker">
+          <span class="ticker-item">লোড হচ্ছে...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📚</div>
+        <div class="logo-text">
+          <span class="name">EduBD</span>
+          <span class="tagline">বাংলাদেশ শিক্ষা তথ্য পোর্টাল</span>
+        </div>
+      </a>
+      <div class="search-box">
+        <input type="text" placeholder="🔍 পরীক্ষা, ভর্তি, বৃত্তি খুঁজুন..." autocomplete="off">
+        <button class="search-btn" type="button" aria-label="অনুসন্ধান">🔍</button>
+      </div>
+      <nav>
+        <a href="../index.html" class="nav-link">হোম</a>
+        <div class="nav-dropdown">
+          <a href="admissions.html" class="nav-link active">ভর্তি তথ্য <span style="font-size:10px;">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="admissions.html?type=বিশ্ববিদ্যালয়" class="dropdown-item"><span class="dropdown-icon">🎓</span>বিশ্ববিদ্যালয় ভর্তি</a>
+            <a href="admissions.html?type=মেডিকেল" class="dropdown-item"><span class="dropdown-icon">🏥</span>মেডিকেল ভর্তি</a>
+            <a href="admissions.html?type=ইঞ্জিনিয়ারিং" class="dropdown-item"><span class="dropdown-icon">⚙️</span>ইঞ্জিনিয়ারিং ভর্তি</a>
+            <a href="admissions.html?type=কলেজ" class="dropdown-item"><span class="dropdown-icon">📚</span>কলেজ ভর্তি (XI)</a>
+            <a href="admissions.html" class="dropdown-item"><span class="dropdown-icon">📋</span>সকল ভর্তি বিজ্ঞপ্তি</a>
+          </div>
+        </div>
+        <a href="routines.html" class="nav-link">পরীক্ষা</a>
+        <a href="results.html" class="nav-link">ফলাফল</a>
+        <a href="scholarships.html" class="nav-link">স্কলারশিপ</a>
+        <a href="news.html" class="nav-link">শিক্ষা সংবাদ</a>
+      </nav>
+      <button class="hamburger" aria-label="মেনু"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <nav class="category-nav">
+    <div class="category-nav-inner">
+      <a href="news.html?cat=ট্রেন্ডিং" class="cat-link">🔥 ট্রেন্ডিং</a>
+      <a href="ssc.html" class="cat-link">📝 SSC 2025</a>
+      <a href="hsc.html" class="cat-link">📚 HSC 2025</a>
+      <a href="admissions.html?type=বিশ্ববিদ্যালয়" class="cat-link">🎓 বিশ্ববিদ্যালয়</a>
+      <a href="routines.html" class="cat-link">🗓️ রুটিন</a>
+      <a href="news.html?cat=নোটিশ" class="cat-link">📢 নোটিশ</a>
+      <a href="scholarships.html" class="cat-link">🌟 বৃত্তি</a>
+      <a href="news.html?cat=মাদ্রাসা" class="cat-link">🕌 মাদ্রাসা</a>
+      <a href="news.html?cat=কারিগরি" class="cat-link">🔧 কারিগরি</a>
+      <a href="scholarships.html?type=international" class="cat-link">✈️ বিদেশে পড়াশোনা</a>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="logo"><div class="logo-icon">📚</div><div class="logo-text"><span class="name">EduBD</span></div></div>
+      <button class="mobile-menu-close">✕</button>
+    </div>
+    <a href="../index.html" class="mobile-nav-link">🏠 হোম</a>
+    <a href="admissions.html" class="mobile-nav-link">🎓 ভর্তি তথ্য</a>
+    <a href="routines.html" class="mobile-nav-link">🗓️ পরীক্ষা</a>
+    <a href="results.html" class="mobile-nav-link">📊 ফলাফল</a>
+    <a href="scholarships.html" class="mobile-nav-link">🌟 স্কলারশিপ</a>
+    <a href="news.html" class="mobile-nav-link">📰 শিক্ষা সংবাদ</a>
+    <a href="ssc.html" class="mobile-nav-link">📝 SSC 2025</a>
+    <a href="hsc.html" class="mobile-nav-link">📚 HSC 2025</a>
+    <a href="about.html" class="mobile-nav-link">ℹ️ আমাদের সম্পর্কে</a>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../index.html">হোম</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>ভর্তি তথ্য</span>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <h1>🎓 ভর্তি তথ্য ২০২৫</h1>
+      <p>বিশ্ববিদ্যালয়, মেডিকেল, ইঞ্জিনিয়ারিং ও কলেজ ভর্তির সকল সর্বশেষ বিজ্ঞপ্তি</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <!-- Filter Bar -->
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-filter="সব">সব ভর্তি</button>
+      <button class="filter-btn" data-filter="বিশ্ববিদ্যালয়">🎓 বিশ্ববিদ্যালয়</button>
+      <button class="filter-btn" data-filter="মেডিকেল">🏥 মেডিকেল</button>
+      <button class="filter-btn" data-filter="ইঞ্জিনিয়ারিং">⚙️ ইঞ্জিনিয়ারিং</button>
+      <button class="filter-btn" data-filter="কলেজ">📚 কলেজ (XI)</button>
+    </div>
+
+    <!-- Sort Bar -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;flex-wrap:wrap;gap:10px;">
+      <p id="admission-count" style="font-size:14px;color:var(--text-muted);"></p>
+      <select id="sort-admissions" class="form-control" style="width:auto;padding:8px 14px;font-size:13px;">
+        <option value="deadline">সময়সীমা অনুযায়ী</option>
+        <option value="newest">সর্বশেষ প্রকাশিত</option>
+        <option value="status">স্ট্যাটাস অনুযায়ী</option>
+      </select>
+    </div>
+
+    <!-- Admission Cards -->
+    <div id="admission-list">
+      <div class="loading-overlay"><div class="spinner"></div><p>ভর্তি তথ্য লোড হচ্ছে...</p></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo"><div class="footer-logo-icon">📚</div><div class="footer-logo-text"><div class="name">EduBD</div><div class="tagline">বাংলাদেশ শিক্ষা তথ্য পোর্টাল</div></div></div>
+          <p class="footer-desc">বাংলাদেশের সকল শিক্ষার্থীর জন্য বিশ্বস্ত শিক্ষামূলক তথ্য পোর্টাল।</p>
+          <div class="footer-social">
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-btn">📘</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-btn">📹</a>
+            <a href="https://t.me/edubd_portal" target="_blank" rel="noopener" class="social-btn">✈️</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>দ্রুত লিঙ্ক</h4>
+          <div class="footer-links">
+            <a href="admissions.html">🎓 ভর্তি তথ্য</a>
+            <a href="results.html">📊 ফলাফল</a>
+            <a href="scholarships.html">🌟 বৃত্তি</a>
+            <a href="routines.html">🗓️ রুটিন</a>
+            <a href="news.html">📰 সংবাদ</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>ভর্তি ধরন</h4>
+          <div class="footer-links">
+            <a href="admissions.html?type=বিশ্ববিদ্যালয়">🎓 বিশ্ববিদ্যালয়</a>
+            <a href="admissions.html?type=মেডিকেল">🏥 মেডিকেল</a>
+            <a href="admissions.html?type=ইঞ্জিনিয়ারিং">⚙️ ইঞ্জিনিয়ারিং</a>
+            <a href="admissions.html?type=কলেজ">📚 কলেজ (XI)</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>গুরুত্বপূর্ণ লিঙ্ক</h4>
+          <div class="footer-links">
+            <a href="https://moedu.gov.bd" target="_blank" rel="noopener">🏛️ শিক্ষা মন্ত্রণালয়</a>
+            <a href="https://ugc.gov.bd" target="_blank" rel="noopener">🎓 UGC Bangladesh</a>
+            <a href="https://xiclassadmission.gov.bd" target="_blank" rel="noopener">📝 একাদশ ভর্তি</a>
+            <a href="https://nu.ac.bd" target="_blank" rel="noopener">🏫 জাতীয় বিশ্ববিদ্যালয়</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© ২০২৫ EduBD — বাংলাদেশ শিক্ষা তথ্য পোর্টাল।</span>
+    </div>
+  </footer>
+
+  <button class="back-to-top" title="উপরে যান">▲</button>
+  <div class="toast-container"></div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/countdown.js"></script>
+  <script src="../js/newsletter.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const typeParam = params.get('type') || 'সব';
+
+      // Set active filter button
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.dataset.filter === typeParam || (typeParam === 'সব' && btn.dataset.filter === 'সব')) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      renderAdmissions(typeParam);
+
+      // Filter buttons
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          const filter = this.dataset.filter;
+          const sort = document.getElementById('sort-admissions').value;
+          renderAdmissions(filter, sort);
+          // Update URL
+          const url = new URL(window.location);
+          if (filter === 'সব') url.searchParams.delete('type');
+          else url.searchParams.set('type', filter);
+          window.history.replaceState({}, '', url);
+        });
+      });
+
+      // Sort
+      document.getElementById('sort-admissions').addEventListener('change', function() {
+        const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'সব';
+        renderAdmissions(activeFilter, this.value);
+      });
+    });
+
+    function renderAdmissions(filter, sort) {
+      const list = document.getElementById('admission-list');
+      const countEl = document.getElementById('admission-count');
+
+      let items = [...eduData.admissions];
+
+      if (filter && filter !== 'সব') {
+        items = items.filter(i => i.type === filter);
+      }
+
+      if (sort === 'deadline') {
+        items.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+      } else if (sort === 'status') {
+        const order = {'চলছে': 0, 'শীঘ্রই': 1, 'শেষ': 2};
+        items.sort((a, b) => (order[a.status] || 0) - (order[b.status] || 0));
+      }
+
+      if (countEl) countEl.textContent = `${items.length}টি ভর্তি বিজ্ঞপ্তি পাওয়া গেছে`;
+
+      if (items.length === 0) {
+        list.innerHTML = '<div class="no-results"><div class="no-results-icon">😕</div><h3>কোনো ভর্তি বিজ্ঞপ্তি পাওয়া যায়নি</h3></div>';
+        return;
+      }
+
+      const typeIcons = {'বিশ্ববিদ্যালয়': '🎓', 'মেডিকেল': '🏥', 'ইঞ্জিনিয়ারিং': '⚙️', 'কলেজ': '📚'};
+
+      list.innerHTML = items.map(item => `
+        <div class="admission-card">
+          <span class="admission-icon">${typeIcons[item.type] || '📋'}</span>
+          <div class="admission-body">
+            <h3 class="admission-title">
+              <a href="${item.link}" target="_blank" rel="noopener">${item.title}</a>
+            </h3>
+            <div class="admission-meta">
+              <span>🏫 ${item.university}</span>
+              <span>💺 আসন: ${item.seats}</span>
+              <span>💳 ফি: ${item.fee}</span>
+              <span>📅 শেষ: ${item.deadlineDisplay}</span>
+            </div>
+            <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">${item.description}</p>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+              <span class="badge ${item.status === 'চলছে' ? 'badge-success' : item.status === 'শেষ' ? 'badge-danger' : 'badge-warning'}">${item.status}</span>
+              <a href="${item.link}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">আবেদন করুন ↗</a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

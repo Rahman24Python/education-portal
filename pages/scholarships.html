@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="EduBD - স্কলারশিপ তথ্য। বাংলাদেশ ও আন্তর্জাতিক বৃত্তির সম্পূর্ণ তালিকা।">
+  <title>স্কলারশিপ — EduBD</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left"><span id="live-date">লোড হচ্ছে...</span><span>|</span><span id="live-time"></span></div>
+      <div class="top-bar-right">
+        <a href="about.html">আমাদের সম্পর্কে</a>
+        <a href="https://moedu.gov.bd" target="_blank" rel="noopener">শিক্ষা মন্ত্রণালয়</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="breaking-news-bar">
+    <div class="breaking-news-inner">
+      <span class="breaking-label">🔴 ব্রেকিং</span>
+      <div class="breaking-ticker"><div class="breaking-ticker-inner" id="breaking-ticker"><span class="ticker-item">লোড হচ্ছে...</span></div></div>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📚</div>
+        <div class="logo-text"><span class="name">EduBD</span><span class="tagline">বাংলাদেশ শিক্ষা তথ্য পোর্টাল</span></div>
+      </a>
+      <div class="search-box">
+        <input type="text" placeholder="🔍 বৃত্তি খুঁজুন..." autocomplete="off">
+        <button class="search-btn" type="button" aria-label="অনুসন্ধান">🔍</button>
+      </div>
+      <nav>
+        <a href="../index.html" class="nav-link">হোম</a>
+        <div class="nav-dropdown">
+          <a href="admissions.html" class="nav-link">ভর্তি তথ্য <span style="font-size:10px;">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="admissions.html?type=বিশ্ববিদ্যালয়" class="dropdown-item"><span class="dropdown-icon">🎓</span>বিশ্ববিদ্যালয় ভর্তি</a>
+            <a href="admissions.html?type=মেডিকেল" class="dropdown-item"><span class="dropdown-icon">🏥</span>মেডিকেল ভর্তি</a>
+            <a href="admissions.html?type=ইঞ্জিনিয়ারিং" class="dropdown-item"><span class="dropdown-icon">⚙️</span>ইঞ্জিনিয়ারিং ভর্তি</a>
+            <a href="admissions.html?type=কলেজ" class="dropdown-item"><span class="dropdown-icon">📚</span>কলেজ ভর্তি (XI)</a>
+            <a href="admissions.html" class="dropdown-item"><span class="dropdown-icon">📋</span>সকল ভর্তি বিজ্ঞপ্তি</a>
+          </div>
+        </div>
+        <a href="routines.html" class="nav-link">পরীক্ষা</a>
+        <a href="results.html" class="nav-link">ফলাফল</a>
+        <a href="scholarships.html" class="nav-link active">স্কলারশিপ</a>
+        <a href="news.html" class="nav-link">শিক্ষা সংবাদ</a>
+      </nav>
+      <button class="hamburger" aria-label="মেনু"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <nav class="category-nav">
+    <div class="category-nav-inner">
+      <a href="news.html?cat=ট্রেন্ডিং" class="cat-link">🔥 ট্রেন্ডিং</a>
+      <a href="ssc.html" class="cat-link">📝 SSC 2025</a>
+      <a href="hsc.html" class="cat-link">📚 HSC 2025</a>
+      <a href="admissions.html?type=বিশ্ববিদ্যালয়" class="cat-link">🎓 বিশ্ববিদ্যালয়</a>
+      <a href="routines.html" class="cat-link">🗓️ রুটিন</a>
+      <a href="news.html?cat=নোটিশ" class="cat-link">📢 নোটিশ</a>
+      <a href="scholarships.html" class="cat-link active">🌟 বৃত্তি</a>
+      <a href="scholarships.html?type=international" class="cat-link">✈️ বিদেশে পড়াশোনা</a>
+    </div>
+  </nav>
+
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="logo"><div class="logo-icon">📚</div><div class="logo-text"><span class="name">EduBD</span></div></div>
+      <button class="mobile-menu-close">✕</button>
+    </div>
+    <a href="../index.html" class="mobile-nav-link">🏠 হোম</a>
+    <a href="admissions.html" class="mobile-nav-link">🎓 ভর্তি তথ্য</a>
+    <a href="routines.html" class="mobile-nav-link">🗓️ পরীক্ষা</a>
+    <a href="results.html" class="mobile-nav-link">📊 ফলাফল</a>
+    <a href="scholarships.html" class="mobile-nav-link">🌟 স্কলারশিপ</a>
+    <a href="news.html" class="mobile-nav-link">📰 শিক্ষা সংবাদ</a>
+    <a href="about.html" class="mobile-nav-link">ℹ️ আমাদের সম্পর্কে</a>
+  </div>
+
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="../index.html">হোম</a><span class="breadcrumb-sep">›</span><span>স্কলারশিপ</span>
+    </div>
+  </div>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <h1>🌟 বৃত্তি তথ্য ২০২৫</h1>
+      <p>বাংলাদেশ ও আন্তর্জাতিক বৃত্তির সম্পূর্ণ তালিকা — দেশে ও বিদেশে পড়ার সুযোগ</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">সব বৃত্তি</button>
+      <button class="filter-btn" data-filter="bangladesh">🇧🇩 বাংলাদেশ</button>
+      <button class="filter-btn" data-filter="international">✈️ আন্তর্জাতিক</button>
+      <button class="filter-btn" data-filter="full">সম্পূর্ণ বৃত্তি</button>
+      <button class="filter-btn" data-filter="partial">আংশিক বৃত্তি</button>
+      <button class="filter-btn" data-filter="masters">মাস্টার্স</button>
+      <button class="filter-btn" data-filter="phd">পিএইচডি</button>
+    </div>
+
+    <!-- Count -->
+    <p id="scholarship-count" style="font-size:14px;color:var(--text-muted);margin-bottom:15px;"></p>
+
+    <!-- International Scholarships Section -->
+    <div id="intl-section">
+      <h2 style="font-size:19px;font-weight:800;color:var(--text-dark);margin:20px 0 15px;display:flex;align-items:center;gap:8px;">
+        <span style="width:4px;height:22px;background:#0088cc;border-radius:2px;display:inline-block;"></span>
+        আন্তর্জাতিক বৃত্তি ✈️
+      </h2>
+      <div id="intl-scholarship-list"></div>
+    </div>
+
+    <!-- BD Scholarships Section -->
+    <div id="bd-section">
+      <h2 style="font-size:19px;font-weight:800;color:var(--text-dark);margin:25px 0 15px;display:flex;align-items:center;gap:8px;">
+        <span style="width:4px;height:22px;background:var(--primary);border-radius:2px;display:inline-block;"></span>
+        বাংলাদেশ বৃত্তি 🇧🇩
+      </h2>
+      <div id="bd-scholarship-list"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo"><div class="footer-logo-icon">📚</div><div class="footer-logo-text"><div class="name">EduBD</div><div class="tagline">বাংলাদেশ শিক্ষা তথ্য পোর্টাল</div></div></div>
+          <p class="footer-desc">বাংলাদেশের সকল শিক্ষার্থীর জন্য বিশ্বস্ত শিক্ষামূলক তথ্য পোর্টাল।</p>
+        </div>
+        <div class="footer-col">
+          <h4>দ্রুত লিঙ্ক</h4>
+          <div class="footer-links">
+            <a href="admissions.html">🎓 ভর্তি তথ্য</a>
+            <a href="results.html">📊 ফলাফল</a>
+            <a href="scholarships.html">🌟 বৃত্তি</a>
+            <a href="routines.html">🗓️ রুটিন</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>বৃত্তি ধরন</h4>
+          <div class="footer-links">
+            <a href="scholarships.html?type=international">✈️ আন্তর্জাতিক</a>
+            <a href="scholarships.html?type=bangladesh">🇧🇩 বাংলাদেশ</a>
+            <a href="scholarships.html?type=full">সম্পূর্ণ বৃত্তি</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>গুরুত্বপূর্ণ লিঙ্ক</h4>
+          <div class="footer-links">
+            <a href="https://scholarship.gov.bd" target="_blank" rel="noopener">🌟 scholarship.gov.bd</a>
+            <a href="https://chevening.org" target="_blank" rel="noopener">🇬🇧 Chevening</a>
+            <a href="https://daad.de" target="_blank" rel="noopener">🇩🇪 DAAD</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© ২০২৫ EduBD — বাংলাদেশ শিক্ষা তথ্য পোর্টাল।</span></div>
+  </footer>
+
+  <button class="back-to-top" title="উপরে যান">▲</button>
+  <div class="toast-container"></div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/countdown.js"></script>
+  <script src="../js/newsletter.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const typeParam = params.get('type') || 'all';
+      renderScholarships(typeParam);
+      setActiveFilter(typeParam);
+
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          renderScholarships(this.dataset.filter);
+          const url = new URL(window.location);
+          url.searchParams.set('type', this.dataset.filter);
+          window.history.replaceState({}, '', url);
+        });
+      });
+    });
+
+    function setActiveFilter(type) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === type || (type === 'all' && btn.dataset.filter === 'all'));
+      });
+    }
+
+    function renderScholarships(filter) {
+      let items = [...eduData.scholarships];
+      const countEl = document.getElementById('scholarship-count');
+
+      if (filter === 'international') items = items.filter(i => i.country !== 'বাংলাদেশ');
+      else if (filter === 'bangladesh') items = items.filter(i => i.country === 'বাংলাদেশ');
+      else if (filter === 'full') items = items.filter(i => i.type.includes('সম্পূর্ণ'));
+      else if (filter === 'partial') items = items.filter(i => i.type.includes('আংশিক'));
+      else if (filter === 'masters') items = items.filter(i => i.level.includes('মাস্টার্স'));
+      else if (filter === 'phd') items = items.filter(i => i.level.includes('পিএইচডি'));
+
+      if (countEl) countEl.textContent = `${items.length}টি বৃত্তি পাওয়া গেছে`;
+
+      const intlItems = items.filter(i => i.country !== 'বাংলাদেশ');
+      const bdItems = items.filter(i => i.country === 'বাংলাদেশ');
+
+      const intlList = document.getElementById('intl-scholarship-list');
+      const bdList = document.getElementById('bd-scholarship-list');
+      const intlSection = document.getElementById('intl-section');
+      const bdSection = document.getElementById('bd-section');
+
+      if (filter === 'bangladesh') {
+        intlSection.style.display = 'none';
+        bdSection.style.display = 'block';
+      } else if (filter === 'international') {
+        intlSection.style.display = 'block';
+        bdSection.style.display = 'none';
+      } else {
+        intlSection.style.display = 'block';
+        bdSection.style.display = 'block';
+      }
+
+      renderScholarshipCards(intlList, intlItems.length > 0 ? intlItems : (filter === 'bangladesh' ? [] : intlItems));
+      renderScholarshipCards(bdList, bdItems);
+    }
+
+    function renderScholarshipCards(container, items) {
+      if (!container) return;
+      if (items.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted);padding:15px 0;">এই বিভাগে কোনো বৃত্তি পাওয়া যায়নি।</p>';
+        return;
+      }
+      container.innerHTML = items.map(item => `
+        <div class="scholarship-card">
+          <div class="scholarship-card-flag">${item.flag}</div>
+          <div class="scholarship-card-body">
+            <h3 class="scholarship-card-title">
+              <a href="${item.link}" target="_blank" rel="noopener">${item.name}</a>
+            </h3>
+            <div class="scholarship-tags">
+              <span class="tag">${item.country}</span>
+              <span class="tag">${item.type}</span>
+              <span class="tag">${item.level}</span>
+              <span class="tag">💰 ${item.amount}</span>
+            </div>
+            <p class="scholarship-description">${item.description}</p>
+            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+              <span style="font-size:13px;color:#e65100;">📅 শেষ: ${item.deadlineDisplay}</span>
+              <span style="font-size:13px;color:var(--text-muted);">🎓 যোগ্যতা: ${item.eligibility}</span>
+            </div>
+            <div style="margin-top:12px;">
+              <a href="${item.link}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">আবেদন করুন ↗</a>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+  </script>
+</body>
+</html>

@@ -214,7 +214,7 @@
         const esc = (typeof escapeHtml === 'function') ? escapeHtml : (s => s);
         newsEl.innerHTML = sscNews.map(item => `
           <div class="news-card">
-            <div class="news-card-img"><a href="../${esc(item.link)}"><img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200/1a6b3c/ffffff?text=SSC'"></a></div>
+            <div class="news-card-img"><a href="../${esc(item.link)}"><img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy" onerror="this.style.display='none'"></a></div>
             <div class="news-card-body">
               <span class="news-category">${esc(item.category)}</span>
               <a href="../${esc(item.link)}"><h3 class="news-title">${esc(item.title)}</h3></a>

@@ -127,16 +127,6 @@
 
     <div style="display:grid;grid-template-columns:2fr 1fr;gap:25px;" class="main-content" style="padding:0;">
       <div>
-        <div style="background:white;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-bottom:25px;">
-          <h2 class="section-title" style="margin-bottom:15px;">📅 পরীক্ষার রুটিন ২০২৫</h2>
-          <div class="routine-table-wrap">
-            <table class="routine-table">
-              <thead><tr><th>তারিখ</th><th>বিষয়</th><th>সময়</th></tr></thead>
-              <tbody id="hsc-routine-body"></tbody>
-            </table>
-          </div>
-        </div>
-
         <div>
           <div class="section-header">
             <h2 class="section-title">📰 HSC সংক্রান্ত সংবাদ</h2>
@@ -191,20 +181,13 @@
   <script src="../js/countdown.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const routine = eduData.routines.find(r => r.exam.includes('HSC'));
-      if (routine) {
-        document.getElementById('hsc-routine-body').innerHTML = routine.schedule.map(s => `
-          <tr><td><strong>${s.date}</strong></td><td>${s.subject}</td><td>সকাল ১০টা</td></tr>
-        `).join('');
-      }
-
       const hscNews = eduData.latestNews.filter(n => n.category === 'HSC 2026').slice(0, 4);
       const newsEl = document.getElementById('hsc-news');
       if (newsEl && hscNews.length > 0) {
         const esc = (typeof escapeHtml === 'function') ? escapeHtml : (s => s);
         newsEl.innerHTML = hscNews.map(item => `
           <div class="news-card">
-            <div class="news-card-img"><a href="../${esc(item.link)}"><img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200/1a3a6b/ffffff?text=HSC'"></a></div>
+            <div class="news-card-img"><a href="../${esc(item.link)}"><img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy" onerror="this.style.display='none'"></a></div>
             <div class="news-card-body">
               <span class="news-category">${esc(item.category)}</span>
               <a href="../${esc(item.link)}"><h3 class="news-title">${esc(item.title)}</h3></a>

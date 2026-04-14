@@ -16,13 +16,25 @@ const eduData = {
 
   latestNews: [
     {
+      id: 0,
+      category: "বোর্ড নোটিশ",
+      title: "২০২৫ সালের (৭ম-১০ম) শ্রেণির বোর্ড পরিবর্তনকৃত শিক্ষার্থীদের ছাড়পত্রের অনুমতি পত্র (TN: 1021-1053)",
+      summary: "ঢাকা শিক্ষা বোর্ড কর্তৃক ২০২৫ সালের ৭ম-১০ম শ্রেণির বোর্ড পরিবর্তনকৃত শিক্ষার্থীদের ছাড়পত্রের অনুমতি পত্র সংক্রান্ত বিজ্ঞপ্তি প্রকাশিত হয়েছে।",
+      source: "ঢাকা শিক্ষা বোর্ড",
+      date: "২০২৫",
+      image: "",
+      link: "https://dhakaeducationboard.portal.gov.bd/pages/notices/%E0%A7%A8%E0%A7%A6%E0%A7%A8%E0%A7%AB-%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%B0-%E0%A7%AD%E0%A6%AE-%E0%A7%A7%E0%A7%A6%E0%A6%AE-%E0%A6%B6%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%A3%E0%A6%BF%E0%A6%B0-%E0%A6%AC%E0%A7%8B%E0%A6%B0%E0%A7%8D%E0%A6%A1-%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%AC%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%A8%E0%A6%95%E0%A7%83%E0%A6%A4-%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A7%80%E0%A6%A6%E0%A7%87%E0%A6%B0-e6edb0-6919990581fc96cef9e613d7",
+      views: 0,
+      year: "2025"
+    },
+    {
       id: 1,
       category: "SSC 2026",
       title: "SSC পরীক্ষা ২০২৬: সারা দেশে একযোগে পরীক্ষা শুরু",
       summary: "ফেব্রুয়ারি ২০২৬ থেকে এসএসসি পরীক্ষা ২০২৬ শুরু হয়েছে। সকল শিক্ষা বোর্ডে একযোগে পরীক্ষা চলছে। প্রায় ২১ লাখ শিক্ষার্থী এই পরীক্ষায় অংশগ্রহণ করছে। ফলাফল মে ২০২৬-এ প্রকাশিত হবে।",
       source: "শিক্ষা মন্ত্রণালয়",
       date: "২০২৬-০২-১৫",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=SSC+2026",
+      image: "",
       link: "pages/ssc.html",
       views: 19800,
       year: "2026"
@@ -34,7 +46,7 @@ const eduData = {
       summary: "ঢাকা বিশ্ববিদ্যালয়ের ২০২৫-২৬ শিক্ষাবর্ষের ভর্তি পরীক্ষার মেধাতালিকা প্রকাশিত হয়েছে। নির্বাচিত শিক্ষার্থীরা ভর্তির জন্য নির্ধারিত তারিখে রিপোর্ট করবেন।",
       source: "ঢাকা বিশ্ববিদ্যালয়",
       date: "২০২৬-০৩-১৫",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=DU+Admission",
+      image: "",
       link: "pages/admissions.html",
       views: 14500,
       year: "2026"
@@ -46,7 +58,7 @@ const eduData = {
       summary: "যুক্তরাজ্য সরকারের Chevening বৃত্তি কর্মসূচিতে ২০২৬-২৭ শিক্ষাবর্ষে আবেদন শুরু হয়েছে। শেষ তারিখ ৭ নভেম্বর ২০২৬। এই বৃত্তিতে সম্পূর্ণ বিনামূল্যে যুক্তরাজ্যের বিশ্ববিদ্যালয়ে মাস্টার্স করার সুযোগ।",
       source: "British Council Bangladesh",
       date: "২০২৬-০৪-০১",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=Chevening+2027",
+      image: "",
       link: "pages/scholarships.html",
       views: 11200,
       year: "2026"
@@ -58,7 +70,7 @@ const eduData = {
       summary: "উচ্চ মাধ্যমিক পরীক্ষা ২০২৬ এপ্রিল মাসে শুরু হয়েছে। নতুন পাঠ্যক্রম ও সৃজনশীল পদ্ধতিতে পরীক্ষা নেওয়া হচ্ছে। মোট ১৩ লাখ পরীক্ষার্থী অংশগ্রহণ করছে।",
       source: "আন্তঃশিক্ষা বোর্ড",
       date: "২০২৬-০৩-২০",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=HSC+2026",
+      image: "",
       link: "pages/hsc.html",
       views: 13400,
       year: "2026"
@@ -70,7 +82,7 @@ const eduData = {
       summary: "সরকারি মেডিকেল কলেজে MBBS ভর্তির চূড়ান্ত ফলাফল প্রকাশিত হয়েছে। মোট ৫,৫৮০টি আসনে মেধাক্রম অনুযায়ী ভর্তি সম্পন্ন হচ্ছে।",
       source: "স্বাস্থ্য মন্ত্রণালয়",
       date: "২০২৬-০৩-১০",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=Medical+2026",
+      image: "",
       link: "pages/admissions.html",
       views: 9800,
       year: "2026"
@@ -82,7 +94,7 @@ const eduData = {
       summary: "মাধ্যমিক ও উচ্চ শিক্ষা বিভাগের মেধা বৃত্তি ও সাধারণ বৃত্তি ২০২৬-এর আবেদন চলছে। shed.gov.bd তে বিস্তারিত তথ্য পাওয়া যাচ্ছে।",
       source: "shed.gov.bd",
       date: "২০২৬-০৩-০১",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=Govt+Scholarship+2026",
+      image: "",
       link: "pages/scholarships.html",
       views: 9500,
       year: "2026"
@@ -94,7 +106,7 @@ const eduData = {
       summary: "SSC পরীক্ষা ২০২৬-এর চূড়ান্ত রুটিন প্রকাশিত হয়েছে। ১৫ ফেব্রুয়ারি থেকে পরীক্ষা শুরু হয়েছে।",
       source: "শিক্ষা বোর্ড",
       date: "২০২৬-০১-১৫",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=SSC+Routine+2026",
+      image: "",
       link: "pages/routines.html",
       views: 7800,
       year: "2026"
@@ -106,7 +118,7 @@ const eduData = {
       summary: "জার্মান একাডেমিক এক্সচেঞ্জ সার্ভিস (DAAD) বাংলাদেশী শিক্ষার্থীদের জন্য ২০২৬-২৭ সেশনের বৃত্তি আবেদন গ্রহণ করছে। আবেদনের শেষ তারিখ অক্টোবর ২০২৬।",
       source: "DAAD Bangladesh",
       date: "২০২৬-০৪-০১",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=DAAD+2027",
+      image: "",
       link: "pages/scholarships.html",
       views: 6300,
       year: "2026"
@@ -118,7 +130,7 @@ const eduData = {
       summary: "বাংলাদেশ কারিগরি শিক্ষা বোর্ডে ডিপ্লোমা ইন ইঞ্জিনিয়ারিং ২০২৫-২৬ সেশনে ভর্তি চলছে। অনলাইনে আবেদন করা যাচ্ছে।",
       source: "কারিগরি শিক্ষা বোর্ড",
       date: "২০২৬-০২-২০",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=Technical+2026",
+      image: "",
       link: "pages/news.html",
       views: 5100,
       year: "2026"
@@ -130,7 +142,7 @@ const eduData = {
       summary: "বাংলাদেশ মাদ্রাসা শিক্ষা বোর্ডের দাখিল পরীক্ষা ২০২৬-এর রুটিন প্রকাশিত হয়েছে। পরীক্ষা ফেব্রুয়ারি মাসে শুরু হয়েছে।",
       source: "মাদ্রাসা শিক্ষা বোর্ড",
       date: "২০২৬-০১-১০",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=Dakhil+2026",
+      image: "",
       link: "pages/news.html",
       views: 4600,
       year: "2026"
@@ -142,7 +154,7 @@ const eduData = {
       summary: "জাতীয় বিশ্ববিদ্যালয়ের অনার্স ১ম বর্ষ ভর্তি ২০২৫-২৬ সেশনের বিজ্ঞপ্তি প্রকাশিত হয়েছে। অনলাইনে আবেদন চলছে — শেষ তারিখ ৩০ এপ্রিল ২০২৬।",
       source: "জাতীয় বিশ্ববিদ্যালয়",
       date: "২০২৬-০৪-০১",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=NU+2026",
+      image: "",
       link: "pages/news.html",
       views: 7900,
       year: "2026"
@@ -154,7 +166,7 @@ const eduData = {
       summary: "উচ্চ মাধ্যমিক সার্টিফিকেট (HSC) পরীক্ষার ফলাফল ২০২৫ প্রকাশিত হয়েছে। এবার মোট পাসের হার ৭৯.৫৩% এবং GPA-5 পেয়েছে ৯৮,১২৭ জন।",
       source: "আন্তঃশিক্ষা বোর্ড",
       date: "২০২৫-১১-২৬",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=HSC+Result+2025",
+      image: "",
       link: "pages/results.html",
       views: 31200,
       year: "2025"
@@ -166,7 +178,7 @@ const eduData = {
       summary: "মাধ্যমিক সার্টিফিকেট (SSC) পরীক্ষার ফলাফল ২০২৫ প্রকাশিত হয়েছে। মোট পাসের হার ৮৩.০৪% এবং GPA-5 পেয়েছে ১,৩৮,৬৮৩ জন।",
       source: "আন্তঃশিক্ষা বোর্ড",
       date: "২০২৫-০৭-১২",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=SSC+Result+2025",
+      image: "",
       link: "pages/results.html",
       views: 42000,
       year: "2025"
@@ -178,7 +190,7 @@ const eduData = {
       summary: "SSC ২০২৫ পাসকৃত শিক্ষার্থীদের একাদশ শ্রেণীতে ভর্তির আবেদন প্রক্রিয়া শেষ হয়েছে। ফলাফল ও ভর্তি কার্যক্রম সম্পন্ন।",
       source: "শিক্ষা মন্ত্রণালয়",
       date: "২০২৫-০৯-১৫",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=XI+Admission+2025",
+      image: "",
       link: "pages/admissions.html",
       views: 18500,
       year: "2025"
@@ -221,8 +233,8 @@ const eduData = {
       title: "MBBS ভর্তি বিজ্ঞপ্তি ২০২৫-২৬",
       deadline: "2026-04-30",
       deadlineDisplay: "৩০ এপ্রিল ২০২৬",
-      link: "https://dgme.gov.bd",
-      status: "চলছে",
+      link: "https://dgme.gov.bd/pages/notices",
+      status: "শেষ",
       seats: "৫,৫৮০",
       fee: "১,০০০ টাকা",
       description: "সরকারি মেডিকেল কলেজে MBBS ও BDS কোর্সে ভর্তির কার্যক্রম চলছে।",
@@ -240,20 +252,6 @@ const eduData = {
       seats: "৬,৫০০",
       fee: "৫৫০ টাকা",
       description: "চট্টগ্রাম বিশ্ববিদ্যালয়ের বিভিন্ন বিভাগে ২০২৫-২৬ ভর্তি সম্পন্ন।",
-      year: "2026"
-    },
-    {
-      id: 5,
-      university: "একাদশ শ্রেণী (কলেজ ভর্তি)",
-      type: "কলেজ",
-      title: "একাদশ শ্রেণীতে ভর্তি বিজ্ঞপ্তি ২০২৬",
-      deadline: "2026-07-15",
-      deadlineDisplay: "১৫ জুলাই ২০২৬",
-      link: "https://xiclassadmission.gov.bd",
-      status: "শীঘ্রই",
-      seats: "৩,০০,০০০",
-      fee: "১৫০ টাকা",
-      description: "SSC ২০২৬ পাসকৃত শিক্ষার্থীদের একাদশ শ্রেণীতে ভর্তির জন্য অনলাইনে আবেদন জুন ২০২৬ থেকে শুরু হবে।",
       year: "2026"
     },
     {
@@ -305,9 +303,8 @@ const eduData = {
       title: "জাতীয় বিশ্ববিদ্যালয় অনার্স ভর্তি ২০২৫-২৬",
       deadline: "2026-04-30",
       deadlineDisplay: "৩০ এপ্রিল ২০২৬",
-      link: "https://nu.ac.bd",
+      link: "https://www.nu.ac.bd",
       status: "চলছে",
-      seats: "৫,০০,০০০+",
       fee: "২৫০ টাকা",
       description: "জাতীয় বিশ্ববিদ্যালয়ের অধীন কলেজসমূহে অনার্স ১ম বর্ষে ভর্তির আবেদন চলছে।",
       year: "2026"
@@ -319,7 +316,7 @@ const eduData = {
       title: "বেসরকারি মেডিকেল ও ডেন্টাল কলেজ ভর্তি ২০২৫-২৬",
       deadline: "2026-05-31",
       deadlineDisplay: "৩১ মে ২০২৬",
-      link: "https://dgme.gov.bd",
+      link: "https://dgme.gov.bd/pages/notices",
       status: "শীঘ্রই",
       seats: "৬,৩৫৫",
       fee: "১,৫০০ টাকা",
@@ -347,11 +344,8 @@ const eduData = {
       title: "MBBS ভর্তি ২০২৪-২৫ — শেষ হয়েছে",
       deadline: "2025-04-30",
       deadlineDisplay: "৩০ এপ্রিল ২০২৫",
-      link: "https://dgme.gov.bd",
+      link: "https://dgme.gov.bd/pages/notices",
       status: "শেষ হয়েছে",
-      seats: "৫,৫৮০",
-      fee: "১,০০০ টাকা",
-      description: "সরকারি মেডিকেল কলেজে ২০২৪-২৫ শিক্ষাবর্ষের ভর্তি সম্পন্ন হয়েছে।",
       year: "2025"
     }
   ],
@@ -903,17 +897,14 @@ const eduData = {
       id: "dhaka",
       name: "ঢাকা শিক্ষা বোর্ড",
       shortName: "ঢাকা",
-      website: "https://dhakaeducationboard.gov.bd",
+      website: "https://dhakaeducationboard.portal.gov.bd",
       phone: "০২-৯৫৫৮৬৩৫",
       email: "info@dhakaeducationboard.gov.bd",
       address: "বাংলাদেশ সরকার, মাধ্যমিক ও উচ্চ মাধ্যমিক শিক্ষা বোর্ড, ঢাকা",
       established: "১৯২১",
       districts: ["ঢাকা", "ময়মনসিংহ", "গাজীপুর", "নারায়ণগঞ্জ", "মুন্সীগঞ্জ", "মানিকগঞ্জ", "কিশোরগঞ্জ"],
       pdfLinks: [
-        { title: "SSC রুটিন ২০২৬", url: "https://dhakaeducationboard.gov.bd/data/20260115195924217818.pdf" },
-        { title: "HSC রুটিন ২০২৬", url: "https://dhakaeducationboard.gov.bd/data/20260218143025318920.pdf" },
-        { title: "SSC ফলাফল ২০২৫", url: "https://dhakaeducationboard.gov.bd/data/20251126094512108734.pdf" },
-        { title: "HSC ফলাফল ২০২৫", url: "https://dhakaeducationboard.gov.bd/data/20251126094512108735.pdf" }
+        { title: "২০২৫ সালের (৭ম-১০ম) শ্রেণির বোর্ড পরিবর্তনকৃত শিক্ষার্থীদের ছাড়পত্রের অনুমতি পত্র (TN: 1021-1053)", url: "https://dhakaeducationboard.portal.gov.bd/pages/notices/%E0%A7%A8%E0%A7%A6%E0%A7%A8%E0%A7%AB-%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%B0-%E0%A7%AD%E0%A6%AE-%E0%A7%A7%E0%A7%A6%E0%A6%AE-%E0%A6%B6%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%A3%E0%A6%BF%E0%A6%B0-%E0%A6%AC%E0%A7%8B%E0%A6%B0%E0%A7%8D%E0%A6%A1-%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%AC%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%A8%E0%A6%95%E0%A7%83%E0%A6%A4-%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A7%80%E0%A6%A6%E0%A7%87%E0%A6%B0-e6edb0-6919990581fc96cef9e613d7" }
       ]
     },
     {
@@ -926,10 +917,7 @@ const eduData = {
       address: "রাজশাহী, বাংলাদেশ",
       established: "১৯৬১",
       districts: ["রাজশাহী", "নওগাঁ", "নাটোর", "চাঁপাইনবাবগঞ্জ", "পাবনা", "সিরাজগঞ্জ", "বগুড়া", "জয়পুরহাট"],
-      pdfLinks: [
-        { title: "SSC রুটিন ২০২৬", url: "https://rajshahieducationboard.gov.bd/data/20260115sscRoutine2026.pdf" },
-        { title: "HSC রুটিন ২০২৬", url: "https://rajshahieducationboard.gov.bd/data/20260218hscRoutine2026.pdf" }
-      ]
+      pdfLinks: []
     },
     {
       id: "chittagong",
@@ -941,10 +929,7 @@ const eduData = {
       address: "চট্টগ্রাম, বাংলাদেশ",
       established: "১৯৯৫",
       districts: ["চট্টগ্রাম", "কক্সবাজার", "রাঙ্গামাটি", "বান্দরবান", "খাগড়াছড়ি"],
-      pdfLinks: [
-        { title: "SSC রুটিন ২০২৬", url: "https://bise-ctg.portal.gov.bd/data/ssc_routine_2026.pdf" },
-        { title: "HSC রুটিন ২০২৬", url: "https://bise-ctg.portal.gov.bd/data/hsc_routine_2026.pdf" }
-      ]
+      pdfLinks: []
     },
     {
       id: "sylhet",
@@ -956,10 +941,7 @@ const eduData = {
       address: "সিলেট, বাংলাদেশ",
       established: "১৯৯৯",
       districts: ["সিলেট", "সুনামগঞ্জ", "হবিগঞ্জ", "মৌলভীবাজার"],
-      pdfLinks: [
-        { title: "SSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/ssc_routine_2026.pdf" },
-        { title: "HSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/hsc_routine_2026.pdf" }
-      ]
+      pdfLinks: []
     },
     {
       id: "comilla",
@@ -971,10 +953,7 @@ const eduData = {
       address: "কুমিল্লা, বাংলাদেশ",
       established: "১৯৬২",
       districts: ["কুমিল্লা", "ফেনী", "চাঁদপুর", "ব্রাহ্মণবাড়িয়া", "নোয়াখালী", "লক্ষ্মীপুর"],
-      pdfLinks: [
-        { title: "SSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/ssc_routine_2026.pdf" },
-        { title: "HSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/hsc_routine_2026.pdf" }
-      ]
+      pdfLinks: []
     },
     {
       id: "barisal",
@@ -986,10 +965,7 @@ const eduData = {
       address: "বরিশাল, বাংলাদেশ",
       established: "১৯৯৯",
       districts: ["বরিশাল", "পটুয়াখালী", "পিরোজপুর", "ঝালকাঠি", "ভোলা", "বরগুনা"],
-      pdfLinks: [
-        { title: "SSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/ssc_routine_2026.pdf" },
-        { title: "HSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/hsc_routine_2026.pdf" }
-      ]
+      pdfLinks: []
     },
     {
       id: "jessore",
@@ -1001,10 +977,7 @@ const eduData = {
       address: "যশোর, বাংলাদেশ",
       established: "১৯৬৩",
       districts: ["যশোর", "খুলনা", "বাগেরহাট", "সাতক্ষীরা", "নড়াইল", "মাগুরা", "ঝিনাইদহ", "কুষ্টিয়া", "মেহেরপুর", "চুয়াডাঙ্গা"],
-      pdfLinks: [
-        { title: "SSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/ssc_routine_2026.pdf" },
-        { title: "HSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/hsc_routine_2026.pdf" }
-      ]
+      pdfLinks: []
     },
     {
       id: "dinajpur",
@@ -1016,10 +989,7 @@ const eduData = {
       address: "দিনাজপুর, বাংলাদেশ",
       established: "১৯৬৩",
       districts: ["দিনাজপুর", "রংপুর", "কুড়িগ্রাম", "গাইবান্ধা", "নীলফামারী", "লালমনিরহাট", "ঠাকুরগাঁও", "পঞ্চগড়"],
-      pdfLinks: [
-        { title: "SSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/ssc_routine_2026.pdf" },
-        { title: "HSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/hsc_routine_2026.pdf" }
-      ]
+      pdfLinks: []
     },
     {
       id: "mymensingh",
@@ -1031,10 +1001,7 @@ const eduData = {
       address: "ময়মনসিংহ, বাংলাদেশ",
       established: "২০১৭",
       districts: ["ময়মনসিংহ", "জামালপুর", "শেরপুর", "নেত্রকোণা"],
-      pdfLinks: [
-        { title: "SSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/ssc_routine_2026.pdf" },
-        { title: "HSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/hsc_routine_2026.pdf" }
-      ]
+      pdfLinks: []
     },
     {
       id: "madrasah",
@@ -1046,10 +1013,7 @@ const eduData = {
       address: "ঢাকা, বাংলাদেশ",
       established: "১৯৭৮",
       districts: ["সারা বাংলাদেশ"],
-      pdfLinks: [
-        { title: "SSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/ssc_routine_2026.pdf" },
-        { title: "HSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/hsc_routine_2026.pdf" }
-      ]
+      pdfLinks: []
     },
     {
       id: "technical",
@@ -1061,10 +1025,7 @@ const eduData = {
       address: "ঢাকা, বাংলাদেশ",
       established: "১৯৬৭",
       districts: ["সারা বাংলাদেশ"],
-      pdfLinks: [
-        { title: "SSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/ssc_routine_2026.pdf" },
-        { title: "HSC রুটিন ২০২৬", url: "https://educationboard.gov.bd/data/hsc_routine_2026.pdf" }
-      ]
+      pdfLinks: []
     }
   ],
 
@@ -1077,7 +1038,7 @@ const eduData = {
       endDate: "2026-03-14",
       startDateDisplay: "১৫ ফেব্রুয়ারি ২০২৬",
       endDateDisplay: "১৪ মার্চ ২০২৬",
-      pdfUrl: "https://dhakaeducationboard.gov.bd/data/20260115195924217818.pdf",
+      pdfUrl: "",
       link: "pages/ssc.html",
       year: "2026",
       schedule: [
@@ -1105,7 +1066,7 @@ const eduData = {
       endDate: "2026-05-18",
       startDateDisplay: "২ এপ্রিল ২০২৬",
       endDateDisplay: "১৮ মে ২০২৬",
-      pdfUrl: "https://dhakaeducationboard.gov.bd/data/20260218143025318920.pdf",
+      pdfUrl: "",
       link: "pages/hsc.html",
       year: "2026",
       schedule: [
@@ -1136,7 +1097,7 @@ const eduData = {
       endDate: "2026-03-12",
       startDateDisplay: "১৫ ফেব্রুয়ারি ২০২৬",
       endDateDisplay: "১২ মার্চ ২০২৬",
-      pdfUrl: "https://www.bmeb.gov.bd/data/dakhil_routine_2026.pdf",
+      pdfUrl: "",
       link: "pages/routines.html",
       year: "2026",
       schedule: [
@@ -1154,75 +1115,57 @@ const eduData = {
   governmentNotices: [
     {
       id: 1,
+      title: "২০২৫ সালের (৭ম-১০ম) শ্রেণির বোর্ড পরিবর্তনকৃত শিক্ষার্থীদের ছাড়পত্রের অনুমতি পত্র (TN: 1021-1053)",
+      source: "dhakaeducationboard.portal.gov.bd",
+      sourceUrl: "https://dhakaeducationboard.portal.gov.bd/pages/notices/%E0%A7%A8%E0%A7%A6%E0%A7%A8%E0%A7%AB-%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%B0-%E0%A7%AD%E0%A6%AE-%E0%A7%A7%E0%A7%A6%E0%A6%AE-%E0%A6%B6%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%A3%E0%A6%BF%E0%A6%B0-%E0%A6%AC%E0%A7%8B%E0%A6%B0%E0%A7%8D%E0%A6%A1-%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%AC%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%A8%E0%A6%95%E0%A7%83%E0%A6%A4-%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A7%80%E0%A6%A6%E0%A7%87%E0%A6%B0-e6edb0-6919990581fc96cef9e613d7",
+      date: "২০২৫",
+      year: "2025",
+      description: "২০২৫ সালের ৭ম-১০ম শ্রেণির বোর্ড পরিবর্তনকৃত শিক্ষার্থীদের ছাড়পত্রের অনুমতি পত্র সংক্রান্ত বিজ্ঞপ্তি।"
+    },
+    {
+      id: 2,
       title: "মাধ্যমিক ও উচ্চ শিক্ষা বিভাগের সর্বশেষ নোটিশ",
       source: "shed.gov.bd",
       sourceUrl: "https://shed.gov.bd/pages/notices",
       date: "২০২৬",
       year: "2026",
-      description: "সরকারি শিক্ষা সংক্রান্ত সর্বশেষ বিজ্ঞপ্তি, আদেশ ও পরিপত্র"
-    },
-    {
-      id: 2,
-      title: "SSC পরীক্ষা ২০২৬: কেন্দ্র তালিকা ও ব্যবস্থাপনা নির্দেশিকা",
-      source: "shed.gov.bd",
-      sourceUrl: "https://shed.gov.bd/pages/notices",
-      date: "জানুয়ারি ২০২৬",
-      year: "2026",
-      description: "SSC পরীক্ষা ২০২৬-এর পরীক্ষা কেন্দ্র তালিকা ও পরীক্ষা ব্যবস্থাপনা সংক্রান্ত সরকারি নির্দেশিকা প্রকাশিত হয়েছে।"
+      description: "সরকারি শিক্ষা সংক্রান্ত সর্বশেষ বিজ্ঞপ্তি, আদেশ ও পরিপত্র।"
     },
     {
       id: 3,
-      title: "HSC পরীক্ষা ২০২৬: পরীক্ষার্থীদের জন্য বিশেষ নির্দেশনা",
+      title: "সরকারি মেধা ও উপবৃত্তি সংক্রান্ত বিজ্ঞপ্তি",
       source: "shed.gov.bd",
-      sourceUrl: "https://shed.gov.bd/pages/notices",
-      date: "মার্চ ২০২৬",
+      sourceUrl: "https://shed.gov.bd/pages/moedu-scholarships",
+      date: "২০২৬",
       year: "2026",
-      description: "HSC পরীক্ষা ২০২৬-এ অংশগ্রহণকারী শিক্ষার্থীদের জন্য বিশেষ নির্দেশনা ও নিয়মাবলী।"
+      description: "মাধ্যমিক পর্যায়ের মেধা বৃত্তি ও উপবৃত্তি সংক্রান্ত সরকারি বিজ্ঞপ্তি।"
     },
     {
       id: 4,
-      title: "একাদশ শ্রেণী ভর্তি নীতিমালা ২০২৬: আবেদন প্রক্রিয়া",
-      source: "shed.gov.bd",
-      sourceUrl: "https://shed.gov.bd/pages/notices",
-      date: "এপ্রিল ২০২৬",
+      title: "DGME: মেডিকেল শিক্ষা সংক্রান্ত সর্বশেষ নোটিশ",
+      source: "dgme.gov.bd",
+      sourceUrl: "https://dgme.gov.bd/pages/notices",
+      date: "২০২৬",
       year: "2026",
-      description: "SSC ২০২৬ উত্তীর্ণ শিক্ষার্থীদের একাদশ শ্রেণীতে ভর্তির নীতিমালা ও আবেদন প্রক্রিয়া সংক্রান্ত বিজ্ঞপ্তি।"
+      description: "স্বাস্থ্য শিক্ষা অধিদপ্তর (DGME) কর্তৃক প্রকাশিত মেডিকেল ভর্তি ও শিক্ষা সংক্রান্ত সর্বশেষ নোটিশ।"
     },
     {
       id: 5,
-      title: "সরকারি মেধা ও সাধারণ বৃত্তি ২০২৬: ফলাফল বিজ্ঞপ্তি",
-      source: "shed.gov.bd",
-      sourceUrl: "https://shed.gov.bd/pages/moedu-scholarships",
-      date: "মার্চ ২০২৬",
+      title: "জাতীয় বিশ্ববিদ্যালয়ের সর্বশেষ নোটিশ ও বিজ্ঞপ্তি",
+      source: "nu.ac.bd",
+      sourceUrl: "https://www.nu.ac.bd",
+      date: "২০২৬",
       year: "2026",
-      description: "মাধ্যমিক পর্যায়ের মেধা ও সাধারণ বৃত্তি ২০২৬ ফলাফল ও তালিকা প্রকাশিত হয়েছে।"
+      description: "জাতীয় বিশ্ববিদ্যালয়ের ভর্তি, পরীক্ষা ও ফলাফল সংক্রান্ত সর্বশেষ বিজ্ঞপ্তি।"
     },
     {
       id: 6,
-      title: "শিক্ষা প্রতিষ্ঠান খোলা ও ছুটির তালিকা ২০২৬",
-      source: "shed.gov.bd",
-      sourceUrl: "https://shed.gov.bd/pages/notices",
-      date: "জানুয়ারি ২০২৬",
+      title: "ঢাকা শিক্ষা বোর্ডের সর্বশেষ নোটিশ",
+      source: "dhakaeducationboard.portal.gov.bd",
+      sourceUrl: "https://dhakaeducationboard.portal.gov.bd",
+      date: "২০২৬",
       year: "2026",
-      description: "২০২৬ সালে মাধ্যমিক ও উচ্চমাধ্যমিক পর্যায়ের শিক্ষা প্রতিষ্ঠানের ছুটির তালিকা ও একাডেমিক ক্যালেন্ডার।"
-    },
-    {
-      id: 7,
-      title: "উপবৃত্তি কর্মসূচি ২০২৫-২৬: নির্বাচন বিজ্ঞপ্তি",
-      source: "shed.gov.bd",
-      sourceUrl: "https://shed.gov.bd/pages/moedu-scholarships",
-      date: "ফেব্রুয়ারি ২০২৬",
-      year: "2026",
-      description: "মাধ্যমিক পর্যায়ের উপবৃত্তি কর্মসূচি ২০২৫-২৬-এর জন্য শিক্ষার্থী নির্বাচন বিজ্ঞপ্তি ও আবেদন প্রক্রিয়া।"
-    },
-    {
-      id: 8,
-      title: "পাঠ্যক্রম ও পাঠ্যপুস্তক পরিমার্জন বিজ্ঞপ্তি ২০২৬",
-      source: "shed.gov.bd",
-      sourceUrl: "https://shed.gov.bd/pages/notices",
-      date: "জানুয়ারি ২০২৬",
-      year: "2026",
-      description: "জাতীয় শিক্ষাক্রম ২০২২ অনুযায়ী পাঠ্যপুস্তক পরিমার্জন ও বিতরণ সংক্রান্ত বিজ্ঞপ্তি।"
+      description: "ঢাকা শিক্ষা বোর্ড কর্তৃক প্রকাশিত SSC, HSC ও অন্যান্য পরীক্ষা সংক্রান্ত সর্বশেষ নোটিশ ও বিজ্ঞপ্তি।"
     }
   ],
 
@@ -1233,8 +1176,7 @@ const eduData = {
     { name: "UGC Bangladesh", url: "https://ugc.gov.bd", icon: "🎓" },
     { name: "Board Results", url: "https://eboardresults.com", icon: "📊" },
     { name: "শিক্ষক বাতায়ন", url: "https://teachers.gov.bd", icon: "👩‍🏫" },
-    { name: "একাদশ ভর্তি", url: "https://xiclassadmission.gov.bd", icon: "📝" },
-    { name: "জাতীয় বিশ্ববিদ্যালয়", url: "https://nu.ac.bd", icon: "🏫" },
+    { name: "জাতীয় বিশ্ববিদ্যালয়", url: "https://www.nu.ac.bd", icon: "🏫" },
     { name: "শিক্ষা বোর্ড", url: "https://educationboard.gov.bd", icon: "🏢" },
     { name: "BANBEIS", url: "https://banbeis.gov.bd", icon: "📈" },
     { name: "মাদ্রাসা বোর্ড", url: "https://www.bmeb.gov.bd", icon: "📚" },

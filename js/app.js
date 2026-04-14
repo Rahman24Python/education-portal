@@ -268,7 +268,7 @@ function initFeaturedNews() {
   const safeSource = escapeHtml(featured.source);
   const safeDate = escapeHtml(featured.date);
   const safeCategory = escapeHtml(featured.category);
-  const safeImage = escapeHtml(featured.image || 'https://via.placeholder.com/800x400/1a6b3c/ffffff?text=EduBD+News');
+  const safeImage = escapeHtml(featured.image || '');
   const safeLink = featured.link ? (featured.link.startsWith('http') ? featured.link : base + featured.link) : '#';
   const yearClass = (featured.year && parseInt(featured.year) >= 2026) ? 'current' : 'previous';
 
@@ -315,7 +315,7 @@ function renderNewsCards(container, newsItems) {
     <div class="news-card">
       <div class="news-card-img">
         <a href="${escapeHtml(safeLink)}">
-          <img src="${safeImage}" alt="${safeTitle}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x200/1a6b3c/ffffff?text=EduBD'">
+          <img src="${safeImage}" alt="${safeTitle}" loading="lazy" onerror="this.style.display='none'">
         </a>
       </div>
       <div class="news-card-body">

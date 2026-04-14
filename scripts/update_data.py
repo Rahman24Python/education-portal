@@ -121,11 +121,25 @@ GOVT_SOURCES = [
         "category": "শিক্ষা বোর্ড",
         "selector": "h2, h3, li a",
     },
+    {
+        "name": "DGME",
+        "url": "https://dgme.gov.bd/pages/notices",
+        "source_key": "dgme.gov.bd",
+        "category": "মেডিকেল শিক্ষা",
+        "selector": "h2, h3, .notice-title, li a",
+    },
+    {
+        "name": "National University",
+        "url": "https://www.nu.ac.bd",
+        "source_key": "nu.ac.bd",
+        "category": "জাতীয় বিশ্ববিদ্যালয়",
+        "selector": "h2, h3, .notice-title, li a",
+    },
 ]
 
 # All education boards
 BOARD_SOURCES = [
-    {"id": "dhaka",      "name": "ঢাকা শিক্ষা বোর্ড",       "url": "https://dhakaeducationboard.gov.bd"},
+    {"id": "dhaka",      "name": "ঢাকা শিক্ষা বোর্ড",       "url": "https://dhakaeducationboard.portal.gov.bd"},
     {"id": "rajshahi",   "name": "রাজশাহী শিক্ষা বোর্ড",    "url": "https://rajshahieducationboard.gov.bd"},
     {"id": "chittagong", "name": "চট্টগ্রাম শিক্ষা বোর্ড",  "url": "https://bise-ctg.portal.gov.bd"},
     {"id": "sylhet",     "name": "সিলেট শিক্ষা বোর্ড",      "url": "https://sylheteducationboard.gov.bd"},

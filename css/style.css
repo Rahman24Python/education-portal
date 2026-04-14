@@ -2859,3 +2859,112 @@ footer {
     align-items: flex-start;
   }
 }
+
+/* ===================== FEATURED NEWS HERO ===================== */
+.featured-news-section {
+  margin-bottom: 25px;
+}
+
+.featured-news-card {
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  min-height: 350px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--primary);
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.featured-news-card .featured-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.88));
+  padding: 30px;
+  color: white;
+}
+
+.featured-news-card .featured-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  color: white;
+}
+
+.featured-news-card .featured-title:hover {
+  text-decoration: underline;
+}
+
+.featured-news-card .featured-summary {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 12px;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.featured-news-card .featured-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.75);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .featured-news-card {
+    min-height: 220px;
+  }
+  .featured-news-card .featured-title {
+    font-size: 1.1rem;
+  }
+  .featured-news-card .featured-overlay {
+    padding: 16px;
+  }
+}
+
+/* ===================== GOVERNMENT NOTICES SIDEBAR ===================== */
+.govt-notice-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.govt-notice-item:last-child {
+  border-bottom: none;
+}
+
+.govt-source-badge {
+  background: #fde8e8;
+  color: #e74c3c;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* ===================== YEAR BADGES ===================== */
+.year-badge {
+  background: var(--primary);
+  color: white;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  display: inline-block;
+  line-height: 1.6;
+}
+
+.year-badge.current {
+  background: #27ae60;
+}
+
+.year-badge.previous {
+  background: #95a5a6;
+}

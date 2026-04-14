@@ -133,6 +133,18 @@
   <!-- ===== MAIN CONTENT ===== -->
   <div class="container" style="margin-top:25px;">
 
+    <!-- Featured News Section (NEW) -->
+    <section class="featured-news-section">
+      <div class="featured-news-card" id="featured-news">
+        <!-- Rendered by JS: picks the top 2026 news item with large image -->
+        <div class="featured-overlay">
+          <div class="loading-overlay" style="padding:20px;">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Quick Links -->
     <section class="quick-links">
       <div class="section-header">
@@ -149,34 +161,12 @@
       </div>
     </section>
 
-    <!-- Board Section -->
-    <section class="board-section">
-      <div class="section-header">
-        <h2 class="section-title">শিক্ষা বোর্ড</h2>
-        <a href="pages/board.html" class="see-all-link">সব দেখুন</a>
-      </div>
-      <div class="board-grid">
-        <!-- Populated by JS -->
-        <a href="pages/board.html?board=dhaka" class="board-card"><span class="board-icon">🏫</span><span class="board-name">ঢাকা</span></a>
-        <a href="pages/board.html?board=rajshahi" class="board-card"><span class="board-icon">🏫</span><span class="board-name">রাজশাহী</span></a>
-        <a href="pages/board.html?board=chittagong" class="board-card"><span class="board-icon">🏫</span><span class="board-name">চট্টগ্রাম</span></a>
-        <a href="pages/board.html?board=sylhet" class="board-card"><span class="board-icon">🏫</span><span class="board-name">সিলেট</span></a>
-        <a href="pages/board.html?board=comilla" class="board-card"><span class="board-icon">🏫</span><span class="board-name">কুমিল্লা</span></a>
-        <a href="pages/board.html?board=barisal" class="board-card"><span class="board-icon">🏫</span><span class="board-name">বরিশাল</span></a>
-        <a href="pages/board.html?board=jessore" class="board-card"><span class="board-icon">🏫</span><span class="board-name">যশোর</span></a>
-        <a href="pages/board.html?board=dinajpur" class="board-card"><span class="board-icon">🏫</span><span class="board-name">দিনাজপুর</span></a>
-        <a href="pages/board.html?board=mymensingh" class="board-card"><span class="board-icon">🏫</span><span class="board-name">ময়মনসিংহ</span></a>
-        <a href="pages/board.html?board=madrasah" class="board-card"><span class="board-icon">🕌</span><span class="board-name">মাদ্রাসা</span></a>
-        <a href="pages/board.html?board=technical" class="board-card"><span class="board-icon">🔧</span><span class="board-name">কারিগরি</span></a>
-      </div>
-    </section>
-
   </div>
 
   <!-- ===== TWO COLUMN LAYOUT ===== -->
   <div class="main-content">
 
-    <!-- ===== LEFT: NEWS FEED ===== -->
+    <!-- ===== LEFT: NEWS FEED + BOARDS ===== -->
     <div>
       <div class="section-header">
         <h2 class="section-title">সর্বশেষ শিক্ষা সংবাদ</h2>
@@ -190,6 +180,28 @@
           <p>সংবাদ লোড হচ্ছে...</p>
         </div>
       </div>
+
+      <!-- Board Section (moved below news) -->
+      <section class="board-section" style="margin-top:30px;">
+        <div class="section-header">
+          <h2 class="section-title">🏫 শিক্ষা বোর্ড সমূহ</h2>
+          <a href="pages/board.html" class="see-all-link">সব দেখুন</a>
+        </div>
+        <div class="board-grid">
+          <!-- Populated by JS -->
+          <a href="pages/board.html?board=dhaka" class="board-card"><span class="board-icon">🏫</span><span class="board-name">ঢাকা</span></a>
+          <a href="pages/board.html?board=rajshahi" class="board-card"><span class="board-icon">🏫</span><span class="board-name">রাজশাহী</span></a>
+          <a href="pages/board.html?board=chittagong" class="board-card"><span class="board-icon">🏫</span><span class="board-name">চট্টগ্রাম</span></a>
+          <a href="pages/board.html?board=sylhet" class="board-card"><span class="board-icon">🏫</span><span class="board-name">সিলেট</span></a>
+          <a href="pages/board.html?board=comilla" class="board-card"><span class="board-icon">🏫</span><span class="board-name">কুমিল্লা</span></a>
+          <a href="pages/board.html?board=barisal" class="board-card"><span class="board-icon">🏫</span><span class="board-name">বরিশাল</span></a>
+          <a href="pages/board.html?board=jessore" class="board-card"><span class="board-icon">🏫</span><span class="board-name">যশোর</span></a>
+          <a href="pages/board.html?board=dinajpur" class="board-card"><span class="board-icon">🏫</span><span class="board-name">দিনাজপুর</span></a>
+          <a href="pages/board.html?board=mymensingh" class="board-card"><span class="board-icon">🏫</span><span class="board-name">ময়মনসিংহ</span></a>
+          <a href="pages/board.html?board=madrasah" class="board-card"><span class="board-icon">🕌</span><span class="board-name">মাদ্রাসা</span></a>
+          <a href="pages/board.html?board=technical" class="board-card"><span class="board-icon">🔧</span><span class="board-name">কারিগরি</span></a>
+        </div>
+      </section>
     </div>
 
     <!-- ===== RIGHT: SIDEBAR ===== -->
@@ -242,6 +254,19 @@
           <a href="pages/admissions.html" class="see-all-link">সব দেখুন</a>
         </div>
         <div id="sidebar-admissions">
+          <div class="loading-overlay" style="padding:20px;">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Government Notices (NEW) -->
+      <div class="sidebar-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;padding-bottom:10px;border-bottom:2px solid #e74c3c;">
+          <h3 class="sidebar-title" style="margin-bottom:0;border-bottom:none;padding-bottom:0;">🏛️ সরকারি নোটিশ</h3>
+          <a href="https://shed.gov.bd/pages/notices" target="_blank" rel="noopener" class="see-all-link">shed.gov.bd →</a>
+        </div>
+        <div id="sidebar-govt-notices">
           <div class="loading-overlay" style="padding:20px;">
             <div class="spinner"></div>
           </div>

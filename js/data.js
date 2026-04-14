@@ -8,7 +8,8 @@ const eduData = {
     "Chevening Scholarship 2026-27: বাংলাদেশী শিক্ষার্থীদের আবেদনের সুযোগ — শেষ তারিখ ৭ নভেম্বর ২০২৬",
     "মেডিকেল ভর্তি পরীক্ষা ২০২৫-২৬: চূড়ান্ত ফলাফল প্রকাশিত",
     "বুয়েট ভর্তি পরীক্ষা ২০২৫-২৬: মেধাতালিকা প্রকাশিত — ভর্তি কার্যক্রম চলছে",
-    "একাদশ শ্রেণী ভর্তি ২০২৬: SSC ২০২৬ পাসকৃতদের জন্য অনলাইনে আবেদন শুরু হবে জুন ২০২৬-এ"
+    "একাদশ শ্রেণী ভর্তি ২০২৬: SSC ২০২৬ পাসকৃতদের জন্য অনলাইনে আবেদন শুরু হবে জুন ২০২৬-এ",
+    "shed.gov.bd: মাধ্যমিক ও উচ্চ শিক্ষা বিভাগের সর্বশেষ নোটিশ ও বিজ্ঞপ্তি প্রকাশিত"
   ],
 
   latestNews: [
@@ -21,7 +22,8 @@ const eduData = {
       date: "২০২৬-০২-১৫",
       image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=SSC+2026",
       link: "pages/ssc.html",
-      views: 19800
+      views: 19800,
+      year: "2026"
     },
     {
       id: 2,
@@ -32,7 +34,8 @@ const eduData = {
       date: "২০২৬-০৩-১৫",
       image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=DU+Admission",
       link: "pages/admissions.html",
-      views: 14500
+      views: 14500,
+      year: "2026"
     },
     {
       id: 3,
@@ -43,7 +46,8 @@ const eduData = {
       date: "২০২৬-০৪-০১",
       image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=Chevening+2027",
       link: "pages/scholarships.html",
-      views: 11200
+      views: 11200,
+      year: "2026"
     },
     {
       id: 4,
@@ -54,7 +58,8 @@ const eduData = {
       date: "২০২৬-০৩-২০",
       image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=HSC+2026",
       link: "pages/hsc.html",
-      views: 13400
+      views: 13400,
+      year: "2026"
     },
     {
       id: 5,
@@ -65,18 +70,20 @@ const eduData = {
       date: "২০২৬-০৩-১০",
       image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=Medical+2026",
       link: "pages/admissions.html",
-      views: 9800
+      views: 9800,
+      year: "2026"
     },
     {
       id: 6,
       category: "বৃত্তি",
-      title: "প্রাথমিক বৃত্তি পরীক্ষার ফলাফল ২০২৫ প্রকাশিত",
-      summary: "প্রাথমিক ও ইবতেদায়ী সমাপনী বৃত্তি পরীক্ষার ফলাফল ২০২৫ প্রকাশিত হয়েছে। এবার মোট ৮৫,০০০ শিক্ষার্থীকে বৃত্তি প্রদান করা হয়েছে।",
-      source: "প্রাথমিক শিক্ষা অধিদপ্তর",
-      date: "২০২৬-০১-১৫",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=Scholarship+2025",
+      title: "সরকারি বৃত্তি ২০২৬: shed.gov.bd-তে আবেদন চলছে",
+      summary: "মাধ্যমিক ও উচ্চ শিক্ষা বিভাগের মেধা বৃত্তি ও সাধারণ বৃত্তি ২০২৬-এর আবেদন চলছে। shed.gov.bd তে বিস্তারিত তথ্য পাওয়া যাচ্ছে।",
+      source: "shed.gov.bd",
+      date: "২০২৬-০৩-০১",
+      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=Govt+Scholarship+2026",
       link: "pages/scholarships.html",
-      views: 8200
+      views: 9500,
+      year: "2026"
     },
     {
       id: 7,
@@ -87,7 +94,8 @@ const eduData = {
       date: "২০২৬-০১-১৫",
       image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=SSC+Routine+2026",
       link: "pages/routines.html",
-      views: 7800
+      views: 7800,
+      year: "2026"
     },
     {
       id: 8,
@@ -98,7 +106,8 @@ const eduData = {
       date: "২০২৬-০৪-০১",
       image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=DAAD+2027",
       link: "pages/scholarships.html",
-      views: 6300
+      views: 6300,
+      year: "2026"
     },
     {
       id: 9,
@@ -109,7 +118,8 @@ const eduData = {
       date: "২০২৬-০২-২০",
       image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=Technical+2026",
       link: "pages/news.html",
-      views: 5100
+      views: 5100,
+      year: "2026"
     },
     {
       id: 10,
@@ -120,21 +130,11 @@ const eduData = {
       date: "২০২৬-০১-১০",
       image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=Dakhil+2026",
       link: "pages/news.html",
-      views: 4600
+      views: 4600,
+      year: "2026"
     },
     {
       id: 11,
-      category: "ফলাফল",
-      title: "HSC ফলাফল ২০২৫: পাসের হার ৭৯.৫৩%",
-      summary: "উচ্চ মাধ্যমিক সার্টিফিকেট (HSC) পরীক্ষার ফলাফল ২০২৫ প্রকাশিত হয়েছে। এবার মোট পাসের হার ৭৯.৫৩% এবং GPA-5 পেয়েছে ৯৮,১২৭ জন।",
-      source: "আন্তঃশিক্ষা বোর্ড",
-      date: "২০২৫-১১-২৬",
-      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=HSC+Result+2025",
-      link: "pages/results.html",
-      views: 31200
-    },
-    {
-      id: 12,
       category: "নোটিশ",
       title: "জাতীয় বিশ্ববিদ্যালয়: অনার্স ১ম বর্ষ ভর্তি ২০২৫-২৬ বিজ্ঞপ্তি",
       summary: "জাতীয় বিশ্ববিদ্যালয়ের অনার্স ১ম বর্ষ ভর্তি ২০২৫-২৬ সেশনের বিজ্ঞপ্তি প্রকাশিত হয়েছে। অনলাইনে আবেদন চলছে — শেষ তারিখ ৩০ এপ্রিল ২০২৬।",
@@ -142,7 +142,44 @@ const eduData = {
       date: "২০২৬-০৪-০১",
       image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=NU+2026",
       link: "pages/news.html",
-      views: 7900
+      views: 7900,
+      year: "2026"
+    },
+    {
+      id: 12,
+      category: "ফলাফল",
+      title: "HSC ফলাফল ২০২৫: পাসের হার ৭৯.৫৩%",
+      summary: "উচ্চ মাধ্যমিক সার্টিফিকেট (HSC) পরীক্ষার ফলাফল ২০২৫ প্রকাশিত হয়েছে। এবার মোট পাসের হার ৭৯.৫৩% এবং GPA-5 পেয়েছে ৯৮,১২৭ জন।",
+      source: "আন্তঃশিক্ষা বোর্ড",
+      date: "২০২৫-১১-২৬",
+      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=HSC+Result+2025",
+      link: "pages/results.html",
+      views: 31200,
+      year: "2025"
+    },
+    {
+      id: 13,
+      category: "ফলাফল",
+      title: "SSC ফলাফল ২০২৫: পাসের হার ৮৩.০৪%",
+      summary: "মাধ্যমিক সার্টিফিকেট (SSC) পরীক্ষার ফলাফল ২০২৫ প্রকাশিত হয়েছে। মোট পাসের হার ৮৩.০৪% এবং GPA-5 পেয়েছে ১,৩৮,৬৮৩ জন।",
+      source: "আন্তঃশিক্ষা বোর্ড",
+      date: "২০২৫-০৭-১২",
+      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=SSC+Result+2025",
+      link: "pages/results.html",
+      views: 42000,
+      year: "2025"
+    },
+    {
+      id: 14,
+      category: "ভর্তি",
+      title: "একাদশ শ্রেণী ভর্তি ২০২৫: আবেদন শেষ হয়েছে",
+      summary: "SSC ২০২৫ পাসকৃত শিক্ষার্থীদের একাদশ শ্রেণীতে ভর্তির আবেদন প্রক্রিয়া শেষ হয়েছে। ফলাফল ও ভর্তি কার্যক্রম সম্পন্ন।",
+      source: "শিক্ষা মন্ত্রণালয়",
+      date: "২০২৫-০৯-১৫",
+      image: "https://via.placeholder.com/400x200/1a6b3c/ffffff?text=XI+Admission+2025",
+      link: "pages/admissions.html",
+      views: 18500,
+      year: "2025"
     }
   ],
 
@@ -158,7 +195,8 @@ const eduData = {
       status: "শেষ",
       seats: "৭,৩৯৬",
       fee: "৬৫০ টাকা",
-      description: "ঢাকা বিশ্ববিদ্যালয়ের বিভিন্ন অনুষদে ২০২৫-২৬ শিক্ষাবর্ষে ভর্তির কার্যক্রম সম্পন্ন হয়েছে। মেধাতালিকা প্রকাশিত।"
+      description: "ঢাকা বিশ্ববিদ্যালয়ের বিভিন্ন অনুষদে ২০২৫-২৬ শিক্ষাবর্ষে ভর্তির কার্যক্রম সম্পন্ন হয়েছে। মেধাতালিকা প্রকাশিত।",
+      year: "2026"
     },
     {
       id: 2,
@@ -171,7 +209,8 @@ const eduData = {
       status: "শেষ",
       seats: "১,১৫৫",
       fee: "৮৫০ টাকা",
-      description: "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়ে ইঞ্জিনিয়ারিং, স্থাপত্য ও পরিকল্পনায় ভর্তির কার্যক্রম সম্পন্ন।"
+      description: "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়ে ইঞ্জিনিয়ারিং, স্থাপত্য ও পরিকল্পনায় ভর্তির কার্যক্রম সম্পন্ন।",
+      year: "2026"
     },
     {
       id: 3,
@@ -184,7 +223,8 @@ const eduData = {
       status: "চলছে",
       seats: "৫,৫৮০",
       fee: "১,০০০ টাকা",
-      description: "সরকারি মেডিকেল কলেজে MBBS ও BDS কোর্সে ভর্তির কার্যক্রম চলছে।"
+      description: "সরকারি মেডিকেল কলেজে MBBS ও BDS কোর্সে ভর্তির কার্যক্রম চলছে।",
+      year: "2026"
     },
     {
       id: 4,
@@ -197,7 +237,8 @@ const eduData = {
       status: "শেষ",
       seats: "৬,৫০০",
       fee: "৫৫০ টাকা",
-      description: "চট্টগ্রাম বিশ্ববিদ্যালয়ের বিভিন্ন বিভাগে ২০২৫-২৬ ভর্তি সম্পন্ন।"
+      description: "চট্টগ্রাম বিশ্ববিদ্যালয়ের বিভিন্ন বিভাগে ২০২৫-২৬ ভর্তি সম্পন্ন।",
+      year: "2026"
     },
     {
       id: 5,
@@ -210,7 +251,8 @@ const eduData = {
       status: "শীঘ্রই",
       seats: "৩,০০,০০০",
       fee: "১৫০ টাকা",
-      description: "SSC ২০২৬ পাসকৃত শিক্ষার্থীদের একাদশ শ্রেণীতে ভর্তির জন্য অনলাইনে আবেদন জুন ২০২৬ থেকে শুরু হবে।"
+      description: "SSC ২০২৬ পাসকৃত শিক্ষার্থীদের একাদশ শ্রেণীতে ভর্তির জন্য অনলাইনে আবেদন জুন ২০২৬ থেকে শুরু হবে।",
+      year: "2026"
     },
     {
       id: 6,
@@ -223,7 +265,8 @@ const eduData = {
       status: "শেষ",
       seats: "৫,৮০০",
       fee: "৫০০ টাকা",
-      description: "রাজশাহী বিশ্ববিদ্যালয়ে বিজ্ঞান, মানবিক ও বাণিজ্য অনুষদে ২০২৫-২৬ ভর্তি সম্পন্ন।"
+      description: "রাজশাহী বিশ্ববিদ্যালয়ে বিজ্ঞান, মানবিক ও বাণিজ্য অনুষদে ২০২৫-২৬ ভর্তি সম্পন্ন।",
+      year: "2026"
     },
     {
       id: 7,
@@ -236,7 +279,8 @@ const eduData = {
       status: "শেষ",
       seats: "২,৫০০",
       fee: "৬০০ টাকা",
-      description: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়ের আন্ডারগ্র্যাজুয়েট প্রোগ্রামে ২০২৫-২৬ ভর্তি কার্যক্রম সম্পন্ন।"
+      description: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়ের আন্ডারগ্র্যাজুয়েট প্রোগ্রামে ২০২৫-২৬ ভর্তি কার্যক্রম সম্পন্ন।",
+      year: "2026"
     },
     {
       id: 8,
@@ -249,7 +293,8 @@ const eduData = {
       status: "চলছে",
       seats: "১,৮০০",
       fee: "৫৫০ টাকা",
-      description: "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ে বিজ্ঞান ও প্রযুক্তি বিভাগে ভর্তি চলছে।"
+      description: "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ে বিজ্ঞান ও প্রযুক্তি বিভাগে ভর্তি চলছে।",
+      year: "2026"
     },
     {
       id: 9,
@@ -262,7 +307,8 @@ const eduData = {
       status: "চলছে",
       seats: "৫,০০,০০০+",
       fee: "২৫০ টাকা",
-      description: "জাতীয় বিশ্ববিদ্যালয়ের অধীন কলেজসমূহে অনার্স ১ম বর্ষে ভর্তির আবেদন চলছে।"
+      description: "জাতীয় বিশ্ববিদ্যালয়ের অধীন কলেজসমূহে অনার্স ১ম বর্ষে ভর্তির আবেদন চলছে।",
+      year: "2026"
     },
     {
       id: 10,
@@ -275,7 +321,36 @@ const eduData = {
       status: "শীঘ্রই",
       seats: "৬,৩৫৫",
       fee: "১,৫০০ টাকা",
-      description: "দেশের বেসরকারি মেডিকেল ও ডেন্টাল কলেজে MBBS ও BDS কোর্সে ভর্তির বিজ্ঞপ্তি শীঘ্রই আসবে।"
+      description: "দেশের বেসরকারি মেডিকেল ও ডেন্টাল কলেজে MBBS ও BDS কোর্সে ভর্তির বিজ্ঞপ্তি শীঘ্রই আসবে।",
+      year: "2026"
+    },
+    {
+      id: 11,
+      university: "ঢাকা বিশ্ববিদ্যালয়",
+      type: "বিশ্ববিদ্যালয়",
+      title: "ঢাকা বিশ্ববিদ্যালয় স্নাতক ভর্তি ২০২৪-২৫ — শেষ হয়েছে",
+      deadline: "2025-03-31",
+      deadlineDisplay: "৩১ মার্চ ২০২৫",
+      link: "https://admission.eis.du.ac.bd",
+      status: "শেষ হয়েছে",
+      seats: "৭,৩৯৬",
+      fee: "৬৫০ টাকা",
+      description: "ঢাকা বিশ্ববিদ্যালয়ের ২০২৪-২৫ শিক্ষাবর্ষের ভর্তি সম্পন্ন হয়েছে।",
+      year: "2025"
+    },
+    {
+      id: 12,
+      university: "সরকারি মেডিকেল কলেজ",
+      type: "মেডিকেল",
+      title: "MBBS ভর্তি ২০২৪-২৫ — শেষ হয়েছে",
+      deadline: "2025-04-30",
+      deadlineDisplay: "৩০ এপ্রিল ২০২৫",
+      link: "https://dgme.gov.bd",
+      status: "শেষ হয়েছে",
+      seats: "৫,৫৮০",
+      fee: "১,০০০ টাকা",
+      description: "সরকারি মেডিকেল কলেজে ২০২৪-২৫ শিক্ষাবর্ষের ভর্তি সম্পন্ন হয়েছে।",
+      year: "2025"
     }
   ],
 
@@ -298,7 +373,8 @@ const eduData = {
       applicationProcess: "অনলাইনে আবেদন → সাক্ষাৎকার → চূড়ান্ত নির্বাচন",
       numberOfAwards: "বাংলাদেশ থেকে ১৫-২০টি",
       duration: "১ বছর (মাস্টার্স)",
-      website: "https://www.chevening.org"
+      website: "https://www.chevening.org",
+      year: "2026"
     },
     {
       id: 2,
@@ -318,7 +394,8 @@ const eduData = {
       applicationProcess: "UGC বাংলাদেশের মাধ্যমে মনোনয়ন",
       numberOfAwards: "বাংলাদেশ থেকে ১০-১৫টি",
       duration: "১-৩ বছর",
-      website: "https://cscuk.fcdo.gov.uk"
+      website: "https://cscuk.fcdo.gov.uk",
+      year: "2026"
     },
     {
       id: 3,
@@ -338,7 +415,8 @@ const eduData = {
       applicationProcess: "DAAD পোর্টালে অনলাইন আবেদন",
       numberOfAwards: "৫০০০+ বৃত্তি প্রতি বছর",
       duration: "১-৩ বছর",
-      website: "https://www.daad.de"
+      website: "https://www.daad.de",
+      year: "2026"
     },
     {
       id: 4,
@@ -358,7 +436,8 @@ const eduData = {
       applicationProcess: "USEF Bangladesh-এর মাধ্যমে আবেদন",
       numberOfAwards: "বাংলাদেশ থেকে ৫-১০টি",
       duration: "১-২ বছর",
-      website: "https://bd.usembassy.gov/fulbright"
+      website: "https://bd.usembassy.gov/fulbright",
+      year: "2026"
     },
     {
       id: 5,
@@ -378,7 +457,8 @@ const eduData = {
       applicationProcess: "জাপান দূতাবাস ঢাকার মাধ্যমে আবেদন",
       numberOfAwards: "৫০+ (বাংলাদেশ থেকে)",
       duration: "৫ বছর (স্নাতক), ৩ বছর (মাস্টার্স/পিএইচডি)",
-      website: "https://www.bd.emb-japan.go.jp"
+      website: "https://www.bd.emb-japan.go.jp",
+      year: "2026"
     },
     {
       id: 6,
@@ -398,7 +478,8 @@ const eduData = {
       applicationProcess: "CSC পোর্টাল ও চীন দূতাবাসের মাধ্যমে",
       numberOfAwards: "বাংলাদেশ থেকে ১০০+",
       duration: "৪ বছর (স্নাতক), ২-৩ বছর (মাস্টার্স/পিএইচডি)",
-      website: "https://www.campuschina.org"
+      website: "https://www.campuschina.org",
+      year: "2026"
     },
     {
       id: 7,
@@ -418,7 +499,8 @@ const eduData = {
       applicationProcess: "turkiyeburslari.gov.tr পোর্টালে আবেদন",
       numberOfAwards: "বাংলাদেশ থেকে ৫০+",
       duration: "৪ বছর (স্নাতক), ২ বছর (মাস্টার্স)",
-      website: "https://www.turkiyeburslari.gov.tr"
+      website: "https://www.turkiyeburslari.gov.tr",
+      year: "2026"
     },
     {
       id: 8,
@@ -438,7 +520,8 @@ const eduData = {
       applicationProcess: "অস্ট্রেলিয়া অ্যাওয়ার্ডস ওয়েবসাইটে আবেদন",
       numberOfAwards: "বাংলাদেশ থেকে ৩০-৪০টি",
       duration: "১-৪ বছর",
-      website: "https://www.australiaawardsbangladesh.org"
+      website: "https://www.australiaawardsbangladesh.org",
+      year: "2026"
     },
     {
       id: 9,
@@ -458,7 +541,8 @@ const eduData = {
       applicationProcess: "বাংলাদেশ দূতাবাস কোরিয়া বা বিশ্ববিদ্যালয়ের মাধ্যমে",
       numberOfAwards: "বাংলাদেশ থেকে ২০+",
       duration: "৩ বছর (স্নাতক+কোরিয়ান), ২+১ বছর (মাস্টার্স)",
-      website: "https://www.niied.go.kr"
+      website: "https://www.niied.go.kr",
+      year: "2026"
     },
     {
       id: 10,
@@ -478,7 +562,8 @@ const eduData = {
       applicationProcess: "University Admissions Sweden-এর মাধ্যমে",
       numberOfAwards: "বাংলাদেশ থেকে ১০-১৫টি",
       duration: "১-২ বছর",
-      website: "https://si.se/en/apply/scholarships"
+      website: "https://si.se/en/apply/scholarships",
+      year: "2026"
     },
     {
       id: 11,
@@ -498,7 +583,8 @@ const eduData = {
       applicationProcess: "নির্দিষ্ট বিশ্ববিদ্যালয়ের মাধ্যমে আবেদন",
       numberOfAwards: "প্রতি বিশ্ববিদ্যালয় থেকে বিভিন্ন সংখ্যা",
       duration: "আংশিক সহায়তা",
-      website: "https://www.studyinholland.nl"
+      website: "https://www.studyinholland.nl",
+      year: "2026"
     },
     {
       id: 12,
@@ -518,7 +604,8 @@ const eduData = {
       applicationProcess: "UGC বাংলাদেশ বা সরাসরি পোর্টালে আবেদন",
       numberOfAwards: "বাংলাদেশ থেকে ৫০+",
       duration: "৪ বছর (স্নাতক), ১-২ বছর (মাস্টার্স)",
-      website: "https://stipendiumhungaricum.hu"
+      website: "https://stipendiumhungaricum.hu",
+      year: "2026"
     },
     {
       id: 13,
@@ -538,7 +625,8 @@ const eduData = {
       applicationProcess: "রাশিয়ান দূতাবাস বা russia.study পোর্টালে",
       numberOfAwards: "বাংলাদেশ থেকে ১০০+",
       duration: "৪-৫ বছর (স্নাতক), ২ বছর (মাস্টার্স)",
-      website: "https://russia.study/en"
+      website: "https://russia.study/en",
+      year: "2026"
     },
     {
       id: 14,
@@ -558,7 +646,8 @@ const eduData = {
       applicationProcess: "নির্দিষ্ট বিশ্ববিদ্যালয়ের মাধ্যমে আবেদন",
       numberOfAwards: "৩০০+ প্রতি বছর (সকল দেশ থেকে)",
       duration: "১-২ বছর",
-      website: "https://www.adb.org/work-with-us/careers/japan-scholarship-program"
+      website: "https://www.adb.org/work-with-us/careers/japan-scholarship-program",
+      year: "2026"
     },
     {
       id: 15,
@@ -578,7 +667,8 @@ const eduData = {
       applicationProcess: "কানাডিয়ান বিশ্ববিদ্যালয়ের মাধ্যমে মনোনয়ন",
       numberOfAwards: "১৬৬টি প্রতি বছর (আন্তর্জাতিক)",
       duration: "৩ বছর",
-      website: "https://vanier.gc.ca"
+      website: "https://vanier.gc.ca",
+      year: "2026"
     },
     {
       id: 16,
@@ -598,7 +688,8 @@ const eduData = {
       applicationProcess: "NZ Scholarships অনলাইন পোর্টালে আবেদন",
       numberOfAwards: "বাংলাদেশ থেকে ৫-১০টি",
       duration: "১-৩ বছর",
-      website: "https://www.mfat.govt.nz/en/aid-and-development/new-zealand-scholarships"
+      website: "https://www.mfat.govt.nz/en/aid-and-development/new-zealand-scholarships",
+      year: "2026"
     },
     {
       id: 17,
@@ -618,7 +709,8 @@ const eduData = {
       applicationProcess: "ভারতীয় হাই কমিশন ঢাকার মাধ্যমে",
       numberOfAwards: "বাংলাদেশ থেকে ৫০+",
       duration: "৩-৫ বছর",
-      website: "https://www.iccr.gov.in"
+      website: "https://www.iccr.gov.in",
+      year: "2026"
     },
     {
       id: 18,
@@ -638,7 +730,8 @@ const eduData = {
       applicationProcess: "সিঙ্গাপুরের বিশ্ববিদ্যালয়ের মাধ্যমে আবেদন",
       numberOfAwards: "সীমিত সংখ্যা",
       duration: "৩-৪ বছর",
-      website: "https://www.moe.gov.sg"
+      website: "https://www.moe.gov.sg",
+      year: "2026"
     },
     {
       id: 19,
@@ -658,10 +751,74 @@ const eduData = {
       applicationProcess: "মালয়েশিয়ান হাই কমিশন বা বিশ্ববিদ্যালয়ের মাধ্যমে",
       numberOfAwards: "সীমিত",
       duration: "৩-৪ বছর",
-      website: "https://biasiswa.mohe.gov.my"
+      website: "https://biasiswa.mohe.gov.my",
+      year: "2026"
     },
     {
       id: 20,
+      name: "মাধ্যমিক ও উচ্চ শিক্ষা বিভাগ - সরকারি বৃত্তি ২০২৬",
+      country: "বাংলাদেশ",
+      flag: "🇧🇩",
+      type: "সরকারি বৃত্তি",
+      level: "মাধ্যমিক/উচ্চমাধ্যমিক/স্নাতক/স্নাতকোত্তর",
+      amount: "বিভিন্ন (সরকারি নির্ধারিত)",
+      deadline: "2026-12-31",
+      deadlineDisplay: "চলমান",
+      eligibility: "সরকার নির্ধারিত যোগ্যতা অনুযায়ী",
+      link: "https://shed.gov.bd/pages/moedu-scholarships",
+      description: "মাধ্যমিক ও উচ্চ শিক্ষা বিভাগ কর্তৃক পরিচালিত সকল সরকারি বৃত্তি কর্মসূচি। SSC, HSC, স্নাতক ও স্নাতকোত্তর পর্যায়ে মেধা ও সাধারণ বৃত্তি প্রদান করা হয়।",
+      benefits: ["মেধা বৃত্তি", "সাধারণ বৃত্তি", "উপবৃত্তি", "শিক্ষা সহায়তা"],
+      requirements: ["বাংলাদেশী নাগরিক", "নির্ধারিত পরীক্ষায় উত্তীর্ণ", "আর্থিক প্রয়োজনীয়তা (কিছু ক্ষেত্রে)"],
+      applicationProcess: "শিক্ষা প্রতিষ্ঠানের মাধ্যমে অনলাইনে আবেদন",
+      numberOfAwards: "লক্ষাধিক প্রতি বছর",
+      duration: "বার্ষিক নবায়নযোগ্য",
+      website: "https://shed.gov.bd/pages/moedu-scholarships",
+      year: "2026"
+    },
+    {
+      id: 21,
+      name: "মেধা বৃত্তি (SSC/HSC) ২০২৬ — shed.gov.bd",
+      country: "বাংলাদেশ",
+      flag: "🇧🇩",
+      type: "সরকারি বৃত্তি",
+      level: "মাধ্যমিক/উচ্চমাধ্যমিক",
+      amount: "৩৫০-৮৮০ টাকা/মাস",
+      deadline: "2026-09-30",
+      deadlineDisplay: "৩০ সেপ্টেম্বর ২০২৬",
+      eligibility: "SSC/HSC ২০২৬ পরীক্ষায় মেধা তালিকায় স্থান",
+      link: "https://shed.gov.bd/pages/moedu-scholarships",
+      description: "মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর কর্তৃক মেধা বৃত্তি প্রদান। SSC ও HSC পরীক্ষায় সর্বোচ্চ ফলাফলকারীদের জন্য।",
+      benefits: ["মাসিক বৃত্তি ৩৫০-৮৮০ টাকা", "শিক্ষা উপকরণ ভাতা"],
+      requirements: ["SSC/HSC পরীক্ষায় মেধা তালিকায় স্থান", "নিয়মিত ছাত্র/ছাত্রী"],
+      applicationProcess: "শিক্ষা বোর্ডের মাধ্যমে স্বয়ংক্রিয় নির্বাচন",
+      numberOfAwards: "হাজার হাজার প্রতি বছর",
+      duration: "২ বছর",
+      website: "https://shed.gov.bd/pages/moedu-scholarships",
+      year: "2026"
+    },
+    {
+      id: 22,
+      name: "উপবৃত্তি কর্মসূচি ২০২৫-২৬",
+      country: "বাংলাদেশ",
+      flag: "🇧🇩",
+      type: "সরকারি বৃত্তি",
+      level: "মাধ্যমিক/উচ্চমাধ্যমিক",
+      amount: "১০০-৩৫০ টাকা/মাস",
+      deadline: "2026-08-31",
+      deadlineDisplay: "৩১ আগস্ট ২০২৬",
+      eligibility: "আর্থিকভাবে অসচ্ছল পরিবারের ছাত্রছাত্রী",
+      link: "https://shed.gov.bd/pages/moedu-scholarships",
+      description: "মাধ্যমিক ও উচ্চ মাধ্যমিক পর্যায়ের দরিদ্র শিক্ষার্থীদের শিক্ষা অব্যাহত রাখতে উপবৃত্তি প্রদান করা হয়।",
+      benefits: ["মাসিক উপবৃত্তি", "পাঠ্যবই ভাতা", "পরীক্ষার ফি ছাড়"],
+      requirements: ["নিম্ন আয়ের পরিবার", "নিয়মিত উপস্থিতি ৭৫%+", "উত্তীর্ণ ছাত্রছাত্রী"],
+      applicationProcess: "শিক্ষা প্রতিষ্ঠানের মাধ্যমে আবেদন",
+      numberOfAwards: "লক্ষাধিক প্রতি বছর",
+      duration: "শিক্ষাকালীন মেয়াদ",
+      website: "https://shed.gov.bd/pages/moedu-scholarships",
+      year: "2026"
+    },
+    {
+      id: 23,
       name: "প্রধানমন্ত্রী শিক্ষা সহায়তা ট্রাস্ট ২০২৬",
       country: "বাংলাদেশ",
       flag: "🇧🇩",
@@ -678,30 +835,11 @@ const eduData = {
       applicationProcess: "শিক্ষা প্রতিষ্ঠানের মাধ্যমে অনলাইনে আবেদন",
       numberOfAwards: "লক্ষাধিক",
       duration: "বার্ষিক নবায়নযোগ্য",
-      website: "https://pmeat.gov.bd"
+      website: "https://pmeat.gov.bd",
+      year: "2026"
     },
     {
-      id: 21,
-      name: "সরকারি বৃত্তি (SSC/HSC) ২০২৬",
-      country: "বাংলাদেশ",
-      flag: "🇧🇩",
-      type: "সরকারি বৃত্তি",
-      level: "মাধ্যমিক/উচ্চমাধ্যমিক",
-      amount: "৩৫০-৮৮০ টাকা/মাস",
-      deadline: "2026-09-30",
-      deadlineDisplay: "৩০ সেপ্টেম্বর ২০২৬",
-      eligibility: "SSC/HSC ২০২৬ পরীক্ষায় মেধা তালিকায় স্থান",
-      link: "https://shed.gov.bd",
-      description: "মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর কর্তৃক মেধা ও সাধারণ বৃত্তি প্রদান। SSC ও HSC পরীক্ষায় ভালো ফলাফলকারীদের জন্য।",
-      benefits: ["মাসিক বৃত্তি ৩৫০-৮৮০ টাকা", "শিক্ষা উপকরণ ভাতা"],
-      requirements: ["SSC/HSC পরীক্ষায় মেধা তালিকায় স্থান", "নিয়মিত ছাত্র/ছাত্রী"],
-      applicationProcess: "শিক্ষা বোর্ডের মাধ্যমে স্বয়ংক্রিয় নির্বাচন",
-      numberOfAwards: "হাজার হাজার প্রতি বছর",
-      duration: "২ বছর",
-      website: "https://shed.gov.bd"
-    },
-    {
-      id: 22,
+      id: 24,
       name: "UGC বৃত্তি ২০২৫-২৬",
       country: "বাংলাদেশ",
       flag: "🇧🇩",
@@ -718,19 +856,44 @@ const eduData = {
       applicationProcess: "বিশ্ববিদ্যালয়ের রেজিস্ট্রার অফিসের মাধ্যমে",
       numberOfAwards: "বিশ্ববিদ্যালয় অনুযায়ী ভিন্ন",
       duration: "বার্ষিক নবায়নযোগ্য",
-      website: "https://ugc.gov.bd"
+      website: "https://ugc.gov.bd",
+      year: "2026"
+    },
+    {
+      id: 25,
+      name: "সরকারি বৃত্তি (SSC/HSC) ২০২৪-২৫ — শেষ হয়েছে",
+      country: "বাংলাদেশ",
+      flag: "🇧🇩",
+      type: "সরকারি বৃত্তি",
+      level: "মাধ্যমিক/উচ্চমাধ্যমিক",
+      amount: "৩৫০-৮৮০ টাকা/মাস",
+      deadline: "2025-09-30",
+      deadlineDisplay: "৩০ সেপ্টেম্বর ২০২৫",
+      eligibility: "SSC/HSC ২০২৫ পরীক্ষায় মেধা তালিকায় স্থান",
+      link: "https://shed.gov.bd",
+      description: "২০২৪-২৫ শিক্ষাবর্ষের সরকারি বৃত্তি — প্রদান সম্পন্ন হয়েছে।",
+      benefits: ["মাসিক বৃত্তি", "শিক্ষা উপকরণ ভাতা"],
+      requirements: ["SSC/HSC পরীক্ষায় মেধা তালিকায় স্থান"],
+      applicationProcess: "শিক্ষা বোর্ডের মাধ্যমে",
+      numberOfAwards: "হাজার হাজার",
+      duration: "২ বছর",
+      website: "https://shed.gov.bd",
+      year: "2025"
     }
   ],
 
+
   deadlines: [
-    { id: 1, title: "SUST ভর্তি আবেদন শেষ", date: "2026-04-15", link: "pages/admissions.html" },
-    { id: 2, title: "জাতীয় বিশ্ববিদ্যালয় অনার্স ভর্তি শেষ", date: "2026-04-30", link: "pages/admissions.html" },
-    { id: 3, title: "মেডিকেল ভর্তি শেষ তারিখ", date: "2026-04-30", link: "pages/admissions.html" },
-    { id: 4, title: "CSC বৃত্তি (চীন) শেষ তারিখ", date: "2026-04-30", link: "pages/scholarships.html" },
-    { id: 5, title: "Fulbright বৃত্তি শেষ তারিখ", date: "2026-06-15", link: "pages/scholarships.html" },
-    { id: 6, title: "HSC পরীক্ষা শুরু", date: "2026-04-02", link: "pages/hsc.html" },
-    { id: 7, title: "MEXT (জাপান) বৃত্তি শেষ তারিখ", date: "2026-05-31", link: "pages/scholarships.html" },
-    { id: 8, title: "একাদশ শ্রেণী ভর্তি শুরু", date: "2026-06-15", link: "pages/admissions.html" }
+    { id: 1, title: "SUST ভর্তি আবেদন শেষ", date: "2026-04-15", link: "pages/admissions.html", year: "2026" },
+    { id: 2, title: "জাতীয় বিশ্ববিদ্যালয় অনার্স ভর্তি শেষ", date: "2026-04-30", link: "pages/admissions.html", year: "2026" },
+    { id: 3, title: "মেডিকেল ভর্তি শেষ তারিখ", date: "2026-04-30", link: "pages/admissions.html", year: "2026" },
+    { id: 4, title: "CSC বৃত্তি (চীন) শেষ তারিখ", date: "2026-04-30", link: "pages/scholarships.html", year: "2026" },
+    { id: 5, title: "Fulbright বৃত্তি শেষ তারিখ", date: "2026-06-15", link: "pages/scholarships.html", year: "2026" },
+    { id: 6, title: "HSC পরীক্ষা শুরু", date: "2026-04-02", link: "pages/hsc.html", year: "2026" },
+    { id: 7, title: "MEXT (জাপান) বৃত্তি শেষ তারিখ", date: "2026-05-31", link: "pages/scholarships.html", year: "2026" },
+    { id: 8, title: "একাদশ শ্রেণী ভর্তি শুরু", date: "2026-06-15", link: "pages/admissions.html", year: "2026" },
+    { id: 9, title: "Chevening বৃত্তি শেষ তারিখ ২০২৬-২৭", date: "2026-11-07", link: "pages/scholarships.html", year: "2026" },
+    { id: 10, title: "DAAD বৃত্তি শেষ তারিখ ২০২৬-২৭", date: "2026-10-31", link: "pages/scholarships.html", year: "2026" }
   ],
 
   boards: [
@@ -914,6 +1077,7 @@ const eduData = {
       endDateDisplay: "১৪ মার্চ ২০২৬",
       pdfUrl: "https://dhakaeducationboard.gov.bd/data/20260115195924217818.pdf",
       link: "pages/ssc.html",
+      year: "2026",
       schedule: [
         { date: "১৫ ফেব্রুয়ারি", subject: "বাংলা প্রথম পত্র" },
         { date: "১৬ ফেব্রুয়ারি", subject: "বাংলা দ্বিতীয় পত্র" },
@@ -941,6 +1105,7 @@ const eduData = {
       endDateDisplay: "১৮ মে ২০২৬",
       pdfUrl: "https://dhakaeducationboard.gov.bd/data/20260218143025318920.pdf",
       link: "pages/hsc.html",
+      year: "2026",
       schedule: [
         { date: "২ এপ্রিল", subject: "বাংলা প্রথম পত্র" },
         { date: "৩ এপ্রিল", subject: "বাংলা দ্বিতীয় পত্র" },
@@ -971,6 +1136,7 @@ const eduData = {
       endDateDisplay: "১২ মার্চ ২০২৬",
       pdfUrl: "https://www.bmeb.gov.bd/data/dakhil_routine_2026.pdf",
       link: "pages/routines.html",
+      year: "2026",
       schedule: [
         { date: "১৫ ফেব্রুয়ারি", subject: "কোরআন মজিদ ও তাজবিদ" },
         { date: "১৬ ফেব্রুয়ারি", subject: "আকাইদ ও ফিকহ" },
@@ -983,7 +1149,84 @@ const eduData = {
     }
   ],
 
+  governmentNotices: [
+    {
+      id: 1,
+      title: "মাধ্যমিক ও উচ্চ শিক্ষা বিভাগের সর্বশেষ নোটিশ",
+      source: "shed.gov.bd",
+      sourceUrl: "https://shed.gov.bd/pages/notices",
+      date: "২০২৬",
+      year: "2026",
+      description: "সরকারি শিক্ষা সংক্রান্ত সর্বশেষ বিজ্ঞপ্তি, আদেশ ও পরিপত্র"
+    },
+    {
+      id: 2,
+      title: "SSC পরীক্ষা ২০২৬: কেন্দ্র তালিকা ও ব্যবস্থাপনা নির্দেশিকা",
+      source: "shed.gov.bd",
+      sourceUrl: "https://shed.gov.bd/pages/notices",
+      date: "জানুয়ারি ২০২৬",
+      year: "2026",
+      description: "SSC পরীক্ষা ২০২৬-এর পরীক্ষা কেন্দ্র তালিকা ও পরীক্ষা ব্যবস্থাপনা সংক্রান্ত সরকারি নির্দেশিকা প্রকাশিত হয়েছে।"
+    },
+    {
+      id: 3,
+      title: "HSC পরীক্ষা ২০২৬: পরীক্ষার্থীদের জন্য বিশেষ নির্দেশনা",
+      source: "shed.gov.bd",
+      sourceUrl: "https://shed.gov.bd/pages/notices",
+      date: "মার্চ ২০২৬",
+      year: "2026",
+      description: "HSC পরীক্ষা ২০২৬-এ অংশগ্রহণকারী শিক্ষার্থীদের জন্য বিশেষ নির্দেশনা ও নিয়মাবলী।"
+    },
+    {
+      id: 4,
+      title: "একাদশ শ্রেণী ভর্তি নীতিমালা ২০২৬: আবেদন প্রক্রিয়া",
+      source: "shed.gov.bd",
+      sourceUrl: "https://shed.gov.bd/pages/notices",
+      date: "এপ্রিল ২০২৬",
+      year: "2026",
+      description: "SSC ২০২৬ উত্তীর্ণ শিক্ষার্থীদের একাদশ শ্রেণীতে ভর্তির নীতিমালা ও আবেদন প্রক্রিয়া সংক্রান্ত বিজ্ঞপ্তি।"
+    },
+    {
+      id: 5,
+      title: "সরকারি মেধা ও সাধারণ বৃত্তি ২০২৬: ফলাফল বিজ্ঞপ্তি",
+      source: "shed.gov.bd",
+      sourceUrl: "https://shed.gov.bd/pages/moedu-scholarships",
+      date: "মার্চ ২০২৬",
+      year: "2026",
+      description: "মাধ্যমিক পর্যায়ের মেধা ও সাধারণ বৃত্তি ২০২৬ ফলাফল ও তালিকা প্রকাশিত হয়েছে।"
+    },
+    {
+      id: 6,
+      title: "শিক্ষা প্রতিষ্ঠান খোলা ও ছুটির তালিকা ২০২৬",
+      source: "shed.gov.bd",
+      sourceUrl: "https://shed.gov.bd/pages/notices",
+      date: "জানুয়ারি ২০২৬",
+      year: "2026",
+      description: "২০২৬ সালে মাধ্যমিক ও উচ্চমাধ্যমিক পর্যায়ের শিক্ষা প্রতিষ্ঠানের ছুটির তালিকা ও একাডেমিক ক্যালেন্ডার।"
+    },
+    {
+      id: 7,
+      title: "উপবৃত্তি কর্মসূচি ২০২৫-২৬: নির্বাচন বিজ্ঞপ্তি",
+      source: "shed.gov.bd",
+      sourceUrl: "https://shed.gov.bd/pages/moedu-scholarships",
+      date: "ফেব্রুয়ারি ২০২৬",
+      year: "2026",
+      description: "মাধ্যমিক পর্যায়ের উপবৃত্তি কর্মসূচি ২০২৫-২৬-এর জন্য শিক্ষার্থী নির্বাচন বিজ্ঞপ্তি ও আবেদন প্রক্রিয়া।"
+    },
+    {
+      id: 8,
+      title: "পাঠ্যক্রম ও পাঠ্যপুস্তক পরিমার্জন বিজ্ঞপ্তি ২০২৬",
+      source: "shed.gov.bd",
+      sourceUrl: "https://shed.gov.bd/pages/notices",
+      date: "জানুয়ারি ২০২৬",
+      year: "2026",
+      description: "জাতীয় শিক্ষাক্রম ২০২২ অনুযায়ী পাঠ্যপুস্তক পরিমার্জন ও বিতরণ সংক্রান্ত বিজ্ঞপ্তি।"
+    }
+  ],
+
   importantLinks: [
+    { name: "সরকারি বৃত্তি তথ্য", url: "https://shed.gov.bd/pages/moedu-scholarships", icon: "🏛️" },
+    { name: "সরকারি নোটিশ", url: "https://shed.gov.bd/pages/notices", icon: "📋" },
     { name: "শিক্ষা মন্ত্রণালয়", url: "https://moedu.gov.bd", icon: "🏛️" },
     { name: "UGC Bangladesh", url: "https://ugc.gov.bd", icon: "🎓" },
     { name: "Board Results", url: "https://eboardresults.com", icon: "📊" },

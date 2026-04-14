@@ -1,5 +1,24 @@
 // EduBD - Main Application JavaScript
 
+// ===================== YEAR PRIORITY SORT =====================
+// Year priority: 2025-26 / 2026 data first, then older years fill remaining space
+function sortByYearPriority(items) {
+  return [...items].sort((a, b) => {
+    const getYear = (item) => {
+      if (item.year) return parseInt(item.year) || 0;
+      if (item.date) return parseInt(String(item.date).substring(0, 4)) || 0;
+      if (item.deadline) return parseInt(String(item.deadline).substring(0, 4)) || 0;
+      return 0;
+    };
+    const aYear = getYear(a);
+    const bYear = getYear(b);
+    const currentYear = new Date().getFullYear();
+    if (aYear >= currentYear && bYear < currentYear) return -1;
+    if (aYear < currentYear && bYear >= currentYear) return 1;
+    return bYear - aYear;
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   initNavbar();
   initBreakingNews();
@@ -7,12 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
   initBackToTop();
   initMobileMenu();
   setActiveNavLink();
+  initFeaturedNews();
   initNewsPage();
   initQuickLinks();
-  initBoardGrid();
   initSidebarAdmissions();
+  initSidebarGovtNotices();
   initSidebarScholarships();
   initImportantLinks();
+  initBoardGrid();
 });
 
 // ===================== NAVBAR =====================
@@ -198,12 +219,52 @@ function showToast(message, type = 'success', duration = 4000) {
   }, duration);
 }
 
-// ===================== NEWS PAGE =====================
+// ===================== FEATURED NEWS =====================
+function initFeaturedNews() {
+  const container = document.getElementById('featured-news');
+  if (!container || typeof eduData === 'undefined') return;
+
+  const sorted = sortByYearPriority(eduData.latestNews);
+  const featured = sorted.find(item => item.image && !item.image.includes('placeholder')) || sorted[0];
+  if (!featured) return;
+
+  const base = getBasePath();
+  const safeTitle = escapeHtml(featured.title);
+  const safeSummary = escapeHtml(featured.summary);
+  const safeSource = escapeHtml(featured.source);
+  const safeDate = escapeHtml(featured.date);
+  const safeCategory = escapeHtml(featured.category);
+  const safeImage = escapeHtml(featured.image || 'https://via.placeholder.com/800x400/1a6b3c/ffffff?text=EduBD+News');
+  const safeLink = featured.link ? (featured.link.startsWith('http') ? featured.link : base + featured.link) : '#';
+  const yearClass = (featured.year && parseInt(featured.year) >= 2026) ? 'current' : 'previous';
+
+  container.style.backgroundImage = `url('${safeImage}')`;
+  container.innerHTML = `
+    <div class="featured-overlay">
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap;">
+        <span class="news-category" style="background:var(--accent);color:white;">${safeCategory}</span>
+        ${featured.year ? `<span class="year-badge ${yearClass}">${escapeHtml(featured.year)}</span>` : ''}
+      </div>
+      <a href="${escapeHtml(safeLink)}" style="text-decoration:none;">
+        <h2 class="featured-title">${safeTitle}</h2>
+      </a>
+      <p class="featured-summary">${safeSummary}</p>
+      <div class="featured-meta">
+        <span>📰 ${safeSource}</span>
+        <span>📅 ${safeDate}</span>
+        <span>👁 ${toBengaliDigits(featured.views || 0)}</span>
+      </div>
+    </div>
+  `;
+}
+
+
 function initNewsPage() {
   const newsGrid = document.getElementById('news-grid');
   if (!newsGrid || typeof eduData === 'undefined') return;
 
-  renderNewsCards(newsGrid, eduData.latestNews);
+  const sorted = sortByYearPriority(eduData.latestNews);
+  renderNewsCards(newsGrid, sorted);
 }
 
 function renderNewsCards(container, newsItems) {
@@ -282,16 +343,49 @@ function initSidebarAdmissions() {
   if (!container || typeof eduData === 'undefined') return;
 
   const base = getBasePath();
-  const items = eduData.admissions.slice(0, 5);
-  container.innerHTML = items.map(item => `
+  const sorted = sortByYearPriority(eduData.admissions);
+  const items = sorted.slice(0, 5);
+  container.innerHTML = items.map(item => {
+    const safeTitle = escapeHtml(item.title);
+    const safeStatus = escapeHtml(item.status);
+    const safeDeadline = escapeHtml(item.deadlineDisplay);
+    const yearClass = (item.year && parseInt(item.year) >= 2026) ? 'current' : 'previous';
+    return `
     <div class="admission-notice-item">
-      <h5><a href="${base}pages/admissions.html">${item.title}</a></h5>
-      <div style="display:flex;gap:8px;align-items:center;margin-top:5px;">
-        <span class="badge ${item.status === 'চলছে' ? 'badge-success' : item.status === 'শেষ' ? 'badge-danger' : 'badge-warning'}">${item.status}</span>
-        <span style="font-size:11px;color:#888;">শেষ: ${item.deadlineDisplay}</span>
+      <h5><a href="${base}pages/admissions.html">${safeTitle}</a></h5>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:5px;flex-wrap:wrap;">
+        <span class="badge ${safeStatus === 'চলছে' ? 'badge-success' : safeStatus === 'শেষ' ? 'badge-danger' : 'badge-warning'}">${safeStatus}</span>
+        <span style="font-size:11px;color:#888;">শেষ: ${safeDeadline}</span>
+        ${item.year ? `<span class="year-badge ${yearClass}">${escapeHtml(item.year)}</span>` : ''}
       </div>
     </div>
-  `).join('');
+  `}).join('');
+}
+
+// ===================== SIDEBAR GOVERNMENT NOTICES =====================
+function initSidebarGovtNotices() {
+  const container = document.getElementById('sidebar-govt-notices');
+  if (!container || typeof eduData === 'undefined') return;
+
+  const notices = eduData.governmentNotices || [];
+  const sorted = sortByYearPriority(notices);
+  const items = sorted.slice(0, 5);
+  container.innerHTML = items.map(item => {
+    const safeTitle = escapeHtml(item.title);
+    const safeDesc = escapeHtml(item.description);
+    const safeDate = escapeHtml(item.date);
+    const safeSourceUrl = item.sourceUrl ? escapeHtml(item.sourceUrl) : 'https://shed.gov.bd/pages/notices';
+    return `
+    <div class="govt-notice-item">
+      <a href="${safeSourceUrl}" target="_blank" rel="noopener">
+        <h5 style="font-size:12px;font-weight:600;color:#2c3e50;margin-bottom:4px;line-height:1.4;">${safeTitle}</h5>
+      </a>
+      <div style="display:flex;gap:6px;align-items:center;margin-top:3px;flex-wrap:wrap;">
+        <span class="govt-source-badge">shed.gov.bd</span>
+        <span style="font-size:10px;color:#888;">${safeDate}</span>
+      </div>
+    </div>
+  `}).join('');
 }
 
 // ===================== SIDEBAR SCHOLARSHIPS =====================
@@ -300,17 +394,28 @@ function initSidebarScholarships() {
   if (!container || typeof eduData === 'undefined') return;
 
   const base = getBasePath();
-  const items = eduData.scholarships.slice(0, 4);
-  container.innerHTML = items.map(item => `
+  const sorted = sortByYearPriority(eduData.scholarships);
+  const items = sorted.slice(0, 4);
+  container.innerHTML = items.map(item => {
+    const safeName = escapeHtml(item.name);
+    const safeCountry = escapeHtml(item.country);
+    const safeType = escapeHtml(item.type);
+    const safeLevel = escapeHtml(item.level);
+    const safeDeadline = escapeHtml(item.deadlineDisplay);
+    const safeFlag = escapeHtml(item.flag);
+    const safeLink = item.link && item.link.startsWith('http') ? item.link : '#';
+    const yearClass = (item.year && parseInt(item.year) >= 2026) ? 'current' : 'previous';
+    return `
     <div class="scholarship-item">
-      <span class="scholarship-flag">${item.flag}</span>
+      <span class="scholarship-flag">${safeFlag}</span>
       <div class="scholarship-info">
-        <h5><a href="${item.link}" target="_blank" rel="noopener">${item.name}</a></h5>
-        <p>${item.country} • ${item.type} • ${item.level}</p>
-        <p style="color:#e65100;">শেষ: ${item.deadlineDisplay}</p>
+        <h5><a href="${escapeHtml(safeLink)}" target="_blank" rel="noopener">${safeName}</a></h5>
+        <p>${safeCountry} • ${safeType} • ${safeLevel}</p>
+        <p style="color:#e65100;">শেষ: ${safeDeadline}</p>
+        ${item.year ? `<span class="year-badge ${yearClass}">${escapeHtml(item.year)}</span>` : ''}
       </div>
     </div>
-  `).join('');
+  `}).join('');
 }
 
 // ===================== IMPORTANT LINKS =====================

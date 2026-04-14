@@ -23,6 +23,7 @@ from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
+from urllib.parse import urlparse
 
 # ---------------------------------------------------------------------------
 # Logging
@@ -34,6 +35,24 @@ logging.basicConfig(
     handlers=[logging.StreamHandler(sys.stdout)],
 )
 log = logging.getLogger(__name__)
+
+try:
+    import trafilatura
+    _TRAFILATURA_AVAILABLE = True
+except ImportError:  # pragma: no cover
+    _TRAFILATURA_AVAILABLE = False
+    log.warning("trafilatura not installed — scholarship text extraction will use BeautifulSoup fallback")
+
+try:
+    from ddgs import DDGS
+    _DDGS_AVAILABLE = True
+except ImportError:
+    try:
+        from duckduckgo_search import DDGS
+        _DDGS_AVAILABLE = True
+    except ImportError:  # pragma: no cover
+        _DDGS_AVAILABLE = False
+        log.warning("duckduckgo-search not installed — scholarship scraping will be skipped")
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -59,6 +78,92 @@ MAX_BOARD_LINKS_TO_EXAMINE = 60  # max <a> tags examined per board page
 MIN_TITLE_LEN = 5                # minimum meaningful title length
 
 CURRENT_YEAR = str(datetime.now(timezone.utc).year)
+
+# ---------------------------------------------------------------------------
+# Scholarship scraper configuration
+# ---------------------------------------------------------------------------
+
+# Map English country names to (Bengali name, flag emoji) for data.js schema
+COUNTRY_TO_BENGALI = {
+    "USA": ("যুক্তরাষ্ট্র", "🇺🇸"),
+    "United States": ("যুক্তরাষ্ট্র", "🇺🇸"),
+    "UK": ("যুক্তরাজ্য", "🇬🇧"),
+    "United Kingdom": ("যুক্তরাজ্য", "🇬🇧"),
+    "Canada": ("কানাডা", "🇨🇦"),
+    "Australia": ("অস্ট্রেলিয়া", "🇦🇺"),
+    "Germany": ("জার্মানি", "🇩🇪"),
+    "France": ("ফ্রান্স", "🇫🇷"),
+    "Netherlands": ("নেদারল্যান্ডস", "🇳🇱"),
+    "Sweden": ("সুইডেন", "🇸🇪"),
+    "Italy": ("ইতালি", "🇮🇹"),
+    "Japan": ("জাপান", "🇯🇵"),
+    "China": ("চীন", "🇨🇳"),
+    "Turkey": ("তুরস্ক", "🇹🇷"),
+    "Hungary": ("হাঙ্গেরি", "🇭🇺"),
+    "New Zealand": ("নিউজিল্যান্ড", "🇳🇿"),
+    "Ireland": ("আয়ারল্যান্ড", "🇮🇪"),
+    "Belgium": ("বেলজিয়াম", "🇧🇪"),
+    "Denmark": ("ডেনমার্ক", "🇩🇰"),
+    "Finland": ("ফিনল্যান্ড", "🇫🇮"),
+    "Norway": ("নরওয়ে", "🇳🇴"),
+    "South Korea": ("দক্ষিণ কোরিয়া", "🇰🇷"),
+    "Singapore": ("সিঙ্গাপুর", "🇸🇬"),
+    "Austria": ("অস্ট্রিয়া", "🇦🇹"),
+    "Switzerland": ("সুইজারল্যান্ড", "🇨🇭"),
+    "Spain": ("স্পেন", "🇪🇸"),
+}
+
+# Trusted domains for scholarship pages
+TARGET_SCHOLARSHIP_DOMAINS = [
+    "scholarships.com",
+    "scholarshipportal.com",
+    "opportunitiescorners.com",
+    "daad.de",
+    "chevening.org",
+    "fulbright.org",
+    "studyin-canada.com",
+    "mastersportal.com",
+    "topuniversities.com",
+]
+
+# Countries to search for in scholarship pages
+SCHOLARSHIP_COUNTRIES = list(COUNTRY_TO_BENGALI.keys())
+
+# Search queries for DuckDuckGo scholarship search
+SCHOLARSHIP_QUERIES = [
+    "international students scholarship 2026",
+    "Bangladesh students scholarship 2026",
+    "scholarship for Bangladeshi students 2026 2027",
+    "fully funded scholarship masters PhD 2026",
+    "government scholarship developing countries 2026",
+]
+
+_MONTHS_PATTERN = (
+    "january|february|march|april|may|june|july|august|"
+    "september|october|november|december|"
+    "jan|feb|mar|apr|jun|jul|aug|sep|sept|oct|nov|dec"
+)
+
+SCHOLARSHIP_DATE_PATTERNS = [
+    (
+        r"\b(?:deadline|application deadline|last date|closing date|apply by|"
+        r"applications close|deadline to apply)\b[:\s\-]*([A-Za-z0-9,\-/ ]{4,40})"
+    ),
+    rf"\b((?:{_MONTHS_PATTERN})\s+\d{{1,2}},?\s+\d{{4}})\b",
+    r"\b(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})\b",
+    r"\b(\d{4}-\d{2}-\d{2})\b",
+]
+
+WHO_CAN_APPLY_HINTS = [
+    "who can apply", "eligibility", "eligible applicants", "eligibility criteria",
+    "requirements", "applicants must", "open to", "available for",
+    "international students", "undergraduate", "master", "phd", "doctoral",
+]
+
+MAX_SCHOLARSHIPS_TOTAL = 50   # cap on total scholarships kept in data.js
+SCHOLARSHIP_REQUEST_DELAY = 1.5  # polite delay between scholarship page requests
+MAX_ELIGIBILITY_LENGTH = 300     # max chars stored in the eligibility field
+MAX_DESCRIPTION_ELIGIBILITY_LENGTH = 200  # max eligibility chars in description
 
 # News sources — use URL-pattern selectors to grab real article links
 NEWS_SOURCES = [
@@ -378,6 +483,275 @@ def scrape_govt_notices(source: dict) -> list:
 
 
 # ---------------------------------------------------------------------------
+# Scholarship scraper
+# ---------------------------------------------------------------------------
+
+def _normalize_whitespace(text: str) -> str:
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _scholarship_search_urls(query: str, max_results: int = 20) -> list:
+    """Use DuckDuckGo to search for scholarship URLs on trusted domains."""
+    if not _DDGS_AVAILABLE:
+        return []
+    urls = []
+    try:
+        with DDGS() as ddgs:
+            results = ddgs.text(query, max_results=max_results)
+            for r in results:
+                url = r.get("href") or r.get("url")
+                if not url:
+                    continue
+                domain = urlparse(url).netloc.lower()
+                if any(site in domain for site in TARGET_SCHOLARSHIP_DOMAINS):
+                    urls.append(url)
+    except Exception as exc:
+        log.warning("DuckDuckGo search failed for query '%s': %s", query, exc)
+    return list(dict.fromkeys(urls))
+
+
+def _fetch_scholarship_html(url: str) -> str:
+    """Fetch raw HTML from a scholarship page."""
+    try:
+        resp = requests.get(url, headers=HEADERS, timeout=REQUEST_TIMEOUT)
+        resp.raise_for_status()
+        return resp.text
+    except Exception as exc:
+        log.warning("Failed to fetch scholarship page %s: %s", url, exc)
+        return ""
+
+
+def _extract_clean_text(html: str, url: str) -> str:
+    """Extract clean text from HTML using trafilatura or BeautifulSoup fallback."""
+    if _TRAFILATURA_AVAILABLE:
+        try:
+            extracted = trafilatura.extract(
+                html, url=url, include_comments=False,
+                include_tables=True, favor_precision=True,
+            )
+            if extracted:
+                return extracted
+        except Exception:
+            pass
+    soup = BeautifulSoup(html, "lxml")
+    for tag in soup(["script", "style", "noscript"]):
+        tag.decompose()
+    return soup.get_text("\n", strip=True)
+
+
+def _find_scholarship_name(soup: BeautifulSoup, text: str) -> str:
+    if soup.title and soup.title.text.strip():
+        title = soup.title.text.strip()
+        title = re.split(r"\||\-", title)[0].strip()
+        if len(title) > 5:
+            return title
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    for line in lines[:10]:
+        if 5 < len(line) < 160:
+            return line
+    return "Not found"
+
+
+def _find_country(text: str) -> str:
+    for country in SCHOLARSHIP_COUNTRIES:
+        if re.search(rf"\b{re.escape(country)}\b", text, flags=re.I):
+            return country
+    return "Not found"
+
+
+def _find_last_date(text: str) -> str:
+    for pattern in SCHOLARSHIP_DATE_PATTERNS:
+        match = re.search(pattern, text, flags=re.I)
+        if match:
+            value = match.group(1).strip(" .,:;")
+            return value
+    return "Not found"
+
+
+def _extract_relevant_sentences(text: str, keywords: list, max_sentences: int = 3) -> str:
+    sentences = re.split(r"(?<=[.!?])\s+", text)
+    picked = []
+    for sentence in sentences:
+        s = _normalize_whitespace(sentence)
+        if any(k.lower() in s.lower() for k in keywords):
+            if 20 <= len(s) <= 300:
+                picked.append(s)
+        if len(picked) >= max_sentences:
+            break
+    return " ".join(picked) if picked else "Not found"
+
+
+def _find_who_can_apply(text: str) -> str:
+    result = _extract_relevant_sentences(text, WHO_CAN_APPLY_HINTS, max_sentences=4)
+    if result != "Not found":
+        return result
+    lines = text.splitlines()
+    candidates = []
+    for line in lines:
+        line_clean = _normalize_whitespace(line)
+        if any(k in line_clean.lower() for k in WHO_CAN_APPLY_HINTS):
+            if 20 <= len(line_clean) <= 350:
+                candidates.append(line_clean)
+        if len(candidates) >= 3:
+            break
+    return " ".join(candidates) if candidates else "Not found"
+
+
+def _extract_scholarship_record(url: str) -> dict:
+    """Scrape a single scholarship page and return a raw record dict."""
+    html = _fetch_scholarship_html(url)
+    if not html:
+        return {}
+    try:
+        soup = BeautifulSoup(html, "lxml")
+        text = _extract_clean_text(html, url)
+        if not text or len(text) < 200:
+            return {}
+        return {
+            "Scholarship Name": _find_scholarship_name(soup, text),
+            "Country": _find_country(text),
+            "Who can apply": _find_who_can_apply(text),
+            "last date": _find_last_date(text),
+            "Source URL": url,
+        }
+    except Exception as exc:
+        log.warning("Failed to parse scholarship page %s: %s", url, exc)
+        return {}
+
+
+def _infer_level(who_can_apply: str) -> str:
+    text_lower = who_can_apply.lower()
+    if "phd" in text_lower or "doctoral" in text_lower:
+        return "পিএইচডি"
+    if "master" in text_lower or "postgrad" in text_lower:
+        return "মাস্টার্স"
+    if "undergraduate" in text_lower or "bachelor" in text_lower:
+        return "স্নাতক"
+    return "মাস্টার্স/পিএইচডি"
+
+
+def _map_scholarship_to_schema(record: dict, new_id: int) -> dict:
+    """Convert a raw scraped record to the data.js scholarships schema."""
+    country_en = record.get("Country", "Not found")
+    bengali_name, flag = COUNTRY_TO_BENGALI.get(country_en, ("আন্তর্জাতিক", "🌍"))
+
+    name = record.get("Scholarship Name", "Unknown Scholarship")
+    eligibility = record.get("Who can apply", "")
+    if eligibility == "Not found":
+        eligibility = "আন্তর্জাতিক শিক্ষার্থীদের জন্য"
+    source_url = record.get("Source URL", "")
+    deadline_raw = record.get("last date", "Not found")
+    deadline = deadline_raw if deadline_raw != "Not found" else f"{CURRENT_YEAR}-12-31"
+
+    return {
+        "id": new_id,
+        "name": name,
+        "country": bengali_name,
+        "flag": flag,
+        "type": "সম্পূর্ণ বৃত্তি",
+        "level": _infer_level(eligibility),
+        "amount": "বিস্তারিত দেখুন",
+        "deadline": deadline,
+        "deadlineDisplay": deadline_raw if deadline_raw != "Not found" else "বিস্তারিত দেখুন",
+        "eligibility": eligibility[:MAX_ELIGIBILITY_LENGTH] if eligibility else "আন্তর্জাতিক শিক্ষার্থীদের জন্য",
+        "link": source_url,
+        "description": f"{name}. {eligibility[:MAX_DESCRIPTION_ELIGIBILITY_LENGTH]}" if eligibility else name,
+        "benefits": [],
+        "requirements": [],
+        "applicationProcess": "অনলাইনে আবেদন করুন",
+        "numberOfAwards": "বিস্তারিত দেখুন",
+        "duration": "বিস্তারিত দেখুন",
+        "website": source_url,
+        "year": CURRENT_YEAR,
+    }
+
+
+def scrape_scholarships() -> list:
+    """
+    Search DuckDuckGo for scholarship pages on trusted domains,
+    scrape each page, and return a list of scholarship dicts
+    in the data.js schema format.
+    """
+    if not _DDGS_AVAILABLE:
+        log.warning("Skipping scholarship scraping — duckduckgo-search not available")
+        return []
+
+    log.info("--- Scraping scholarships via DuckDuckGo ---")
+    all_urls: list = []
+    for query in SCHOLARSHIP_QUERIES:
+        urls = _scholarship_search_urls(query, max_results=15)
+        log.info("  Query '%s' → %d URLs", query, len(urls))
+        all_urls.extend(urls)
+        time.sleep(REQUEST_DELAY)
+
+    # Deduplicate URLs
+    all_urls = list(dict.fromkeys(all_urls))
+    log.info("  Total unique scholarship URLs found: %d", len(all_urls))
+
+    raw_records = []
+    for url in all_urls:
+        record = _extract_scholarship_record(url)
+        if record:
+            raw_records.append(record)
+        time.sleep(SCHOLARSHIP_REQUEST_DELAY)
+
+    # Filter to only actual scholarship entries (mirrors user's filter logic)
+    filtered = [
+        r for r in raw_records
+        if re.search(
+            r"scholar|fellowship|grant|award|bursary",
+            r.get("Scholarship Name", ""),
+            flags=re.I,
+        )
+        or re.search(
+            r"international|undergraduate|master|phd|doctoral",
+            r.get("Who can apply", ""),
+            flags=re.I,
+        )
+    ]
+
+    # Deduplicate by name + URL
+    seen = set()
+    deduped = []
+    for r in filtered:
+        key = (r.get("Scholarship Name", "").lower(), r.get("Source URL", ""))
+        if key not in seen:
+            seen.add(key)
+            deduped.append(r)
+
+    log.info("  Scraped %d scholarship records (after filter+dedup)", len(deduped))
+    return deduped
+
+
+def merge_scholarships(existing: list, scraped_records: list) -> list:
+    """
+    Merge newly scraped scholarships with existing ones.
+    Deduplicates by lowercased scholarship name.
+    Keeps existing manually curated entries and adds new ones at the end.
+    Limits total to MAX_SCHOLARSHIPS_TOTAL.
+    """
+    existing_names = {item.get("name", "").lower() for item in existing}
+    nid = next_id(existing)
+    added = 0
+
+    for record in scraped_records:
+        name_lower = record.get("Scholarship Name", "").lower()
+        if not name_lower or name_lower == "not found":
+            continue
+        # Skip if a scholarship with this name already exists
+        if name_lower in existing_names:
+            continue
+        scholarship = _map_scholarship_to_schema(record, nid)
+        existing.append(scholarship)
+        existing_names.add(name_lower)
+        nid += 1
+        added += 1
+
+    log.info("  merged %d new scholarships (total %d)", added, len(existing))
+    return existing[:MAX_SCHOLARSHIPS_TOTAL]
+
+
+# ---------------------------------------------------------------------------
 # Load / Save js/data.js
 # ---------------------------------------------------------------------------
 
@@ -587,7 +961,20 @@ def main() -> int:
         time.sleep(REQUEST_DELAY)
 
     # ------------------------------------------------------------------
-    # 4. Set lastUpdated and save
+    # 4. Scholarships (DuckDuckGo + trafilatura)
+    # ------------------------------------------------------------------
+    log.info("--- Scraping scholarships ---")
+    try:
+        scraped_records = scrape_scholarships()
+        if scraped_records:
+            data["scholarships"] = merge_scholarships(
+                data.get("scholarships", []), scraped_records
+            )
+    except Exception as exc:
+        log.warning("Error in scholarship scraping: %s", exc)
+
+    # ------------------------------------------------------------------
+    # 5. Set lastUpdated and save
     # ------------------------------------------------------------------
     data["lastUpdated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     log.info("lastUpdated = %s", data["lastUpdated"])

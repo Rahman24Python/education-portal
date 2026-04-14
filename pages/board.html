@@ -56,8 +56,8 @@
   <nav class="category-nav">
     <div class="category-nav-inner">
       <a href="news.html?cat=ট্রেন্ডিং" class="cat-link">🔥 ট্রেন্ডিং</a>
-      <a href="ssc.html" class="cat-link">📝 SSC 2025</a>
-      <a href="hsc.html" class="cat-link">📚 HSC 2025</a>
+      <a href="ssc.html" class="cat-link">📝 SSC 2026</a>
+      <a href="hsc.html" class="cat-link">📚 HSC 2026</a>
       <a href="routines.html" class="cat-link">🗓️ রুটিন</a>
     </div>
   </nav>
@@ -110,7 +110,7 @@
         <div class="footer-col"><h4>গুরুত্বপূর্ণ লিঙ্ক</h4><div class="footer-links"><a href="https://moedu.gov.bd" target="_blank" rel="noopener">🏛️ শিক্ষা মন্ত্রণালয়</a><a href="https://educationboard.gov.bd" target="_blank" rel="noopener">🏛️ educationboard.gov.bd</a></div></div>
       </div>
     </div>
-    <div class="footer-bottom"><span>© ২০২৫ EduBD — বাংলাদেশ শিক্ষা তথ্য পোর্টাল।</span></div>
+    <div class="footer-bottom"><span>© ২০২৫-২৬ EduBD — বাংলাদেশ শিক্ষা তথ্য পোর্টাল।</span></div>
   </footer>
 
   <button class="back-to-top" title="উপরে যান">▲</button>
@@ -225,6 +225,27 @@
             <a href="routines.html" class="btn btn-outline">🗓️ পরীক্ষার রুটিন</a>
             <a href="news.html" class="btn btn-outline">📰 সংশ্লিষ্ট সংবাদ</a>
           </div>
+
+          ${board.pdfLinks && board.pdfLinks.length ? `
+          <!-- PDF Downloads -->
+          <div style="background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,0.08);padding:20px;margin-bottom:25px;">
+            <h3 style="font-size:16px;font-weight:800;color:var(--text-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;">
+              <span style="width:4px;height:20px;background:var(--primary);border-radius:2px;display:inline-block;"></span>
+              📄 PDF ডাউনলোড (২০২৫-২৬)
+            </h3>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">
+              ${board.pdfLinks.map(pdf => `
+                <a href="${pdf.url}" target="_blank" rel="noopener"
+                   style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#f8f9fa;border:1px solid #dee2e6;border-radius:8px;text-decoration:none;transition:all 0.2s;"
+                   onmouseover="this.style.background='#e8f5ee';this.style.borderColor='var(--primary)'"
+                   onmouseout="this.style.background='#f8f9fa';this.style.borderColor='#dee2e6'">
+                  <span style="font-size:24px;">📥</span>
+                  <span style="font-size:13px;font-weight:600;color:var(--text-dark);">${pdf.title}</span>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+          ` : ''}
 
           <!-- Other Boards -->
           <h2 class="section-title" style="margin-bottom:15px;">অন্যান্য বোর্ড</h2>

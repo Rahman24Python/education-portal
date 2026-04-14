@@ -197,8 +197,7 @@ function renderSharedFooter(base) {
             <a href="https://moedu.gov.bd" target="_blank" rel="noopener">🏛️ শিক্ষা মন্ত্রণালয়</a>
             <a href="https://ugc.gov.bd" target="_blank" rel="noopener">🎓 UGC Bangladesh</a>
             <a href="https://eboardresults.com" target="_blank" rel="noopener">📊 বোর্ড রেজাল্ট</a>
-            <a href="https://xiclassadmission.gov.bd" target="_blank" rel="noopener">📝 একাদশ ভর্তি</a>
-            <a href="https://nu.ac.bd" target="_blank" rel="noopener">🏫 জাতীয় বিশ্ববিদ্যালয়</a>
+            <a href="https://www.nu.ac.bd" target="_blank" rel="noopener">🏫 জাতীয় বিশ্ববিদ্যালয়</a>
             <a href="https://teachers.gov.bd" target="_blank" rel="noopener">👩‍🏫 শিক্ষক বাতায়ন</a>
             <a href="${base}pages/about.html">ℹ️ আমাদের সম্পর্কে</a>
           </div>

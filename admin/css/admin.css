@@ -655,3 +655,69 @@ tbody td {
   }
   .search-bar input { width: 100%; }
 }
+
+/* ── Image Upload & Preview ─────────────────────────────────────────────── */
+.img-drop-area {
+  border: 2px dashed #bbb;
+  border-radius: 8px;
+  padding: 10px 14px;
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  margin-top: 6px;
+}
+
+.img-drop-area.drag-over {
+  border-color: #1976d2;
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.img-preview-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+/* ── Auto-Fetch URL Box ──────────────────────────────────────────────────── */
+.fetch-url-box {
+  background: #e8f5e9;
+  border: 1.5px solid #a5d6a7;
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+
+.fetch-url-label {
+  font-weight: 700;
+  font-size: 13px;
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+/* ── Responsive tables ───────────────────────────────────────────────────── */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 480px) {
+  .modal-box {
+    margin: 10px;
+    max-height: 95vh;
+  }
+  .topbar-title { font-size: 15px; }
+  .btn { font-size: 12px; padding: 7px 12px; }
+}
+
+/* ── Additional Responsive Admin ─────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .section-content { padding: 16px 12px; }
+  .modal-box { width: calc(100vw - 20px); max-height: 95vh; }
+  .fetch-url-box { padding: 10px 12px; }
+  .action-bar { flex-direction: column; align-items: flex-start; }
+  .dash-card { flex-direction: column; text-align: center; }
+}

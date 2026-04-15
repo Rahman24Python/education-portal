@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initSidebarScholarships();
   initImportantLinks();
   initBoardGrid();
+  initHomeDeadlines();
+  initHomeScholarships();
+  initHomeUsefulLinks();
 });
 
 // ===================== NAVBAR =====================
@@ -256,6 +259,7 @@ function showToast(message, type = 'success', duration = 4000) {
 // ===================== FEATURED NEWS =====================
 function initFeaturedNews() {
   const container = document.getElementById('featured-news');
+  const headlinesContainer = document.getElementById('featured-headlines');
   if (!container || typeof eduData === 'undefined') return;
 
   const sorted = sortByYearPriority(eduData.latestNews);
@@ -290,6 +294,23 @@ function initFeaturedNews() {
       </div>
     </div>
   `;
+
+  // Render right-side headlines (next 5 items after featured)
+  if (headlinesContainer) {
+    const headlines = sorted.slice(1, 6);
+    headlinesContainer.innerHTML = headlines.map(item => {
+      const hLink = item.link ? (item.link.startsWith('http') ? item.link : base + item.link) : '#';
+      return `
+      <div class="headline-item">
+        <span class="headline-cat">${escapeHtml(item.category || '')}</span>
+        <a href="${escapeHtml(hLink)}" class="headline-title">${escapeHtml(item.title)}</a>
+        <div class="headline-meta">
+          <span>📰 ${escapeHtml(item.source || '')}</span>
+          <span>📅 ${escapeHtml(item.date || '')}</span>
+        </div>
+      </div>`;
+    }).join('');
+  }
 }
 
 
@@ -488,3 +509,78 @@ function escapeHtml(str) {
     .replace(/'/g, '&#39;');
 }
 window.escapeHtml = escapeHtml;
+
+// ===================== HOME DEADLINES =====================
+function initHomeDeadlines() {
+  const container = document.getElementById('home-deadlines-list');
+  if (!container || typeof eduData === 'undefined') return;
+
+  const base = getBasePath();
+  const now = new Date();
+  const deadlines = (eduData.deadlines || [])
+    .map(d => ({ ...d, _ts: new Date(d.date).getTime() }))
+    .sort((a, b) => a._ts - b._ts)
+    .slice(0, 6);
+
+  container.innerHTML = deadlines.map(item => {
+    const dt = new Date(item.date);
+    const diffDays = Math.ceil((dt - now) / (1000 * 60 * 60 * 24));
+    let statusClass, dateLabel, daysLabel;
+    if (diffDays < 0) {
+      statusClass = 'overdue';
+      dateLabel = 'শেষ হয়েছে';
+      daysLabel = `${toBengaliDigits(Math.abs(diffDays))} দিন আগে`;
+    } else if (diffDays <= 7) {
+      statusClass = 'soon';
+      dateLabel = item.date;
+      daysLabel = diffDays === 0 ? 'আজ!' : `${toBengaliDigits(diffDays)} দিন বাকি`;
+    } else {
+      statusClass = 'upcoming';
+      dateLabel = item.date;
+      daysLabel = `${toBengaliDigits(diffDays)} দিন বাকি`;
+    }
+    const link = item.link ? (item.link.startsWith('http') ? item.link : base + item.link) : '#';
+    return `
+    <div class="deadline-timeline-item">
+      <div class="deadline-dot ${statusClass}"></div>
+      <div class="deadline-info">
+        <div class="deadline-title"><a href="${escapeHtml(link)}">${escapeHtml(item.title)}</a></div>
+        <span class="deadline-date-badge ${statusClass}">${escapeHtml(dateLabel)}</span>
+        <span class="deadline-days">${daysLabel}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ===================== HOME SCHOLARSHIPS =====================
+function initHomeScholarships() {
+  const container = document.getElementById('home-scholarships-grid');
+  if (!container || typeof eduData === 'undefined') return;
+
+  const base = getBasePath();
+  const sorted = sortByYearPriority(eduData.scholarships || []);
+  const items = sorted.slice(0, 4);
+  container.innerHTML = items.map(item => {
+    const safeLink = item.link && item.link.startsWith('http') ? item.link : base + 'pages/scholarships.html';
+    return `
+    <a href="${escapeHtml(safeLink)}" target="${item.link && item.link.startsWith('http') ? '_blank' : '_self'}" rel="noopener" class="home-scholar-card">
+      <span class="scholar-flag">${escapeHtml(item.flag || '🌟')}</span>
+      <div class="scholar-name">${escapeHtml(item.name)}</div>
+      <div class="scholar-meta">${escapeHtml(item.country)} • ${escapeHtml(item.level)}</div>
+      <div class="scholar-deadline">শেষ: ${escapeHtml(item.deadlineDisplay || item.deadline || '')}</div>
+    </a>`;
+  }).join('');
+}
+
+// ===================== HOME USEFUL LINKS =====================
+function initHomeUsefulLinks() {
+  const container = document.getElementById('home-useful-links');
+  if (!container || typeof eduData === 'undefined') return;
+
+  const links = (eduData.importantLinks || []).slice(0, 12);
+  container.innerHTML = links.map(link => `
+    <a href="${escapeHtml(link.url)}" target="_blank" rel="noopener" class="home-useful-link-card">
+      <span class="link-icon">${escapeHtml(link.icon || '🔗')}</span>
+      <span>${escapeHtml(link.name)}</span>
+    </a>`).join('');
+}

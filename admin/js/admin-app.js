@@ -208,6 +208,9 @@ function openNewsModal(id) {
     form.dataset.editId = "";
     document.getElementById("news-modal-title").textContent = "নতুন খবর যোগ করুন";
     document.getElementById("news-save-btn").textContent = "সেভ করুন";
+    clearNewsImage();
+    const fetchUrlEl = document.getElementById("n-fetch-url");
+    if (fetchUrlEl) fetchUrlEl.value = "";
   } else {
     const item = (appData.latestNews || []).find(n => n.id === id);
     if (!item) return;
@@ -222,6 +225,8 @@ function openNewsModal(id) {
     document.getElementById("n-link").value = item.link || "";
     document.getElementById("n-image").value = item.image || "";
     document.getElementById("n-year").value = item.year || "";
+    // Update image preview if image exists
+    updateNewsImagePreview(item.image || "");
   }
   modal.style.display = "flex";
 }
@@ -898,6 +903,129 @@ function deleteUni(tab, idx) {
   });
 }
 
+// ─── Image Upload Helpers ────────────────────────────────────────────────
+function handleNewsImageUpload(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  if (!file.type.startsWith("image/")) { showToast("শুধুমাত্র ছবি ফাইল গ্রহণযোগ্য", "error"); return; }
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    document.getElementById("n-image").value = dataUrl;
+    updateNewsImagePreview(dataUrl);
+    showToast("✅ ছবি আপলোড হয়েছে");
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleNewsImageDrop(event) {
+  event.preventDefault();
+  const dropArea = document.getElementById("n-image-drop");
+  if (dropArea) dropArea.classList.remove("drag-over");
+  const file = event.dataTransfer.files[0];
+  if (!file) return;
+  if (!file.type.startsWith("image/")) { showToast("শুধুমাত্র ছবি ফাইল গ্রহণযোগ্য", "error"); return; }
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    document.getElementById("n-image").value = dataUrl;
+    updateNewsImagePreview(dataUrl);
+    showToast("✅ ছবি আপলোড হয়েছে");
+  };
+  reader.readAsDataURL(file);
+}
+
+function updateNewsImagePreview(src) {
+  const wrap = document.getElementById("n-image-preview");
+  const img = document.getElementById("n-image-preview-img");
+  if (!wrap || !img) return;
+  if (src) {
+    let safeSrc = '';
+    if (src.startsWith('data:image/')) {
+      // Base64 image data URL from file upload - safe
+      safeSrc = src;
+    } else {
+      try {
+        const parsed = new URL(src);
+        // Reconstruct URL from safe components to break taint chain
+        if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+          safeSrc = parsed.protocol + '//' + parsed.host + parsed.pathname + parsed.search;
+        }
+      } catch (e) {
+        safeSrc = '';
+      }
+    }
+    if (!safeSrc) { wrap.style.display = "none"; return; }
+    img.setAttribute('src', safeSrc);
+    wrap.style.display = "block";
+  } else {
+    img.setAttribute('src', '');
+    wrap.style.display = "none";
+  }
+}
+
+function clearNewsImage() {
+  const el = document.getElementById("n-image");
+  if (el) el.value = "";
+  updateNewsImagePreview("");
+  const fileInput = document.getElementById("n-image-file");
+  if (fileInput) fileInput.value = "";
+}
+
+// ─── Auto-Fetch News from URL ────────────────────────────────────────────
+async function fetchNewsFromUrl() {
+  const urlEl = document.getElementById("n-fetch-url");
+  if (!urlEl) return;
+  const url = urlEl.value.trim();
+  if (!url) { showToast("URL লিখুন", "error"); return; }
+  showToast("⏳ তথ্য সংগ্রহ করা হচ্ছে...", "info");
+  try {
+    const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(url);
+    const resp = await fetch(proxyUrl);
+    if (!resp.ok) throw new Error("নেটওয়ার্ক সমস্যা");
+    const data = await resp.json();
+    const html = data.contents || "";
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    const getMeta = (selectors) => {
+      for (const sel of selectors) {
+        const el = doc.querySelector(sel);
+        if (el) {
+          const val = el.getAttribute("content") || el.textContent;
+          if (val && val.trim()) return val.trim();
+        }
+      }
+      return "";
+    };
+
+    const title = getMeta(['meta[property="og:title"]', 'meta[name="twitter:title"]']) || doc.title || "";
+    const description = getMeta(['meta[property="og:description"]', 'meta[name="description"]', 'meta[name="twitter:description"]']);
+    const image = getMeta(['meta[property="og:image"]', 'meta[name="twitter:image"]', 'meta[itemprop="image"]']);
+    let domain = "";
+    try { domain = new URL(url).hostname.replace("www.", ""); } catch(e) { domain = ""; }
+    const now = new Date();
+    const today = now.getFullYear() + '-' +
+      String(now.getMonth() + 1).padStart(2, '0') + '-' +
+      String(now.getDate()).padStart(2, '0');
+    const year = now.getFullYear().toString();
+
+    if (title) document.getElementById("n-title").value = title;
+    if (description) document.getElementById("n-summary").value = description;
+    if (domain) document.getElementById("n-source").value = domain;
+    document.getElementById("n-date").value = today;
+    document.getElementById("n-link").value = url;
+    document.getElementById("n-year").value = year;
+    if (image) {
+      document.getElementById("n-image").value = image;
+      updateNewsImagePreview(image);
+    }
+    showToast("✅ তথ্য সফলভাবে সংগ্রহ করা হয়েছে");
+  } catch (err) {
+    showToast("❌ তথ্য সংগ্রহ করা সম্ভব হয়নি: " + (err.message || ""), "error");
+  }
+}
+
 // ─── Modal helpers ───────────────────────────────────────────────────────
 function closeModal(id) {
   const modal = document.getElementById(id);
@@ -983,6 +1111,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Default section
   showSection("dashboard");
+
+  // Image URL preview on text change
+  const nImageEl = document.getElementById("n-image");
+  if (nImageEl) {
+    nImageEl.addEventListener("input", function() {
+      const val = this.value.trim();
+      if (val && (val.startsWith('http') || val.startsWith('data:'))) {
+        updateNewsImagePreview(val);
+      } else if (!val) {
+        updateNewsImagePreview("");
+      }
+    });
+  }
 
   // Mobile sidebar toggle
   const toggleBtn = document.getElementById("sidebar-toggle");

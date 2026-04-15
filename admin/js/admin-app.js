@@ -127,11 +127,29 @@ function addBreaking() {
 
 function editBreaking(i) {
   const list = appData.breakingNews || [];
-  const text = prompt("সম্পাদনা করুন:", list[i]);
-  if (text === null) return;
-  list[i] = text.trim();
+  openBreakingEditModal(i, list[i]);
+}
+
+function openBreakingEditModal(idx, currentText) {
+  const modal = document.getElementById("breaking-edit-modal");
+  if (!modal) return;
+  const inp = document.getElementById("breaking-edit-text");
+  if (inp) inp.value = currentText || "";
+  modal.dataset.editIdx = idx;
+  modal.style.display = "flex";
+  if (inp) inp.focus();
+}
+
+function saveBreakingEdit() {
+  const modal = document.getElementById("breaking-edit-modal");
+  if (!modal) return;
+  const idx = parseInt(modal.dataset.editIdx);
+  const text = document.getElementById("breaking-edit-text").value.trim();
+  if (!text) { showToast("টেক্সট লিখুন", "error"); return; }
+  (appData.breakingNews || [])[idx] = text;
   saveData(appData);
   updateDraftBadge();
+  closeModal("breaking-edit-modal");
   renderBreaking();
   showToast("✅ আপডেট হয়েছে");
 }
@@ -693,7 +711,7 @@ function renderBoards() {
     <div class="board-card">
       <div class="board-card-header">
         <h3>${esc(board.name)}</h3>
-        <button class="btn btn-sm btn-primary" onclick="openBoardModal('${esc(board.id)}')">✏️ সম্পাদনা</button>
+        <button class="btn btn-sm btn-primary board-edit-btn" data-boardid="${esc(board.id)}">✏️ সম্পাদনা</button>
       </div>
       <div class="board-card-body">
         <p><strong>ওয়েবসাইট:</strong> <a href="${esc(board.website)}" target="_blank">${esc(board.website)}</a></p>
@@ -702,6 +720,11 @@ function renderBoards() {
         <p><strong>PDF লিংক:</strong> ${(board.pdfLinks || []).length} টি</p>
       </div>
     </div>`).join("");
+  container.querySelectorAll(".board-edit-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+      openBoardModal(this.dataset.boardid);
+    });
+  });
 }
 
 function openBoardModal(boardId) {
@@ -791,10 +814,20 @@ function renderUniTab(tab) {
       <td>${esc(item.location)}</td>
       <td><a href="${esc(item.website)}" target="_blank">${esc(item.website)}</a></td>
       <td>
-        <button class="btn btn-sm btn-primary" onclick="openUniModal('${tab}',${i})">✏️</button>
-        <button class="btn btn-sm btn-danger" onclick="deleteUni('${tab}',${i})">🗑️</button>
+        <button class="btn btn-sm btn-primary uni-edit-btn" data-tab="${esc(tab)}" data-idx="${i}">✏️</button>
+        <button class="btn btn-sm btn-danger uni-del-btn" data-tab="${esc(tab)}" data-idx="${i}">🗑️</button>
       </td>
     </tr>`).join("");
+  tbody.querySelectorAll(".uni-edit-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+      openUniModal(this.dataset.tab, parseInt(this.dataset.idx));
+    });
+  });
+  tbody.querySelectorAll(".uni-del-btn").forEach(btn => {
+    btn.addEventListener("click", function() {
+      deleteUni(this.dataset.tab, parseInt(this.dataset.idx));
+    });
+  });
   const pub = document.getElementById("uni-section-public");
   const priv = document.getElementById("uni-section-private");
   if (pub) pub.style.display = tab === "public" ? "block" : "none";
@@ -916,6 +949,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (unEl) unEl.textContent = session.username || "অ্যাডমিন";
 
   // Load data
+  if (!window.eduData) {
+    showToast("⚠️ data.js লোড হয়নি। ড্রাফট থেকে লোড করা হচ্ছে।", "error");
+  }
   appData = loadData();
   updateDraftBadge();
 

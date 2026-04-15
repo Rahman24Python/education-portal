@@ -682,6 +682,26 @@
   </div>
 </div>
 
+<!-- Breaking News Edit Modal -->
+<div class="modal-overlay" id="breaking-edit-modal">
+  <div class="modal-box" style="max-width:520px">
+    <div class="modal-header">
+      <h3>ব্রেকিং নিউজ সম্পাদনা</h3>
+      <button class="modal-close" onclick="closeModal('breaking-edit-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-field">
+        <label>টেক্সট <span class="req">*</span></label>
+        <textarea id="breaking-edit-text" rows="3"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('breaking-edit-modal')">বাতিল</button>
+      <button class="btn btn-primary" onclick="saveBreakingEdit()">আপডেট করুন</button>
+    </div>
+  </div>
+</div>
+
 <!-- Toast Container -->
 <div id="toast-container"></div>
 

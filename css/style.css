@@ -2910,6 +2910,7 @@ footer {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   align-items: stretch;
+  min-height: 350px;
 }
 
 .featured-news-card {
@@ -2974,14 +2975,16 @@ footer {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  height: 100%;
 }
 
 .headline-item {
   display: flex;
   flex-direction: column;
-  padding: 14px 16px;
+  justify-content: center;
+  padding: 14px 18px;
   border-bottom: 1px solid #f0f0f0;
-  transition: background 0.2s;
+  transition: var(--transition);
   flex: 1;
 }
 
@@ -3031,6 +3034,9 @@ footer {
   }
   .featured-news-card {
     min-height: 280px;
+  }
+  .featured-headlines {
+    max-height: none;
   }
 }
 

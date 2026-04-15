@@ -1,7 +1,7 @@
 // EduBD - Bangladesh Education Portal - Data
 // Auto-updated by scripts/update_data.py — do not edit manually.
 const eduData = {
-  "lastUpdated": "2026-04-15T13:21:42Z",
+  "lastUpdated": "2026-04-15T19:15:19Z",
   "breakingNews": [
     "SSC পরীক্ষা ২০২৬: লিখিত পরীক্ষা ২১ এপ্রিল থেকে ২০ মে ২০২৬, ব্যবহারিক ০৭-১৪ জুন ২০২৬ — রুটিন: dhakaeducationboard.gov.bd",
     "HSC পরীক্ষা ২০২৬: এপ্রিল মাসে শুরু হয়েছে — রুটিন অনুযায়ী পরীক্ষা চলছে",
@@ -2381,6 +2381,13 @@ const eduData = {
       ],
       "pdfLinks": [
         {
+          "title": "আপিল এণ্ড আর্বিট্রেশন কমিটির (স্কুল পর্যায়) ৮৯তম সভায় বাদী ও বিবাদী ব্যক্তিবর্গকে প্রামাণ্য কাগজপত্রসহ সভায় উপস্থিত হওয়া প্রসঙ্গে।",
+          "url": "https://jessoreboard.gov.bd/www.jessoreboard.gov.bd/uploads/notice/02_20260409161250_302.pdf",
+          "date": "2026-04-15",
+          "category": "পিডিএফ",
+          "year": "2026"
+        },
+        {
           "title": "এইচ. এস. সি. ২০২৫ সনের মেধা ও সাধারণ বৃত্তি তালিকা প্রকাশিত হয়েছে - সচিব।",
           "url": "https://jessoreboard.gov.bd/www.jessoreboard.gov.bd/uploads/news/20251210151918_497.pdf",
           "date": "2026-04-15",
@@ -2439,13 +2446,6 @@ const eduData = {
         {
           "title": "এসএসসি পরীক্ষা ২০২৬-এর কেন্দ্রের অধীন প্রতিষ্ঠানের তালিকা ও প্রতিষ্ঠান ভিত্তিক পরীক্ষার্থীর সংখ্যা (সংশোধিত)।",
           "url": "https://jessoreboard.gov.bd/www.jessoreboard.gov.bd/uploads/notice/00_20260408100128_180.pdf",
-          "date": "2026-04-14",
-          "category": "পিডিএফ",
-          "year": "2026"
-        },
-        {
-          "title": "সাতক্ষীরা জেলার তালা উপজেলাধীন পাটকেলঘাটা আদর্শ বহুমুখী উচ্চ বিদ্যালয়-এর সাময়িক বরখাস্তকৃত প্রধান শিক্ষক জনাব শেখ আব্দুল হাই-কে স্বপদে পুনর্বহাল করে বকেয়াসহ পূর্ণ বেতন ভাতাদি প্রদান প্রসঙ্গে।",
-          "url": "https://jessoreboard.gov.bd/www.jessoreboard.gov.bd/uploads/notice/02_20260409112652_482.pdf",
           "date": "2026-04-14",
           "category": "পিডিএফ",
           "year": "2026"
@@ -2905,6 +2905,177 @@ const eduData = {
   ],
   "governmentNotices": [
     {
+      "title": "Islamic University, Bangladesh",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/63",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "Islamic University, Bangladesh",
+      "source": "ugc-universities.gov.bd",
+      "id": 133
+    },
+    {
+      "title": "Jahangirnagar University",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/61",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "Jahangirnagar University",
+      "source": "ugc-universities.gov.bd",
+      "id": 132
+    },
+    {
+      "title": "University of Chittagong",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/44",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "University of Chittagong",
+      "source": "ugc-universities.gov.bd",
+      "id": 131
+    },
+    {
+      "title": "Bangladesh University of Engineering & Technology",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/23",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "Bangladesh University of Engineering & Technology",
+      "source": "ugc-universities.gov.bd",
+      "id": 130
+    },
+    {
+      "title": "Bangladesh Agricultural University",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/42",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "Bangladesh Agricultural University",
+      "source": "ugc-universities.gov.bd",
+      "id": 129
+    },
+    {
+      "title": "University of Rajshahi",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/15",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "University of Rajshahi",
+      "source": "ugc-universities.gov.bd",
+      "id": 128
+    },
+    {
+      "title": "University of Dhaka",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/2",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "University of Dhaka",
+      "source": "ugc-universities.gov.bd",
+      "id": 127
+    },
+    {
+      "title": "International Universities",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/international-universities",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "International Universities",
+      "source": "ugc-universities.gov.bd",
+      "id": 126
+    },
+    {
+      "title": "প্রাক্তন সচিব/সিনিয়র সচিবগণের তালিকা",
+      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bca31054345f0fca08",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "প্রাক্তন সচিব/সিনিয়র সচিবগণের তালিকা",
+      "source": "shed.gov.bd",
+      "id": 125
+    },
+    {
+      "title": "প্রাক্তন মাননীয় প্রতিমন্ত্রী/উপমন্ত্রী",
+      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bea31054345f0fcb2b",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "প্রাক্তন মাননীয় প্রতিমন্ত্রী/উপমন্ত্রী",
+      "source": "shed.gov.bd",
+      "id": 124
+    },
+    {
+      "title": "প্রাক্তন মাননীয় মন্ত্রী/উপদেষ্টা",
+      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bda31054345f0fca8a",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "প্রাক্তন মাননীয় মন্ত্রী/উপদেষ্টা",
+      "source": "shed.gov.bd",
+      "id": 123
+    },
+    {
+      "title": "মিশন ও ভিশন",
+      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bea31054345f0fcb4d",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "মিশন ও ভিশন",
+      "source": "shed.gov.bd",
+      "id": 122
+    },
+    {
+      "title": "ইতিহাস ও কার্যাবলি",
+      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146c1a31054345f0fcc6f",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "ইতিহাস ও কার্যাবলি",
+      "source": "shed.gov.bd",
+      "id": 121
+    },
+    {
+      "title": "আর্থিক অনুদানের পুনঃবিজ্ঞপ্তি",
+      "sourceUrl": "https://shed.gov.bd/pages/notices/%E0%A6%86%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A6%BF%E0%A6%95-%E0%A6%85%E0%A6%A8%E0%A7%81%E0%A6%A6%E0%A6%BE%E0%A6%A8%E0%A7%87%E0%A6%B0-%E0%A6%AA%E0%A7%81%E0%A6%A8%E0%A6%83%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BF-fkdy3b-69b6586e293990675837144a",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "আর্থিক অনুদানের পুনঃবিজ্ঞপ্তি",
+      "source": "shed.gov.bd",
+      "id": 120
+    },
+    {
+      "title": "সকল নোটিশ দেখুন",
+      "sourceUrl": "https://shed.gov.bd/pages/notices",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "সকল নোটিশ দেখুন",
+      "source": "shed.gov.bd",
+      "id": 119
+    },
+    {
+      "title": "ইউ জি সি চেয়ারম্যান এর পদত্যাগ ১৬-০৩-২০২৬ সাধারণ",
+      "sourceUrl": "https://shed.gov.bd/pages/notices/ইউ-জি-সি-চেয়ারম্যান-এর-পদত্যাগ-w72arl-69b95a40d6184e92fed86a97",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "ইউ জি সি চেয়ারম্যান এর পদত্যাগ ১৬-০৩-২০২৬ সাধারণ",
+      "source": "shed.gov.bd",
+      "id": 118
+    },
+    {
+      "title": "শিক্ষা প্রতিষ্ঠানে খেলার মাঠ সংরক্ষণ, ব্যবহার নিশ্চিতকরণ ও দৈনন্দিন খেলাধুলা কার্যক্রম বাস্তবায়ন ২৪-০৩-২০২৬ সাধারণ",
+      "sourceUrl": "https://shed.gov.bd/pages/notices/শিক্ষা-প্রতিষ্ঠানে-খেলার-মাঠ-সংরক্ষণ-ব্যবহার-নিশ্চিতকরণ-ও-দৈনন্দিন-খেলাধুলা-কার্যক্রম-বাস্তবায়ন-wbwpz4-69c3793a2d18f2fe024e5bf7",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "শিক্ষা প্রতিষ্ঠানে খেলার মাঠ সংরক্ষণ, ব্যবহার নিশ্চিতকরণ ও দৈনন্দিন খেলাধুলা কার্যক্রম বাস্তবায়ন ২৪-০৩-২০২৬ সাধারণ",
+      "source": "shed.gov.bd",
+      "id": 117
+    },
+    {
+      "title": "দেশের সকল সরকারি ও বেসরকারি অফিস সময়সূচি পরবর্তী নির্দেশনা না দেওয়া পর্যন্ত নির্ধারণ প্রসঙ্গে ০৫-০৪-২০২৬ সাধারণ",
+      "sourceUrl": "https://shed.gov.bd/pages/notices/দেশের-সকল-সরকারি-ও-বেসরকারি-অফিস-সময়সূচি-পরবর্তী-নির্দেশনা-না-দেওয়া-পর্যন্ত-নির্ধারণ-প্রসঙ্গে-dbb73u-69d33ff9868baf31c62897a7",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "দেশের সকল সরকারি ও বেসরকারি অফিস সময়সূচি পরবর্তী নির্দেশনা না দেওয়া পর্যন্ত নির্ধারণ প্রসঙ্গে ০৫-০৪-২০২৬ সাধারণ",
+      "source": "shed.gov.bd",
+      "id": 116
+    },
+    {
+      "title": "সতর্কতামূলক বার্তা",
+      "sourceUrl": "https://shed.gov.bd/pages/notices/69ac5b35967e3d7bb2e1dcb7",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "সতর্কতামূলক বার্তা",
+      "source": "shed.gov.bd",
+      "id": 115
+    },
+    {
       "title": "Private Universities",
       "sourceUrl": "http://www.ugc-universities.gov.bd/private-universities",
       "date": "April 2026",
@@ -3002,177 +3173,6 @@ const eduData = {
       "description": "সিটিজেন চার্টার",
       "source": "dshe.gov.bd",
       "id": 104
-    },
-    {
-      "title": "ইতিহাস",
-      "sourceUrl": "https://dshe.gov.bd/pages/static-pages/691997c4933eb65569ddef95",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "ইতিহাস",
-      "source": "dshe.gov.bd",
-      "id": 103
-    },
-    {
-      "title": "লক্ষ্য ও উদ্দেশ্য",
-      "sourceUrl": "https://dshe.gov.bd/pages/static-pages/691997cc933eb65569ddf3a9",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "লক্ষ্য ও উদ্দেশ্য",
-      "source": "dshe.gov.bd",
-      "id": 102
-    },
-    {
-      "title": "মাউশির অবস্থান",
-      "sourceUrl": "https://dshe.gov.bd/pages/static-pages/691997c1933eb65569dded90",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "মাউশির অবস্থান",
-      "source": "dshe.gov.bd",
-      "id": 101
-    },
-    {
-      "title": "মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর",
-      "sourceUrl": "https://dshe.gov.bd/pages/static-pages/691997bb933eb65569dde980",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর",
-      "source": "dshe.gov.bd",
-      "id": 100
-    },
-    {
-      "title": "মফিজ উদ্দিন কমিশন -১৯৮৮",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/6941401ec4774958d7b54a18",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "মফিজ উদ্দিন কমিশন -১৯৮৮",
-      "source": "moedu.gov.bd",
-      "id": 99
-    },
-    {
-      "title": "সামসুল হক শিক্ষা কমিটি",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/69414020c4774958d7b54b15",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "সামসুল হক শিক্ষা কমিটি",
-      "source": "moedu.gov.bd",
-      "id": 98
-    },
-    {
-      "title": "ড. এম এ বারী কমিশন ২০০২",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/69414021c4774958d7b54ba4",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "ড. এম এ বারী কমিশন ২০০২",
-      "source": "moedu.gov.bd",
-      "id": 97
-    },
-    {
-      "title": "মনিরুজ্জামান কমিশন-২০০৩",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/69414020c4774958d7b54b57",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "মনিরুজ্জামান কমিশন-২০০৩",
-      "source": "moedu.gov.bd",
-      "id": 96
-    },
-    {
-      "title": "আইসিটি নীতিমালা-২০১৫",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/6941401cc4774958d7b54948",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "আইসিটি নীতিমালা-২০১৫",
-      "source": "moedu.gov.bd",
-      "id": 95
-    },
-    {
-      "title": "জাতীয় শিক্ষানীতি-২০১০",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/6941401dc4774958d7b549bf",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "জাতীয় শিক্ষানীতি-২০১০",
-      "source": "moedu.gov.bd",
-      "id": 94
-    },
-    {
-      "title": "যোগাযোগ",
-      "sourceUrl": "https://moedu.gov.bd/pages/office-contents/69413f1635ce18e1c058cdf9",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "যোগাযোগ",
-      "source": "moedu.gov.bd",
-      "id": 93
-    },
-    {
-      "title": "সাবেক মাননীয় প্রতিমন্ত্রী/উপমন্ত্রী",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/6941401ec4774958d7b54a1c",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "সাবেক মাননীয় প্রতিমন্ত্রী/উপমন্ত্রী",
-      "source": "moedu.gov.bd",
-      "id": 92
-    },
-    {
-      "title": "সাবেক মাননীয় মন্ত্রী/উপদেষ্টা",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/6941401fc4774958d7b54aaf",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "সাবেক মাননীয় মন্ত্রী/উপদেষ্টা",
-      "source": "moedu.gov.bd",
-      "id": 91
-    },
-    {
-      "title": "সংক্ষিপ্ত বিবরণ",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/6941401ec4774958d7b54a26",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "সংক্ষিপ্ত বিবরণ",
-      "source": "moedu.gov.bd",
-      "id": 90
-    },
-    {
-      "title": "শিক্ষা মন্ত্রণালয়ের কর্মকর্তাগণের আর্থিক ও প্রশাসনিক ক্ষমতা",
-      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bda31054345f0fca89",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "শিক্ষা মন্ত্রণালয়ের কর্মকর্তাগণের আর্থিক ও প্রশাসনিক ক্ষমতা",
-      "source": "shed.gov.bd",
-      "id": 89
-    },
-    {
-      "title": "কর্মবন্টন",
-      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bda31054345f0fca74",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "কর্মবন্টন",
-      "source": "shed.gov.bd",
-      "id": 88
-    },
-    {
-      "title": "কর্মকর্তাবৃন্দ",
-      "sourceUrl": "https://shed.gov.bd/pages/officers",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "কর্মকর্তাবৃন্দ",
-      "source": "shed.gov.bd",
-      "id": 87
-    },
-    {
-      "title": "এলোকেশন অব বিজনেস",
-      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bfa31054345f0fcb71",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "এলোকেশন অব বিজনেস",
-      "source": "shed.gov.bd",
-      "id": 86
-    },
-    {
-      "title": "সাংগঠনিক কাঠামো",
-      "sourceUrl": "https://shed.gov.bd/pages/organograms/69414616a31054345f0fb4ac",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "সাংগঠনিক কাঠামো",
-      "source": "shed.gov.bd",
-      "id": 85
     }
   ],
   "importantLinks": [

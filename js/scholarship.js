@@ -28,8 +28,6 @@
     applyFiltersAndRender();
     bindEvents();
     renderStats();
-    updateAllCountdowns();
-    setInterval(updateAllCountdowns, 60000);
   }
 
   // ===================== URL STATE =====================
@@ -208,10 +206,7 @@
   }
 
   function renderCard(s) {
-    const daysLeft = getDaysLeft(s.deadline);
     const isBookmarked = state.bookmarks.has(s.id);
-    const statusBadge = getStatusBadge(daysLeft, s.deadline);
-    const countdownHtml = getCountdownHtml(daysLeft);
     const isNew = s.id >= 10; // treat higher IDs as newer
 
     return `<div class="scholarship-detail-card" data-id="${s.id}" id="sc-card-${s.id}">
@@ -223,7 +218,6 @@
           <a href="${esc(s.website || s.link)}" target="_blank" rel="noopener">${esc(s.name)}</a>
         </h3>
         <div class="scholarship-badges">
-          ${statusBadge}
           ${isNew ? '<span class="scholarship-badge badge-new">🆕 নতুন</span>' : ''}
         </div>
       </div>
@@ -273,10 +267,9 @@
 
   <div class="scholarship-deadline-row">
     <div class="scholarship-deadline-info">
-      <span class="deadline-label">📅 শেষ তারিখ:</span>
+      <span class="deadline-label">📅 আবেদনের সময়:</span>
       <span class="deadline-value">${esc(s.deadlineDisplay)}</span>
     </div>
-    ${countdownHtml}
   </div>
 
   <div class="scholarship-expandable" id="expand-${s.id}" style="display:none;">
@@ -327,36 +320,6 @@
 </div>`;
   }
 
-  function getStatusBadge(daysLeft, deadline) {
-    const d = new Date(deadline);
-    const now = new Date();
-    if (d < now) {
-      return '<span class="scholarship-badge badge-closed">❌ আবেদন বন্ধ</span>';
-    } else if (daysLeft <= 30) {
-      return '<span class="scholarship-badge badge-urgent">🔴 শেষ সময়!</span>';
-    } else {
-      return '<span class="scholarship-badge badge-open">✅ আবেদন চলছে</span>';
-    }
-  }
-
-  function getCountdownHtml(daysLeft) {
-    if (daysLeft < 0) {
-      return '<span class="scholarship-countdown countdown-closed">মেয়াদ শেষ</span>';
-    } else if (daysLeft === 0) {
-      return '<span class="scholarship-countdown countdown-urgent">আজই শেষ!</span>';
-    } else if (daysLeft <= 30) {
-      return `<span class="scholarship-countdown countdown-urgent" data-deadline-days="${daysLeft}">⏳ মাত্র ${daysLeft} দিন বাকি!</span>`;
-    } else {
-      return `<span class="scholarship-countdown countdown-ok" data-deadline-days="${daysLeft}">⏳ ${daysLeft} দিন বাকি</span>`;
-    }
-  }
-
-  function getDaysLeft(deadline) {
-    const now = new Date();
-    const dl = new Date(deadline);
-    return Math.ceil((dl - now) / (1000 * 60 * 60 * 24));
-  }
-
   function renderResultCount(count) {
     const el = document.getElementById('scholarship-result-count');
     if (el) el.textContent = `${count}টি বৃত্তি পাওয়া গেছে`;
@@ -392,32 +355,6 @@
         </div>
       `;
     }
-  }
-
-  // ===================== COUNTDOWN UPDATE =====================
-  function updateAllCountdowns() {
-    document.querySelectorAll('[data-deadline-days]').forEach(el => {
-      const parentCard = el.closest('[data-id]');
-      if (!parentCard) return;
-      const id = parseInt(parentCard.dataset.id);
-      const s = state.scholarships.find(x => x.id === id);
-      if (!s) return;
-      const days = getDaysLeft(s.deadline);
-      el.setAttribute('data-deadline-days', days);
-      if (days < 0) {
-        el.className = 'scholarship-countdown countdown-closed';
-        el.textContent = 'মেয়াদ শেষ';
-      } else if (days === 0) {
-        el.className = 'scholarship-countdown countdown-urgent';
-        el.textContent = 'আজই শেষ!';
-      } else if (days <= 30) {
-        el.className = 'scholarship-countdown countdown-urgent';
-        el.textContent = `⏳ মাত্র ${days} দিন বাকি!`;
-      } else {
-        el.className = 'scholarship-countdown countdown-ok';
-        el.textContent = `⏳ ${days} দিন বাকি`;
-      }
-    });
   }
 
   // ===================== TOGGLE DETAILS =====================

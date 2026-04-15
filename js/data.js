@@ -1086,7 +1086,7 @@ const eduData = {
       "eligibility": "অসাধারণ একাডেমিক অর্জন, নেতৃত্ব, বয়স ১৯-২৫",
       "link": "https://www.rhodeshouse.ox.ac.uk/",
       "description": "বিশ্বের সবচেয়ে মর্যাদাপূর্ণ বৃত্তি। অক্সফোর্ড বিশ্ববিদ্যালয়ে পড়ার জন্য সম্পূর্ণ ফান্ডেড।",
-      "englishTest": "✅ IELTS 7.0+ (no &lt;6.5) বা TOEFL 100+",
+      "englishTest": "✅ IELTS 7.0+ (no <6.5) বা TOEFL 100+",
       "otherTest": "❌ GRE/GMAT প্রয়োজন নেই (কিছু ক্ষেত্রে)",
       "importantInfo": "অসাধারণ লিডারশিপ; সম্পূর্ণ ফান্ডেড; অক্সফোর্ডে ভর্তি প্রথমে লাগে।",
       "howToApply": "আপনাকে আপনার নিজ দেশের রোডস স্কলারশিপ কমিটির মাধ্যমে আবেদন করতে হবে।",
@@ -1380,7 +1380,7 @@ const eduData = {
       "eligibility": "মনাশে আন্ডারগ্রাজুয়েট প্রোগ্রামে ভর্তি আবেদন, অসাধারণ একাডেমিক অর্জন ও নেতৃত্ব",
       "link": "https://www.monash.edu/study/fees-scholarships/scholarships/international-leadership",
       "description": "অস্ট্রেলিয়ার মনাশ বিশ্ববিদ্যালয় কর্তৃক আন্তর্জাতিক শিক্ষার্থীদের জন্য ১০০% টিউশন ফি মওকুফ স্কলারশিপ।",
-      "englishTest": "⚠️ IELTS 6.5 (no band &lt;6.0) বা PTE 58+ বা Duolingo 115+ (MOI কেস-বাই-কেস)",
+      "englishTest": "⚠️ IELTS 6.5 (no band <6.0) বা PTE 58+ বা Duolingo 115+ (MOI কেস-বাই-কেস)",
       "otherTest": "❌ GRE/GMAT প্রয়োজন নেই",
       "importantInfo": "উচ্চ-অর্জনশীল শিক্ষার্থীদের জন্য; ১০০% টিউশন ফি মওকুফ; প্রতি সেমিস্টারে কমপক্ষে 70% WAM বজায় রাখতে হবে; ক্যাম্পাস অ্যাম্বাসেডর প্রোগ্রামে অংশ নিতে হবে।",
       "howToApply": "আলাদাভাবে আবেদনের প্রয়োজন নেই। মনাশ বিশ্ববিদ্যালয়ে আন্ডারগ্রাজুয়েট আবেদন করলে স্বয়ংক্রিয়ভাবে বিবেচিত হবে (Auto-consideration)।",
@@ -1391,7 +1391,7 @@ const eduData = {
         "মনাশে আবেদন (Auto-consideration)",
         "অসাধারণ একাডেমিক অর্জন",
         "নেতৃত্বের গুণাবলী",
-        "IELTS 6.5 (no band &lt;6.0) বা PTE 58+ বা Duolingo 115+"
+        "IELTS 6.5 (no band <6.0) বা PTE 58+ বা Duolingo 115+"
       ],
       "applicationProcess": "মনাশ বিশ্ববিদ্যালয়ে আন্ডারগ্রাজুয়েট আবেদন → স্বয়ংক্রিয় বিবেচনা → চূড়ান্ত নির্বাচন",
       "numberOfAwards": "সীমিত সংখ্যক",

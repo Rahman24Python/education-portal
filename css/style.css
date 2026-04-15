@@ -2550,8 +2550,48 @@ footer {
 }
 
 .scholarship-requirements,
-.scholarship-process {
+.scholarship-process,
+.scholarship-test-info,
+.scholarship-important-info,
+.scholarship-how-to-apply {
   margin-bottom: 12px;
+}
+
+.scholarship-test-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.scholarship-test-item {
+  font-size: 13px;
+  color: var(--text-dark);
+  padding: 6px 10px;
+  background: var(--bg-light, #f5f7fa);
+  border-radius: 6px;
+  border-left: 3px solid var(--primary);
+}
+
+.scholarship-test-item .test-label {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.scholarship-important-info p,
+.scholarship-how-to-apply p {
+  font-size: 13px;
+  color: var(--text-dark);
+  line-height: 1.6;
+  background: var(--bg-light, #f5f7fa);
+  border-radius: 6px;
+  padding: 8px 12px;
+  border-left: 3px solid var(--warning, #f59e0b);
+  margin-top: 6px;
+}
+
+.scholarship-how-to-apply p {
+  border-left-color: var(--success, #10b981);
 }
 
 .scholarship-req-list {

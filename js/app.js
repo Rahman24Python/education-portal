@@ -295,9 +295,9 @@ function initFeaturedNews() {
     </div>
   `;
 
-  // Render right-side headlines (next 5 items excluding featured)
+  // Render right-side headlines (next 5 items after featured)
   if (headlinesContainer) {
-    const headlines = sorted.filter(item => item.id !== featured.id).slice(0, 5);
+    const headlines = sorted.slice(1, 6);
     headlinesContainer.innerHTML = headlines.map(item => {
       const hLink = item.link ? (item.link.startsWith('http') ? item.link : base + item.link) : '#';
       return `

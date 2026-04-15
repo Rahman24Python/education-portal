@@ -3630,11 +3630,6 @@ footer {
     height: 180px;
   }
 
-  /* Featured section: full width on mobile */
-  .featured-news-layout {
-    grid-template-columns: 1fr;
-  }
-
   /* Page hero smaller text */
   .page-hero h1 {
     font-size: 20px;

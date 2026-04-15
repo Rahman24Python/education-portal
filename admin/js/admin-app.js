@@ -940,10 +940,14 @@ function updateNewsImagePreview(src) {
   const img = document.getElementById("n-image-preview-img");
   if (!wrap || !img) return;
   if (src) {
-    img.src = src;
+    // Sanitize: only allow http, https and data URLs to prevent javascript: URI injection
+    const safeSrc = (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('data:image/'))
+      ? src : '';
+    if (!safeSrc) { wrap.style.display = "none"; return; }
+    img.setAttribute('src', safeSrc);
     wrap.style.display = "block";
   } else {
-    img.src = "";
+    img.setAttribute('src', '');
     wrap.style.display = "none";
   }
 }

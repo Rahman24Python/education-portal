@@ -205,7 +205,7 @@
           '<p class="live-notice-item">' +
           (i + 1) +
           '. <a href="' +
-          escHtml(innerPageUrl(item, source || {})) +
+          innerPageUrl(item, source || {}) +
           '">' +
           escHtml(item.text) +
           "</a></p>"

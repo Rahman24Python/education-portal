@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>এডুবিডি অ্যাডমিন — লগইন</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="login-page">
+
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="logo-icon">📚</div>
+      <h1>এডুবিডি অ্যাডমিন প্যানেল</h1>
+      <p>Bangladesh Education Portal</p>
+    </div>
+
+    <div class="error-msg" id="error-msg">ভুল ইউজারনেম বা পাসওয়ার্ড</div>
+
+    <form id="login-form" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label for="username">ইউজারনেম <span style="color:#e53935">*</span></label>
+        <input type="text" id="username" name="username" placeholder="ইউজারনেম লিখুন" autocomplete="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">পাসওয়ার্ড <span style="color:#e53935">*</span></label>
+        <input type="password" id="password" name="password" placeholder="পাসওয়ার্ড লিখুন" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn-login" id="login-btn">🔐 লগইন করুন</button>
+    </form>
+  </div>
+
+  <script src="js/admin-auth.js"></script>
+  <script>
+    // If already logged in, go to dashboard
+    (function() {
+      const raw = localStorage.getItem("edubd_admin_session");
+      if (raw) {
+        try {
+          const session = JSON.parse(raw);
+          if (Date.now() < session.expiresAt) {
+            window.location.href = "index.html";
+          }
+        } catch(e) {}
+      }
+    })();
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const btn = document.getElementById("login-btn");
+      const errEl = document.getElementById("error-msg");
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+      btn.disabled = true;
+      btn.textContent = "যাচাই করা হচ্ছে...";
+      errEl.classList.remove("show");
+      const ok = await login(username, password);
+      if (ok) {
+        window.location.href = "index.html";
+      } else {
+        errEl.classList.add("show");
+        btn.disabled = false;
+        btn.textContent = "🔐 লগইন করুন";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>এডুবিডি অ্যাডমিন ড্যাশবোর্ড</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- ── Sidebar ─────────────────────────────────────────────────────────── -->
+  <aside id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-icon">📚</div>
+      <div class="logo-text">
+        <div class="name">EduBD Admin</div>
+        <div class="tagline">শিক্ষা তথ্য পোর্টাল</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <a class="sidebar-link" data-section="dashboard" href="#">
+        <span class="link-icon">📊</span> ড্যাশবোর্ড
+      </a>
+      <a class="sidebar-link" data-section="breaking" href="#">
+        <span class="link-icon">📰</span> ব্রেকিং নিউজ
+      </a>
+      <a class="sidebar-link" data-section="news" href="#">
+        <span class="link-icon">📋</span> সর্বশেষ খবর
+      </a>
+      <a class="sidebar-link" data-section="admissions" href="#">
+        <span class="link-icon">🎓</span> ভর্তি তথ্য
+      </a>
+      <a class="sidebar-link" data-section="scholarships" href="#">
+        <span class="link-icon">💰</span> বৃত্তি
+      </a>
+      <a class="sidebar-link" data-section="deadlines" href="#">
+        <span class="link-icon">⏰</span> ডেডলাইন
+      </a>
+      <a class="sidebar-link" data-section="govtnotices" href="#">
+        <span class="link-icon">🏛️</span> সরকারি নোটিশ
+      </a>
+      <a class="sidebar-link" data-section="boards" href="#">
+        <span class="link-icon">🏫</span> শিক্ষা বোর্ড
+      </a>
+      <a class="sidebar-link" data-section="universities" href="#">
+        <span class="link-icon">🎓</span> বিশ্ববিদ্যালয়
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ── Main Area ───────────────────────────────────────────────────────── -->
+  <div class="main-content">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <button id="sidebar-toggle">☰</button>
+      <div class="topbar-title">এডুবিডি অ্যাডমিন প্যানেল</div>
+      <div class="topbar-right">
+        <span class="admin-name">👤 <span id="admin-username">অ্যাডমিন</span></span>
+        <button class="btn btn-danger btn-sm" onclick="logout()">🚪 লগআউট</button>
+      </div>
+    </header>
+
+    <!-- Action Bar -->
+    <div class="action-bar">
+      <button class="btn btn-success btn-sm" onclick="saveDraft()">💾 ড্রাফট সেভ</button>
+      <button class="btn btn-primary btn-sm" onclick="downloadDataJS()">📥 data.js ডাউনলোড</button>
+      <button class="btn btn-secondary btn-sm" onclick="copyJSONData()">📋 JSON কপি</button>
+      <button class="btn btn-warning btn-sm" onclick="discardDraft()">↩️ বাতিল</button>
+      <span id="draft-badge">⚠️ অপ্রকাশিত পরিবর্তন আছে</span>
+    </div>
+
+    <!-- ── Dashboard Section ─────────────────────────────────────────────── -->
+    <section id="section-dashboard" class="section-content">
+      <div class="section-header">
+        <h2>📊 ড্যাশবোর্ড</h2>
+      </div>
+      <div id="dashboard-cards"></div>
+      <div class="dash-info-card">
+        <h3>সর্বশেষ আপডেট</h3>
+        <p>data.js তারিখ: <strong id="last-updated">—</strong></p>
+        <p style="margin-top:8px;font-size:13px;color:#666;">
+          সকল পরিবর্তন প্রথমে ড্রাফট হিসেবে সেভ হয়। চূড়ান্ত করতে "📥 data.js ডাউনলোড" করুন এবং রিপোজিটরিতে রিপ্লেস করুন।
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Breaking News Section ──────────────────────────────────────────── -->
+    <section id="section-breaking" class="section-content">
+      <div class="section-header">
+        <h2>📰 ব্রেকিং নিউজ</h2>
+      </div>
+      <div class="breaking-add">
+        <input type="text" id="new-breaking-text" placeholder="নতুন ব্রেকিং নিউজ টেক্সট লিখুন...">
+        <button class="btn btn-success" onclick="addBreaking()">+ যোগ করুন</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:50px">#</th>
+              <th>টেক্সট</th>
+              <th style="width:160px">অ্যাকশন</th>
+            </tr>
+          </thead>
+          <tbody id="breaking-list"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Latest News Section ────────────────────────────────────────────── -->
+    <section id="section-news" class="section-content">
+      <div class="section-header">
+        <h2>📋 সর্বশেষ খবর</h2>
+        <button class="btn btn-success" onclick="openNewsModal(null)">+ নতুন খবর যোগ করুন</button>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="news-search" placeholder="শিরোনাম বা ক্যাটাগরি খুঁজুন...">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:40px">#</th>
+              <th>শিরোনাম</th>
+              <th>ক্যাটাগরি</th>
+              <th>সোর্স</th>
+              <th>তারিখ</th>
+              <th style="width:100px">অ্যাকশন</th>
+            </tr>
+          </thead>
+          <tbody id="news-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Admissions Section ──────────────────────────────────────────────── -->
+    <section id="section-admissions" class="section-content">
+      <div class="section-header">
+        <h2>🎓 ভর্তি তথ্য</h2>
+        <button class="btn btn-success" onclick="openAdmissionModal(null)">+ নতুন ভর্তি যোগ করুন</button>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="admissions-search" placeholder="বিশ্ববিদ্যালয় বা শিরোনাম খুঁজুন...">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:40px">#</th>
+              <th>বিশ্ববিদ্যালয়</th>
+              <th>শিরোনাম</th>
+              <th>ডেডলাইন</th>
+              <th>স্ট্যাটাস</th>
+              <th style="width:100px">অ্যাকশন</th>
+            </tr>
+          </thead>
+          <tbody id="admissions-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Scholarships Section ───────────────────────────────────────────── -->
+    <section id="section-scholarships" class="section-content">
+      <div class="section-header">
+        <h2>💰 বৃত্তি</h2>
+        <button class="btn btn-success" onclick="openScholarModal(null)">+ নতুন বৃত্তি যোগ করুন</button>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="scholarship-search" placeholder="নাম বা দেশ খুঁজুন...">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:40px">#</th>
+              <th>নাম</th>
+              <th>দেশ</th>
+              <th>লেভেল</th>
+              <th>ডেডলাইন</th>
+              <th style="width:100px">অ্যাকশন</th>
+            </tr>
+          </thead>
+          <tbody id="scholarship-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Deadlines Section ──────────────────────────────────────────────── -->
+    <section id="section-deadlines" class="section-content">
+      <div class="section-header">
+        <h2>⏰ ডেডলাইন</h2>
+        <button class="btn btn-success" onclick="openDeadlineModal(null)">+ নতুন ডেডলাইন যোগ করুন</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:40px">#</th>
+              <th>শিরোনাম</th>
+              <th>তারিখ</th>
+              <th>লিংক</th>
+              <th style="width:100px">অ্যাকশন</th>
+            </tr>
+          </thead>
+          <tbody id="deadlines-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Govt Notices Section ───────────────────────────────────────────── -->
+    <section id="section-govtnotices" class="section-content">
+      <div class="section-header">
+        <h2>🏛️ সরকারি নোটিশ</h2>
+        <button class="btn btn-success" onclick="openGovtNoticeModal(null)">+ নতুন নোটিশ যোগ করুন</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:40px">#</th>
+              <th>শিরোনাম</th>
+              <th>সোর্স</th>
+              <th>তারিখ</th>
+              <th style="width:100px">অ্যাকশন</th>
+            </tr>
+          </thead>
+          <tbody id="govtnotices-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Boards Section ─────────────────────────────────────────────────── -->
+    <section id="section-boards" class="section-content">
+      <div class="section-header">
+        <h2>🏫 শিক্ষা বোর্ড</h2>
+      </div>
+      <div id="boards-grid"></div>
+    </section>
+
+    <!-- ── Universities Section ───────────────────────────────────────────── -->
+    <section id="section-universities" class="section-content">
+      <div class="section-header">
+        <h2>🎓 বিশ্ববিদ্যালয়</h2>
+        <button class="btn btn-success" onclick="openUniModal(activeUniTab, null)">+ নতুন বিশ্ববিদ্যালয় যোগ করুন</button>
+      </div>
+      <div class="uni-tabs">
+        <button class="uni-tab-btn active" id="uni-tab-public" onclick="switchUniTab('public')">🏛️ পাবলিক বিশ্ববিদ্যালয়</button>
+        <button class="uni-tab-btn" id="uni-tab-private" onclick="switchUniTab('private')">🏫 বেসরকারি বিশ্ববিদ্যালয়</button>
+      </div>
+      <div id="uni-section-public">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:40px">#</th>
+                <th>নাম</th>
+                <th>অবস্থান</th>
+                <th>ওয়েবসাইট</th>
+                <th style="width:100px">অ্যাকশন</th>
+              </tr>
+            </thead>
+            <tbody id="uni-tbody-public"></tbody>
+          </table>
+        </div>
+      </div>
+      <div id="uni-section-private" style="display:none">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:40px">#</th>
+                <th>নাম</th>
+                <th>অবস্থান</th>
+                <th>ওয়েবসাইট</th>
+                <th style="width:100px">অ্যাকশন</th>
+              </tr>
+            </thead>
+            <tbody id="uni-tbody-private"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /main-content -->
+</div><!-- /app-layout -->
+
+<!-- ─────────────────── MODALS ─────────────────────────────────────────────── -->
+
+<!-- News Modal -->
+<div class="modal-overlay" id="news-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="news-modal-title">নতুন খবর যোগ করুন</h3>
+      <button class="modal-close" onclick="closeModal('news-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="news-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label>শিরোনাম <span class="req">*</span></label>
+            <input type="text" id="n-title">
+          </div>
+          <div class="form-field">
+            <label>ক্যাটাগরি</label>
+            <input type="text" id="n-category" placeholder="যেমন: SSC 2026">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>সারসংক্ষেপ</label>
+          <textarea id="n-summary" rows="3"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>সোর্স</label>
+            <input type="text" id="n-source">
+          </div>
+          <div class="form-field">
+            <label>তারিখ</label>
+            <input type="text" id="n-date" placeholder="যেমন: ২০২৬-০৪-১৫">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>লিংক</label>
+            <input type="text" id="n-link">
+          </div>
+          <div class="form-field">
+            <label>ছবি URL</label>
+            <input type="text" id="n-image">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>বছর</label>
+          <input type="text" id="n-year" placeholder="2026">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('news-modal')">বাতিল</button>
+      <button class="btn btn-primary" id="news-save-btn" onclick="saveNewsForm()">সেভ করুন</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admission Modal -->
+<div class="modal-overlay" id="admission-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="adm-modal-title">নতুন ভর্তি তথ্য যোগ করুন</h3>
+      <button class="modal-close" onclick="closeModal('admission-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="admission-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label>বিশ্ববিদ্যালয় <span class="req">*</span></label>
+            <input type="text" id="adm-university">
+          </div>
+          <div class="form-field">
+            <label>ধরন</label>
+            <input type="text" id="adm-type" placeholder="যেমন: বিশ্ববিদ্যালয়">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>শিরোনাম</label>
+          <input type="text" id="adm-title">
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>ডেডলাইন (YYYY-MM-DD)</label>
+            <input type="text" id="adm-deadline" placeholder="2026-05-31">
+          </div>
+          <div class="form-field">
+            <label>ডেডলাইন (বাংলা)</label>
+            <input type="text" id="adm-deadlineDisplay" placeholder="৩১ মে ২০২৬">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>লিংক</label>
+            <input type="text" id="adm-link">
+          </div>
+          <div class="form-field">
+            <label>স্ট্যাটাস</label>
+            <select id="adm-status">
+              <option value="active">active</option>
+              <option value="upcoming">upcoming</option>
+              <option value="closed">closed</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>আসন সংখ্যা</label>
+            <input type="text" id="adm-seats">
+          </div>
+          <div class="form-field">
+            <label>ফি</label>
+            <input type="text" id="adm-fee">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>বিবরণ</label>
+          <textarea id="adm-description"></textarea>
+        </div>
+        <div class="form-field">
+          <label>বছর</label>
+          <input type="text" id="adm-year" placeholder="2026">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('admission-modal')">বাতিল</button>
+      <button class="btn btn-primary" id="adm-save-btn" onclick="saveAdmissionForm()">সেভ করুন</button>
+    </div>
+  </div>
+</div>
+
+<!-- Scholarship Modal -->
+<div class="modal-overlay" id="scholar-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="scholar-modal-title">নতুন বৃত্তি যোগ করুন</h3>
+      <button class="modal-close" onclick="closeModal('scholar-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="scholar-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label>বৃত্তির নাম <span class="req">*</span></label>
+            <input type="text" id="sch-name">
+          </div>
+          <div class="form-field">
+            <label>দেশ</label>
+            <input type="text" id="sch-country">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>পতাকা (Emoji)</label>
+            <input type="text" id="sch-flag" placeholder="🇬🇧">
+          </div>
+          <div class="form-field">
+            <label>ধরন</label>
+            <input type="text" id="sch-type">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>লেভেল</label>
+            <input type="text" id="sch-level" placeholder="স্নাতক / মাস্টার্স">
+          </div>
+          <div class="form-field">
+            <label>পরিমাণ</label>
+            <input type="text" id="sch-amount">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>ডেডলাইন (YYYY-MM-DD)</label>
+            <input type="text" id="sch-deadline">
+          </div>
+          <div class="form-field">
+            <label>ডেডলাইন (বাংলা)</label>
+            <input type="text" id="sch-deadlineDisplay">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>যোগ্যতা</label>
+          <input type="text" id="sch-eligibility">
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>লিংক</label>
+            <input type="text" id="sch-link">
+          </div>
+          <div class="form-field">
+            <label>বছর</label>
+            <input type="text" id="sch-year" placeholder="2026">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>বিবরণ</label>
+          <textarea id="sch-description"></textarea>
+        </div>
+        <div class="array-field">
+          <label>সুবিধাসমূহ (Benefits)</label>
+          <ul id="benefits-list"></ul>
+          <div class="array-add">
+            <input type="text" id="new-benefit" placeholder="নতুন সুবিধা লিখুন">
+            <button type="button" class="btn btn-success btn-sm" onclick="addBenefit()">+ যোগ</button>
+          </div>
+        </div>
+        <div class="array-field">
+          <label>প্রয়োজনীয়তা (Requirements)</label>
+          <ul id="requirements-list"></ul>
+          <div class="array-add">
+            <input type="text" id="new-requirement" placeholder="নতুন প্রয়োজনীয়তা লিখুন">
+            <button type="button" class="btn btn-success btn-sm" onclick="addRequirement()">+ যোগ</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('scholar-modal')">বাতিল</button>
+      <button class="btn btn-primary" id="scholar-save-btn" onclick="saveScholarForm()">সেভ করুন</button>
+    </div>
+  </div>
+</div>
+
+<!-- Deadline Modal -->
+<div class="modal-overlay" id="deadline-modal">
+  <div class="modal-box" style="max-width:440px">
+    <div class="modal-header">
+      <h3 id="dl-modal-title">নতুন ডেডলাইন যোগ করুন</h3>
+      <button class="modal-close" onclick="closeModal('deadline-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="deadline-form">
+        <div class="form-field">
+          <label>শিরোনাম <span class="req">*</span></label>
+          <input type="text" id="dl-title">
+        </div>
+        <div class="form-field">
+          <label>তারিখ (YYYY-MM-DD)</label>
+          <input type="text" id="dl-date" placeholder="2026-05-31">
+        </div>
+        <div class="form-field">
+          <label>লিংক</label>
+          <input type="text" id="dl-link">
+        </div>
+        <div class="form-field">
+          <label>বছর</label>
+          <input type="text" id="dl-year" placeholder="2026">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('deadline-modal')">বাতিল</button>
+      <button class="btn btn-primary" id="dl-save-btn" onclick="saveDeadlineForm()">সেভ করুন</button>
+    </div>
+  </div>
+</div>
+
+<!-- Govt Notice Modal -->
+<div class="modal-overlay" id="govtnotice-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="gn-modal-title">নতুন সরকারি নোটিশ যোগ করুন</h3>
+      <button class="modal-close" onclick="closeModal('govtnotice-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="govtnotice-form">
+        <div class="form-field">
+          <label>শিরোনাম <span class="req">*</span></label>
+          <input type="text" id="gn-title">
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>সোর্স URL</label>
+            <input type="text" id="gn-sourceUrl" placeholder="https://dshe.gov.bd">
+          </div>
+          <div class="form-field">
+            <label>সোর্স নাম</label>
+            <input type="text" id="gn-source" placeholder="dshe.gov.bd">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>তারিখ</label>
+          <input type="text" id="gn-date" placeholder="April 2026">
+        </div>
+        <div class="form-field">
+          <label>বিবরণ</label>
+          <textarea id="gn-description"></textarea>
+        </div>
+        <div class="form-field">
+          <label>বছর</label>
+          <input type="text" id="gn-year" placeholder="2026">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('govtnotice-modal')">বাতিল</button>
+      <button class="btn btn-primary" id="gn-save-btn" onclick="saveGovtNoticeForm()">সেভ করুন</button>
+    </div>
+  </div>
+</div>
+
+<!-- Board Edit Modal -->
+<div class="modal-overlay" id="board-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="board-modal-title">বোর্ড সম্পাদনা</h3>
+      <button class="modal-close" onclick="closeModal('board-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="board-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label>নাম</label>
+            <input type="text" id="b-name">
+          </div>
+          <div class="form-field">
+            <label>ওয়েবসাইট</label>
+            <input type="text" id="b-website">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>ফোন</label>
+            <input type="text" id="b-phone">
+          </div>
+          <div class="form-field">
+            <label>ইমেইল</label>
+            <input type="text" id="b-email">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>ঠিকানা</label>
+          <input type="text" id="b-address">
+        </div>
+        <div class="array-field">
+          <label>PDF লিংকসমূহ</label>
+          <ul id="board-pdf-list"></ul>
+          <div style="margin-top:8px">
+            <div class="form-field">
+              <label>শিরোনাম</label>
+              <input type="text" id="new-pdf-title" placeholder="PDF শিরোনাম">
+            </div>
+            <div class="form-field">
+              <label>URL</label>
+              <input type="text" id="new-pdf-url" placeholder="https://...">
+            </div>
+            <button type="button" class="btn btn-success btn-sm" onclick="addBoardPdf()">+ PDF যোগ করুন</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('board-modal')">বাতিল</button>
+      <button class="btn btn-primary" onclick="saveBoardForm()">আপডেট করুন</button>
+    </div>
+  </div>
+</div>
+
+<!-- University Modal -->
+<div class="modal-overlay" id="uni-modal">
+  <div class="modal-box" style="max-width:480px">
+    <div class="modal-header">
+      <h3 id="uni-modal-title">বিশ্ববিদ্যালয় যোগ/সম্পাদনা</h3>
+      <button class="modal-close" onclick="closeModal('uni-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="uni-form">
+        <div class="form-field">
+          <label>নাম <span class="req">*</span></label>
+          <input type="text" id="uni-name">
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label>অবস্থান</label>
+            <input type="text" id="uni-location">
+          </div>
+          <div class="form-field">
+            <label>ওয়েবসাইট</label>
+            <input type="text" id="uni-website">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>সংক্ষিপ্ত পরিচয়</label>
+          <textarea id="uni-brief" rows="3"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('uni-modal')">বাতিল</button>
+      <button class="btn btn-primary" id="uni-save-btn" onclick="saveUniForm()">সেভ করুন</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container"></div>
+
+<!-- Scripts -->
+<script src="../js/data.js"></script>
+<script src="js/admin-auth.js"></script>
+<script src="js/admin-data.js"></script>
+<script src="js/admin-app.js"></script>
+
+</body>
+</html>

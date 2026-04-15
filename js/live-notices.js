@@ -29,7 +29,7 @@
       baseUrl: "https://www.nu.ac.bd",
       sourceKey: "nu.ac.bd",
       icon: "🎓",
-      limit: 10,
+      limit: 5,
     },
     {
       name: "ঢাকা শিক্ষা বোর্ড",
@@ -47,7 +47,7 @@
       baseUrl: "https://dgme.gov.bd",
       sourceKey: "dgme.gov.bd",
       icon: "🏥",
-      limit: 10,
+      limit: 3,
     },
     {
       name: "SHED",
@@ -57,6 +57,24 @@
       sourceKey: "shed.gov.bd",
       icon: "🏛️",
       limit: 10,
+    },
+    {
+      name: "মাধ্যমিক ও উচ্চশিক্ষা অধিদপ্তর",
+      url: "https://dshe.gov.bd",
+      selector: "a[href*='notice'], a[href*='/pages/'], a[href*='.pdf']",
+      baseUrl: "https://dshe.gov.bd",
+      sourceKey: "dshe.gov.bd",
+      icon: "📚",
+      limit: 5,
+    },
+    {
+      name: "বিএসএস নিউজ",
+      url: "https://www.bssnews.net/bangla/national/education",
+      selector: "a[href*='/bangla/national/education/']",
+      baseUrl: "https://www.bssnews.net",
+      sourceKey: "বিএসএস",
+      icon: "📰",
+      limit: 3,
     },
   ];
 
@@ -139,12 +157,41 @@
   }
 
   /**
+   * Build an inner-page URL for a notice item so the portal shows a detail
+   * page before sending the user to the external source.
+   * @param {{href: string, text: string}} item
+   * @param {object} source
+   * @returns {string}
+   */
+  function innerPageUrl(item, source) {
+    // Determine the correct relative path prefix based on the current page location.
+    // Pages inside /pages/ need just "notice-detail.html", while the root index
+    // needs "pages/notice-detail.html".
+    var prefix = window.location.pathname.indexOf("/pages/") !== -1
+      ? "notice-detail.html"
+      : "pages/notice-detail.html";
+
+    var params = new URLSearchParams({
+      title: item.text,
+      source: source.name,
+      url: item.href,
+      date: "",
+      brief: "",
+      icon: source.icon || "📋"
+    });
+    return prefix + "?" + params.toString();
+  }
+
+  /**
    * Render a list of notice items into a container element.
+   * Each item links to the portal's inner detail page, not directly to an
+   * external URL — fulfilling the "inner page first" requirement.
    * @param {HTMLElement} container
    * @param {{href: string, text: string}[]} items
    * @param {string} sourceUrl  Fallback link when items list is empty
+   * @param {object} source     Source definition (used to build inner-page URL)
    */
-  function renderItems(container, items, sourceUrl) {
+  function renderItems(container, items, sourceUrl, source) {
     if (!items || items.length === 0) {
       container.innerHTML =
         '<p class="live-notice-empty">কোনো নোটিশ পাওয়া যায়নি। ' +
@@ -158,8 +205,8 @@
           '<p class="live-notice-item">' +
           (i + 1) +
           '. <a href="' +
-          escHtml(safeHref(item.href)) +
-          '" target="_blank" rel="noopener">' +
+          escHtml(innerPageUrl(item, source || {})) +
+          '">' +
           escHtml(item.text) +
           "</a></p>"
       )
@@ -194,12 +241,12 @@
     const doc = await fetchDoc(source.url);
     if (doc) {
       const items = extractLinks(doc, source.selector, source.baseUrl, source.limit);
-      renderItems(body, items, source.url);
+      renderItems(body, items, source.url, source);
     } else {
       // Fall back to static data keyed by sourceKey
       const fallback = buildStaticFallback(source.sourceKey);
       if (fallback.length > 0) {
-        renderItems(body, fallback, source.url);
+        renderItems(body, fallback, source.url, source);
       } else {
         body.innerHTML =
           '<p class="live-notice-empty">লোড করা সম্ভব হয়নি। ' +

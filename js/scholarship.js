@@ -280,6 +280,24 @@
   </div>
 
   <div class="scholarship-expandable" id="expand-${s.id}" style="display:none;">
+    ${s.englishTest || s.otherTest ? `
+    <div class="scholarship-test-info">
+      <h4 class="scholarship-section-title">📋 ইংরেজি টেস্ট ও অন্যান্য:</h4>
+      <div class="scholarship-test-grid">
+        ${s.englishTest ? `<div class="scholarship-test-item"><span class="test-label">ইংরেজি টেস্ট:</span> <span class="test-value">${esc(s.englishTest)}</span></div>` : ''}
+        ${s.otherTest ? `<div class="scholarship-test-item"><span class="test-label">GRE/GMAT:</span> <span class="test-value">${esc(s.otherTest)}</span></div>` : ''}
+      </div>
+    </div>` : ''}
+    ${s.importantInfo ? `
+    <div class="scholarship-important-info">
+      <h4 class="scholarship-section-title">⚠️ গুরুত্বপূর্ণ তথ্য:</h4>
+      <p>${esc(s.importantInfo)}</p>
+    </div>` : ''}
+    ${s.howToApply ? `
+    <div class="scholarship-how-to-apply">
+      <h4 class="scholarship-section-title">🗂️ কীভাবে আবেদন করবেন:</h4>
+      <p>${esc(s.howToApply)}</p>
+    </div>` : ''}
     ${s.requirements && s.requirements.length ? `
     <div class="scholarship-requirements">
       <h4 class="scholarship-section-title">📌 প্রয়োজনীয়তা:</h4>

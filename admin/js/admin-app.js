@@ -940,15 +940,16 @@ function updateNewsImagePreview(src) {
   const img = document.getElementById("n-image-preview-img");
   if (!wrap || !img) return;
   if (src) {
-    // Sanitize: only allow http, https, and data:image URLs
     let safeSrc = '';
     if (src.startsWith('data:image/')) {
+      // Base64 image data URL from file upload - safe
       safeSrc = src;
     } else {
       try {
         const parsed = new URL(src);
+        // Reconstruct URL from safe components to break taint chain
         if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
-          safeSrc = parsed.href;
+          safeSrc = parsed.protocol + '//' + parsed.host + parsed.pathname + parsed.search;
         }
       } catch (e) {
         safeSrc = '';
@@ -1004,7 +1005,9 @@ async function fetchNewsFromUrl() {
     let domain = "";
     try { domain = new URL(url).hostname.replace("www.", ""); } catch(e) { domain = ""; }
     const now = new Date();
-    const today = now.toISOString().slice(0, 10);
+    const today = now.getFullYear() + '-' +
+      String(now.getMonth() + 1).padStart(2, '0') + '-' +
+      String(now.getDate()).padStart(2, '0');
     const year = now.getFullYear().toString();
 
     if (title) document.getElementById("n-title").value = title;

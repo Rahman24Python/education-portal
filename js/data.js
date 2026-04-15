@@ -1,7 +1,7 @@
 // EduBD - Bangladesh Education Portal - Data
 // Auto-updated by scripts/update_data.py — do not edit manually.
 const eduData = {
-  "lastUpdated": "2026-04-14T19:12:30Z",
+  "lastUpdated": "2026-04-15T02:13:59Z",
   "breakingNews": [
     "SSC পরীক্ষা ২০২৬: লিখিত পরীক্ষা ২১ এপ্রিল থেকে ২০ মে ২০২৬, ব্যবহারিক ০৭-১৪ জুন ২০২৬ — রুটিন: dhakaeducationboard.gov.bd",
     "HSC পরীক্ষা ২০২৬: এপ্রিল মাসে শুরু হয়েছে — রুটিন অনুযায়ী পরীক্ষা চলছে",
@@ -1990,6 +1990,213 @@ const eduData = {
   ],
   "governmentNotices": [
     {
+      "title": "Islamic University, Bangladesh",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/63",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "Islamic University, Bangladesh",
+      "source": "ugc-universities.gov.bd",
+      "id": 73
+    },
+    {
+      "title": "Jahangirnagar University",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/61",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "Jahangirnagar University",
+      "source": "ugc-universities.gov.bd",
+      "id": 72
+    },
+    {
+      "title": "University of Chittagong",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/44",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "University of Chittagong",
+      "source": "ugc-universities.gov.bd",
+      "id": 71
+    },
+    {
+      "title": "Bangladesh University of Engineering & Technology",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/23",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "Bangladesh University of Engineering & Technology",
+      "source": "ugc-universities.gov.bd",
+      "id": 70
+    },
+    {
+      "title": "Bangladesh Agricultural University",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/42",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "Bangladesh Agricultural University",
+      "source": "ugc-universities.gov.bd",
+      "id": 69
+    },
+    {
+      "title": "University of Rajshahi",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/15",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "University of Rajshahi",
+      "source": "ugc-universities.gov.bd",
+      "id": 68
+    },
+    {
+      "title": "University of Dhaka",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/university-detail/2",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "University of Dhaka",
+      "source": "ugc-universities.gov.bd",
+      "id": 67
+    },
+    {
+      "title": "International Universities",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/international-universities",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "International Universities",
+      "source": "ugc-universities.gov.bd",
+      "id": 66
+    },
+    {
+      "title": "Private Universities",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/private-universities",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "Private Universities",
+      "source": "ugc-universities.gov.bd",
+      "id": 65
+    },
+    {
+      "title": "Public Universities",
+      "sourceUrl": "http://www.ugc-universities.gov.bd/public-universities",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "Public Universities",
+      "source": "ugc-universities.gov.bd",
+      "id": 64
+    },
+    {
+      "title": "অনশনরত শিক্ষার্থীদের দেখতে গেলেন ঢাবি উপাচার্য",
+      "sourceUrl": "https://www.bssnews.net/bangla/national/education/297841",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "অনশনরত শিক্ষার্থীদের দেখতে গেলেন ঢাবি উপাচার্য",
+      "source": "বিএসএস",
+      "id": 63
+    },
+    {
+      "title": "খুলনা মেডিকেল বিশ্ববিদ্যালয়ের নতুন উপাচার্য অধ্যাপক ডা. রফিকুস সালেহীন",
+      "sourceUrl": "https://www.bssnews.net/bangla/national/education/298427",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "খুলনা মেডিকেল বিশ্ববিদ্যালয়ের নতুন উপাচার্য অধ্যাপক ডা. রফিকুস সালেহীন",
+      "source": "বিএসএস",
+      "id": 62
+    },
+    {
+      "title": "বিএমইউর ৫৩ শিক্ষক-চিকিৎসক পেলেন গবেষণা মঞ্জুরি",
+      "sourceUrl": "https://www.bssnews.net/bangla/national/education/298728",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "বিএমইউর ৫৩ শিক্ষক-চিকিৎসক পেলেন গবেষণা মঞ্জুরি",
+      "source": "বিএসএস",
+      "id": 61
+    },
+    {
+      "title": "উপজেলা মাধ্যমিক শিক্ষা অফিস",
+      "sourceUrl": "https://dshe.gov.bd/pages/static-pages/691997b2933eb65569dde1cd",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "উপজেলা মাধ্যমিক শিক্ষা অফিস",
+      "source": "dshe.gov.bd",
+      "id": 60
+    },
+    {
+      "title": "জেলা শিক্ষা অফিস",
+      "sourceUrl": "https://dshe.gov.bd/pages/static-pages/691997ce933eb65569ddf4f9",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "জেলা শিক্ষা অফিস",
+      "source": "dshe.gov.bd",
+      "id": 59
+    },
+    {
+      "title": "আঞ্চলিক অফিস",
+      "sourceUrl": "https://dshe.gov.bd/pages/static-pages/691997ab933eb65569dddb3f",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "আঞ্চলিক অফিস",
+      "source": "dshe.gov.bd",
+      "id": 58
+    },
+    {
+      "title": "কর্মকর্তাদের তালিকা",
+      "sourceUrl": "https://dshe.gov.bd/pages/officers",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "কর্মকর্তাদের তালিকা",
+      "source": "dshe.gov.bd",
+      "id": 57
+    },
+    {
+      "title": "অর্গানোগ্রাম",
+      "sourceUrl": "https://dshe.gov.bd/pages/organograms/691996df933eb65569ddc466",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "অর্গানোগ্রাম",
+      "source": "dshe.gov.bd",
+      "id": 56
+    },
+    {
+      "title": "সিটিজেন চার্টার",
+      "sourceUrl": "https://dshe.gov.bd/pages/office-citizen-charters/691996df933eb65569ddc45c",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "সিটিজেন চার্টার",
+      "source": "dshe.gov.bd",
+      "id": 55
+    },
+    {
+      "title": "ইতিহাস",
+      "sourceUrl": "https://dshe.gov.bd/pages/static-pages/691997c4933eb65569ddef95",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "ইতিহাস",
+      "source": "dshe.gov.bd",
+      "id": 54
+    },
+    {
+      "title": "লক্ষ্য ও উদ্দেশ্য",
+      "sourceUrl": "https://dshe.gov.bd/pages/static-pages/691997cc933eb65569ddf3a9",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "লক্ষ্য ও উদ্দেশ্য",
+      "source": "dshe.gov.bd",
+      "id": 53
+    },
+    {
+      "title": "মাউশির অবস্থান",
+      "sourceUrl": "https://dshe.gov.bd/pages/static-pages/691997c1933eb65569dded90",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "মাউশির অবস্থান",
+      "source": "dshe.gov.bd",
+      "id": 52
+    },
+    {
+      "title": "মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর",
+      "sourceUrl": "https://dshe.gov.bd/pages/static-pages/691997bb933eb65569dde980",
+      "date": "April 2026",
+      "year": "2026",
+      "description": "মাধ্যমিক ও উচ্চ শিক্ষা অধিদপ্তর",
+      "source": "dshe.gov.bd",
+      "id": 51
+    },
+    {
       "title": "মাধ্যমিক বিদ্যালয়ের শিক্ষার্থীদের উপবৃত্তি প্রদান সংক্রান্ত নোটিশ",
       "sourceUrl": "https://dshe.gov.bd",
       "date": "April 2026",
@@ -2051,240 +2258,6 @@ const eduData = {
       "description": "মনিরুজ্জামান কমিশন-২০০৩",
       "source": "moedu.gov.bd",
       "id": 29
-    },
-    {
-      "title": "আইসিটি নীতিমালা-২০১৫",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/6941401cc4774958d7b54948",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "আইসিটি নীতিমালা-২০১৫",
-      "source": "moedu.gov.bd",
-      "id": 28
-    },
-    {
-      "title": "জাতীয় শিক্ষানীতি-২০১০",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/6941401dc4774958d7b549bf",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "জাতীয় শিক্ষানীতি-২০১০",
-      "source": "moedu.gov.bd",
-      "id": 27
-    },
-    {
-      "title": "যোগাযোগ",
-      "sourceUrl": "https://moedu.gov.bd/pages/office-contents/69413f1635ce18e1c058cdf9",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "যোগাযোগ",
-      "source": "moedu.gov.bd",
-      "id": 26
-    },
-    {
-      "title": "সাবেক মাননীয় প্রতিমন্ত্রী/উপমন্ত্রী",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/6941401ec4774958d7b54a1c",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "সাবেক মাননীয় প্রতিমন্ত্রী/উপমন্ত্রী",
-      "source": "moedu.gov.bd",
-      "id": 25
-    },
-    {
-      "title": "সাবেক মাননীয় মন্ত্রী/উপদেষ্টা",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/6941401fc4774958d7b54aaf",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "সাবেক মাননীয় মন্ত্রী/উপদেষ্টা",
-      "source": "moedu.gov.bd",
-      "id": 24
-    },
-    {
-      "title": "সংক্ষিপ্ত বিবরণ",
-      "sourceUrl": "https://moedu.gov.bd/pages/static-pages/6941401ec4774958d7b54a26",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "সংক্ষিপ্ত বিবরণ",
-      "source": "moedu.gov.bd",
-      "id": 23
-    },
-    {
-      "title": "শিক্ষা মন্ত্রণালয়ের কর্মকর্তাগণের আর্থিক ও প্রশাসনিক ক্ষমতা",
-      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bda31054345f0fca89",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "শিক্ষা মন্ত্রণালয়ের কর্মকর্তাগণের আর্থিক ও প্রশাসনিক ক্ষমতা",
-      "source": "shed.gov.bd",
-      "id": 22
-    },
-    {
-      "title": "কর্মবন্টন",
-      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bda31054345f0fca74",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "কর্মবন্টন",
-      "source": "shed.gov.bd",
-      "id": 21
-    },
-    {
-      "title": "কর্মকর্তাবৃন্দ",
-      "sourceUrl": "https://shed.gov.bd/pages/officers",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "কর্মকর্তাবৃন্দ",
-      "source": "shed.gov.bd",
-      "id": 20
-    },
-    {
-      "title": "এলোকেশন অব বিজনেস",
-      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bfa31054345f0fcb71",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "এলোকেশন অব বিজনেস",
-      "source": "shed.gov.bd",
-      "id": 19
-    },
-    {
-      "title": "সাংগঠনিক কাঠামো",
-      "sourceUrl": "https://shed.gov.bd/pages/organograms/69414616a31054345f0fb4ac",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "সাংগঠনিক কাঠামো",
-      "source": "shed.gov.bd",
-      "id": 18
-    },
-    {
-      "title": "প্রাক্তন সচিব/সিনিয়র সচিবগণের তালিকা",
-      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bca31054345f0fca08",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "প্রাক্তন সচিব/সিনিয়র সচিবগণের তালিকা",
-      "source": "shed.gov.bd",
-      "id": 17
-    },
-    {
-      "title": "প্রাক্তন মাননীয় প্রতিমন্ত্রী/উপমন্ত্রী",
-      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bea31054345f0fcb2b",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "প্রাক্তন মাননীয় প্রতিমন্ত্রী/উপমন্ত্রী",
-      "source": "shed.gov.bd",
-      "id": 16
-    },
-    {
-      "title": "প্রাক্তন মাননীয় মন্ত্রী/উপদেষ্টা",
-      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bda31054345f0fca8a",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "প্রাক্তন মাননীয় মন্ত্রী/উপদেষ্টা",
-      "source": "shed.gov.bd",
-      "id": 15
-    },
-    {
-      "title": "মিশন ও ভিশন",
-      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146bea31054345f0fcb4d",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "মিশন ও ভিশন",
-      "source": "shed.gov.bd",
-      "id": 14
-    },
-    {
-      "title": "ইতিহাস ও কার্যাবলি",
-      "sourceUrl": "https://shed.gov.bd/pages/static-pages/694146c1a31054345f0fcc6f",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "ইতিহাস ও কার্যাবলি",
-      "source": "shed.gov.bd",
-      "id": 13
-    },
-    {
-      "title": "আর্থিক অনুদানের পুনঃবিজ্ঞপ্তি",
-      "sourceUrl": "https://shed.gov.bd/pages/notices/%E0%A6%86%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A6%BF%E0%A6%95-%E0%A6%85%E0%A6%A8%E0%A7%81%E0%A6%A6%E0%A6%BE%E0%A6%A8%E0%A7%87%E0%A6%B0-%E0%A6%AA%E0%A7%81%E0%A6%A8%E0%A6%83%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%AA%E0%A7%8D%E0%A6%A4%E0%A6%BF-fkdy3b-69b6586e293990675837144a",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "আর্থিক অনুদানের পুনঃবিজ্ঞপ্তি",
-      "source": "shed.gov.bd",
-      "id": 12
-    },
-    {
-      "title": "সকল নোটিশ দেখুন",
-      "sourceUrl": "https://shed.gov.bd/pages/notices",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "সকল নোটিশ দেখুন",
-      "source": "shed.gov.bd",
-      "id": 11
-    },
-    {
-      "title": "ইউ জি সি চেয়ারম্যান এর পদত্যাগ ১৬-০৩-২০২৬ সাধারণ",
-      "sourceUrl": "https://shed.gov.bd/pages/notices/ইউ-জি-সি-চেয়ারম্যান-এর-পদত্যাগ-w72arl-69b95a40d6184e92fed86a97",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "ইউ জি সি চেয়ারম্যান এর পদত্যাগ ১৬-০৩-২০২৬ সাধারণ",
-      "source": "shed.gov.bd",
-      "id": 10
-    },
-    {
-      "title": "শিক্ষা প্রতিষ্ঠানে খেলার মাঠ সংরক্ষণ, ব্যবহার নিশ্চিতকরণ ও দৈনন্দিন খেলাধুলা কার্যক্রম বাস্তবায়ন ২৪-০৩-২০২৬ সাধারণ",
-      "sourceUrl": "https://shed.gov.bd/pages/notices/শিক্ষা-প্রতিষ্ঠানে-খেলার-মাঠ-সংরক্ষণ-ব্যবহার-নিশ্চিতকরণ-ও-দৈনন্দিন-খেলাধুলা-কার্যক্রম-বাস্তবায়ন-wbwpz4-69c3793a2d18f2fe024e5bf7",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "শিক্ষা প্রতিষ্ঠানে খেলার মাঠ সংরক্ষণ, ব্যবহার নিশ্চিতকরণ ও দৈনন্দিন খেলাধুলা কার্যক্রম বাস্তবায়ন ২৪-০৩-২০২৬ সাধারণ",
-      "source": "shed.gov.bd",
-      "id": 9
-    },
-    {
-      "title": "দেশের সকল সরকারি ও বেসরকারি অফিস সময়সূচি পরবর্তী নির্দেশনা না দেওয়া পর্যন্ত নির্ধারণ প্রসঙ্গে ০৫-০৪-২০২৬ সাধারণ",
-      "sourceUrl": "https://shed.gov.bd/pages/notices/দেশের-সকল-সরকারি-ও-বেসরকারি-অফিস-সময়সূচি-পরবর্তী-নির্দেশনা-না-দেওয়া-পর্যন্ত-নির্ধারণ-প্রসঙ্গে-dbb73u-69d33ff9868baf31c62897a7",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "দেশের সকল সরকারি ও বেসরকারি অফিস সময়সূচি পরবর্তী নির্দেশনা না দেওয়া পর্যন্ত নির্ধারণ প্রসঙ্গে ০৫-০৪-২০২৬ সাধারণ",
-      "source": "shed.gov.bd",
-      "id": 8
-    },
-    {
-      "title": "সতর্কতামূলক বার্তা",
-      "sourceUrl": "https://shed.gov.bd/pages/notices/69ac5b35967e3d7bb2e1dcb7",
-      "date": "April 2026",
-      "year": "2026",
-      "description": "সতর্কতামূলক বার্তা",
-      "source": "shed.gov.bd",
-      "id": 7
-    },
-    {
-      "id": 1,
-      "title": "২০২৫ সালের (৭ম-১০ম) শ্রেণির বোর্ড পরিবর্তনকৃত শিক্ষার্থীদের ছাড়পত্রের অনুমতি পত্র (TN: 1021-1053)",
-      "source": "dhakaeducationboard.portal.gov.bd",
-      "sourceUrl": "https://dhakaeducationboard.portal.gov.bd/pages/notices/%E0%A7%A8%E0%A7%A6%E0%A7%A8%E0%A7%AB-%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%B0-%E0%A7%AD%E0%A6%AE-%E0%A7%A7%E0%A7%A6%E0%A6%AE-%E0%A6%B6%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%A3%E0%A6%BF%E0%A6%B0-%E0%A6%AC%E0%A7%8B%E0%A6%B0%E0%A7%8D%E0%A6%A1-%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%AC%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%A8%E0%A6%95%E0%A7%83%E0%A6%A4-%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A7%80%E0%A6%A6%E0%A7%87%E0%A6%B0-e6edb0-6919990581fc96cef9e613d7",
-      "date": "২০২৫",
-      "year": "2025",
-      "description": "২০২৫ সালের ৭ম-১০ম শ্রেণির বোর্ড পরিবর্তনকৃত শিক্ষার্থীদের ছাড়পত্রের অনুমতি পত্র সংক্রান্ত বিজ্ঞপ্তি।"
-    },
-    {
-      "id": 2,
-      "title": "মাধ্যমিক ও উচ্চ শিক্ষা বিভাগের সর্বশেষ নোটিশ",
-      "source": "shed.gov.bd",
-      "sourceUrl": "https://shed.gov.bd/pages/notices",
-      "date": "২০২৬",
-      "year": "2026",
-      "description": "সরকারি শিক্ষা সংক্রান্ত সর্বশেষ বিজ্ঞপ্তি, আদেশ ও পরিপত্র।"
-    },
-    {
-      "id": 3,
-      "title": "সরকারি মেধা ও উপবৃত্তি সংক্রান্ত বিজ্ঞপ্তি",
-      "source": "shed.gov.bd",
-      "sourceUrl": "https://shed.gov.bd/pages/moedu-scholarships",
-      "date": "২০২৬",
-      "year": "2026",
-      "description": "মাধ্যমিক পর্যায়ের মেধা বৃত্তি ও উপবৃত্তি সংক্রান্ত সরকারি বিজ্ঞপ্তি।"
-    },
-    {
-      "id": 4,
-      "title": "DGME: মেডিকেল শিক্ষা সংক্রান্ত সর্বশেষ নোটিশ",
-      "source": "dgme.gov.bd",
-      "sourceUrl": "https://dgme.gov.bd/pages/notices",
-      "date": "২০২৬",
-      "year": "2026",
-      "description": "স্বাস্থ্য শিক্ষা অধিদপ্তর (DGME) কর্তৃক প্রকাশিত মেডিকেল ভর্তি ও শিক্ষা সংক্রান্ত সর্বশেষ নোটিশ।"
     }
   ],
   "importantLinks": [
@@ -2350,55 +2323,290 @@ const eduData = {
     }
   ],
   "publicUniversities": [
-    { "name": "ঢাকা বিশ্ববিদ্যালয়", "location": "ঢাকা", "website": "https://www.du.ac.bd", "brief": "বাংলাদেশের সর্বপ্রাচীন ও সর্ববৃহৎ পাবলিক বিশ্ববিদ্যালয়। ১৯২১ সালে প্রতিষ্ঠিত।" },
-    { "name": "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয় (BUET)", "location": "ঢাকা", "website": "https://www.buet.ac.bd", "brief": "বাংলাদেশের শীর্ষস্থানীয় প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়। ১৯৬২ সালে প্রতিষ্ঠিত।" },
-    { "name": "রাজশাহী বিশ্ববিদ্যালয়", "location": "রাজশাহী", "website": "https://www.ru.ac.bd", "brief": "উত্তরবঙ্গের সর্ববৃহৎ পাবলিক বিশ্ববিদ্যালয়। ১৯৫৩ সালে প্রতিষ্ঠিত।" },
-    { "name": "চট্টগ্রাম বিশ্ববিদ্যালয়", "location": "চট্টগ্রাম", "website": "https://www.cu.ac.bd", "brief": "চট্টগ্রাম বিভাগের প্রধান পাবলিক বিশ্ববিদ্যালয়। ১৯৬৬ সালে প্রতিষ্ঠিত।" },
-    { "name": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়", "location": "সাভার, ঢাকা", "website": "https://www.juniv.edu", "brief": "বাংলাদেশের একমাত্র আবাসিক পাবলিক বিশ্ববিদ্যালয়। ১৯৭০ সালে প্রতিষ্ঠিত।" },
-    { "name": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়", "location": "ময়মনসিংহ", "website": "https://www.bau.edu.bd", "brief": "কৃষি ও কৃষিসংশ্লিষ্ট বিষয়ে বিশেষায়িত বিশ্ববিদ্যালয়। ১৯৬১ সালে প্রতিষ্ঠিত।" },
-    { "name": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "location": "সিলেট", "website": "https://www.sust.edu", "brief": "বিজ্ঞান ও প্রযুক্তিতে বিশেষজ্ঞ পাবলিক বিশ্ববিদ্যালয়। ১৯৮৭ সালে প্রতিষ্ঠিত।" },
-    { "name": "খুলনা বিশ্ববিদ্যালয়", "location": "খুলনা", "website": "https://www.ku.ac.bd", "brief": "দক্ষিণ-পশ্চিমাঞ্চলের পাবলিক বিশ্ববিদ্যালয়। ১৯৯১ সালে প্রতিষ্ঠিত।" },
-    { "name": "জাতীয় বিশ্ববিদ্যালয়", "location": "গাজীপুর", "website": "https://www.nu.ac.bd", "brief": "বাংলাদেশের সর্ববৃহৎ বিশ্ববিদ্যালয় (অ্যাফিলিয়েটিং)। দেশের সকল কলেজ এর অধিভুক্ত।" },
-    { "name": "ইসলামী বিশ্ববিদ্যালয়", "location": "কুষ্টিয়া", "website": "https://www.iu.ac.bd", "brief": "ইসলামিক শিক্ষায় বিশেষজ্ঞ পাবলিক বিশ্ববিদ্যালয়। ১৯৭৯ সালে প্রতিষ্ঠিত।" },
-    { "name": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "location": "গোপালগঞ্জ", "website": "https://www.bsmrstu.edu.bd", "brief": "গোপালগঞ্জে অবস্থিত বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।" },
-    { "name": "হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "location": "দিনাজপুর", "website": "https://www.hstu.ac.bd", "brief": "উত্তরবঙ্গে বিজ্ঞান ও প্রযুক্তি শিক্ষায় বিশেষজ্ঞ পাবলিক বিশ্ববিদ্যালয়।" },
-    { "name": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "location": "টাঙ্গাইল", "website": "https://www.mbstu.ac.bd", "brief": "টাঙ্গাইলে অবস্থিত বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।" },
-    { "name": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "location": "পটুয়াখালী", "website": "https://www.pstu.ac.bd", "brief": "দক্ষিণাঞ্চলের কৃষি ও প্রযুক্তি বিশেষজ্ঞ বিশ্ববিদ্যালয়।" },
-    { "name": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "location": "নোয়াখালী", "website": "https://www.nstu.edu.bd", "brief": "নোয়াখালীতে অবস্থিত বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।" },
-    { "name": "জগন্নাথ বিশ্ববিদ্যালয়", "location": "ঢাকা", "website": "https://www.jnu.ac.bd", "brief": "পুরান ঢাকায় অবস্থিত পাবলিক বিশ্ববিদ্যালয়। ২০০৫ সালে বিশ্ববিদ্যালয়ে উন্নীত।" },
-    { "name": "কুমিল্লা বিশ্ববিদ্যালয়", "location": "কুমিল্লা", "website": "https://www.cou.ac.bd", "brief": "কুমিল্লায় অবস্থিত পাবলিক বিশ্ববিদ্যালয়। ২০০৬ সালে প্রতিষ্ঠিত।" },
-    { "name": "বরিশাল বিশ্ববিদ্যালয়", "location": "বরিশাল", "website": "https://www.bu.ac.bd", "brief": "দক্ষিণাঞ্চলে অবস্থিত পাবলিক বিশ্ববিদ্যালয়। ২০১১ সালে প্রতিষ্ঠিত।" },
-    { "name": "বেগম রোকেয়া বিশ্ববিদ্যালয়", "location": "রংপুর", "website": "https://www.brur.ac.bd", "brief": "উত্তরবঙ্গের রংপুরে অবস্থিত পাবলিক বিশ্ববিদ্যালয়।" },
-    { "name": "খুলনা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয় (KUET)", "location": "খুলনা", "website": "https://www.kuet.ac.bd", "brief": "খুলনায় অবস্থিত প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়। ১৯৬৭ সালে প্রতিষ্ঠিত।" },
-    { "name": "রাজশাহী প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয় (RUET)", "location": "রাজশাহী", "website": "https://www.ruet.ac.bd", "brief": "রাজশাহীতে অবস্থিত প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়।" },
-    { "name": "চট্টগ্রাম প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয় (CUET)", "location": "চট্টগ্রাম", "website": "https://www.cuet.ac.bd", "brief": "চট্টগ্রামে অবস্থিত প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়।" },
-    { "name": "সিলেট কৃষি বিশ্ববিদ্যালয়", "location": "সিলেট", "website": "https://www.sau.ac.bd", "brief": "সিলেটে অবস্থিত কৃষি বিশেষজ্ঞ বিশ্ববিদ্যালয়।" },
-    { "name": "চট্টগ্রাম ভেটেরিনারি ও এনিমেল সায়েন্সেস বিশ্ববিদ্যালয়", "location": "চট্টগ্রাম", "website": "https://www.cvasu.ac.bd", "brief": "পশুচিকিৎসা ও প্রাণীবিজ্ঞান বিষয়ে বিশেষায়িত পাবলিক বিশ্ববিদ্যালয়।" },
-    { "name": "বঙ্গবন্ধু শেখ মুজিবুর রহমান কৃষি বিশ্ববিদ্যালয়", "location": "গাজীপুর", "website": "https://www.bsmrau.edu.bd", "brief": "কৃষিবিজ্ঞান ও কৃষি প্রযুক্তিতে উচ্চতর শিক্ষা প্রদানকারী বিশ্ববিদ্যালয়।" },
-    { "name": "বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয়", "location": "ঢাকা", "website": "https://www.bsmmu.edu.bd", "brief": "বাংলাদেশের একমাত্র মেডিকেল বিশ্ববিদ্যালয়। উচ্চতর চিকিৎসা শিক্ষা ও গবেষণার কেন্দ্র।" }
+    {
+      "name": "ঢাকা বিশ্ববিদ্যালয়",
+      "location": "ঢাকা",
+      "website": "https://www.du.ac.bd",
+      "brief": "বাংলাদেশের সর্বপ্রাচীন ও সর্ববৃহৎ পাবলিক বিশ্ববিদ্যালয়। ১৯২১ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয় (BUET)",
+      "location": "ঢাকা",
+      "website": "https://www.buet.ac.bd",
+      "brief": "বাংলাদেশের শীর্ষস্থানীয় প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়। ১৯৬২ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "রাজশাহী বিশ্ববিদ্যালয়",
+      "location": "রাজশাহী",
+      "website": "https://www.ru.ac.bd",
+      "brief": "উত্তরবঙ্গের সর্ববৃহৎ পাবলিক বিশ্ববিদ্যালয়। ১৯৫৩ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "চট্টগ্রাম বিশ্ববিদ্যালয়",
+      "location": "চট্টগ্রাম",
+      "website": "https://www.cu.ac.bd",
+      "brief": "চট্টগ্রাম বিভাগের প্রধান পাবলিক বিশ্ববিদ্যালয়। ১৯৬৬ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়",
+      "location": "সাভার, ঢাকা",
+      "website": "https://www.juniv.edu",
+      "brief": "বাংলাদেশের একমাত্র আবাসিক পাবলিক বিশ্ববিদ্যালয়। ১৯৭০ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "বাংলাদেশ কৃষি বিশ্ববিদ্যালয়",
+      "location": "ময়মনসিংহ",
+      "website": "https://www.bau.edu.bd",
+      "brief": "কৃষি ও কৃষিসংশ্লিষ্ট বিষয়ে বিশেষায়িত বিশ্ববিদ্যালয়। ১৯৬১ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "শাহজালাল বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+      "location": "সিলেট",
+      "website": "https://www.sust.edu",
+      "brief": "বিজ্ঞান ও প্রযুক্তিতে বিশেষজ্ঞ পাবলিক বিশ্ববিদ্যালয়। ১৯৮৭ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "খুলনা বিশ্ববিদ্যালয়",
+      "location": "খুলনা",
+      "website": "https://www.ku.ac.bd",
+      "brief": "দক্ষিণ-পশ্চিমাঞ্চলের পাবলিক বিশ্ববিদ্যালয়। ১৯৯১ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "জাতীয় বিশ্ববিদ্যালয়",
+      "location": "গাজীপুর",
+      "website": "https://www.nu.ac.bd",
+      "brief": "বাংলাদেশের সর্ববৃহৎ বিশ্ববিদ্যালয় (অ্যাফিলিয়েটিং)। দেশের সকল কলেজ এর অধিভুক্ত।"
+    },
+    {
+      "name": "ইসলামী বিশ্ববিদ্যালয়",
+      "location": "কুষ্টিয়া",
+      "website": "https://www.iu.ac.bd",
+      "brief": "ইসলামিক শিক্ষায় বিশেষজ্ঞ পাবলিক বিশ্ববিদ্যালয়। ১৯৭৯ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "বঙ্গবন্ধু শেখ মুজিবুর রহমান বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+      "location": "গোপালগঞ্জ",
+      "website": "https://www.bsmrstu.edu.bd",
+      "brief": "গোপালগঞ্জে অবস্থিত বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+      "location": "দিনাজপুর",
+      "website": "https://www.hstu.ac.bd",
+      "brief": "উত্তরবঙ্গে বিজ্ঞান ও প্রযুক্তি শিক্ষায় বিশেষজ্ঞ পাবলিক বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "মাওলানা ভাসানী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+      "location": "টাঙ্গাইল",
+      "website": "https://www.mbstu.ac.bd",
+      "brief": "টাঙ্গাইলে অবস্থিত বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+      "location": "পটুয়াখালী",
+      "website": "https://www.pstu.ac.bd",
+      "brief": "দক্ষিণাঞ্চলের কৃষি ও প্রযুক্তি বিশেষজ্ঞ বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "নোয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+      "location": "নোয়াখালী",
+      "website": "https://www.nstu.edu.bd",
+      "brief": "নোয়াখালীতে অবস্থিত বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "জগন্নাথ বিশ্ববিদ্যালয়",
+      "location": "ঢাকা",
+      "website": "https://www.jnu.ac.bd",
+      "brief": "পুরান ঢাকায় অবস্থিত পাবলিক বিশ্ববিদ্যালয়। ২০০৫ সালে বিশ্ববিদ্যালয়ে উন্নীত।"
+    },
+    {
+      "name": "কুমিল্লা বিশ্ববিদ্যালয়",
+      "location": "কুমিল্লা",
+      "website": "https://www.cou.ac.bd",
+      "brief": "কুমিল্লায় অবস্থিত পাবলিক বিশ্ববিদ্যালয়। ২০০৬ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "বরিশাল বিশ্ববিদ্যালয়",
+      "location": "বরিশাল",
+      "website": "https://www.bu.ac.bd",
+      "brief": "দক্ষিণাঞ্চলে অবস্থিত পাবলিক বিশ্ববিদ্যালয়। ২০১১ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "বেগম রোকেয়া বিশ্ববিদ্যালয়",
+      "location": "রংপুর",
+      "website": "https://www.brur.ac.bd",
+      "brief": "উত্তরবঙ্গের রংপুরে অবস্থিত পাবলিক বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "খুলনা প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয় (KUET)",
+      "location": "খুলনা",
+      "website": "https://www.kuet.ac.bd",
+      "brief": "খুলনায় অবস্থিত প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়। ১৯৬৭ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "রাজশাহী প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয় (RUET)",
+      "location": "রাজশাহী",
+      "website": "https://www.ruet.ac.bd",
+      "brief": "রাজশাহীতে অবস্থিত প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "চট্টগ্রাম প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয় (CUET)",
+      "location": "চট্টগ্রাম",
+      "website": "https://www.cuet.ac.bd",
+      "brief": "চট্টগ্রামে অবস্থিত প্রকৌশল ও প্রযুক্তি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "সিলেট কৃষি বিশ্ববিদ্যালয়",
+      "location": "সিলেট",
+      "website": "https://www.sau.ac.bd",
+      "brief": "সিলেটে অবস্থিত কৃষি বিশেষজ্ঞ বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "চট্টগ্রাম ভেটেরিনারি ও এনিমেল সায়েন্সেস বিশ্ববিদ্যালয়",
+      "location": "চট্টগ্রাম",
+      "website": "https://www.cvasu.ac.bd",
+      "brief": "পশুচিকিৎসা ও প্রাণীবিজ্ঞান বিষয়ে বিশেষায়িত পাবলিক বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "বঙ্গবন্ধু শেখ মুজিবুর রহমান কৃষি বিশ্ববিদ্যালয়",
+      "location": "গাজীপুর",
+      "website": "https://www.bsmrau.edu.bd",
+      "brief": "কৃষিবিজ্ঞান ও কৃষি প্রযুক্তিতে উচ্চতর শিক্ষা প্রদানকারী বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "বঙ্গবন্ধু শেখ মুজিব মেডিকেল বিশ্ববিদ্যালয়",
+      "location": "ঢাকা",
+      "website": "https://www.bsmmu.edu.bd",
+      "brief": "বাংলাদেশের একমাত্র মেডিকেল বিশ্ববিদ্যালয়। উচ্চতর চিকিৎসা শিক্ষা ও গবেষণার কেন্দ্র।"
+    }
   ],
   "privateUniversities": [
-    { "name": "ব্র্যাক বিশ্ববিদ্যালয়", "location": "ঢাকা", "website": "https://www.bracu.ac.bd", "brief": "বাংলাদেশের শীর্ষস্থানীয় বেসরকারি বিশ্ববিদ্যালয়। আন্তর্জাতিক মানের শিক্ষা প্রদান করে।" },
-    { "name": "নর্থ সাউথ বিশ্ববিদ্যালয়", "location": "ঢাকা", "website": "https://www.northsouth.edu", "brief": "বাংলাদেশের প্রথম বেসরকারি বিশ্ববিদ্যালয়। ১৯৯২ সালে প্রতিষ্ঠিত।" },
-    { "name": "ইন্ডিপেন্ডেন্ট ইউনিভার্সিটি, বাংলাদেশ (IUB)", "location": "ঢাকা", "website": "https://www.iub.edu.bd", "brief": "উচ্চমানের শিক্ষা ও গবেষণায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটি", "location": "ঢাকা", "website": "https://daffodilvarsity.edu.bd", "brief": "প্রযুক্তি ও ব্যবসায় শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "ইস্ট ওয়েস্ট ইউনিভার্সিটি", "location": "ঢাকা", "website": "https://www.ewubd.edu", "brief": "ব্যবসায় ও প্রযুক্তি শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "আমেরিকান ইন্টারন্যাশনাল ইউনিভার্সিটি-বাংলাদেশ (AIUB)", "location": "ঢাকা", "website": "https://www.aiub.edu", "brief": "আমেরিকান শিক্ষাপদ্ধতি অনুসরণকারী বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "আহসানউল্লাহ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়", "location": "ঢাকা", "website": "https://www.aust.edu", "brief": "বিজ্ঞান ও প্রযুক্তিতে বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়। ১৯৯৫ সালে প্রতিষ্ঠিত।" },
-    { "name": "ইউনাইটেড ইন্টারন্যাশনাল ইউনিভার্সিটি (UIU)", "location": "ঢাকা", "website": "https://www.uiu.ac.bd", "brief": "আধুনিক প্রযুক্তি ও ব্যবসায় শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "স্টামফোর্ড ইউনিভার্সিটি বাংলাদেশ", "location": "ঢাকা", "website": "https://www.stamforduniversity.edu.bd", "brief": "সাংবাদিকতা, আইন ও ব্যবসায় শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "ইউনিভার্সিটি অব লিবারেল আর্টস বাংলাদেশ (ULAB)", "location": "ঢাকা", "website": "https://ulab.edu.bd", "brief": "উদার শিল্পকলা ও মানবিক বিভাগে বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "সাউথইস্ট ইউনিভার্সিটি", "location": "ঢাকা", "website": "https://www.seu.ac.bd", "brief": "ইঞ্জিনিয়ারিং ও ব্যবসায় শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "বাংলাদেশ ইউনিভার্সিটি অব বিজনেস অ্যান্ড টেকনোলজি (BUBT)", "location": "ঢাকা", "website": "https://www.bubt.edu.bd", "brief": "ব্যবসায় ও প্রযুক্তি শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "প্রাইম ইউনিভার্সিটি", "location": "ঢাকা", "website": "https://primeuniversity.edu.bd", "brief": "ঢাকায় অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "সিটি ইউনিভার্সিটি", "location": "ঢাকা", "website": "https://cityuniversity.edu.bd", "brief": "ঢাকায় অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "ঢাকা ইন্টারন্যাশনাল ইউনিভার্সিটি", "location": "ঢাকা", "website": "https://diu.net.bd", "brief": "ঢাকায় অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "মেট্রোপলিটন ইউনিভার্সিটি", "location": "সিলেট", "website": "https://www.metrouni.edu.bd", "brief": "সিলেটে অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "প্রিমিয়ার ইউনিভার্সিটি", "location": "চট্টগ্রাম", "website": "https://www.puc.ac.bd", "brief": "চট্টগ্রামে অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "ইন্টারন্যাশনাল ইসলামিক ইউনিভার্সিটি চিটাগং", "location": "চট্টগ্রাম", "website": "https://www.iiuc.ac.bd", "brief": "ইসলামিক শিক্ষায় বিশেষজ্ঞ চট্টগ্রামের বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "সাউদার্ন ইউনিভার্সিটি বাংলাদেশ", "location": "চট্টগ্রাম", "website": "https://www.southern.edu.bd", "brief": "চট্টগ্রামে অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "এশিয়া প্যাসিফিক ইউনিভার্সিটি", "location": "ঢাকা", "website": "https://www.apu.edu.bd", "brief": "ঢাকায় অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।" },
-    { "name": "গ্রীন ইউনিভার্সিটি অব বাংলাদেশ", "location": "ঢাকা", "website": "https://green.edu.bd", "brief": "ঢাকায় অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।" }
+    {
+      "name": "ব্র্যাক বিশ্ববিদ্যালয়",
+      "location": "ঢাকা",
+      "website": "https://www.bracu.ac.bd",
+      "brief": "বাংলাদেশের শীর্ষস্থানীয় বেসরকারি বিশ্ববিদ্যালয়। আন্তর্জাতিক মানের শিক্ষা প্রদান করে।"
+    },
+    {
+      "name": "নর্থ সাউথ বিশ্ববিদ্যালয়",
+      "location": "ঢাকা",
+      "website": "https://www.northsouth.edu",
+      "brief": "বাংলাদেশের প্রথম বেসরকারি বিশ্ববিদ্যালয়। ১৯৯২ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "ইন্ডিপেন্ডেন্ট ইউনিভার্সিটি, বাংলাদেশ (IUB)",
+      "location": "ঢাকা",
+      "website": "https://www.iub.edu.bd",
+      "brief": "উচ্চমানের শিক্ষা ও গবেষণায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "ড্যাফোডিল ইন্টারন্যাশনাল ইউনিভার্সিটি",
+      "location": "ঢাকা",
+      "website": "https://daffodilvarsity.edu.bd",
+      "brief": "প্রযুক্তি ও ব্যবসায় শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "ইস্ট ওয়েস্ট ইউনিভার্সিটি",
+      "location": "ঢাকা",
+      "website": "https://www.ewubd.edu",
+      "brief": "ব্যবসায় ও প্রযুক্তি শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "আমেরিকান ইন্টারন্যাশনাল ইউনিভার্সিটি-বাংলাদেশ (AIUB)",
+      "location": "ঢাকা",
+      "website": "https://www.aiub.edu",
+      "brief": "আমেরিকান শিক্ষাপদ্ধতি অনুসরণকারী বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "আহসানউল্লাহ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়",
+      "location": "ঢাকা",
+      "website": "https://www.aust.edu",
+      "brief": "বিজ্ঞান ও প্রযুক্তিতে বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়। ১৯৯৫ সালে প্রতিষ্ঠিত।"
+    },
+    {
+      "name": "ইউনাইটেড ইন্টারন্যাশনাল ইউনিভার্সিটি (UIU)",
+      "location": "ঢাকা",
+      "website": "https://www.uiu.ac.bd",
+      "brief": "আধুনিক প্রযুক্তি ও ব্যবসায় শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "স্টামফোর্ড ইউনিভার্সিটি বাংলাদেশ",
+      "location": "ঢাকা",
+      "website": "https://www.stamforduniversity.edu.bd",
+      "brief": "সাংবাদিকতা, আইন ও ব্যবসায় শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "ইউনিভার্সিটি অব লিবারেল আর্টস বাংলাদেশ (ULAB)",
+      "location": "ঢাকা",
+      "website": "https://ulab.edu.bd",
+      "brief": "উদার শিল্পকলা ও মানবিক বিভাগে বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "সাউথইস্ট ইউনিভার্সিটি",
+      "location": "ঢাকা",
+      "website": "https://www.seu.ac.bd",
+      "brief": "ইঞ্জিনিয়ারিং ও ব্যবসায় শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "বাংলাদেশ ইউনিভার্সিটি অব বিজনেস অ্যান্ড টেকনোলজি (BUBT)",
+      "location": "ঢাকা",
+      "website": "https://www.bubt.edu.bd",
+      "brief": "ব্যবসায় ও প্রযুক্তি শিক্ষায় বিশেষজ্ঞ বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "প্রাইম ইউনিভার্সিটি",
+      "location": "ঢাকা",
+      "website": "https://primeuniversity.edu.bd",
+      "brief": "ঢাকায় অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "সিটি ইউনিভার্সিটি",
+      "location": "ঢাকা",
+      "website": "https://cityuniversity.edu.bd",
+      "brief": "ঢাকায় অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "ঢাকা ইন্টারন্যাশনাল ইউনিভার্সিটি",
+      "location": "ঢাকা",
+      "website": "https://diu.net.bd",
+      "brief": "ঢাকায় অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "মেট্রোপলিটন ইউনিভার্সিটি",
+      "location": "সিলেট",
+      "website": "https://www.metrouni.edu.bd",
+      "brief": "সিলেটে অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "প্রিমিয়ার ইউনিভার্সিটি",
+      "location": "চট্টগ্রাম",
+      "website": "https://www.puc.ac.bd",
+      "brief": "চট্টগ্রামে অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "ইন্টারন্যাশনাল ইসলামিক ইউনিভার্সিটি চিটাগং",
+      "location": "চট্টগ্রাম",
+      "website": "https://www.iiuc.ac.bd",
+      "brief": "ইসলামিক শিক্ষায় বিশেষজ্ঞ চট্টগ্রামের বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "সাউদার্ন ইউনিভার্সিটি বাংলাদেশ",
+      "location": "চট্টগ্রাম",
+      "website": "https://www.southern.edu.bd",
+      "brief": "চট্টগ্রামে অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "এশিয়া প্যাসিফিক ইউনিভার্সিটি",
+      "location": "ঢাকা",
+      "website": "https://www.apu.edu.bd",
+      "brief": "ঢাকায় অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।"
+    },
+    {
+      "name": "গ্রীন ইউনিভার্সিটি অব বাংলাদেশ",
+      "location": "ঢাকা",
+      "website": "https://green.edu.bd",
+      "brief": "ঢাকায় অবস্থিত বেসরকারি বিশ্ববিদ্যালয়।"
+    }
   ],
   "sampleResults": {
     "passed": {

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="বাংলাদেশের পাবলিক বিশ্ববিদ্যালয়ের তালিকা — EduBD শিক্ষা তথ্য পোর্টাল">
+  <title>পাবলিক বিশ্ববিদ্যালয় তালিকা — EduBD</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left"><span id="live-date">লোড হচ্ছে...</span><span>|</span><span id="live-time"></span></div>
+      <div class="top-bar-right">
+        <a href="about.html">আমাদের সম্পর্কে</a>
+        <a href="https://moedu.gov.bd" target="_blank" rel="noopener">শিক্ষা মন্ত্রণালয়</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="breaking-news-bar">
+    <div class="breaking-news-inner">
+      <span class="breaking-label">🔴 ব্রেকিং</span>
+      <div class="breaking-ticker"><div class="breaking-ticker-inner" id="breaking-ticker"><span class="ticker-item">লোড হচ্ছে...</span></div></div>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📚</div>
+        <div class="logo-text"><span class="name">EduBD</span><span class="tagline">বাংলাদেশ শিক্ষা তথ্য পোর্টাল</span></div>
+      </a>
+      <div class="search-box">
+        <input type="text" placeholder="🔍 বিশ্ববিদ্যালয় খুঁজুন..." autocomplete="off">
+        <button class="search-btn" type="button" aria-label="অনুসন্ধান">🔍</button>
+      </div>
+      <nav>
+        <a href="../index.html" class="nav-link">হোম</a>
+        <a href="admissions.html" class="nav-link">ভর্তি তথ্য</a>
+        <a href="routines.html" class="nav-link">পরীক্ষা</a>
+        <a href="results.html" class="nav-link">ফলাফল</a>
+        <a href="scholarships.html" class="nav-link">স্কলারশিপ</a>
+        <a href="news.html" class="nav-link">শিক্ষা সংবাদ</a>
+      </nav>
+      <button class="hamburger" aria-label="মেনু"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="logo"><div class="logo-icon">📚</div><div class="logo-text"><span class="name">EduBD</span></div></div>
+      <button class="mobile-menu-close">✕</button>
+    </div>
+    <a href="../index.html" class="mobile-nav-link">🏠 হোম</a>
+    <a href="admissions.html" class="mobile-nav-link">🎓 ভর্তি তথ্য</a>
+    <a href="routines.html" class="mobile-nav-link">🗓️ পরীক্ষা</a>
+    <a href="results.html" class="mobile-nav-link">📊 ফলাফল</a>
+    <a href="scholarships.html" class="mobile-nav-link">🌟 স্কলারশিপ</a>
+    <a href="news.html" class="mobile-nav-link">📰 শিক্ষা সংবাদ</a>
+    <a href="public-universities.html" class="mobile-nav-link active">🏛️ পাবলিক বিশ্ববিদ্যালয়</a>
+    <a href="private-universities.html" class="mobile-nav-link">🎓 বেসরকারি বিশ্ববিদ্যালয়</a>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="container" style="margin-top:25px;">
+
+    <!-- Page Header -->
+    <div class="page-hero" style="background:linear-gradient(135deg,#1a6b3c,#2d9e5e);color:#fff;padding:30px;border-radius:12px;margin-bottom:25px;">
+      <h1 style="font-size:1.8rem;margin-bottom:8px;">🏛️ পাবলিক বিশ্ববিদ্যালয় তালিকা</h1>
+      <p style="opacity:0.9;font-size:14px;">বাংলাদেশের সরকারি বিশ্ববিদ্যালয়ের সম্পূর্ণ তালিকা — UGC স্বীকৃত</p>
+      <div style="margin-top:12px;">
+        <a href="private-universities.html" style="background:rgba(255,255,255,0.2);color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.4);">
+          🎓 বেসরকারি বিশ্ববিদ্যালয় দেখুন →
+        </a>
+      </div>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="uni-search-bar" style="margin-bottom:20px;">
+      <input type="text" id="uni-filter" class="form-control" placeholder="🔍 বিশ্ববিদ্যালয়ের নাম দিয়ে ফিল্টার করুন..." style="max-width:500px;display:inline-block;">
+      <span id="uni-count" style="margin-left:12px;color:var(--text-muted);font-size:14px;"></span>
+    </div>
+
+    <!-- University Grid -->
+    <div class="uni-grid" id="uni-grid">
+      <div class="loading-overlay" style="padding:40px;text-align:center;">
+        <div class="spinner"></div>
+        <p>তালিকা লোড হচ্ছে...</p>
+      </div>
+    </div>
+
+    <!-- Source note -->
+    <p style="font-size:12px;color:var(--text-muted);margin-top:20px;margin-bottom:40px;">
+      তথ্যসূত্র: <a href="http://www.ugc-universities.gov.bd/public-universities" target="_blank" rel="noopener" style="color:var(--primary);">ugc-universities.gov.bd</a> |
+      বিস্তারিত ও আপডেটের জন্য <a href="https://ugc.gov.bd" target="_blank" rel="noopener" style="color:var(--primary);">ugc.gov.bd</a> দেখুন।
+    </p>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">📚</div>
+            <div class="footer-logo-text"><div class="name">EduBD</div><div class="tagline">বাংলাদেশ শিক্ষা তথ্য পোর্টাল</div></div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>দ্রুত লিঙ্ক</h4>
+          <div class="footer-links">
+            <a href="admissions.html">🎓 ভর্তি তথ্য</a>
+            <a href="results.html">📊 পরীক্ষার ফলাফল</a>
+            <a href="scholarships.html">🌟 বৃত্তি তথ্য</a>
+            <a href="public-universities.html">🏛️ পাবলিক বিশ্ববিদ্যালয়</a>
+            <a href="private-universities.html">🎓 বেসরকারি বিশ্ববিদ্যালয়</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>গুরুত্বপূর্ণ লিঙ্ক</h4>
+          <div class="footer-links">
+            <a href="https://moedu.gov.bd" target="_blank" rel="noopener">🏛️ শিক্ষা মন্ত্রণালয়</a>
+            <a href="https://ugc.gov.bd" target="_blank" rel="noopener">🎓 UGC Bangladesh</a>
+            <a href="http://www.ugc-universities.gov.bd" target="_blank" rel="noopener">🏫 UGC বিশ্ববিদ্যালয় তালিকা</a>
+            <a href="https://dshe.gov.bd" target="_blank" rel="noopener">📚 DSHE মাধ্যমিক শিক্ষা</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© ২০২৫-২৬ EduBD — বাংলাদেশ শিক্ষা তথ্য পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</span>
+    </div>
+  </footer>
+
+  <button class="back-to-top" title="উপরে যান">▲</button>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    "use strict";
+
+    function escHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    }
+
+    function buildDetailUrl(uni) {
+      var params = new URLSearchParams({
+        title: uni.name,
+        source: "UGC বাংলাদেশ",
+        url: uni.website || "http://www.ugc-universities.gov.bd/public-universities",
+        date: "",
+        brief: uni.brief || "",
+        icon: "🏛️"
+      });
+      return "notice-detail.html?" + params.toString();
+    }
+
+    function renderList(unis) {
+      var grid = document.getElementById("uni-grid");
+      var countEl = document.getElementById("uni-count");
+      if (!grid) return;
+
+      if (!unis || unis.length === 0) {
+        grid.innerHTML = '<p style="color:var(--text-muted);text-align:center;padding:40px;">কোনো বিশ্ববিদ্যালয় পাওয়া যায়নি।</p>';
+        return;
+      }
+
+      if (countEl) countEl.textContent = "মোট " + unis.length + "টি বিশ্ববিদ্যালয়";
+
+      grid.innerHTML = unis.map(function (uni) {
+        var detailUrl = buildDetailUrl(uni);
+        return '<div class="uni-card">' +
+          '<a href="' + escHtml(detailUrl) + '" class="uni-card-link">' +
+          '<div class="uni-card-icon">🏛️</div>' +
+          '<div class="uni-card-info">' +
+          '<h3 class="uni-card-name">' + escHtml(uni.name) + '</h3>' +
+          (uni.location ? '<p class="uni-card-location">📍 ' + escHtml(uni.location) + '</p>' : '') +
+          (uni.brief ? '<p class="uni-card-brief">' + escHtml(uni.brief.slice(0, 100)) + (uni.brief.length > 100 ? "…" : "") + '</p>' : '') +
+          '</div>' +
+          '<span class="uni-card-arrow">›</span>' +
+          '</a></div>';
+      }).join("");
+    }
+
+    function init() {
+      var data = (typeof eduData !== "undefined" && eduData.publicUniversities) ? eduData.publicUniversities : [];
+      renderList(data);
+
+      var filterInput = document.getElementById("uni-filter");
+      if (filterInput) {
+        filterInput.addEventListener("input", function () {
+          var q = filterInput.value.trim().toLowerCase();
+          if (!q) {
+            renderList(data);
+            return;
+          }
+          var filtered = data.filter(function (u) {
+            return u.name.toLowerCase().includes(q) ||
+              (u.brief && u.brief.toLowerCase().includes(q)) ||
+              (u.location && u.location.toLowerCase().includes(q));
+          });
+          renderList(filtered);
+        });
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+  </script>
+</body>
+</html>

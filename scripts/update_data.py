@@ -259,6 +259,30 @@ GOVT_SOURCES = [
         "selector": "a[href*='uploads/notices']",
         "base_url": "https://www.nu.ac.bd",
     },
+    {
+        "name": "DSHE",
+        "url": "https://dshe.gov.bd",
+        "source_key": "dshe.gov.bd",
+        "category": "মাধ্যমিক শিক্ষা",
+        "selector": "a[href*='notice'], a[href*='/pages/'], a[href*='.pdf']",
+        "base_url": "https://dshe.gov.bd",
+    },
+    {
+        "name": "BSS News Education",
+        "url": "https://www.bssnews.net/bangla/national/education",
+        "source_key": "বিএসএস",
+        "category": "শিক্ষা",
+        "selector": "a[href*='/bangla/national/education/']",
+        "base_url": "https://www.bssnews.net",
+    },
+    {
+        "name": "UGC Universities",
+        "url": "http://www.ugc-universities.gov.bd",
+        "source_key": "ugc-universities.gov.bd",
+        "category": "বিশ্ববিদ্যালয়",
+        "selector": "a[href*='universities']",
+        "base_url": "http://www.ugc-universities.gov.bd",
+    },
 ]
 
 # All education boards — specific selectors target real notice/circular links

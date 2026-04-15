@@ -707,16 +707,12 @@ tbody td {
 @media (max-width: 480px) {
   .modal-box {
     margin: 10px;
+    width: calc(100vw - 20px);
     max-height: 95vh;
   }
   .topbar-title { font-size: 15px; }
   .btn { font-size: 12px; padding: 7px 12px; }
-}
-
-/* ── Additional Responsive Admin ─────────────────────────────────────────── */
-@media (max-width: 480px) {
   .section-content { padding: 16px 12px; }
-  .modal-box { width: calc(100vw - 20px); max-height: 95vh; }
   .fetch-url-box { padding: 10px 12px; }
   .action-bar { flex-direction: column; align-items: flex-start; }
   .dash-card { flex-direction: column; text-align: center; }

@@ -940,9 +940,20 @@ function updateNewsImagePreview(src) {
   const img = document.getElementById("n-image-preview-img");
   if (!wrap || !img) return;
   if (src) {
-    // Sanitize: only allow http, https and data URLs to prevent javascript: URI injection
-    const safeSrc = (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('data:image/'))
-      ? src : '';
+    // Sanitize: only allow http, https, and data:image URLs
+    let safeSrc = '';
+    if (src.startsWith('data:image/')) {
+      safeSrc = src;
+    } else {
+      try {
+        const parsed = new URL(src);
+        if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+          safeSrc = parsed.href;
+        }
+      } catch (e) {
+        safeSrc = '';
+      }
+    }
     if (!safeSrc) { wrap.style.display = "none"; return; }
     img.setAttribute('src', safeSrc);
     wrap.style.display = "block";
@@ -992,8 +1003,9 @@ async function fetchNewsFromUrl() {
     const image = getMeta(['meta[property="og:image"]', 'meta[name="twitter:image"]', 'meta[itemprop="image"]']);
     let domain = "";
     try { domain = new URL(url).hostname.replace("www.", ""); } catch(e) { domain = ""; }
-    const today = new Date().toISOString().slice(0, 10);
-    const year = new Date().getFullYear().toString();
+    const now = new Date();
+    const today = now.toISOString().slice(0, 10);
+    const year = now.getFullYear().toString();
 
     if (title) document.getElementById("n-title").value = title;
     if (description) document.getElementById("n-summary").value = description;

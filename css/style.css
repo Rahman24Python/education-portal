@@ -3511,32 +3511,8 @@ footer {
   .home-useful-links-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (max-width: 480px) {
-  .home-scholarship-grid {
-    grid-template-columns: 1fr;
-  }
-  .home-useful-links-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ===================== ENHANCED RESPONSIVENESS ===================== */
-
-/* 1024px breakpoint */
-@media (max-width: 1024px) {
-  .main-content {
-    grid-template-columns: 1fr 300px;
-  }
-  .quick-links-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-/* 768px breakpoint */
-@media (max-width: 768px) {
-  /* Top bar: only show left side */
+  /* ── Enhanced 768px responsiveness ── */
   .top-bar-inner {
     justify-content: center;
   }
@@ -3602,6 +3578,14 @@ footer {
 
 /* 480px breakpoint */
 @media (max-width: 480px) {
+  .home-scholarship-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-useful-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ── Enhanced 480px responsiveness ── */
   .container {
     padding: 0 12px;
   }
@@ -3639,11 +3623,6 @@ footer {
     font-size: 13px;
   }
 
-  /* Top bar: only date visible */
-  .top-bar-right {
-    display: none;
-  }
-
   /* Sidebar cards: full width */
   .sidebar {
     grid-template-columns: 1fr;
@@ -3659,14 +3638,14 @@ footer {
   .footer-grid {
     grid-template-columns: 1fr;
   }
+}
 
-  /* Home scholarship grid */
-  .home-scholarship-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* 1024px breakpoint */
+@media (max-width: 1024px) {
+  .main-content {
+    grid-template-columns: 1fr 300px;
   }
-
-  /* Home useful links: 2 cols */
-  .home-useful-links-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .quick-links-grid {
+    grid-template-columns: repeat(6, 1fr);
   }
 }

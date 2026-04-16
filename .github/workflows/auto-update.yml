@@ -25,10 +25,17 @@ jobs:
         with:
           fetch-depth: 1
 
+      # ENHANCEMENT 1: Log the manual trigger reason so it shows up in your action logs
+      - name: Log trigger reason
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "Manual Trigger Reason: ${{ github.event.inputs.reason }}"
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          # ENHANCEMENT 2: Cache pip dependencies to speed up subsequent runs
+          cache: 'pip' 
 
       - name: Install Python dependencies
         run: pip install -r scripts/requirements.txt
@@ -36,10 +43,14 @@ jobs:
       - name: Run data update script
         run: python scripts/update_data.py
 
+      # ENHANCEMENT 3: More robust change detection using `git status --porcelain`
+      # This ensures it catches the file even if it was previously untracked
       - name: Check for changes
         id: git_status
         run: |
-          git diff --quiet js/data.js || echo "changed=true" >> "$GITHUB_OUTPUT"
+          if [[ -n "$(git status --porcelain js/data.js)" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Commit and push updated data
         if: steps.git_status.outputs.changed == 'true'
@@ -53,3 +64,4 @@ jobs:
       - name: No changes detected
         if: steps.git_status.outputs.changed != 'true'
         run: echo "Data is already up-to-date — no commit needed."
+```

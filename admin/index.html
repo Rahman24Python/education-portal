@@ -47,6 +47,39 @@
       <a class="sidebar-link" data-section="universities" href="#">
         <span class="link-icon">🎓</span> বিশ্ববিদ্যালয়
       </a>
+      <a class="sidebar-link" data-section="settings" href="#">
+        <span class="link-icon">⚙️</span> সাইট সেটিংস
+      </a>
+      <a class="sidebar-link" data-section="categorynav" href="#">
+        <span class="link-icon">🟢</span> ক্যাটাগরি নেভ
+      </a>
+      <a class="sidebar-link" data-section="quicklinks" href="#">
+        <span class="link-icon">⚡</span> দ্রুত লিঙ্ক
+      </a>
+      <a class="sidebar-link" data-section="featured" href="#">
+        <span class="link-icon">⭐</span> ফিচার্ড নিউজ
+      </a>
+      <a class="sidebar-link" data-section="navigation" href="#">
+        <span class="link-icon">🧭</span> নেভিগেশন
+      </a>
+      <a class="sidebar-link" data-section="footer" href="#">
+        <span class="link-icon">📋</span> ফুটার
+      </a>
+      <a class="sidebar-link" data-section="sidebar" href="#">
+        <span class="link-icon">🧩</span> সাইডবার উইজেট
+      </a>
+      <a class="sidebar-link" data-section="importantlinks" href="#">
+        <span class="link-icon">🔗</span> গুরুত্বপূর্ণ লিঙ্ক
+      </a>
+      <a class="sidebar-link" data-section="pages" href="#">
+        <span class="link-icon">📄</span> পেজ কন্টেন্ট
+      </a>
+      <a class="sidebar-link" data-section="theme" href="#">
+        <span class="link-icon">🎨</span> থিম/ডিজাইন
+      </a>
+      <a class="sidebar-link" data-section="images" href="#">
+        <span class="link-icon">🖼️</span> ইমেজ ম্যানেজার
+      </a>
     </nav>
   </aside>
 
@@ -282,6 +315,112 @@
           </table>
         </div>
       </div>
+    </section>
+
+    <!-- ── Site Settings ─────────────────────────────────────────────────── -->
+    <section id="section-settings" class="section-content">
+      <div class="section-header">
+        <h2>⚙️ সাইট সেটিংস</h2>
+      </div>
+      <div class="settings-grid" id="site-settings-form"></div>
+      <div style="margin-top:14px;">
+        <button class="btn btn-primary" onclick="saveSiteSettings()">সেভ করুন</button>
+      </div>
+    </section>
+
+    <!-- ── Category Nav Manager ───────────────────────────────────────────── -->
+    <section id="section-categorynav" class="section-content">
+      <div class="section-header">
+        <h2>🟢 ক্যাটাগরি নেভ ম্যানেজার</h2>
+        <button class="btn btn-success" onclick="openStructuredModal('categorynav', null)">+ নতুন আইটেম</button>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>আইকন</th><th>লেবেল</th><th>লিংক</th><th>অর্ডার</th><th>অ্যাকশন</th></tr></thead><tbody id="categorynav-tbody"></tbody></table></div>
+    </section>
+
+    <!-- ── Quick Links Manager ────────────────────────────────────────────── -->
+    <section id="section-quicklinks" class="section-content">
+      <div class="section-header">
+        <h2>⚡ দ্রুত লিঙ্ক ম্যানেজার</h2>
+        <button class="btn btn-success" onclick="openStructuredModal('quicklinks', null)">+ নতুন লিঙ্ক</button>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>আইকন</th><th>টেক্সট</th><th>লিংক</th><th>অ্যাকশন</th></tr></thead><tbody id="quicklinks-tbody"></tbody></table></div>
+    </section>
+
+    <!-- ── Featured Settings ──────────────────────────────────────────────── -->
+    <section id="section-featured" class="section-content">
+      <div class="section-header"><h2>⭐ ফিচার্ড নিউজ সেটিংস</h2></div>
+      <div class="settings-grid" id="featured-settings-form"></div>
+      <div style="margin-top:14px;">
+        <button class="btn btn-primary" onclick="saveFeaturedSettings()">সেভ করুন</button>
+      </div>
+    </section>
+
+    <!-- ── Navigation Manager ─────────────────────────────────────────────── -->
+    <section id="section-navigation" class="section-content">
+      <div class="section-header">
+        <h2>🧭 নেভিগেশন মেনু ম্যানেজার</h2>
+        <button class="btn btn-success" onclick="openNavigationModal('main', null, null)">+ নতুন মেনু</button>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>টাইপ</th><th>লেবেল</th><th>লিংক</th><th>আইকন</th><th>Parent</th><th>অ্যাকশন</th></tr></thead><tbody id="navigation-tbody"></tbody></table></div>
+    </section>
+
+    <!-- ── Footer Manager ─────────────────────────────────────────────────── -->
+    <section id="section-footer" class="section-content">
+      <div class="section-header">
+        <h2>📋 ফুটার ম্যানেজার</h2>
+        <button class="btn btn-success" onclick="openStructuredModal('footerlinks', null)">+ নতুন ফুটার লিঙ্ক</button>
+      </div>
+      <div class="settings-grid" id="footer-settings-form"></div>
+      <div style="margin:12px 0;"><button class="btn btn-primary" onclick="saveFooterSettings()">ফুটার টেক্সট সেভ</button></div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>কলাম</th><th>লেবেল</th><th>লিংক</th><th>Target</th><th>অ্যাকশন</th></tr></thead><tbody id="footerlinks-tbody"></tbody></table></div>
+    </section>
+
+    <!-- ── Sidebar Widgets Manager ────────────────────────────────────────── -->
+    <section id="section-sidebar" class="section-content">
+      <div class="section-header">
+        <h2>🧩 সাইডবার উইজেট ম্যানেজার</h2>
+        <button class="btn btn-success" onclick="openStructuredModal('sidebar', null)">+ নতুন উইজেট</button>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>লেবেল</th><th>Key</th><th>দেখাবে?</th><th>অর্ডার</th><th>অ্যাকশন</th></tr></thead><tbody id="sidebarwidgets-tbody"></tbody></table></div>
+    </section>
+
+    <!-- ── Important Links Manager ────────────────────────────────────────── -->
+    <section id="section-importantlinks" class="section-content">
+      <div class="section-header">
+        <h2>🔗 গুরুত্বপূর্ণ লিঙ্ক ম্যানেজার</h2>
+        <button class="btn btn-success" onclick="openStructuredModal('importantlinks', null)">+ নতুন লিঙ্ক</button>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>আইকন</th><th>লেবেল</th><th>URL</th><th>Target</th><th>অ্যাকশন</th></tr></thead><tbody id="importantlinks-tbody"></tbody></table></div>
+    </section>
+
+    <!-- ── Page Content Manager ───────────────────────────────────────────── -->
+    <section id="section-pages" class="section-content">
+      <div class="section-header">
+        <h2>📄 পেজ কন্টেন্ট ম্যানেজার</h2>
+        <button class="btn btn-success" onclick="openStructuredModal('pages', null)">+ নতুন পেজ কন্টেন্ট</button>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>পেজ Key</th><th>Hero Title</th><th>Hero Description</th><th>অ্যাকশন</th></tr></thead><tbody id="pages-tbody"></tbody></table></div>
+    </section>
+
+    <!-- ── Theme Manager ──────────────────────────────────────────────────── -->
+    <section id="section-theme" class="section-content">
+      <div class="section-header"><h2>🎨 থিম/ডিজাইন সেটিংস</h2></div>
+      <div class="settings-grid" id="theme-settings-form"></div>
+      <div style="margin-top:14px;">
+        <button class="btn btn-primary" onclick="saveThemeSettings()">সেভ করুন</button>
+      </div>
+    </section>
+
+    <!-- ── Image Manager ──────────────────────────────────────────────────── -->
+    <section id="section-images" class="section-content">
+      <div class="section-header">
+        <h2>🖼️ ইমেজ ম্যানেজার</h2>
+      </div>
+      <div class="form-field" style="max-width:450px;">
+        <label>নতুন ছবি আপলোড</label>
+        <input type="file" id="image-manager-upload" accept="image/*" onchange="handleImageManagerUpload(event)">
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>নাম</th><th>প্রিভিউ</th><th>ডাটা URL</th><th>অ্যাকশন</th></tr></thead><tbody id="images-tbody"></tbody></table></div>
     </section>
 
   </div><!-- /main-content -->
@@ -735,6 +874,23 @@
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeModal('breaking-edit-modal')">বাতিল</button>
       <button class="btn btn-primary" onclick="saveBreakingEdit()">আপডেট করুন</button>
+    </div>
+  </div>
+</div>
+
+<!-- Generic Structured Modal -->
+<div class="modal-overlay" id="structured-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3 id="structured-modal-title">আইটেম যোগ/সম্পাদনা</h3>
+      <button class="modal-close" onclick="closeModal('structured-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="structured-form"></form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('structured-modal')">বাতিল</button>
+      <button class="btn btn-primary" onclick="saveStructuredModal()">সেভ করুন</button>
     </div>
   </div>
 </div>

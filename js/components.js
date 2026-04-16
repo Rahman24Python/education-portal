@@ -3,34 +3,21 @@
 
 function renderSharedHeader(base, activePage) {
   base = base || '../';
-  const navLinks = [
-    { href: base + 'index.html', label: 'হোম', key: 'home' },
-    { href: base + 'pages/admissions.html', label: 'ভর্তি তথ্য', key: 'admissions', hasDropdown: true },
-    { href: base + 'pages/routines.html', label: 'পরীক্ষা', key: 'routines' },
-    { href: base + 'pages/results.html', label: 'ফলাফল', key: 'results' },
-    { href: base + 'pages/scholarships.html', label: 'স্কলারশিপ', key: 'scholarships' },
-    { href: base + 'pages/news.html', label: 'শিক্ষা সংবাদ', key: 'news' },
+  const navData = (typeof eduData !== 'undefined' && eduData.navigation) ? eduData.navigation : {};
+  const mainNav = navData.main || [
+    { href: 'index.html', label: 'হোম' },
+    { href: 'pages/admissions.html', label: 'ভর্তি তথ্য', isDropdown: true, children: [{ href: 'pages/admissions.html?type=বিশ্ববিদ্যালয়', icon: '🎓', label: 'বিশ্ববিদ্যালয় ভর্তি' }] },
+    { href: 'pages/routines.html', label: 'পরীক্ষা' },
+    { href: 'pages/results.html', label: 'ফলাফল' },
+    { href: 'pages/scholarships.html', label: 'স্কলারশিপ' },
+    { href: 'pages/news.html', label: 'শিক্ষা সংবাদ' }
   ];
-
-  const dropdownItems = [
-    { href: base + 'pages/admissions.html?type=বিশ্ববিদ্যালয়', icon: '🎓', label: 'বিশ্ববিদ্যালয় ভর্তি' },
-    { href: base + 'pages/admissions.html?type=মেডিকেল', icon: '🏥', label: 'মেডিকেল ভর্তি' },
-    { href: base + 'pages/admissions.html?type=ইঞ্জিনিয়ারিং', icon: '⚙️', label: 'ইঞ্জিনিয়ারিং ভর্তি' },
-    { href: base + 'pages/admissions.html?type=কলেজ', icon: '📚', label: 'কলেজ ভর্তি (XI)' },
-    { href: base + 'pages/admissions.html', icon: '📋', label: 'সকল ভর্তি বিজ্ঞপ্তি' },
-  ];
-
-  const catLinks = [
+  const navLinks = mainNav.map((n, i) => ({ href: base + (n.href || ''), label: n.label, key: i === 0 ? 'home' : (n.label || '').toLowerCase(), hasDropdown: n.isDropdown, children: n.children || [] }));
+  const dropdownItems = (mainNav.find(n => n.isDropdown) || {}).children || [];
+  const category = (typeof eduData !== 'undefined' && Array.isArray(eduData.categoryNav)) ? eduData.categoryNav : [];
+  const catLinks = category.length ? category.map(c => ({ href: base + (c.href || ''), label: `${c.icon || ''} ${c.label || ''}` })) : [
     { href: base + 'pages/news.html?cat=ট্রেন্ডিং', label: '🔥 ট্রেন্ডিং' },
-    { href: base + 'pages/ssc.html', label: '📝 SSC 2025' },
-    { href: base + 'pages/hsc.html', label: '📚 HSC 2025' },
-    { href: base + 'pages/admissions.html?type=বিশ্ববিদ্যালয়', label: '🎓 বিশ্ববিদ্যালয়' },
-    { href: base + 'pages/routines.html', label: '🗓️ রুটিন' },
-    { href: base + 'pages/news.html?cat=নোটিশ', label: '📢 নোটিশ' },
-    { href: base + 'pages/scholarships.html', label: '🌟 বৃত্তি' },
-    { href: base + 'pages/news.html?cat=মাদ্রাসা', label: '🕌 মাদ্রাসা' },
-    { href: base + 'pages/news.html?cat=কারিগরি', label: '🔧 কারিগরি' },
-    { href: base + 'pages/scholarships.html?type=international', label: '✈️ বিদেশে পড়াশোনা' },
+    { href: base + 'pages/ssc.html', label: '📝 SSC 2025' }
   ];
 
   const navLinksHtml = navLinks.map(link => {
@@ -43,8 +30,8 @@ function renderSharedHeader(base, activePage) {
           </a>
           <div class="dropdown-menu">
             ${dropdownItems.map(d => `
-              <a href="${d.href}" class="dropdown-item">
-                <span class="dropdown-icon">${d.icon}</span>${d.label}
+              <a href="${base + (d.href || '')}" class="dropdown-item">
+                <span class="dropdown-icon">${d.icon || ''}</span>${d.label || ''}
               </a>
             `).join('')}
           </div>
@@ -141,6 +128,12 @@ function renderSharedHeader(base, activePage) {
 
 function renderSharedFooter(base) {
   base = base || '../';
+  const site = (typeof eduData !== 'undefined' && eduData.siteSettings) ? eduData.siteSettings : {};
+  const footerData = (typeof eduData !== 'undefined' && eduData.footerLinks) ? eduData.footerLinks : {};
+  const footerCols = (footerData.columns || {});
+  const quick = footerCols.quick || [];
+  const boards = footerCols.boards || [];
+  const important = footerCols.important || [];
   return `
   <footer>
     <div class="footer-top">
@@ -154,58 +147,40 @@ function renderSharedFooter(base) {
             </div>
           </div>
           <p class="footer-desc">
-            EduBD বাংলাদেশের সকল শিক্ষার্থী ও অভিভাবকদের জন্য একটি বিশ্বস্ত শিক্ষামূলক তথ্য পোর্টাল। 
-            SSC, HSC, ভর্তি, বৃত্তি, পরীক্ষার রুটিন সহ সকল শিক্ষা সংক্রান্ত তথ্য একটি জায়গায়।
+            ${footerData.description || 'EduBD বাংলাদেশের সকল শিক্ষার্থী ও অভিভাবকদের জন্য একটি বিশ্বস্ত শিক্ষামূলক তথ্য পোর্টাল।'}
           </p>
           <div class="footer-social">
-            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-btn" title="Facebook">📘</a>
-            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-btn" title="YouTube">📹</a>
-            <a href="https://t.me/edubd_portal" target="_blank" rel="noopener" class="social-btn" title="Telegram">✈️</a>
-            <a href="https://wa.me/8801700000000" target="_blank" rel="noopener" class="social-btn" title="WhatsApp">💬</a>
+            <a href="${(site.social || {}).facebook || 'https://facebook.com'}" target="_blank" rel="noopener" class="social-btn" title="Facebook">📘</a>
+            <a href="${(site.social || {}).youtube || 'https://youtube.com'}" target="_blank" rel="noopener" class="social-btn" title="YouTube">📹</a>
+            <a href="${(site.social || {}).telegram || 'https://t.me/edubd_portal'}" target="_blank" rel="noopener" class="social-btn" title="Telegram">✈️</a>
+            <a href="${(site.social || {}).whatsapp || 'https://wa.me/8801700000000'}" target="_blank" rel="noopener" class="social-btn" title="WhatsApp">💬</a>
           </div>
         </div>
 
         <div class="footer-col">
           <h4>দ্রুত লিঙ্ক</h4>
           <div class="footer-links">
-            <a href="${base}pages/admissions.html">🎓 ভর্তি তথ্য</a>
-            <a href="${base}pages/results.html">📊 পরীক্ষার ফলাফল</a>
-            <a href="${base}pages/scholarships.html">🌟 বৃত্তি তথ্য</a>
-            <a href="${base}pages/routines.html">🗓️ পরীক্ষার রুটিন</a>
-            <a href="${base}pages/news.html">📰 শিক্ষা সংবাদ</a>
-            <a href="${base}pages/ssc.html">📝 SSC 2025</a>
-            <a href="${base}pages/hsc.html">📚 HSC 2025</a>
+            ${(quick.length ? quick : [{ label: '🎓 ভর্তি তথ্য', href: 'pages/admissions.html' }]).map(l => `<a href="${base + (l.href || '')}" ${l.target === '_blank' ? 'target="_blank" rel="noopener"' : ''}>${l.label || ''}</a>`).join('')}
           </div>
         </div>
 
         <div class="footer-col">
           <h4>শিক্ষা বোর্ড</h4>
           <div class="footer-links">
-            <a href="${base}pages/board.html?board=dhaka">🏫 ঢাকা বোর্ড</a>
-            <a href="${base}pages/board.html?board=rajshahi">🏫 রাজশাহী বোর্ড</a>
-            <a href="${base}pages/board.html?board=chittagong">🏫 চট্টগ্রাম বোর্ড</a>
-            <a href="${base}pages/board.html?board=sylhet">🏫 সিলেট বোর্ড</a>
-            <a href="${base}pages/board.html?board=comilla">🏫 কুমিল্লা বোর্ড</a>
-            <a href="${base}pages/board.html?board=madrasah">🏫 মাদ্রাসা বোর্ড</a>
-            <a href="${base}pages/board.html?board=technical">🏫 কারিগরি বোর্ড</a>
+            ${(boards.length ? boards : [{ label: '🏫 ঢাকা বোর্ড', href: 'pages/board.html?board=dhaka' }]).map(l => `<a href="${base + (l.href || '')}" ${l.target === '_blank' ? 'target="_blank" rel="noopener"' : ''}>${l.label || ''}</a>`).join('')}
           </div>
         </div>
 
         <div class="footer-col">
           <h4>গুরুত্বপূর্ণ লিঙ্ক</h4>
           <div class="footer-links">
-            <a href="https://moedu.gov.bd" target="_blank" rel="noopener">🏛️ শিক্ষা মন্ত্রণালয়</a>
-            <a href="https://ugc.gov.bd" target="_blank" rel="noopener">🎓 UGC Bangladesh</a>
-            <a href="https://eboardresults.com" target="_blank" rel="noopener">📊 বোর্ড রেজাল্ট</a>
-            <a href="https://www.nu.ac.bd" target="_blank" rel="noopener">🏫 জাতীয় বিশ্ববিদ্যালয়</a>
-            <a href="https://teachers.gov.bd" target="_blank" rel="noopener">👩‍🏫 শিক্ষক বাতায়ন</a>
-            <a href="${base}pages/about.html">ℹ️ আমাদের সম্পর্কে</a>
+            ${(important.length ? important : [{ label: '🏛️ শিক্ষা মন্ত্রণালয়', href: 'https://moedu.gov.bd', target: '_blank' }]).map(l => `<a href="${l.href || '#'}" ${l.target === '_blank' ? 'target="_blank" rel="noopener"' : ''}>${l.label || ''}</a>`).join('')}
           </div>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© ২০২৫ EduBD — বাংলাদেশ শিক্ষা তথ্য পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</span>
+      <span>${site.copyrightText || '© ২০২৫ EduBD — বাংলাদেশ শিক্ষা তথ্য পোর্টাল। সর্বস্বত্ব সংরক্ষিত।'}</span>
       <span>তৈরি করেছেন ❤️ দ্বারা EduBD টিম</span>
     </div>
   </footer>

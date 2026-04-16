@@ -19,7 +19,18 @@ function sortByYearPriority(items) {
   });
 }
 
+function resolveHrefWithBase(href, base) {
+  if (!href) return '#';
+  if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('#')) return href;
+  if (href.startsWith('/')) return href.slice(1);
+  return base + href;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+  applyThemeSettings();
+  applySiteSettings();
+  initNavigationMenus();
+  initCategoryNav();
   initNavbar();
   initBreakingNews();
   initLiveDateTime();
@@ -34,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initSidebarGovtNotices();
   initSidebarScholarships();
   initImportantLinks();
+  initSidebarWidgets();
+  initFooterContent();
+  applyPageContent();
   initBoardGrid();
 });
 
@@ -72,6 +86,70 @@ function getBasePath() {
     return '../';
   }
   return '';
+}
+
+function applySiteSettings() {
+  if (typeof eduData === 'undefined') return;
+  const s = eduData.siteSettings || {};
+  if (s.siteName) document.title = document.title.replace(/EduBD/g, s.siteName);
+  const meta = document.querySelector('meta[name="description"]');
+  if (meta && s.metaDescription) meta.setAttribute('content', s.metaDescription);
+  document.querySelectorAll('.logo-icon, .footer-logo-icon').forEach(el => {
+    if (s.logoIcon) el.textContent = s.logoIcon;
+  });
+  document.querySelectorAll('.logo .name, .footer-logo-text .name').forEach(el => {
+    if (s.logoText) el.textContent = s.logoText;
+  });
+  document.querySelectorAll('.logo .tagline, .footer-logo-text .tagline').forEach(el => {
+    if (s.tagline) el.textContent = s.tagline;
+  });
+}
+
+function applyThemeSettings() {
+  if (typeof eduData === 'undefined') return;
+  const t = eduData.themeSettings || {};
+  const root = document.documentElement;
+  if (t.primaryColor) root.style.setProperty('--primary', t.primaryColor);
+  if (t.accentColor) root.style.setProperty('--secondary', t.accentColor);
+  if (t.darkColor) root.style.setProperty('--text-dark', t.darkColor);
+  if (t.fontFamily) document.body.style.fontFamily = t.fontFamily;
+}
+
+function initNavigationMenus() {
+  if (typeof eduData === 'undefined') return;
+  const navData = eduData.navigation || {};
+  const base = getBasePath();
+  const nav = document.querySelector('header nav');
+  if (nav && Array.isArray(navData.main) && navData.main.length) {
+    nav.innerHTML = navData.main.map(item => {
+      const hasChildren = item.isDropdown && Array.isArray(item.children) && item.children.length;
+      if (!hasChildren) return `<a href="${escapeHtml(resolveHrefWithBase(item.href, base))}" class="nav-link">${escapeHtml(item.label)}</a>`;
+      return `
+        <div class="nav-dropdown">
+          <a href="${escapeHtml(resolveHrefWithBase(item.href, base))}" class="nav-link">${escapeHtml(item.label)} <span style="font-size:10px;">▼</span></a>
+          <div class="dropdown-menu">
+            ${(item.children || []).map(ch => `<a href="${escapeHtml(resolveHrefWithBase(ch.href, base))}" class="dropdown-item"><span class="dropdown-icon">${escapeHtml(ch.icon || '')}</span>${escapeHtml(ch.label || '')}</a>`).join('')}
+          </div>
+        </div>`;
+    }).join('');
+  }
+  const mobile = document.querySelector('.mobile-menu');
+  if (mobile && Array.isArray(navData.mobile) && navData.mobile.length) {
+    const header = mobile.querySelector('.mobile-menu-header');
+    const existingClose = mobile.querySelector('.mobile-menu-close');
+    const closeHtml = existingClose ? existingClose.outerHTML : '<button class="mobile-menu-close">✕</button>';
+    const headerHtml = header ? `<div class="mobile-menu-header">${header.innerHTML.replace(existingClose ? existingClose.outerHTML : '', '')}${closeHtml}</div>` : `<div class="mobile-menu-header">${closeHtml}</div>`;
+    mobile.innerHTML = `${headerHtml}${navData.mobile.map(m => `<a href="${escapeHtml(resolveHrefWithBase(m.href, base))}" class="mobile-nav-link">${escapeHtml(m.label || '')}</a>`).join('')}`;
+  }
+}
+
+function initCategoryNav() {
+  const wrap = document.querySelector('.category-nav-inner');
+  if (!wrap || typeof eduData === 'undefined') return;
+  const list = (eduData.categoryNav || []).slice().sort((a, b) => (a.order || 0) - (b.order || 0));
+  if (!list.length) return;
+  const base = getBasePath();
+  wrap.innerHTML = list.map(item => `<a href="${escapeHtml(resolveHrefWithBase(item.href, base))}" class="cat-link">${escapeHtml(item.icon || '')} ${escapeHtml(item.label || '')}</a>`).join('');
 }
 
 // ===================== BREAKING NEWS =====================
@@ -259,8 +337,17 @@ function initFeaturedNews() {
   const headlinesContainer = document.getElementById('featured-headlines');
   if (!container || typeof eduData === 'undefined') return;
 
+  const featuredSettings = eduData.featuredSettings || { enabled: true, headlineCount: 5, featuredNewsId: null };
+  if (featuredSettings.enabled === false) {
+    const section = container.closest('.featured-news-section');
+    if (section) section.style.display = 'none';
+    return;
+  }
+
   const sorted = sortByYearPriority(eduData.latestNews);
-  const featured = sorted.find(item => item.image && !item.image.includes('placeholder')) || sorted[0];
+  const featured = featuredSettings.featuredNewsId !== null
+    ? sorted.find(item => String(item.id) === String(featuredSettings.featuredNewsId)) || sorted[0]
+    : sorted.find(item => item.image && !item.image.includes('placeholder')) || sorted[0];
   if (!featured) return;
 
   const base = getBasePath();
@@ -294,7 +381,8 @@ function initFeaturedNews() {
 
   // Render right-side headlines (next 5 items after featured)
   if (headlinesContainer) {
-    const headlines = sorted.slice(1, 6);
+    const headlineCount = Math.max(1, parseInt(featuredSettings.headlineCount, 10) || 5);
+    const headlines = sorted.filter(item => String(item.id) !== String(featured.id)).slice(0, headlineCount);
     headlinesContainer.innerHTML = headlines.map(item => {
       const hLink = item.link ? (item.link.startsWith('http') ? item.link : base + item.link) : '#';
       return `
@@ -355,22 +443,24 @@ function renderNewsCards(container, newsItems) {
 // ===================== QUICK LINKS =====================
 function initQuickLinks() {
   const grid = document.querySelector('.quick-links-grid');
-  if (!grid) return;
+  if (!grid || typeof eduData === 'undefined') return;
 
   const base = getBasePath();
-  const links = [
-    { icon: '📝', text: 'SSC 2026', href: base + 'pages/ssc.html' },
-    { icon: '📚', text: 'HSC 2026', href: base + 'pages/hsc.html' },
-    { icon: '🎓', text: 'ভর্তি তথ্য', href: base + 'pages/admissions.html' },
-    { icon: '📊', text: 'ফলাফল', href: base + 'pages/results.html' },
-    { icon: '🌟', text: 'স্কলারশিপ', href: base + 'pages/scholarships.html' },
-    { icon: '🗓️', text: 'রুটিন', href: base + 'pages/routines.html' }
-  ];
+  const links = (eduData.quickLinks && eduData.quickLinks.length)
+    ? eduData.quickLinks
+    : [
+      { icon: '📝', text: 'SSC 2026', href: 'pages/ssc.html' },
+      { icon: '📚', text: 'HSC 2026', href: 'pages/hsc.html' },
+      { icon: '🎓', text: 'ভর্তি তথ্য', href: 'pages/admissions.html' },
+      { icon: '📊', text: 'ফলাফল', href: 'pages/results.html' },
+      { icon: '🌟', text: 'স্কলারশিপ', href: 'pages/scholarships.html' },
+      { icon: '🗓️', text: 'রুটিন', href: 'pages/routines.html' }
+    ];
 
   grid.innerHTML = links.map(l => `
-    <a href="${l.href}" class="quick-link-card">
-      <span class="quick-link-icon">${l.icon}</span>
-      <span class="quick-link-text">${l.text}</span>
+    <a href="${escapeHtml(resolveHrefWithBase(l.href, base))}" class="quick-link-card">
+      <span class="quick-link-icon">${escapeHtml(l.icon || '')}</span>
+      <span class="quick-link-text">${escapeHtml(l.text || '')}</span>
     </a>
   `).join('');
 }
@@ -475,13 +565,92 @@ function initImportantLinks() {
   const container = document.getElementById('important-links');
   if (!container || typeof eduData === 'undefined') return;
 
-  container.innerHTML = eduData.importantLinks.map(link => `
-    <a href="${link.url}" target="_blank" rel="noopener" class="important-link-item">
-      <span>${link.icon}</span>
-      <span>${link.name}</span>
+  container.innerHTML = (eduData.importantLinks || []).map(link => `
+    <a href="${escapeHtml(link.url || '#')}" target="${escapeHtml(link.target || '_blank')}" rel="noopener" class="important-link-item">
+      <span>${escapeHtml(link.icon || '🔗')}</span>
+      <span>${escapeHtml(link.label || link.name || '')}</span>
       <span style="margin-left:auto;font-size:11px;color:#bbb;">↗</span>
     </a>
   `).join('');
+}
+
+function initSidebarWidgets() {
+  if (typeof eduData === 'undefined') return;
+  const widgets = eduData.sidebarWidgets || [];
+  if (!widgets.length) return;
+  const keyMap = {
+    resultChecker: '#sidebar-result-form',
+    deadlines: '#deadline-timers',
+    admissions: '#sidebar-admissions',
+    govtNotices: '#sidebar-govt-notices',
+    scholarships: '#sidebar-scholarships',
+    importantLinks: '#important-links',
+    newsletter: '#newsletter-email'
+  };
+  widgets.forEach(w => {
+    const sel = keyMap[w.key];
+    if (!sel) return;
+    const el = document.querySelector(sel);
+    const card = el ? el.closest('.sidebar-card') : null;
+    if (card) card.style.display = w.visible === false ? 'none' : '';
+  });
+}
+
+function initFooterContent() {
+  if (typeof eduData === 'undefined') return;
+  const site = eduData.siteSettings || {};
+  const footer = eduData.footerLinks || {};
+  const cols = (footer.columns || {});
+  const footerCols = document.querySelectorAll('footer .footer-col');
+  if (footerCols[0]) {
+    const desc = footerCols[0].querySelector('.footer-desc');
+    if (desc && (footer.description || site.footerText)) desc.textContent = footer.description || site.footerText;
+    const social = footerCols[0].querySelector('.footer-social');
+    if (social && site.social) {
+      social.innerHTML = `
+        <a href="${escapeHtml(site.social.facebook || '#')}" target="_blank" rel="noopener" class="social-btn" title="Facebook">📘</a>
+        <a href="${escapeHtml(site.social.youtube || '#')}" target="_blank" rel="noopener" class="social-btn" title="YouTube">📹</a>
+        <a href="${escapeHtml(site.social.telegram || '#')}" target="_blank" rel="noopener" class="social-btn" title="Telegram">✈️</a>
+        <a href="${escapeHtml(site.social.whatsapp || '#')}" target="_blank" rel="noopener" class="social-btn" title="WhatsApp">💬</a>`;
+    }
+  }
+  const base = getBasePath();
+  const colDefs = [{ idx: 1, key: 'quick' }, { idx: 2, key: 'boards' }, { idx: 3, key: 'important' }];
+  colDefs.forEach(def => {
+    const col = footerCols[def.idx];
+    const linksWrap = col ? col.querySelector('.footer-links') : null;
+    const items = cols[def.key] || [];
+    if (linksWrap && items.length) {
+      linksWrap.innerHTML = items.map(item => `<a href="${escapeHtml(resolveHrefWithBase(item.href, base))}" ${item.target === '_blank' ? 'target="_blank" rel="noopener"' : ''}>${escapeHtml(item.label || '')}</a>`).join('');
+    }
+  });
+  const bottom = document.querySelector('footer .footer-bottom span');
+  if (bottom && site.copyrightText) bottom.textContent = site.copyrightText;
+}
+
+function applyPageContent() {
+  if (typeof eduData === 'undefined') return;
+  const key = document.body.getAttribute('data-page');
+  if (!key) return;
+  const list = eduData.pageContent || [];
+  const item = list.find(p => p.key === key);
+  if (!item) return;
+  if (key === 'about') {
+    const h = document.querySelector('.about-hero h1');
+    const p = document.querySelector('.about-hero p');
+    if (h && item.heroTitle) h.textContent = item.heroTitle;
+    if (p && item.heroDescription) p.textContent = item.heroDescription;
+  } else if (key === 'ssc' || key === 'hsc') {
+    const h = document.querySelector('.exam-hero h1');
+    const p = document.querySelector('.exam-hero p');
+    if (h && item.heroTitle) h.textContent = item.heroTitle;
+    if (p && item.heroDescription) p.textContent = item.heroDescription;
+  } else {
+    const h = document.querySelector('.page-hero h1, .scholarship-page-hero h1');
+    const p = document.querySelector('.page-hero p, .scholarship-page-hero p');
+    if (h && item.heroTitle) h.textContent = item.heroTitle;
+    if (p && item.heroDescription) p.textContent = item.heroDescription;
+  }
 }
 
 // ===================== UTILS =====================

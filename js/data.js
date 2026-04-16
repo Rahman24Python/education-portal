@@ -3237,6 +3237,132 @@ const eduData = {
       "icon": "📚"
     }
   ],
+  "siteSettings": {
+    "siteName": "EduBD",
+    "tagline": "বাংলাদেশ শিক্ষা তথ্য পোর্টাল",
+    "metaDescription": "EduBD - বাংলাদেশ শিক্ষা তথ্য পোর্টাল। SSC, HSC, ভর্তি তথ্য, বৃত্তি, পরীক্ষার ফলাফল ও রুটিন।",
+    "logoIcon": "📚",
+    "logoText": "EduBD",
+    "footerText": "EduBD বাংলাদেশের সকল শিক্ষার্থী ও অভিভাবকদের জন্য একটি বিশ্বস্ত শিক্ষামূলক তথ্য পোর্টাল। SSC, HSC, ভর্তি, বৃত্তি, পরীক্ষার রুটিন সহ সকল শিক্ষা সংক্রান্ত তথ্য একটি জায়গায়।",
+    "copyrightText": "© ২০২৫-২৬ EduBD — বাংলাদেশ শিক্ষা তথ্য পোর্টাল। সর্বস্বত্ব সংরক্ষিত।",
+    "contactInfo": "📧 info@edubd.com.bd | 💬 +8801700000000",
+    "social": {
+      "facebook": "https://facebook.com",
+      "youtube": "https://youtube.com",
+      "telegram": "https://t.me/edubd_portal",
+      "whatsapp": "https://wa.me/8801700000000"
+    }
+  },
+  "categoryNav": [
+    { "id": 1, "icon": "🔥", "label": "ট্রেন্ডিং", "href": "pages/news.html?cat=ট্রেন্ডিং", "order": 1 },
+    { "id": 2, "icon": "📝", "label": "SSC 2026", "href": "pages/ssc.html", "order": 2 },
+    { "id": 3, "icon": "📚", "label": "HSC 2026", "href": "pages/hsc.html", "order": 3 },
+    { "id": 4, "icon": "🎓", "label": "বিশ্ববিদ্যালয়", "href": "pages/admissions.html?type=বিশ্ববিদ্যালয়", "order": 4 },
+    { "id": 5, "icon": "🏛️", "label": "পাবলিক বিশ্ববিদ্যালয়", "href": "pages/public-universities.html", "order": 5 },
+    { "id": 6, "icon": "🎓", "label": "বেসরকারি বিশ্ববিদ্যালয়", "href": "pages/private-universities.html", "order": 6 },
+    { "id": 7, "icon": "🗓️", "label": "রুটিন", "href": "pages/routines.html", "order": 7 },
+    { "id": 8, "icon": "📢", "label": "নোটিশ", "href": "pages/news.html?cat=নোটিশ", "order": 8 },
+    { "id": 9, "icon": "🌟", "label": "বৃত্তি", "href": "pages/scholarships.html", "order": 9 },
+    { "id": 10, "icon": "🕌", "label": "মাদ্রাসা", "href": "pages/news.html?cat=মাদ্রাসা", "order": 10 },
+    { "id": 11, "icon": "🔧", "label": "কারিগরি", "href": "pages/news.html?cat=কারিগরি", "order": 11 },
+    { "id": 12, "icon": "✈️", "label": "বিদেশে পড়াশোনা", "href": "pages/scholarships.html?type=international", "order": 12 }
+  ],
+  "quickLinks": [
+    { "id": 1, "icon": "📝", "text": "SSC 2026", "href": "pages/ssc.html" },
+    { "id": 2, "icon": "📚", "text": "HSC 2026", "href": "pages/hsc.html" },
+    { "id": 3, "icon": "🎓", "text": "ভর্তি তথ্য", "href": "pages/admissions.html" },
+    { "id": 4, "icon": "📊", "text": "ফলাফল", "href": "pages/results.html" },
+    { "id": 5, "icon": "🌟", "text": "স্কলারশিপ", "href": "pages/scholarships.html" },
+    { "id": 6, "icon": "🗓️", "text": "রুটিন", "href": "pages/routines.html" }
+  ],
+  "featuredSettings": {
+    "enabled": true,
+    "featuredNewsId": null,
+    "headlineCount": 5
+  },
+  "navigation": {
+    "main": [
+      {
+        "id": 1,
+        "label": "হোম",
+        "href": "index.html",
+        "icon": "🏠",
+        "isDropdown": false,
+        "children": []
+      },
+      {
+        "id": 2,
+        "label": "ভর্তি তথ্য",
+        "href": "pages/admissions.html",
+        "icon": "🎓",
+        "isDropdown": true,
+        "children": [
+          { "id": 21, "label": "বিশ্ববিদ্যালয় ভর্তি", "href": "pages/admissions.html?type=বিশ্ববিদ্যালয়", "icon": "🎓" },
+          { "id": 22, "label": "মেডিকেল ভর্তি", "href": "pages/admissions.html?type=মেডিকেল", "icon": "🏥" },
+          { "id": 23, "label": "ইঞ্জিনিয়ারিং ভর্তি", "href": "pages/admissions.html?type=ইঞ্জিনিয়ারিং", "icon": "⚙️" },
+          { "id": 24, "label": "কলেজ ভর্তি (XI)", "href": "pages/admissions.html?type=কলেজ", "icon": "📚" },
+          { "id": 25, "label": "সকল ভর্তি বিজ্ঞপ্তি", "href": "pages/admissions.html", "icon": "📋" }
+        ]
+      },
+      { "id": 3, "label": "পরীক্ষা", "href": "pages/routines.html", "icon": "🗓️", "isDropdown": false, "children": [] },
+      { "id": 4, "label": "ফলাফল", "href": "pages/results.html", "icon": "📊", "isDropdown": false, "children": [] },
+      { "id": 5, "label": "স্কলারশিপ", "href": "pages/scholarships.html", "icon": "🌟", "isDropdown": false, "children": [] },
+      { "id": 6, "label": "শিক্ষা সংবাদ", "href": "pages/news.html", "icon": "📰", "isDropdown": false, "children": [] }
+    ],
+    "mobile": [
+      { "id": 1, "label": "🏠 হোম", "href": "index.html", "icon": "🏠" },
+      { "id": 2, "label": "🎓 ভর্তি তথ্য", "href": "pages/admissions.html", "icon": "🎓" },
+      { "id": 3, "label": "🗓️ পরীক্ষা", "href": "pages/routines.html", "icon": "🗓️" },
+      { "id": 4, "label": "📊 ফলাফল", "href": "pages/results.html", "icon": "📊" },
+      { "id": 5, "label": "🌟 স্কলারশিপ", "href": "pages/scholarships.html", "icon": "🌟" },
+      { "id": 6, "label": "📰 শিক্ষা সংবাদ", "href": "pages/news.html", "icon": "📰" }
+    ]
+  },
+  "footerLinks": {
+    "description": "EduBD বাংলাদেশের সকল শিক্ষার্থী ও অভিভাবকদের জন্য একটি বিশ্বস্ত শিক্ষামূলক তথ্য পোর্টাল। SSC, HSC, ভর্তি, বৃত্তি, পরীক্ষার রুটিন সহ সকল শিক্ষা সংক্রান্ত তথ্য একটি জায়গায়।",
+    "columns": {
+      "quick": [
+        { "id": 1, "label": "🎓 ভর্তি তথ্য", "href": "pages/admissions.html", "target": "_self" },
+        { "id": 2, "label": "📊 পরীক্ষার ফলাফল", "href": "pages/results.html", "target": "_self" },
+        { "id": 3, "label": "🌟 বৃত্তি তথ্য", "href": "pages/scholarships.html", "target": "_self" }
+      ],
+      "boards": [
+        { "id": 1, "label": "🏫 ঢাকা বোর্ড", "href": "pages/board.html?board=dhaka", "target": "_self" },
+        { "id": 2, "label": "🏫 রাজশাহী বোর্ড", "href": "pages/board.html?board=rajshahi", "target": "_self" },
+        { "id": 3, "label": "🏫 চট্টগ্রাম বোর্ড", "href": "pages/board.html?board=chittagong", "target": "_self" }
+      ],
+      "important": [
+        { "id": 1, "label": "🏛️ শিক্ষা মন্ত্রণালয়", "href": "https://moedu.gov.bd", "target": "_blank" },
+        { "id": 2, "label": "🎓 UGC Bangladesh", "href": "https://ugc.gov.bd", "target": "_blank" },
+        { "id": 3, "label": "📊 বোর্ড রেজাল্ট", "href": "https://eboardresults.com", "target": "_blank" }
+      ]
+    }
+  },
+  "sidebarWidgets": [
+    { "id": 1, "key": "resultChecker", "label": "Result Checker", "visible": true, "order": 1 },
+    { "id": 2, "key": "deadlines", "label": "Deadlines", "visible": true, "order": 2 },
+    { "id": 3, "key": "admissions", "label": "Admissions", "visible": true, "order": 3 },
+    { "id": 4, "key": "govtNotices", "label": "Govt Notices", "visible": true, "order": 4 },
+    { "id": 5, "key": "scholarships", "label": "Scholarships", "visible": true, "order": 5 },
+    { "id": 6, "key": "importantLinks", "label": "Important Links", "visible": true, "order": 6 },
+    { "id": 7, "key": "newsletter", "label": "Newsletter", "visible": true, "order": 7 }
+  ],
+  "pageContent": [
+    { "id": 1, "key": "ssc", "heroTitle": "📝 SSC পরীক্ষা ২০২৬", "heroDescription": "মাধ্যমিক স্কুল সার্টিফিকেট পরীক্ষা — সকল বোর্ড", "staticText": "" },
+    { "id": 2, "key": "hsc", "heroTitle": "📚 HSC পরীক্ষা ২০২৬", "heroDescription": "উচ্চ মাধ্যমিক সার্টিফিকেট পরীক্ষা — সকল বোর্ড", "staticText": "" },
+    { "id": 3, "key": "admissions", "heroTitle": "🎓 ভর্তি তথ্য", "heroDescription": "বিশ্ববিদ্যালয়, মেডিকেল ও অন্যান্য ভর্তি তথ্য", "staticText": "" },
+    { "id": 4, "key": "results", "heroTitle": "📊 ফলাফল", "heroDescription": "SSC, HSC ও অন্যান্য পরীক্ষার ফলাফল", "staticText": "" },
+    { "id": 5, "key": "scholarships", "heroTitle": "🌟 বৃত্তি", "heroDescription": "দেশি-বিদেশি বৃত্তির তথ্য", "staticText": "" },
+    { "id": 6, "key": "news", "heroTitle": "📰 শিক্ষা সংবাদ", "heroDescription": "সর্বশেষ শিক্ষা সংবাদ", "staticText": "" },
+    { "id": 7, "key": "about", "heroTitle": "EduBD সম্পর্কে", "heroDescription": "বাংলাদেশের প্রতিটি শিক্ষার্থীর স্বপ্ন পূরণে আমরা প্রতিশ্রুতিবদ্ধ।", "staticText": "" }
+  ],
+  "themeSettings": {
+    "primaryColor": "#1e88e5",
+    "accentColor": "#2ecc71",
+    "darkColor": "#2c3e50",
+    "fontFamily": "'Noto Sans Bengali', sans-serif"
+  },
+  "images": [],
   "publicUniversities": [
     {
       "name": "ঢাকা বিশ্ববিদ্যালয়",
@@ -3604,6 +3730,9 @@ const eduData = {
 };
 
 // Make data available globally
+if (typeof window !== 'undefined') {
+  window.eduData = eduData;
+}
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = eduData;
 }

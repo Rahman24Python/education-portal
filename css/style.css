@@ -399,11 +399,12 @@ nav {
 .category-nav-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 6px 20px;
   display: flex;
   gap: 4px;
   align-items: center;
-  height: 44px;
+  flex-wrap: wrap;
+  min-height: 44px;
 }
 
 .cat-link {

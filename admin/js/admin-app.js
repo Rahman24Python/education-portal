@@ -49,7 +49,18 @@ function showSection(name) {
     deadlines: renderDeadlines,
     govtnotices: renderGovtNotices,
     boards: renderBoards,
-    universities: renderUniversities
+    universities: renderUniversities,
+    settings: renderSettings,
+    categorynav: () => renderStructuredSection("categorynav"),
+    quicklinks: () => renderStructuredSection("quicklinks"),
+    featured: renderFeaturedSettings,
+    navigation: renderNavigation,
+    footer: renderFooterSection,
+    sidebar: () => renderStructuredSection("sidebar"),
+    importantlinks: () => renderStructuredSection("importantlinks"),
+    pages: () => renderStructuredSection("pages"),
+    theme: renderThemeSettings,
+    images: renderImages
   };
   if (renderMap[name]) renderMap[name]();
 }
@@ -77,7 +88,11 @@ function renderDashboard() {
     { label: "শিক্ষা বোর্ড", count: (d.boards || []).length, icon: "🏫" },
     { label: "ব্রেকিং নিউজ", count: (d.breakingNews || []).length, icon: "🔴" },
     { label: "পাবলিক বিশ্ববিদ্যালয়", count: (d.publicUniversities || []).length, icon: "🏛️" },
-    { label: "বেসরকারি বিশ্ববিদ্যালয়", count: (d.privateUniversities || []).length, icon: "🏫" }
+    { label: "বেসরকারি বিশ্ববিদ্যালয়", count: (d.privateUniversities || []).length, icon: "🏫" },
+    { label: "ক্যাটাগরি নেভ", count: (d.categoryNav || []).length, icon: "🟢" },
+    { label: "দ্রুত লিঙ্ক", count: (d.quickLinks || []).length, icon: "⚡" },
+    { label: "গুরুত্বপূর্ণ লিঙ্ক", count: (d.importantLinks || []).length, icon: "🔗" },
+    { label: "ইমেজ", count: (d.images || []).length, icon: "🖼️" }
   ];
   const html = cards.map(c => `
     <div class="dash-card">
@@ -903,6 +918,432 @@ function deleteUni(tab, idx) {
   });
 }
 
+// ─── NEW FULL-PORTAL MANAGERS ────────────────────────────────────────────
+function ensureNewDataDefaults() {
+  if (!appData.siteSettings) {
+    appData.siteSettings = {
+      siteName: "EduBD",
+      tagline: "বাংলাদেশ শিক্ষা তথ্য পোর্টাল",
+      metaDescription: "EduBD - বাংলাদেশ শিক্ষা তথ্য পোর্টাল। SSC, HSC, ভর্তি তথ্য, বৃত্তি, ফলাফল ও রুটিন।",
+      logoIcon: "📚",
+      logoText: "EduBD",
+      footerText: "EduBD বাংলাদেশের সকল শিক্ষার্থী ও অভিভাবকদের জন্য একটি বিশ্বস্ত শিক্ষামূলক তথ্য পোর্টাল।",
+      copyrightText: "© ২০২৫-২৬ EduBD — বাংলাদেশ শিক্ষা তথ্য পোর্টাল। সর্বস্বত্ব সংরক্ষিত।",
+      contactInfo: "📧 info@edubd.com.bd | 💬 +8801700000000",
+      social: { facebook: "https://facebook.com", youtube: "https://youtube.com", telegram: "https://t.me/edubd_portal", whatsapp: "https://wa.me/8801700000000" }
+    };
+  }
+  if (!appData.categoryNav) appData.categoryNav = [];
+  if (!appData.quickLinks) appData.quickLinks = [];
+  if (!appData.featuredSettings) appData.featuredSettings = { enabled: true, featuredNewsId: null, headlineCount: 5 };
+  if (!appData.navigation) appData.navigation = { main: [], mobile: [] };
+  if (!appData.footerLinks) appData.footerLinks = { description: appData.siteSettings.footerText, columns: { quick: [], boards: [], important: [] } };
+  if (!appData.sidebarWidgets) appData.sidebarWidgets = [];
+  if (!appData.importantLinks) appData.importantLinks = [];
+  if (!appData.pageContent) appData.pageContent = [];
+  if (!appData.themeSettings) appData.themeSettings = { primaryColor: "#1e88e5", accentColor: "#2ecc71", darkColor: "#1a237e", fontFamily: "'Noto Sans Bengali', sans-serif" };
+  if (!appData.images) appData.images = [];
+}
+
+function saveAndNotify(msg) {
+  saveData(appData);
+  updateDraftBadge();
+  showToast(msg || "✅ সেভ হয়েছে");
+}
+
+function renderSettings() {
+  const c = document.getElementById("site-settings-form");
+  if (!c) return;
+  ensureNewDataDefaults();
+  const s = appData.siteSettings;
+  c.innerHTML = `
+    <div class="form-field"><label>সাইট নাম</label><input id="st-siteName" value="${esc(s.siteName)}"></div>
+    <div class="form-field"><label>ট্যাগলাইন</label><input id="st-tagline" value="${esc(s.tagline)}"></div>
+    <div class="form-field"><label>Meta Description</label><textarea id="st-metaDescription">${esc(s.metaDescription)}</textarea></div>
+    <div class="form-field"><label>লোগো আইকন</label><input id="st-logoIcon" value="${esc(s.logoIcon)}"></div>
+    <div class="form-field"><label>লোগো টেক্সট</label><input id="st-logoText" value="${esc(s.logoText)}"></div>
+    <div class="form-field"><label>Footer Text</label><textarea id="st-footerText">${esc(s.footerText)}</textarea></div>
+    <div class="form-field"><label>Copyright Text</label><input id="st-copyrightText" value="${esc(s.copyrightText)}"></div>
+    <div class="form-field"><label>Contact Info</label><textarea id="st-contactInfo">${esc(s.contactInfo || "")}</textarea></div>
+    <div class="form-field"><label>Facebook URL</label><input id="st-facebook" value="${esc(s.social.facebook || "")}"></div>
+    <div class="form-field"><label>YouTube URL</label><input id="st-youtube" value="${esc(s.social.youtube || "")}"></div>
+    <div class="form-field"><label>Telegram URL</label><input id="st-telegram" value="${esc(s.social.telegram || "")}"></div>
+    <div class="form-field"><label>WhatsApp URL</label><input id="st-whatsapp" value="${esc(s.social.whatsapp || "")}"></div>
+  `;
+}
+
+function saveSiteSettings() {
+  ensureNewDataDefaults();
+  appData.siteSettings = {
+    ...appData.siteSettings,
+    siteName: document.getElementById("st-siteName").value.trim(),
+    tagline: document.getElementById("st-tagline").value.trim(),
+    metaDescription: document.getElementById("st-metaDescription").value.trim(),
+    logoIcon: document.getElementById("st-logoIcon").value.trim(),
+    logoText: document.getElementById("st-logoText").value.trim(),
+    footerText: document.getElementById("st-footerText").value.trim(),
+    copyrightText: document.getElementById("st-copyrightText").value.trim(),
+    contactInfo: document.getElementById("st-contactInfo").value.trim(),
+    social: {
+      facebook: document.getElementById("st-facebook").value.trim(),
+      youtube: document.getElementById("st-youtube").value.trim(),
+      telegram: document.getElementById("st-telegram").value.trim(),
+      whatsapp: document.getElementById("st-whatsapp").value.trim()
+    }
+  };
+  saveAndNotify("✅ সাইট সেটিংস সেভ হয়েছে");
+}
+
+function renderFeaturedSettings() {
+  const c = document.getElementById("featured-settings-form");
+  if (!c) return;
+  ensureNewDataDefaults();
+  const f = appData.featuredSettings;
+  const options = (appData.latestNews || []).map(n => `<option value="${n.id}" ${String(f.featuredNewsId) === String(n.id) ? "selected" : ""}>${esc(n.title)}</option>`).join("");
+  c.innerHTML = `
+    <div class="form-field"><label>ফিচার্ড সেকশন চালু?</label><select id="fs-enabled"><option value="true" ${f.enabled ? "selected" : ""}>চালু</option><option value="false" ${!f.enabled ? "selected" : ""}>বন্ধ</option></select></div>
+    <div class="form-field"><label>ফিচার্ড নিউজ নির্বাচন</label><select id="fs-featuredNewsId"><option value="">-- স্বয়ংক্রিয় --</option>${options}</select></div>
+    <div class="form-field"><label>Headline সংখ্যা</label><input id="fs-headlineCount" type="number" min="1" max="12" value="${esc(f.headlineCount)}"></div>
+  `;
+}
+
+function saveFeaturedSettings() {
+  ensureNewDataDefaults();
+  const rawId = document.getElementById("fs-featuredNewsId").value;
+  appData.featuredSettings = {
+    enabled: document.getElementById("fs-enabled").value === "true",
+    featuredNewsId: rawId === "" ? null : parseInt(rawId, 10),
+    headlineCount: parseInt(document.getElementById("fs-headlineCount").value, 10) || 5
+  };
+  saveAndNotify("✅ ফিচার্ড সেটিংস সেভ হয়েছে");
+}
+
+const STRUCTURED_CONFIG = {
+  categorynav: {
+    key: "categoryNav",
+    tbodyId: "categorynav-tbody",
+    fields: [{ k: "icon", l: "আইকন/ইমোজি" }, { k: "label", l: "লেবেল" }, { k: "href", l: "লিংক URL" }, { k: "order", l: "Sort Order", t: "number" }]
+  },
+  quicklinks: {
+    key: "quickLinks",
+    tbodyId: "quicklinks-tbody",
+    fields: [{ k: "icon", l: "আইকন" }, { k: "text", l: "টেক্সট" }, { k: "href", l: "লিংক URL" }]
+  },
+  sidebar: {
+    key: "sidebarWidgets",
+    tbodyId: "sidebarwidgets-tbody",
+    fields: [{ k: "key", l: "Widget Key" }, { k: "label", l: "লেবেল" }, { k: "visible", l: "Visible", t: "select", o: ["true", "false"] }, { k: "order", l: "Order", t: "number" }]
+  },
+  importantlinks: {
+    key: "importantLinks",
+    tbodyId: "importantlinks-tbody",
+    fields: [{ k: "icon", l: "আইকন" }, { k: "label", l: "লেবেল" }, { k: "url", l: "URL" }, { k: "target", l: "Target", t: "select", o: ["_self", "_blank"] }]
+  },
+  pages: {
+    key: "pageContent",
+    tbodyId: "pages-tbody",
+    fields: [{ k: "key", l: "Page Key" }, { k: "heroTitle", l: "Hero Title" }, { k: "heroDescription", l: "Hero Description" }, { k: "staticText", l: "Static Text", ta: true }]
+  },
+  footerlinks: {
+    key: "footerLinks",
+    tbodyId: "footerlinks-tbody",
+    fields: [{ k: "column", l: "কলাম", t: "select", o: ["quick", "boards", "important"] }, { k: "label", l: "লেবেল" }, { k: "href", l: "লিংক URL" }, { k: "target", l: "Target", t: "select", o: ["_self", "_blank"] }]
+  }
+};
+
+function getStructuredList(type) {
+  ensureNewDataDefaults();
+  const cfg = STRUCTURED_CONFIG[type];
+  if (!cfg) return [];
+  if (type === "footerlinks") {
+    const cols = appData.footerLinks.columns || {};
+    return ["quick", "boards", "important"].flatMap(col => (cols[col] || []).map(item => ({ ...item, column: col })));
+  }
+  return appData[cfg.key] || [];
+}
+
+function setStructuredList(type, list) {
+  const cfg = STRUCTURED_CONFIG[type];
+  if (!cfg) return;
+  if (type === "footerlinks") {
+    appData.footerLinks.columns = { quick: [], boards: [], important: [] };
+    list.forEach(i => {
+      const col = i.column || "quick";
+      appData.footerLinks.columns[col].push(i);
+    });
+    return;
+  }
+  appData[cfg.key] = list;
+}
+
+function renderStructuredSection(type) {
+  const cfg = STRUCTURED_CONFIG[type];
+  if (!cfg) return;
+  const tbody = document.getElementById(cfg.tbodyId);
+  if (!tbody) return;
+  const list = getStructuredList(type);
+  tbody.innerHTML = list.map((item, i) => {
+    if (type === "categorynav") return `<tr><td>${i + 1}</td><td>${esc(item.icon)}</td><td>${esc(item.label)}</td><td>${esc(item.href)}</td><td>${esc(item.order)}</td><td><button class="btn btn-sm btn-primary" onclick="openStructuredModal('${type}', ${i})">✏️</button> <button class="btn btn-sm btn-danger" onclick="deleteStructuredItem('${type}', ${i})">🗑️</button> <button class="btn btn-sm btn-secondary" onclick="moveStructuredItem('${type}', ${i}, -1)">▲</button> <button class="btn btn-sm btn-secondary" onclick="moveStructuredItem('${type}', ${i}, 1)">▼</button></td></tr>`;
+    if (type === "quicklinks") return `<tr><td>${i + 1}</td><td>${esc(item.icon)}</td><td>${esc(item.text)}</td><td>${esc(item.href)}</td><td><button class="btn btn-sm btn-primary" onclick="openStructuredModal('${type}', ${i})">✏️</button> <button class="btn btn-sm btn-danger" onclick="deleteStructuredItem('${type}', ${i})">🗑️</button></td></tr>`;
+    if (type === "sidebar") return `<tr><td>${i + 1}</td><td>${esc(item.label)}</td><td>${esc(item.key)}</td><td>${item.visible ? "হ্যাঁ" : "না"}</td><td>${esc(item.order)}</td><td><button class="btn btn-sm btn-primary" onclick="openStructuredModal('${type}', ${i})">✏️</button> <button class="btn btn-sm btn-danger" onclick="deleteStructuredItem('${type}', ${i})">🗑️</button> <button class="btn btn-sm btn-secondary" onclick="moveStructuredItem('${type}', ${i}, -1)">▲</button> <button class="btn btn-sm btn-secondary" onclick="moveStructuredItem('${type}', ${i}, 1)">▼</button></td></tr>`;
+    if (type === "importantlinks") return `<tr><td>${i + 1}</td><td>${esc(item.icon)}</td><td>${esc(item.label || item.name)}</td><td>${esc(item.url)}</td><td>${esc(item.target || "_blank")}</td><td><button class="btn btn-sm btn-primary" onclick="openStructuredModal('${type}', ${i})">✏️</button> <button class="btn btn-sm btn-danger" onclick="deleteStructuredItem('${type}', ${i})">🗑️</button></td></tr>`;
+    if (type === "pages") return `<tr><td>${i + 1}</td><td>${esc(item.key)}</td><td>${esc(item.heroTitle)}</td><td>${esc(item.heroDescription)}</td><td><button class="btn btn-sm btn-primary" onclick="openStructuredModal('${type}', ${i})">✏️</button> <button class="btn btn-sm btn-danger" onclick="deleteStructuredItem('${type}', ${i})">🗑️</button></td></tr>`;
+    if (type === "footerlinks") return `<tr><td>${i + 1}</td><td>${esc(item.column)}</td><td>${esc(item.label)}</td><td>${esc(item.href)}</td><td>${esc(item.target || "_self")}</td><td><button class="btn btn-sm btn-primary" onclick="openStructuredModal('${type}', ${i})">✏️</button> <button class="btn btn-sm btn-danger" onclick="deleteStructuredItem('${type}', ${i})">🗑️</button></td></tr>`;
+    return "";
+  }).join("");
+}
+
+function openStructuredModal(type, index) {
+  const cfg = STRUCTURED_CONFIG[type];
+  if (!cfg) return;
+  const modal = document.getElementById("structured-modal");
+  const form = document.getElementById("structured-form");
+  document.getElementById("structured-modal-title").textContent = index === null ? "নতুন আইটেম যোগ করুন" : "আইটেম সম্পাদনা";
+  modal.dataset.type = type;
+  modal.dataset.index = index === null ? "" : String(index);
+  const list = getStructuredList(type);
+  const item = index === null ? {} : (list[index] || {});
+  form.innerHTML = cfg.fields.map(f => {
+    const value = item[f.k] !== undefined ? item[f.k] : "";
+    if (f.ta) return `<div class="form-field"><label>${f.l}</label><textarea id="sf-${f.k}">${esc(value)}</textarea></div>`;
+    if (f.t === "select") return `<div class="form-field"><label>${f.l}</label><select id="sf-${f.k}">${(f.o || []).map(v => `<option value="${esc(v)}" ${String(value) === String(v) ? "selected" : ""}>${esc(v)}</option>`).join("")}</select></div>`;
+    return `<div class="form-field"><label>${f.l}</label><input id="sf-${f.k}" type="${f.t || "text"}" value="${esc(value)}"></div>`;
+  }).join("");
+  modal.style.display = "flex";
+}
+
+function saveStructuredModal() {
+  const modal = document.getElementById("structured-modal");
+  const type = modal.dataset.type;
+  if (type === "navigation") {
+    saveNavigationModal();
+    return;
+  }
+  const idxRaw = modal.dataset.index;
+  const cfg = STRUCTURED_CONFIG[type];
+  if (!cfg) return;
+  const list = getStructuredList(type);
+  const obj = {};
+  cfg.fields.forEach(f => {
+    const el = document.getElementById("sf-" + f.k);
+    if (!el) return;
+    obj[f.k] = el.value;
+  });
+  if (!obj.id) obj.id = getNextId(list);
+  if (type === "sidebar") obj.visible = String(obj.visible) !== "false";
+  if (type === "importantlinks" && !obj.label && obj.name) obj.label = obj.name;
+  const idx = idxRaw === "" ? -1 : parseInt(idxRaw, 10);
+  if (idx >= 0) list[idx] = { ...list[idx], ...obj };
+  else list.push(obj);
+  setStructuredList(type, list);
+  closeModal("structured-modal");
+  saveAndNotify("✅ আইটেম সেভ হয়েছে");
+  renderStructuredSection(type);
+}
+
+function deleteStructuredItem(type, index) {
+  confirmDelete(() => {
+    const list = getStructuredList(type);
+    list.splice(index, 1);
+    setStructuredList(type, list);
+    saveAndNotify("✅ মুছে ফেলা হয়েছে");
+    renderStructuredSection(type);
+  });
+}
+
+function moveStructuredItem(type, index, dir) {
+  const list = getStructuredList(type);
+  const j = index + dir;
+  if (j < 0 || j >= list.length) return;
+  [list[index], list[j]] = [list[j], list[index]];
+  setStructuredList(type, list);
+  saveAndNotify("✅ ক্রম আপডেট হয়েছে");
+  renderStructuredSection(type);
+}
+
+function renderNavigation() {
+  ensureNewDataDefaults();
+  const tbody = document.getElementById("navigation-tbody");
+  if (!tbody) return;
+  const main = appData.navigation.main || [];
+  const mobile = appData.navigation.mobile || [];
+  const rows = [];
+  main.forEach((item, i) => {
+    rows.push({ type: "main", i, item, parent: "-" });
+    (item.children || []).forEach((child, ci) => rows.push({ type: "child", i, ci, item: child, parent: item.label }));
+  });
+  mobile.forEach((item, i) => rows.push({ type: "mobile", i, item, parent: "-" }));
+  tbody.innerHTML = rows.map((r, idx) => `
+    <tr>
+      <td>${idx + 1}</td><td>${esc(r.type)}</td><td>${esc(r.item.label)}</td><td>${esc(r.item.href)}</td><td>${esc(r.item.icon || "")}</td><td>${esc(r.parent)}</td>
+      <td>
+        <button class="btn btn-sm btn-primary" onclick="openNavigationModal('${r.type}', ${r.i}, ${r.ci === undefined ? "null" : r.ci})">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteNavigationItem('${r.type}', ${r.i}, ${r.ci === undefined ? "null" : r.ci})">🗑️</button>
+      </td>
+    </tr>`).join("");
+}
+
+function openNavigationModal(type, i, ci) {
+  const modal = document.getElementById("structured-modal");
+  const form = document.getElementById("structured-form");
+  document.getElementById("structured-modal-title").textContent = "নেভিগেশন আইটেম";
+  modal.dataset.type = "navigation";
+  modal.dataset.navType = type || "main";
+  modal.dataset.index = i === null ? "" : String(i);
+  modal.dataset.childIndex = ci === null ? "" : String(ci);
+  let item = { label: "", href: "", icon: "", isDropdown: false, parentId: "" };
+  if (type === "main" && i !== null) item = appData.navigation.main[i] || item;
+  if (type === "mobile" && i !== null) item = appData.navigation.mobile[i] || item;
+  if (type === "child" && i !== null && ci !== null) item = ((appData.navigation.main[i] || {}).children || [])[ci] || item;
+  const parentOptions = (appData.navigation.main || []).map((m, idx) => `<option value="${idx}">${esc(m.label)}</option>`).join("");
+  form.innerHTML = `
+    <div class="form-field"><label>টাইপ</label><select id="nav-type"><option value="main" ${type === "main" ? "selected" : ""}>main</option><option value="child" ${type === "child" ? "selected" : ""}>dropdown-child</option><option value="mobile" ${type === "mobile" ? "selected" : ""}>mobile</option></select></div>
+    <div class="form-field"><label>Parent (dropdown child হলে)</label><select id="nav-parent"><option value="">--</option>${parentOptions}</select></div>
+    <div class="form-field"><label>লেবেল</label><input id="nav-label" value="${esc(item.label || "")}"></div>
+    <div class="form-field"><label>href</label><input id="nav-href" value="${esc(item.href || "")}"></div>
+    <div class="form-field"><label>icon</label><input id="nav-icon" value="${esc(item.icon || "")}"></div>
+    <div class="form-field"><label>Dropdown?</label><select id="nav-dropdown"><option value="false" ${!item.isDropdown ? "selected" : ""}>না</option><option value="true" ${item.isDropdown ? "selected" : ""}>হ্যাঁ</option></select></div>
+  `;
+  if (type === "child" && i !== null) document.getElementById("nav-parent").value = String(i);
+  modal.style.display = "flex";
+}
+
+function saveNavigationModal() {
+  ensureNewDataDefaults();
+  const modal = document.getElementById("structured-modal");
+  const type = document.getElementById("nav-type").value;
+  const i = modal.dataset.index === "" ? null : parseInt(modal.dataset.index, 10);
+  const ci = modal.dataset.childIndex === "" ? null : parseInt(modal.dataset.childIndex, 10);
+  const item = {
+    id: Date.now(),
+    label: document.getElementById("nav-label").value.trim(),
+    href: document.getElementById("nav-href").value.trim(),
+    icon: document.getElementById("nav-icon").value.trim(),
+    isDropdown: document.getElementById("nav-dropdown").value === "true",
+    children: []
+  };
+  if (!item.label) { showToast("লেবেল দিন", "error"); return; }
+  if (type === "main") {
+    if (i !== null && modal.dataset.navType === "main") appData.navigation.main[i] = { ...(appData.navigation.main[i] || {}), ...item, children: (appData.navigation.main[i] || {}).children || [] };
+    else appData.navigation.main.push(item);
+  } else if (type === "mobile") {
+    if (i !== null && modal.dataset.navType === "mobile") appData.navigation.mobile[i] = item;
+    else appData.navigation.mobile.push(item);
+  } else {
+    const parentIdx = parseInt(document.getElementById("nav-parent").value, 10);
+    if (Number.isNaN(parentIdx) || !appData.navigation.main[parentIdx]) { showToast("Parent নির্বাচন করুন", "error"); return; }
+    appData.navigation.main[parentIdx].children = appData.navigation.main[parentIdx].children || [];
+    if (i !== null && ci !== null && modal.dataset.navType === "child") appData.navigation.main[i].children[ci] = item;
+    else appData.navigation.main[parentIdx].children.push(item);
+  }
+  closeModal("structured-modal");
+  saveAndNotify("✅ নেভিগেশন সেভ হয়েছে");
+  renderNavigation();
+}
+
+function deleteNavigationItem(type, i, ci) {
+  confirmDelete(() => {
+    if (type === "main") appData.navigation.main.splice(i, 1);
+    else if (type === "mobile") appData.navigation.mobile.splice(i, 1);
+    else if (type === "child") (appData.navigation.main[i].children || []).splice(ci, 1);
+    saveAndNotify("✅ নেভিগেশন আইটেম মুছে ফেলা হয়েছে");
+    renderNavigation();
+  });
+}
+
+function renderFooterSection() {
+  ensureNewDataDefaults();
+  const c = document.getElementById("footer-settings-form");
+  if (c) c.innerHTML = `<div class="form-field"><label>ফুটার বর্ণনা</label><textarea id="footer-description">${esc(appData.footerLinks.description || "")}</textarea></div>`;
+  renderStructuredSection("footerlinks");
+}
+
+function saveFooterSettings() {
+  ensureNewDataDefaults();
+  appData.footerLinks.description = document.getElementById("footer-description").value.trim();
+  saveAndNotify("✅ ফুটার সেটিংস সেভ হয়েছে");
+}
+
+function renderThemeSettings() {
+  ensureNewDataDefaults();
+  const c = document.getElementById("theme-settings-form");
+  if (!c) return;
+  const t = appData.themeSettings;
+  c.innerHTML = `
+    <div class="form-field"><label>Primary Color</label><input id="th-primary" type="color" value="${esc(t.primaryColor)}"></div>
+    <div class="form-field"><label>Accent Color</label><input id="th-accent" type="color" value="${esc(t.accentColor)}"></div>
+    <div class="form-field"><label>Dark Color</label><input id="th-dark" type="color" value="${esc(t.darkColor)}"></div>
+    <div class="form-field"><label>Font Family</label><input id="th-font" value="${esc(t.fontFamily)}"></div>
+  `;
+  ["th-primary", "th-accent", "th-dark"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("input", applyThemePreview);
+  });
+}
+
+function applyThemePreview() {
+  const root = document.documentElement;
+  const primary = document.getElementById("th-primary");
+  const accent = document.getElementById("th-accent");
+  const dark = document.getElementById("th-dark");
+  if (primary) root.style.setProperty("--primary", primary.value);
+  if (accent) root.style.setProperty("--secondary", accent.value);
+  if (dark) root.style.setProperty("--text-dark", dark.value);
+}
+
+function saveThemeSettings() {
+  ensureNewDataDefaults();
+  appData.themeSettings = {
+    primaryColor: document.getElementById("th-primary").value,
+    accentColor: document.getElementById("th-accent").value,
+    darkColor: document.getElementById("th-dark").value,
+    fontFamily: document.getElementById("th-font").value.trim()
+  };
+  saveAndNotify("✅ থিম সেটিংস সেভ হয়েছে");
+}
+
+function renderImages() {
+  ensureNewDataDefaults();
+  const tbody = document.getElementById("images-tbody");
+  if (!tbody) return;
+  tbody.innerHTML = (appData.images || []).map((img, i) => `
+    <tr>
+      <td>${i + 1}</td><td>${esc(img.name)}</td><td><img src="${esc(img.dataUrl)}" alt="" style="width:60px;height:40px;object-fit:cover;border-radius:4px;"></td>
+      <td><input value="${esc(img.dataUrl)}" readonly style="width:100%"></td>
+      <td><button class="btn btn-sm btn-secondary" onclick="copyImageUrl(${i})">📋</button> <button class="btn btn-sm btn-danger" onclick="deleteImage(${i})">🗑️</button></td>
+    </tr>
+  `).join("");
+}
+
+function handleImageManagerUpload(event) {
+  ensureNewDataDefaults();
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+  if (!file.type.startsWith("image/")) { showToast("শুধুমাত্র ছবি গ্রহণযোগ্য", "error"); return; }
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    appData.images.push({ id: Date.now(), name: file.name, dataUrl: e.target.result });
+    saveAndNotify("✅ ছবি আপলোড হয়েছে");
+    renderImages();
+    event.target.value = "";
+  };
+  reader.readAsDataURL(file);
+}
+
+function copyImageUrl(i) {
+  const img = (appData.images || [])[i];
+  if (!img) return;
+  navigator.clipboard.writeText(img.dataUrl).then(() => showToast("✅ কপি হয়েছে"));
+}
+
+function deleteImage(i) {
+  confirmDelete(() => {
+    appData.images.splice(i, 1);
+    saveAndNotify("✅ ছবি মুছে ফেলা হয়েছে");
+    renderImages();
+  });
+}
+
 // ─── Image Upload Helpers ────────────────────────────────────────────────
 function handleNewsImageUpload(event) {
   const file = event.target.files[0];
@@ -1081,6 +1522,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showToast("⚠️ data.js লোড হয়নি। ড্রাফট থেকে লোড করা হচ্ছে।", "error");
   }
   appData = loadData();
+  ensureNewDataDefaults();
   updateDraftBadge();
 
   // Sidebar navigation

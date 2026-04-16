@@ -682,6 +682,16 @@ tbody td {
   gap: 4px;
 }
 
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.settings-grid .form-field {
+  margin-bottom: 0;
+}
+
 /* ── Auto-Fetch URL Box ──────────────────────────────────────────────────── */
 .fetch-url-box {
   background: #e8f5e9;

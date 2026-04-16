@@ -35,9 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initSidebarScholarships();
   initImportantLinks();
   initBoardGrid();
-  initHomeDeadlines();
-  initHomeScholarships();
-  initHomeUsefulLinks();
 });
 
 // ===================== NAVBAR =====================
